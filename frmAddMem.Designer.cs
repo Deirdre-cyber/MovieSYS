@@ -30,27 +30,27 @@ namespace MovieSYS.Properties
         private void InitializeComponent()
         {
             this.grpAddMem = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtEircode = new System.Windows.Forms.TextBox();
-            this.txtIban = new System.Windows.Forms.TextBox();
-            this.txtContactNo = new System.Windows.Forms.TextBox();
+            this.cboMemID = new System.Windows.Forms.ComboBox();
+            this.btnAddMem = new System.Windows.Forms.Button();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtContactNo = new System.Windows.Forms.TextBox();
+            this.txtIban = new System.Windows.Forms.TextBox();
+            this.txtEircode = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.btnAddMem = new System.Windows.Forms.Button();
-            this.cboMemID = new System.Windows.Forms.ComboBox();
             this.grpAddMem.SuspendLayout();
             this.mnuAdd.SuspendLayout();
             this.SuspendLayout();
@@ -85,93 +85,113 @@ namespace MovieSYS.Properties
             this.grpAddMem.TabStop = false;
             this.grpAddMem.Text = "Add New Member";
             // 
-            // label1
+            // cboMemID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(76, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Member ID:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.cboMemID.DropDownWidth = 60;
+            this.cboMemID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboMemID.FormattingEnabled = true;
+            this.cboMemID.Location = new System.Drawing.Point(220, 91);
+            this.cboMemID.Name = "cboMemID";
+            this.cboMemID.Size = new System.Drawing.Size(125, 31);
+            this.cboMemID.TabIndex = 1;
+            this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
-            // label2
+            // btnAddMem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(81, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 41);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "First Name:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.btnAddMem.BackColor = System.Drawing.Color.Azure;
+            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddMem.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnAddMem.Location = new System.Drawing.Point(511, 327);
+            this.btnAddMem.Name = "btnAddMem";
+            this.btnAddMem.Size = new System.Drawing.Size(132, 37);
+            this.btnAddMem.TabIndex = 9;
+            this.btnAddMem.Text = "Add Member";
+            this.btnAddMem.UseVisualStyleBackColor = false;
+            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
             // 
-            // label3
+            // txtEmail
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(83, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 41);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Last Name:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmail.Location = new System.Drawing.Point(527, 132);
+            this.txtEmail.MaxLength = 50;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(125, 30);
+            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // label4
+            // txtLastName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(145, 211);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 41);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "DOB:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.txtLastName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Location = new System.Drawing.Point(220, 173);
+            this.txtLastName.MaxLength = 30;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(125, 30);
+            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
-            // label5
+            // dateTimePicker1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(422, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 41);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Eircode:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(220, 211);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(125, 30);
+            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // label6
+            // txtContactNo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(383, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 41);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Contact No:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.txtContactNo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtContactNo.Location = new System.Drawing.Point(527, 91);
+            this.txtContactNo.MaxLength = 15;
+            this.txtContactNo.Name = "txtContactNo";
+            this.txtContactNo.Size = new System.Drawing.Size(125, 30);
+            this.txtContactNo.TabIndex = 5;
+            this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
-            // label7
+            // txtIban
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(442, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 41);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Email:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.txtIban.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtIban.Location = new System.Drawing.Point(527, 211);
+            this.txtIban.MaxLength = 16;
+            this.txtIban.Name = "txtIban";
+            this.txtIban.Size = new System.Drawing.Size(125, 30);
+            this.txtIban.TabIndex = 8;
+            this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
             // 
-            // label8
+            // txtEircode
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(447, 211);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 41);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "IBAN:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEircode.Location = new System.Drawing.Point(527, 173);
+            this.txtEircode.MaxLength = 6;
+            this.txtEircode.Name = "txtEircode";
+            this.txtEircode.Size = new System.Drawing.Size(125, 30);
+            this.txtEircode.TabIndex = 7;
+            this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFirstName.Location = new System.Drawing.Point(220, 132);
+            this.txtFirstName.MaxLength = 30;
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(125, 30);
+            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(220, 45);
+            this.textBox1.MaxLength = 8;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "00000001";
+            this.textBox1.Size = new System.Drawing.Size(125, 30);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -184,67 +204,93 @@ namespace MovieSYS.Properties
             this.label9.Text = "Membership Type:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textBox1
+            // label8
             // 
-            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(220, 45);
-            this.textBox1.MaxLength = 8;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "00000001";
-            this.textBox1.Size = new System.Drawing.Size(125, 30);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(447, 211);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 41);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "IBAN:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // txtFirstName
+            // label7
             // 
-            this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFirstName.Location = new System.Drawing.Point(220, 132);
-            this.txtFirstName.MaxLength = 30;
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(125, 30);
-            this.txtFirstName.TabIndex = 2;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(442, 129);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 41);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Email:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtEircode
+            // label6
             // 
-            this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEircode.Location = new System.Drawing.Point(527, 173);
-            this.txtEircode.MaxLength = 6;
-            this.txtEircode.Name = "txtEircode";
-            this.txtEircode.Size = new System.Drawing.Size(125, 30);
-            this.txtEircode.TabIndex = 7;
-            this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(383, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 41);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Contact No:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // txtIban
+            // label5
             // 
-            this.txtIban.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIban.Location = new System.Drawing.Point(527, 211);
-            this.txtIban.MaxLength = 16;
-            this.txtIban.Name = "txtIban";
-            this.txtIban.Size = new System.Drawing.Size(125, 30);
-            this.txtIban.TabIndex = 8;
-            this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(422, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 41);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Eircode:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // txtContactNo
+            // label4
             // 
-            this.txtContactNo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtContactNo.Location = new System.Drawing.Point(527, 91);
-            this.txtContactNo.MaxLength = 15;
-            this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(125, 30);
-            this.txtContactNo.TabIndex = 5;
-            this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(145, 211);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 41);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "DOB:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // dateTimePicker1
+            // label3
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(220, 211);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(125, 30);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(83, 170);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 41);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Last Name:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(81, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 41);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "First Name:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(76, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 41);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Member ID:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // mnuAdd
             // 
@@ -267,51 +313,6 @@ namespace MovieSYS.Properties
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
             this.exitToolStripMenuItem.Text = "X";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Location = new System.Drawing.Point(220, 173);
-            this.txtLastName.MaxLength = 30;
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(125, 30);
-            this.txtLastName.TabIndex = 3;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(527, 132);
-            this.txtEmail.MaxLength = 50;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(125, 30);
-            this.txtEmail.TabIndex = 6;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            // 
-            // btnAddMem
-            // 
-            this.btnAddMem.BackColor = System.Drawing.Color.Azure;
-            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddMem.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnAddMem.Location = new System.Drawing.Point(511, 327);
-            this.btnAddMem.Name = "btnAddMem";
-            this.btnAddMem.Size = new System.Drawing.Size(132, 37);
-            this.btnAddMem.TabIndex = 9;
-            this.btnAddMem.Text = "Add Member";
-            this.btnAddMem.UseVisualStyleBackColor = false;
-            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
-            // 
-            // cboMemID
-            // 
-            this.cboMemID.DropDownWidth = 60;
-            this.cboMemID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cboMemID.FormattingEnabled = true;
-            this.cboMemID.Location = new System.Drawing.Point(220, 91);
-            this.cboMemID.Name = "cboMemID";
-            this.cboMemID.Size = new System.Drawing.Size(125, 31);
-            this.cboMemID.TabIndex = 1;
-            this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
             // frmAddMem
             // 

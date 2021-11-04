@@ -17,28 +17,22 @@ namespace MovieSYS
 
         private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //open Catalogue DVD window
-            this.Hide();
-            frmCatalogueDVD catalogueDVD = new frmCatalogueDVD();
-            catalogueDVD.Show();
 
         }
 
-        private void membersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuMembers_Click(object sender, EventArgs e)
         {
-            //open Members DVD window
-            this.Hide();
-            
+
         }
 
-        private void rentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuRentals_Click(object sender, EventArgs e)
         {
-            //open Rental DVD window
+
         }
 
-        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuAdmin_Click(object sender, EventArgs e)
         {
-            //open Admin DVD window
+
         }
 
         private void frmMainPage_Load(object sender, EventArgs e)
@@ -48,7 +42,77 @@ namespace MovieSYS
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //exit window
+            this.Close();
+        }
+
+        private void mnuCatalogue_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDVDCatalogue addDVD = new frmDVDCatalogue(this);
+            addDVD.Show();
+        }
+
+        private void mnuRemove_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDVDRemove rentItem = new frmDVDRemove(this);
+            rentItem.Show();
+        }
+
+        private void mnuListOverdue_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmListOverdue listOverdue = new frmListOverdue(this);
+            listOverdue.Show();
+        }
+
+        private void addMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //frmAddMember addMember = new frmAddMember(this);
+            //addMember.Show();
+        }
+
+        private void mnuEditMember_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //frmUpdateMember = updateMember = new frmUpdateMember(this);
+            //updateMember.Show();
+        }
+
+        private void mnuRentDVD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRent rentDVD = new frmRent(this);
+            rentDVD.Show();
+        }
+
+        private void mnuReturnDVD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmReturn returnDVD = new frmReturn(this);
+            returnDVD.Show();
+        }
+
+        private void mnuPayFine_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmFines payFine = new frmFines(this);
+            payFine.Show();
+        }
+
+        private void mnuYearlyRev_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
+            revenueOne.Show();
+        }
+
+        private void mnuCustomerStatement_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCustomerStatement customerStatement = new frmCustomerStatement(this);
+            customerStatement.Show();
         }
     }
-}
+    }

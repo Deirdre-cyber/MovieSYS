@@ -118,5 +118,10 @@ namespace MovieSYS.Properties
 
             //If 'Confirm' display window 'Print Receipt/ Email Receipt'
         }
+
+        private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

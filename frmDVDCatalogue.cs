@@ -10,16 +10,25 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmCatalogueDVD : Form
+    public partial class frmDVDCatalogue : Form
     {
-        public frmCatalogueDVD()
+        frmMainPage parent;
+
+        public frmDVDCatalogue()
         {
             InitializeComponent();
+        }
+        public frmDVDCatalogue(frmMainPage Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //exit window
+            this.Close();
+            parent.Visible = true;
         }
 
         private void grpDetails_Enter(object sender, EventArgs e)

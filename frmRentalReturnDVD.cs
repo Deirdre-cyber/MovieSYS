@@ -8,11 +8,26 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmReturn : Form
+    public partial class frmReturnDVD : Form
     {
-        public frmReturn()
+        frmMainMenu parent;
+
+        public frmReturnDVD()
         {
             InitializeComponent();
+        }
+
+        public frmReturnDVD(frmMainMenu Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            //exit window
+            this.Close();
+            parent.Visible = true;
         }
 
         private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -99,5 +114,6 @@ namespace MovieSYS
         {
 
         }
+
     }
 }

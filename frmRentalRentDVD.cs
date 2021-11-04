@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmRent : Form
+    public partial class frmRentalRentDVD : Form
     {
-        public frmRent()
+        public frmRentalRentDVD()
         {
             InitializeComponent();
         }

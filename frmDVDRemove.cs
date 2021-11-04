@@ -8,16 +8,26 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmRemove : Form
+    public partial class frmDVDRemove : Form
     {
-        public frmRemove()
+        frmMainPage parent;
+
+        public frmDVDRemove()
         {
             InitializeComponent();
+        }
+
+        public frmDVDRemove(frmMainPage Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //exit window
+            this.Close();
+            parent.Visible = true;
         }
 
         private void grpRemove_Enter(object sender, EventArgs e)
@@ -48,7 +58,7 @@ namespace MovieSYS
         {
             //Bring up password box to confirm
             //Remove DVD name from list
-            MessageBox.Show("Are you sure you want to remove this DVD entry?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop);
+            //MessageBox.Show("Are you sure you want to remove this DVD entry?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop);
             //if yes - bring up password box
             //if no - close window
             //if cancel - close warning box

@@ -1,7 +1,7 @@
 ﻿
 namespace MovieSYS
 {
-    partial class frmLogin
+    partial class frmLoginUser
     {
         /// <summary>
         /// Required designer variable.

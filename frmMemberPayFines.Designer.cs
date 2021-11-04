@@ -1,7 +1,7 @@
 ﻿
 namespace MovieSYS
 {
-    partial class frmFines
+    partial class frmPayFines
     {
         /// <summary>
         /// Required designer variable.

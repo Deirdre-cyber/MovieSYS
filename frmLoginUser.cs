@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmLogin : Form
+    public partial class frmLoginUser : Form
     {
-        public frmLogin()
+        public frmLoginUser()
         {
             InitializeComponent();
         }

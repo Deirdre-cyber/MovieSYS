@@ -1,7 +1,7 @@
 ﻿
 namespace MovieSYS
 {
-    partial class frmCatalogueDVD
+    partial class frmDVDCatalogue
     {
         /// <summary>
         ///  Required designer variable.

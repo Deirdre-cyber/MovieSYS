@@ -20,7 +20,12 @@ namespace MovieSYS
             this.Close();
         }
 
-        private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmMainPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuDVD_Click(object sender, EventArgs e)
         {
 
         }
@@ -40,45 +45,39 @@ namespace MovieSYS
 
         }
 
-        private void frmMainPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuCatalogue_Click(object sender, EventArgs e)
+        private void mnuCatalogue_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             frmDVDCatalogue addDVD = new frmDVDCatalogue(this);
             addDVD.Show();
         }
 
-        private void mnuRemove_Click(object sender, EventArgs e)
+        private void mnuRemove_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             frmDVDRemove rentItem = new frmDVDRemove(this);
             rentItem.Show();
         }
 
-        private void mnuListOverdue_Click(object sender, EventArgs e)
+        private void mnuListOverdue_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             frmListOverdue listOverdue = new frmListOverdue(this);
             listOverdue.Show();
         }
 
-        private void addMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuAddMember_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //frmAddMember addMember = new frmMemberAdd(this);
-            //addMember.Show();
+            this.Hide();
+            frmMemberAdd addMember = new frmMemberAdd(this);
+            addMember.Show();
         }
 
-        private void mnuEditMember_Click(object sender, EventArgs e)
+        private void mnuEditMember_Click_1(object sender, EventArgs e)
         {
-           
-            //this.Hide();
-            //frmUpdateMember = updateMember = new frmUpdateMember(this);
-            //updateMember.Show();
+            this.Hide();
+            frmMemberUpdate updateMember = new frmMemberUpdate(this);
+            updateMember.Show();
         }
 
         private void mnuRentDVD_Click(object sender, EventArgs e)
@@ -117,4 +116,4 @@ namespace MovieSYS
         }
 
     }
-    }
+}

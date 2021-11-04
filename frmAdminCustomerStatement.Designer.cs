@@ -36,14 +36,15 @@ namespace MovieSYS
             // 
             // mnuAdd
             // 
-            this.mnuAdd.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuAdd.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.mnuAdd.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
-            this.mnuAdd.Size = new System.Drawing.Size(733, 38);
+            this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 40);
             this.mnuAdd.TabIndex = 11;
             this.mnuAdd.Text = "menuStrip1";
             // 
@@ -59,11 +60,15 @@ namespace MovieSYS
             // 
             // frmCustomerStatement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 450);
+            this.BackColor = System.Drawing.Color.LightSlateGray;
+            this.ClientSize = new System.Drawing.Size(1000, 720);
             this.Controls.Add(this.mnuAdd);
+            this.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCustomerStatement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCustomerStatement";

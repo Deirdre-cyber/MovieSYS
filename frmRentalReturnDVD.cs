@@ -41,12 +41,12 @@ namespace MovieSYS
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void lblMemberId_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cboMemList_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtMemberId_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -81,17 +81,7 @@ namespace MovieSYS
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMemId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
+        private void lblReturnDate_Click(object sender, EventArgs e)
         {
 
         }
@@ -101,7 +91,7 @@ namespace MovieSYS
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void lblFineDue_Click(object sender, EventArgs e)
         {
 
         }

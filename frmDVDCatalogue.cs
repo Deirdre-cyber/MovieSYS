@@ -24,9 +24,8 @@ namespace MovieSYS
             this.parent = Parent;
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            //exit window
             this.Close();
             parent.Visible = true;
         }
@@ -101,7 +100,7 @@ namespace MovieSYS
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
             //must be numbers in dd-mm-yy format
             //dd: 01-31 mm: 01-12 yy: 00-99
@@ -131,5 +130,7 @@ namespace MovieSYS
         {
             //VALIDATE ALL - all marked fields must be entered
         }
+
+        
     }
 }

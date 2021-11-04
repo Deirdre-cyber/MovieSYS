@@ -10,6 +10,7 @@ namespace MovieSYS
 {
     public partial class frmLoginUser : Form
     {
+        
         public frmLoginUser()
         {
             InitializeComponent();
@@ -57,6 +58,11 @@ namespace MovieSYS
         private void mnuExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void grpLogin_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,15 +23,10 @@ namespace MovieSYS
             grpMemDetails.Visible = false;
         }
 
-        private void mnuExit_Click(object sender, EventArgs e)
+        private void mnuExit_Click_1(object sender, EventArgs e)
         {
             this.Close();
             parent.Visible = true;
-        }
-
-        private void btnPayFull_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void grpMemCheck_Enter(object sender, EventArgs e)
@@ -39,12 +34,12 @@ namespace MovieSYS
 
         }
 
-        private void txtMemId_TextChanged(object sender, EventArgs e)
+        private void lblMemberId_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void txtMemId_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -59,7 +54,7 @@ namespace MovieSYS
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblFineAmount_Click(object sender, EventArgs e)
         {
 
         }
@@ -69,7 +64,7 @@ namespace MovieSYS
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void lblPayAmount_Click(object sender, EventArgs e)
         {
 
         }
@@ -79,7 +74,7 @@ namespace MovieSYS
 
         }
 
-        private void btnPayPart_Click(object sender, EventArgs e)
+        private void btnPay_Click(object sender, EventArgs e)
         {
 
         }
@@ -88,7 +83,5 @@ namespace MovieSYS
         {
 
         }
-
-        
     }
 }

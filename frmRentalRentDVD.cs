@@ -20,8 +20,8 @@ namespace MovieSYS
         {
             InitializeComponent();
             grpRentDetails.Visible = false;
+            grpRefine.Visible = false;
             grpSearch.Visible = false;
-            grpSearchRes.Visible = false;
             this.parent = Parent;
         }
 
@@ -36,17 +36,12 @@ namespace MovieSYS
 
         }
 
-        private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void grpMemCheck_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void lblMemberId_Click(object sender, EventArgs e)
         {
 
         }
@@ -66,11 +61,6 @@ namespace MovieSYS
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cboList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -81,9 +71,9 @@ namespace MovieSYS
             //make grpSearchRes visible
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddtoCart1_Click(object sender, EventArgs e)
         {
-            //make grpRentDetails visible
+
         }
 
         private void grpSearch_Enter(object sender, EventArgs e)
@@ -91,14 +81,14 @@ namespace MovieSYS
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void lblRefine_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cboSearchOpt_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cboRefineOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnConfirmRefine_Click(object sender, EventArgs e)
@@ -108,10 +98,10 @@ namespace MovieSYS
 
         private void grpRentDetails_Enter(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void lblCart_Click(object sender, EventArgs e)
         {
 
         }
@@ -126,17 +116,17 @@ namespace MovieSYS
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void lblMember_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtMemId2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void lblRentedOn_Click(object sender, EventArgs e)
         {
 
         }
@@ -146,7 +136,7 @@ namespace MovieSYS
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void lblDueBack_Click(object sender, EventArgs e)
         {
 
         }
@@ -156,7 +146,7 @@ namespace MovieSYS
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void lblTotal_Click(object sender, EventArgs e)
         {
 
         }
@@ -166,16 +156,20 @@ namespace MovieSYS
 
         }
 
-        private void btnBuy_Click(object sender, EventArgs e)
-        {
-            //if all valid show window to confirm and print reciept
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }
 
-        
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
+            //if all valid show window to confirm and print reciept
+        }
+
+        private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
     }
 }

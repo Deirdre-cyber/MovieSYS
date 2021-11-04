@@ -1,7 +1,7 @@
 ﻿
-namespace MovieSYS.Properties
+namespace MovieSYS
 {
-    partial class frmUpdateMember
+    partial class frmMemberUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -30,64 +30,84 @@ namespace MovieSYS.Properties
         private void InitializeComponent()
         {
             this.grpEditMem = new System.Windows.Forms.GroupBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.cboMemID = new System.Windows.Forms.ComboBox();
             this.btnEditMem = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtContactNo = new System.Windows.Forms.TextBox();
             this.txtIban = new System.Windows.Forms.TextBox();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cboIdList = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.lblMembership = new System.Windows.Forms.Label();
+            this.lblIBAN = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblContactNo = new System.Windows.Forms.Label();
+            this.lblEircode = new System.Windows.Forms.Label();
+            this.lblDateOfBirth = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpMemCheck = new System.Windows.Forms.GroupBox();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.lblMemberId = new System.Windows.Forms.Label();
+            this.txtMemId = new System.Windows.Forms.TextBox();
             this.grpEditMem.SuspendLayout();
             this.mnuAdd.SuspendLayout();
+            this.grpMemCheck.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpEditMem
             // 
+            this.grpEditMem.Controls.Add(this.lblLastName);
+            this.grpEditMem.Controls.Add(this.dtpDOB);
             this.grpEditMem.Controls.Add(this.cboMemID);
             this.grpEditMem.Controls.Add(this.btnEditMem);
             this.grpEditMem.Controls.Add(this.txtEmail);
             this.grpEditMem.Controls.Add(this.txtLastName);
-            this.grpEditMem.Controls.Add(this.dateTimePicker1);
             this.grpEditMem.Controls.Add(this.txtContactNo);
             this.grpEditMem.Controls.Add(this.txtIban);
             this.grpEditMem.Controls.Add(this.txtEircode);
             this.grpEditMem.Controls.Add(this.txtFirstName);
-            this.grpEditMem.Controls.Add(this.textBox1);
-            this.grpEditMem.Controls.Add(this.label9);
-            this.grpEditMem.Controls.Add(this.label8);
-            this.grpEditMem.Controls.Add(this.label7);
-            this.grpEditMem.Controls.Add(this.label6);
-            this.grpEditMem.Controls.Add(this.label5);
-            this.grpEditMem.Controls.Add(this.label4);
-            this.grpEditMem.Controls.Add(this.label3);
-            this.grpEditMem.Controls.Add(this.label2);
-            this.grpEditMem.Controls.Add(this.label1);
-            this.grpEditMem.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.grpEditMem.ForeColor = System.Drawing.Color.Azure;
-            this.grpEditMem.Location = new System.Drawing.Point(73, 273);
+            this.grpEditMem.Controls.Add(this.lblMembership);
+            this.grpEditMem.Controls.Add(this.lblIBAN);
+            this.grpEditMem.Controls.Add(this.lblEmail);
+            this.grpEditMem.Controls.Add(this.lblContactNo);
+            this.grpEditMem.Controls.Add(this.lblEircode);
+            this.grpEditMem.Controls.Add(this.lblDateOfBirth);
+            this.grpEditMem.Controls.Add(this.lblFirstName);
+            this.grpEditMem.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpEditMem.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpEditMem.Location = new System.Drawing.Point(101, 208);
             this.grpEditMem.Name = "grpEditMem";
-            this.grpEditMem.Size = new System.Drawing.Size(670, 390);
-            this.grpEditMem.TabIndex = 1;
+            this.grpEditMem.Size = new System.Drawing.Size(792, 379);
+            this.grpEditMem.TabIndex = 13;
             this.grpEditMem.TabStop = false;
             this.grpEditMem.Text = "Edit Member";
             this.grpEditMem.Enter += new System.EventHandler(this.grpEditMem_Enter);
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLastName.Location = new System.Drawing.Point(94, 175);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(117, 28);
+            this.lblLastName.TabIndex = 14;
+            this.lblLastName.Text = "Last Name:";
+            this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDOB.Location = new System.Drawing.Point(220, 213);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(180, 30);
+            this.dtpDOB.TabIndex = 13;
+            this.dtpDOB.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
+            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
             // 
             // cboMemID
             // 
@@ -96,19 +116,19 @@ namespace MovieSYS.Properties
             this.cboMemID.FormattingEnabled = true;
             this.cboMemID.Location = new System.Drawing.Point(220, 91);
             this.cboMemID.Name = "cboMemID";
-            this.cboMemID.Size = new System.Drawing.Size(125, 31);
+            this.cboMemID.Size = new System.Drawing.Size(180, 31);
             this.cboMemID.TabIndex = 4;
             this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
             // btnEditMem
             // 
-            this.btnEditMem.BackColor = System.Drawing.Color.Azure;
+            this.btnEditMem.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnEditMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditMem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEditMem.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnEditMem.Location = new System.Drawing.Point(511, 327);
+            this.btnEditMem.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditMem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEditMem.Location = new System.Drawing.Point(601, 316);
             this.btnEditMem.Name = "btnEditMem";
-            this.btnEditMem.Size = new System.Drawing.Size(132, 37);
+            this.btnEditMem.Size = new System.Drawing.Size(150, 35);
             this.btnEditMem.TabIndex = 12;
             this.btnEditMem.Text = "Edit Member";
             this.btnEditMem.UseVisualStyleBackColor = false;
@@ -117,10 +137,10 @@ namespace MovieSYS.Properties
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(527, 132);
+            this.txtEmail.Location = new System.Drawing.Point(571, 129);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(125, 30);
+            this.txtEmail.Size = new System.Drawing.Size(180, 30);
             this.txtEmail.TabIndex = 9;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -130,48 +150,37 @@ namespace MovieSYS.Properties
             this.txtLastName.Location = new System.Drawing.Point(220, 173);
             this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(125, 30);
+            this.txtLastName.Size = new System.Drawing.Size(180, 30);
             this.txtLastName.TabIndex = 6;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(220, 211);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(125, 30);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txtContactNo
             // 
             this.txtContactNo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtContactNo.Location = new System.Drawing.Point(527, 91);
+            this.txtContactNo.Location = new System.Drawing.Point(571, 88);
             this.txtContactNo.MaxLength = 15;
             this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(125, 30);
+            this.txtContactNo.Size = new System.Drawing.Size(180, 30);
             this.txtContactNo.TabIndex = 8;
             this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
             // txtIban
             // 
             this.txtIban.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIban.Location = new System.Drawing.Point(527, 211);
+            this.txtIban.Location = new System.Drawing.Point(571, 211);
             this.txtIban.MaxLength = 16;
             this.txtIban.Name = "txtIban";
-            this.txtIban.Size = new System.Drawing.Size(125, 30);
+            this.txtIban.Size = new System.Drawing.Size(180, 30);
             this.txtIban.TabIndex = 11;
             this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
             // 
             // txtEircode
             // 
             this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEircode.Location = new System.Drawing.Point(527, 173);
+            this.txtEircode.Location = new System.Drawing.Point(571, 170);
             this.txtEircode.MaxLength = 6;
             this.txtEircode.Name = "txtEircode";
-            this.txtEircode.Size = new System.Drawing.Size(125, 30);
+            this.txtEircode.Size = new System.Drawing.Size(180, 30);
             this.txtEircode.TabIndex = 10;
             this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
             // 
@@ -181,229 +190,213 @@ namespace MovieSYS.Properties
             this.txtFirstName.Location = new System.Drawing.Point(220, 132);
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(125, 30);
+            this.txtFirstName.Size = new System.Drawing.Size(180, 30);
             this.txtFirstName.TabIndex = 5;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
-            // textBox1
+            // lblMembership
             // 
-            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(220, 45);
-            this.textBox1.MaxLength = 8;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "00000001";
-            this.textBox1.Size = new System.Drawing.Size(125, 30);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.lblMembership.AutoSize = true;
+            this.lblMembership.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMembership.Location = new System.Drawing.Point(28, 94);
+            this.lblMembership.Name = "lblMembership";
+            this.lblMembership.Size = new System.Drawing.Size(186, 28);
+            this.lblMembership.TabIndex = 0;
+            this.lblMembership.Text = "Membership Type:";
+            this.lblMembership.Click += new System.EventHandler(this.lblMembership_Click);
             // 
-            // label9
+            // lblIBAN
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(6, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(208, 41);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Membership Type:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.lblIBAN.AutoSize = true;
+            this.lblIBAN.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIBAN.Location = new System.Drawing.Point(499, 213);
+            this.lblIBAN.Name = "lblIBAN";
+            this.lblIBAN.Size = new System.Drawing.Size(66, 28);
+            this.lblIBAN.TabIndex = 0;
+            this.lblIBAN.Text = "IBAN:";
+            this.lblIBAN.Click += new System.EventHandler(this.lblIBAN_Click);
             // 
-            // label8
+            // lblEmail
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(447, 211);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 41);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "IBAN:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEmail.Location = new System.Drawing.Point(496, 132);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(69, 28);
+            this.lblEmail.TabIndex = 0;
+            this.lblEmail.Text = "Email:";
+            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
-            // label7
+            // lblContactNo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(442, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 41);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Email:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.lblContactNo.AutoSize = true;
+            this.lblContactNo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblContactNo.Location = new System.Drawing.Point(441, 89);
+            this.lblContactNo.Name = "lblContactNo";
+            this.lblContactNo.Size = new System.Drawing.Size(124, 28);
+            this.lblContactNo.TabIndex = 0;
+            this.lblContactNo.Text = "Contact No:";
+            this.lblContactNo.Click += new System.EventHandler(this.lblContactNo_Click);
             // 
-            // label6
+            // lblEircode
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(383, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 41);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Contact No:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lblEircode.AutoSize = true;
+            this.lblEircode.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEircode.Location = new System.Drawing.Point(479, 172);
+            this.lblEircode.Name = "lblEircode";
+            this.lblEircode.Size = new System.Drawing.Size(87, 28);
+            this.lblEircode.TabIndex = 0;
+            this.lblEircode.Text = "Eircode:";
+            this.lblEircode.Click += new System.EventHandler(this.lblEircode_Click);
             // 
-            // label5
+            // lblDateOfBirth
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(422, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 41);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Eircode:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(154, 212);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(60, 28);
+            this.lblDateOfBirth.TabIndex = 0;
+            this.lblDateOfBirth.Text = "DOB:";
+            this.lblDateOfBirth.Click += new System.EventHandler(this.lblDateOfBirth_Click);
             // 
-            // label4
+            // lblFirstName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(145, 211);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 41);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "DOB:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(83, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 41);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Last Name:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(81, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 41);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "First Name:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(76, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Member ID:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(247, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(197, 41);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Enter Member ID:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // cboIdList
-            // 
-            this.cboIdList.FormattingEnabled = true;
-            this.cboIdList.Location = new System.Drawing.Point(450, 115);
-            this.cboIdList.Name = "cboIdList";
-            this.cboIdList.Size = new System.Drawing.Size(151, 28);
-            this.cboIdList.TabIndex = 1;
-            this.cboIdList.Text = "00000001";
-            this.cboIdList.SelectedIndexChanged += new System.EventHandler(this.cboIdList_SelectedIndexChanged);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Azure;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnSearch.Location = new System.Drawing.Point(392, 168);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(85, 37);
-            this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "OK";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFirstName.Location = new System.Drawing.Point(94, 134);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(120, 28);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "First Name:";
+            this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
             // mnuAdd
             // 
-            this.mnuAdd.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuAdd.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.mnuAdd.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
-            this.mnuAdd.Size = new System.Drawing.Size(800, 38);
-            this.mnuAdd.TabIndex = 3;
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 31);
+            this.mnuAdd.TabIndex = 15;
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.exitToolStripMenuItem.Text = "X";
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(35, 27);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // frmUpdateMember
+            // grpMemCheck
+            // 
+            this.grpMemCheck.Controls.Add(this.btnCheck);
+            this.grpMemCheck.Controls.Add(this.lblMemberId);
+            this.grpMemCheck.Controls.Add(this.txtMemId);
+            this.grpMemCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this.grpMemCheck.Location = new System.Drawing.Point(321, 48);
+            this.grpMemCheck.Name = "grpMemCheck";
+            this.grpMemCheck.Size = new System.Drawing.Size(350, 155);
+            this.grpMemCheck.TabIndex = 16;
+            this.grpMemCheck.TabStop = false;
+            this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheck.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCheck.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnCheck.Location = new System.Drawing.Point(102, 98);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(145, 35);
+            this.btnCheck.TabIndex = 3;
+            this.btnCheck.Text = "Check Account";
+            this.btnCheck.UseVisualStyleBackColor = false;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // lblMemberId
+            // 
+            this.lblMemberId.AutoSize = true;
+            this.lblMemberId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemberId.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMemberId.Location = new System.Drawing.Point(54, 49);
+            this.lblMemberId.Name = "lblMemberId";
+            this.lblMemberId.Size = new System.Drawing.Size(123, 28);
+            this.lblMemberId.TabIndex = 0;
+            this.lblMemberId.Text = "Member ID:";
+            this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
+            // 
+            // txtMemId
+            // 
+            this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemId.Location = new System.Drawing.Point(183, 49);
+            this.txtMemId.MaxLength = 8;
+            this.txtMemId.Name = "txtMemId";
+            this.txtMemId.PlaceholderText = "00000001";
+            this.txtMemId.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMemId.Size = new System.Drawing.Size(110, 30);
+            this.txtMemId.TabIndex = 2;
+            this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
+            // 
+            // frmMemberUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(800, 689);
+            this.BackColor = System.Drawing.Color.LightSlateGray;
+            this.ClientSize = new System.Drawing.Size(1000, 630);
+            this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.mnuAdd);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.cboIdList);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.grpEditMem);
+            this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmUpdateMember";
+            this.Name = "frmMemberUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Update Member Details";
+            this.Text = "frmMemberUpdate";
+            this.Load += new System.EventHandler(this.frmMemberUpdate_Load);
             this.grpEditMem.ResumeLayout(false);
             this.grpEditMem.PerformLayout();
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
+            this.grpMemCheck.ResumeLayout(false);
+            this.grpMemCheck.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.GroupBox grpEditMem;
         private System.Windows.Forms.ComboBox cboMemID;
         private System.Windows.Forms.Button btnEditMem;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtContactNo;
         private System.Windows.Forms.TextBox txtIban;
         private System.Windows.Forms.TextBox txtEircode;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cboIdList;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblMembership;
+        private System.Windows.Forms.Label lblIBAN;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblContactNo;
+        private System.Windows.Forms.Label lblEircode;
+        private System.Windows.Forms.Label lblDateOfBirth;
+        private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.MenuStrip mnuAdd;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.GroupBox grpMemCheck;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Label lblMemberId;
+        private System.Windows.Forms.TextBox txtMemId;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
     }
 }

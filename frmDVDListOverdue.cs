@@ -10,9 +10,23 @@ namespace MovieSYS
 {
     public partial class frmListOverdue : Form
     {
+        frmMainPage parent;
+
         public frmListOverdue()
         {
             InitializeComponent();
+        }
+
+        public frmListOverdue(frmMainPage Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
         }
 
         private void frmListOverdue_Load(object sender, EventArgs e)
@@ -34,5 +48,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

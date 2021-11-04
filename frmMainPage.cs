@@ -83,36 +83,36 @@ namespace MovieSYS
         private void mnuRentDVD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRent rentDVD = new frmRent(this);
-            rentDVD.Show();
+            //frmRentalRentDVD rentDVD = new frmRentalRentDVD(this);
+            //rentDVD.Show();
         }
 
         private void mnuReturnDVD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmReturn returnDVD = new frmReturn(this);
-            returnDVD.Show();
+            //frmReturnDVD returnDVD = new frmReturnDVD(this);
+            //returnDVD.Show();
         }
 
         private void mnuPayFine_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmFines payFine = new frmFines(this);
-            payFine.Show();
+            //frmPayFines payFine = new frmPayFines(this);
+            //payFine.Show();
         }
 
         private void mnuYearlyRev_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
-            revenueOne.Show();
+            //frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
+            //revenueOne.Show();
         }
 
         private void mnuCustomerStatement_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCustomerStatement customerStatement = new frmCustomerStatement(this);
-            customerStatement.Show();
+            //frmCustomerStatement customerStatement = new frmCustomerStatement(this);
+            //customerStatement.Show();
         }
     }
     }

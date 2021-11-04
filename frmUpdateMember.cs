@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MovieSYS.Properties
 {
-    public partial class frmUpdateMem : Form
+    public partial class frmUpdateMember : Form
     {
-        public frmUpdateMem()
+        public frmUpdateMember()
         {
             InitializeComponent();
         }

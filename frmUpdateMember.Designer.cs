@@ -1,7 +1,7 @@
 ﻿
 namespace MovieSYS.Properties
 {
-    partial class frmAddMem
+    partial class frmUpdateMember
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@ namespace MovieSYS.Properties
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpAddMem = new System.Windows.Forms.GroupBox();
+            this.grpEditMem = new System.Windows.Forms.GroupBox();
             this.cboMemID = new System.Windows.Forms.ComboBox();
-            this.btnAddMem = new System.Windows.Forms.Button();
+            this.btnEditMem = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -49,41 +49,45 @@ namespace MovieSYS.Properties
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboIdList = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpAddMem.SuspendLayout();
+            this.grpEditMem.SuspendLayout();
             this.mnuAdd.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grpAddMem
+            // grpEditMem
             // 
-            this.grpAddMem.Controls.Add(this.cboMemID);
-            this.grpAddMem.Controls.Add(this.btnAddMem);
-            this.grpAddMem.Controls.Add(this.txtEmail);
-            this.grpAddMem.Controls.Add(this.txtLastName);
-            this.grpAddMem.Controls.Add(this.dateTimePicker1);
-            this.grpAddMem.Controls.Add(this.txtContactNo);
-            this.grpAddMem.Controls.Add(this.txtIban);
-            this.grpAddMem.Controls.Add(this.txtEircode);
-            this.grpAddMem.Controls.Add(this.txtFirstName);
-            this.grpAddMem.Controls.Add(this.textBox1);
-            this.grpAddMem.Controls.Add(this.label9);
-            this.grpAddMem.Controls.Add(this.label8);
-            this.grpAddMem.Controls.Add(this.label7);
-            this.grpAddMem.Controls.Add(this.label6);
-            this.grpAddMem.Controls.Add(this.label5);
-            this.grpAddMem.Controls.Add(this.label4);
-            this.grpAddMem.Controls.Add(this.label3);
-            this.grpAddMem.Controls.Add(this.label2);
-            this.grpAddMem.Controls.Add(this.label1);
-            this.grpAddMem.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.grpAddMem.ForeColor = System.Drawing.Color.Azure;
-            this.grpAddMem.Location = new System.Drawing.Point(76, 67);
-            this.grpAddMem.Name = "grpAddMem";
-            this.grpAddMem.Size = new System.Drawing.Size(670, 415);
-            this.grpAddMem.TabIndex = 0;
-            this.grpAddMem.TabStop = false;
-            this.grpAddMem.Text = "Add New Member";
+            this.grpEditMem.Controls.Add(this.cboMemID);
+            this.grpEditMem.Controls.Add(this.btnEditMem);
+            this.grpEditMem.Controls.Add(this.txtEmail);
+            this.grpEditMem.Controls.Add(this.txtLastName);
+            this.grpEditMem.Controls.Add(this.dateTimePicker1);
+            this.grpEditMem.Controls.Add(this.txtContactNo);
+            this.grpEditMem.Controls.Add(this.txtIban);
+            this.grpEditMem.Controls.Add(this.txtEircode);
+            this.grpEditMem.Controls.Add(this.txtFirstName);
+            this.grpEditMem.Controls.Add(this.textBox1);
+            this.grpEditMem.Controls.Add(this.label9);
+            this.grpEditMem.Controls.Add(this.label8);
+            this.grpEditMem.Controls.Add(this.label7);
+            this.grpEditMem.Controls.Add(this.label6);
+            this.grpEditMem.Controls.Add(this.label5);
+            this.grpEditMem.Controls.Add(this.label4);
+            this.grpEditMem.Controls.Add(this.label3);
+            this.grpEditMem.Controls.Add(this.label2);
+            this.grpEditMem.Controls.Add(this.label1);
+            this.grpEditMem.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.grpEditMem.ForeColor = System.Drawing.Color.Azure;
+            this.grpEditMem.Location = new System.Drawing.Point(73, 273);
+            this.grpEditMem.Name = "grpEditMem";
+            this.grpEditMem.Size = new System.Drawing.Size(670, 390);
+            this.grpEditMem.TabIndex = 1;
+            this.grpEditMem.TabStop = false;
+            this.grpEditMem.Text = "Edit Member";
+            this.grpEditMem.Enter += new System.EventHandler(this.grpEditMem_Enter);
             // 
             // cboMemID
             // 
@@ -93,22 +97,22 @@ namespace MovieSYS.Properties
             this.cboMemID.Location = new System.Drawing.Point(220, 91);
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(125, 31);
-            this.cboMemID.TabIndex = 1;
+            this.cboMemID.TabIndex = 4;
             this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
-            // btnAddMem
+            // btnEditMem
             // 
-            this.btnAddMem.BackColor = System.Drawing.Color.Azure;
-            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddMem.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnAddMem.Location = new System.Drawing.Point(511, 327);
-            this.btnAddMem.Name = "btnAddMem";
-            this.btnAddMem.Size = new System.Drawing.Size(132, 37);
-            this.btnAddMem.TabIndex = 9;
-            this.btnAddMem.Text = "Add Member";
-            this.btnAddMem.UseVisualStyleBackColor = false;
-            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
+            this.btnEditMem.BackColor = System.Drawing.Color.Azure;
+            this.btnEditMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditMem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditMem.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnEditMem.Location = new System.Drawing.Point(511, 327);
+            this.btnEditMem.Name = "btnEditMem";
+            this.btnEditMem.Size = new System.Drawing.Size(132, 37);
+            this.btnEditMem.TabIndex = 12;
+            this.btnEditMem.Text = "Edit Member";
+            this.btnEditMem.UseVisualStyleBackColor = false;
+            this.btnEditMem.Click += new System.EventHandler(this.btnEditMem_Click);
             // 
             // txtEmail
             // 
@@ -117,7 +121,7 @@ namespace MovieSYS.Properties
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(125, 30);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 9;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtLastName
@@ -127,7 +131,7 @@ namespace MovieSYS.Properties
             this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(125, 30);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabIndex = 6;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // dateTimePicker1
@@ -137,7 +141,7 @@ namespace MovieSYS.Properties
             this.dateTimePicker1.Location = new System.Drawing.Point(220, 211);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(125, 30);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 7;
             this.dateTimePicker1.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -148,7 +152,7 @@ namespace MovieSYS.Properties
             this.txtContactNo.MaxLength = 15;
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(125, 30);
-            this.txtContactNo.TabIndex = 5;
+            this.txtContactNo.TabIndex = 8;
             this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
             // txtIban
@@ -158,7 +162,7 @@ namespace MovieSYS.Properties
             this.txtIban.MaxLength = 16;
             this.txtIban.Name = "txtIban";
             this.txtIban.Size = new System.Drawing.Size(125, 30);
-            this.txtIban.TabIndex = 8;
+            this.txtIban.TabIndex = 11;
             this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
             // 
             // txtEircode
@@ -168,7 +172,7 @@ namespace MovieSYS.Properties
             this.txtEircode.MaxLength = 6;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(125, 30);
-            this.txtEircode.TabIndex = 7;
+            this.txtEircode.TabIndex = 10;
             this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
             // 
             // txtFirstName
@@ -178,7 +182,7 @@ namespace MovieSYS.Properties
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(125, 30);
-            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TabIndex = 5;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // textBox1
@@ -190,7 +194,6 @@ namespace MovieSYS.Properties
             this.textBox1.PlaceholderText = "00000001";
             this.textBox1.Size = new System.Drawing.Size(125, 30);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
@@ -292,6 +295,42 @@ namespace MovieSYS.Properties
             this.label1.Text = "Member ID:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.Azure;
+            this.label10.Location = new System.Drawing.Point(247, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(197, 41);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Enter Member ID:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // cboIdList
+            // 
+            this.cboIdList.FormattingEnabled = true;
+            this.cboIdList.Location = new System.Drawing.Point(450, 115);
+            this.cboIdList.Name = "cboIdList";
+            this.cboIdList.Size = new System.Drawing.Size(151, 28);
+            this.cboIdList.TabIndex = 1;
+            this.cboIdList.Text = "00000001";
+            this.cboIdList.SelectedIndexChanged += new System.EventHandler(this.cboIdList_SelectedIndexChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Azure;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnSearch.Location = new System.Drawing.Point(392, 168);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(85, 37);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "OK";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // mnuAdd
             // 
             this.mnuAdd.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -302,8 +341,9 @@ namespace MovieSYS.Properties
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Size = new System.Drawing.Size(800, 38);
-            this.mnuAdd.TabIndex = 10;
+            this.mnuAdd.TabIndex = 3;
             this.mnuAdd.Text = "menuStrip1";
+            this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
             // exitToolStripMenuItem
             // 
@@ -314,21 +354,22 @@ namespace MovieSYS.Properties
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
             this.exitToolStripMenuItem.Text = "X";
             // 
-            // frmAddMem
+            // frmUpdateMem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(800, 538);
+            this.ClientSize = new System.Drawing.Size(800, 689);
             this.Controls.Add(this.mnuAdd);
-            this.Controls.Add(this.grpAddMem);
-            this.ForeColor = System.Drawing.Color.Azure;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.cboIdList);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.grpEditMem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAddMem";
-            this.Text = "Add New Member";
-            this.Load += new System.EventHandler(this.frmAddMem_Load);
-            this.grpAddMem.ResumeLayout(false);
-            this.grpAddMem.PerformLayout();
+            this.Name = "frmUpdateMem";
+            this.Text = "Update Member Details";
+            this.grpEditMem.ResumeLayout(false);
+            this.grpEditMem.PerformLayout();
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
             this.ResumeLayout(false);
@@ -338,7 +379,17 @@ namespace MovieSYS.Properties
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpAddMem;
+        private System.Windows.Forms.GroupBox grpEditMem;
+        private System.Windows.Forms.ComboBox cboMemID;
+        private System.Windows.Forms.Button btnEditMem;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtContactNo;
+        private System.Windows.Forms.TextBox txtIban;
+        private System.Windows.Forms.TextBox txtEircode;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -348,17 +399,10 @@ namespace MovieSYS.Properties
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox txtContactNo;
-        private System.Windows.Forms.TextBox txtIban;
-        private System.Windows.Forms.TextBox txtEircode;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboIdList;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.MenuStrip mnuAdd;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button btnAddMem;
-        private System.Windows.Forms.ComboBox cboMemID;
     }
 }

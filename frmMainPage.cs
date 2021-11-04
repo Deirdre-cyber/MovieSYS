@@ -18,11 +18,17 @@ namespace MovieSYS
         private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //open Catalogue DVD window
+            this.Hide();
+            frmCatalogueDVD catalogueDVD = new frmCatalogueDVD();
+            catalogueDVD.Show();
+
         }
 
         private void membersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //open Members DVD window
+            this.Hide();
+            
         }
 
         private void rentalsToolStripMenuItem_Click(object sender, EventArgs e)

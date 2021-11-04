@@ -30,11 +30,11 @@ namespace MovieSYS
         private void InitializeComponent()
         {
             this.mnuMain = new System.Windows.Forms.MenuStrip();
-            this.dVDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.membersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDVD = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMembers = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRentals = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,62 +44,62 @@ namespace MovieSYS
             this.mnuMain.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mnuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dVDsToolStripMenuItem,
-            this.membersToolStripMenuItem,
-            this.rentalsToolStripMenuItem,
-            this.adminToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.mnuDVD,
+            this.mnuMembers,
+            this.mnuRentals,
+            this.mnuAdmin,
+            this.mnuExit});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Padding = new System.Windows.Forms.Padding(8);
-            this.mnuMain.Size = new System.Drawing.Size(831, 56);
+            this.mnuMain.Size = new System.Drawing.Size(831, 49);
             this.mnuMain.TabIndex = 0;
             // 
-            // dVDsToolStripMenuItem
+            // mnuDVD
             // 
-            this.dVDsToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.dVDsToolStripMenuItem.Name = "dVDsToolStripMenuItem";
-            this.dVDsToolStripMenuItem.Size = new System.Drawing.Size(81, 40);
-            this.dVDsToolStripMenuItem.Text = "DVDs";
-            this.dVDsToolStripMenuItem.Click += new System.EventHandler(this.dVDsToolStripMenuItem_Click);
+            this.mnuDVD.ForeColor = System.Drawing.Color.Azure;
+            this.mnuDVD.Name = "mnuDVD";
+            this.mnuDVD.Size = new System.Drawing.Size(67, 33);
+            this.mnuDVD.Text = "DVDs";
+            this.mnuDVD.Click += new System.EventHandler(this.dVDsToolStripMenuItem_Click);
             // 
-            // membersToolStripMenuItem
+            // mnuMembers
             // 
-            this.membersToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.membersToolStripMenuItem.Name = "membersToolStripMenuItem";
-            this.membersToolStripMenuItem.Size = new System.Drawing.Size(117, 40);
-            this.membersToolStripMenuItem.Text = "Members";
-            this.membersToolStripMenuItem.Click += new System.EventHandler(this.membersToolStripMenuItem_Click);
+            this.mnuMembers.ForeColor = System.Drawing.Color.Azure;
+            this.mnuMembers.Name = "mnuMembers";
+            this.mnuMembers.Size = new System.Drawing.Size(96, 33);
+            this.mnuMembers.Text = "Members";
+            this.mnuMembers.Click += new System.EventHandler(this.membersToolStripMenuItem_Click);
             // 
-            // rentalsToolStripMenuItem
+            // mnuRentals
             // 
-            this.rentalsToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.rentalsToolStripMenuItem.Name = "rentalsToolStripMenuItem";
-            this.rentalsToolStripMenuItem.Size = new System.Drawing.Size(99, 40);
-            this.rentalsToolStripMenuItem.Text = "Rentals";
-            this.rentalsToolStripMenuItem.Click += new System.EventHandler(this.rentalsToolStripMenuItem_Click);
+            this.mnuRentals.ForeColor = System.Drawing.Color.Azure;
+            this.mnuRentals.Name = "mnuRentals";
+            this.mnuRentals.Size = new System.Drawing.Size(81, 33);
+            this.mnuRentals.Text = "Rentals";
+            this.mnuRentals.Click += new System.EventHandler(this.rentalsToolStripMenuItem_Click);
             // 
-            // adminToolStripMenuItem
+            // mnuAdmin
             // 
-            this.adminToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(91, 40);
-            this.adminToolStripMenuItem.Text = "Admin";
-            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            this.mnuAdmin.ForeColor = System.Drawing.Color.Azure;
+            this.mnuAdmin.Name = "mnuAdmin";
+            this.mnuAdmin.Size = new System.Drawing.Size(76, 33);
+            this.mnuAdmin.Text = "Admin";
+            this.mnuAdmin.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(39, 40);
-            this.exitToolStripMenuItem.Text = "X";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.Azure;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(32, 33);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmMainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(831, 538);
@@ -121,10 +121,10 @@ namespace MovieSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuMain;
-        private System.Windows.Forms.ToolStripMenuItem dVDsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem membersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rentalsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuDVD;
+        private System.Windows.Forms.ToolStripMenuItem mnuMembers;
+        private System.Windows.Forms.ToolStripMenuItem mnuRentals;
+        private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
     }
 }

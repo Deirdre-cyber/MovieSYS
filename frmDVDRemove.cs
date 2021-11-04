@@ -34,7 +34,8 @@ namespace MovieSYS
         {
 
         }
-        private void label1_Click(object sender, EventArgs e)
+
+        private void lblRefine_Click(object sender, EventArgs e)
         {
 
         }
@@ -44,7 +45,7 @@ namespace MovieSYS
             //if option selected, lstDVDs changes to reflect only relevant Categories
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void lblChooseDVD_Click(object sender, EventArgs e)
         {
 
         }
@@ -64,6 +65,5 @@ namespace MovieSYS
             //if cancel - close warning box
         }
 
-        
     }
 }

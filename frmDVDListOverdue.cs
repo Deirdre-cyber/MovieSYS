@@ -34,21 +34,74 @@ namespace MovieSYS
 
         }
 
-        private void lstOverDue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mnuCloseLogin_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        
+        private void grpListOverDue_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboOverdue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpOverdueDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMember_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMemId2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRentedon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpRentDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDueBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpDueBack_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFineDue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFineAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -354,7 +354,7 @@ namespace MovieSYS.Properties
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
             this.exitToolStripMenuItem.Text = "X";
             // 
-            // frmUpdateMem
+            // frmUpdateMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -366,7 +366,8 @@ namespace MovieSYS.Properties
             this.Controls.Add(this.label10);
             this.Controls.Add(this.grpEditMem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmUpdateMem";
+            this.Name = "frmUpdateMember";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Member Details";
             this.grpEditMem.ResumeLayout(false);
             this.grpEditMem.PerformLayout();

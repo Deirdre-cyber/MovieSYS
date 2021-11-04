@@ -210,6 +210,7 @@ namespace MovieSYS
             this.Controls.Add(this.mnuAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPayFines";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFines";
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();

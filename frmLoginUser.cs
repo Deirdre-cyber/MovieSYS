@@ -15,7 +15,7 @@ namespace MovieSYS
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblUsername_Click(object sender, EventArgs e)
         {
 
         }
@@ -25,7 +25,7 @@ namespace MovieSYS
             txtPass.MaxLength = 20;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void lblPassword_Click(object sender, EventArgs e)
         {
 
         }
@@ -54,9 +54,9 @@ namespace MovieSYS
                 MessageBox.Show("Invalid Username and Password", "Incorrect Details Entered", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            //Close Window
+            this.Close();
         }
     }
 }

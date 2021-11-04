@@ -32,11 +32,11 @@ namespace MovieSYS
             this.grpLogin = new System.Windows.Forms.GroupBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.mnuCloseLogin = new System.Windows.Forms.MenuStrip();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpLogin.SuspendLayout();
             this.mnuCloseLogin.SuspendLayout();
             this.SuspendLayout();
@@ -44,11 +44,11 @@ namespace MovieSYS
             // grpLogin
             // 
             this.grpLogin.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.grpLogin.Controls.Add(this.lblPassword);
+            this.grpLogin.Controls.Add(this.lblUsername);
             this.grpLogin.Controls.Add(this.btnConfirm);
             this.grpLogin.Controls.Add(this.txtPass);
-            this.grpLogin.Controls.Add(this.label2);
             this.grpLogin.Controls.Add(this.txtUser);
-            this.grpLogin.Controls.Add(this.label1);
             this.grpLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpLogin.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.grpLogin.ForeColor = System.Drawing.Color.Azure;
@@ -65,7 +65,7 @@ namespace MovieSYS
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnConfirm.Location = new System.Drawing.Point(338, 288);
+            this.btnConfirm.Location = new System.Drawing.Point(343, 239);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(103, 38);
             this.btnConfirm.TabIndex = 4;
@@ -78,73 +78,73 @@ namespace MovieSYS
             this.txtPass.BackColor = System.Drawing.Color.Azure;
             this.txtPass.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPass.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtPass.Location = new System.Drawing.Point(389, 203);
+            this.txtPass.Location = new System.Drawing.Point(394, 154);
             this.txtPass.Name = "txtPass";
             this.txtPass.PlaceholderText = "password";
             this.txtPass.Size = new System.Drawing.Size(149, 34);
             this.txtPass.TabIndex = 3;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(263, 205);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 41);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.Azure;
             this.txtUser.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUser.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtUser.Location = new System.Drawing.Point(389, 140);
+            this.txtUser.Location = new System.Drawing.Point(394, 91);
             this.txtUser.Name = "txtUser";
             this.txtUser.PlaceholderText = "username";
             this.txtUser.Size = new System.Drawing.Size(149, 34);
             this.txtUser.TabIndex = 1;
             this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(257, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // mnuCloseLogin
             // 
             this.mnuCloseLogin.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.mnuCloseLogin.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuCloseLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolStripMenuItem});
+            this.mnuExit});
             this.mnuCloseLogin.Location = new System.Drawing.Point(0, 0);
             this.mnuCloseLogin.Name = "mnuCloseLogin";
             this.mnuCloseLogin.Size = new System.Drawing.Size(800, 38);
             this.mnuCloseLogin.TabIndex = 2;
             this.mnuCloseLogin.Text = "menuStrip1";
             // 
-            // closeToolStripMenuItem
+            // lblUsername
             // 
-            this.closeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.closeToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.closeToolStripMenuItem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.closeToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.closeToolStripMenuItem.Text = "X";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUsername.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblUsername.Location = new System.Drawing.Point(262, 91);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(126, 41);
+            this.lblUsername.TabIndex = 5;
+            this.lblUsername.Text = "Username:";
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
-            // frmLogin
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.ForeColor = System.Drawing.Color.AliceBlue;
+            this.lblPassword.Location = new System.Drawing.Point(262, 154);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(120, 41);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Text = "Password:";
+            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.mnuExit.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.Azure;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 34);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // frmLoginUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +153,8 @@ namespace MovieSYS
             this.Controls.Add(this.mnuCloseLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.mnuCloseLogin;
-            this.Name = "frmLogin";
+            this.Name = "frmLoginUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Screen";
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();
@@ -169,10 +170,10 @@ namespace MovieSYS
         private System.Windows.Forms.GroupBox grpLogin;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip mnuCloseLogin;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
     }
 }

@@ -462,6 +462,7 @@ namespace MovieSYS
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "frmRentalRentDVD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();

@@ -328,6 +328,7 @@ namespace MovieSYS.Properties
             this.ForeColor = System.Drawing.Color.Azure;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddMember";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Member";
             this.Load += new System.EventHandler(this.frmAddMem_Load);
             this.grpAddMem.ResumeLayout(false);

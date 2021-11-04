@@ -15,6 +15,11 @@ namespace MovieSYS
             InitializeComponent();
         }
 
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void dVDsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -38,11 +43,6 @@ namespace MovieSYS
         private void frmMainPage_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void mnuCatalogue_Click(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace MovieSYS
 
         private void mnuEditMember_Click(object sender, EventArgs e)
         {
+           
             //this.Hide();
             //frmUpdateMember = updateMember = new frmUpdateMember(this);
             //updateMember.Show();
@@ -114,5 +115,6 @@ namespace MovieSYS
             frmCustomerStatement customerStatement = new frmCustomerStatement(this);
             customerStatement.Show();
         }
+
     }
     }

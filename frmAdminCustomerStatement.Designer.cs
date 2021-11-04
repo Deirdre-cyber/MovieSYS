@@ -30,16 +30,16 @@ namespace MovieSYS
         private void InitializeComponent()
         {
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rbFirstQuart = new System.Windows.Forms.RadioButton();
             this.rbSecQuart = new System.Windows.Forms.RadioButton();
             this.rbThirdQuart = new System.Windows.Forms.RadioButton();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.grpRevenue = new System.Windows.Forms.GroupBox();
-            this.btnGenerate = new System.Windows.Forms.Button();
-            this.rbFourthQuart = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rbFourthQuart = new System.Windows.Forms.RadioButton();
+            this.btnGenerate = new System.Windows.Forms.Button();
             this.mnuAdd.SuspendLayout();
             this.grpRevenue.SuspendLayout();
             this.SuspendLayout();
@@ -50,21 +50,22 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Size = new System.Drawing.Size(733, 38);
             this.mnuAdd.TabIndex = 11;
             this.mnuAdd.Text = "menuStrip1";
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.exitToolStripMenuItem.Text = "X";
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.Azure;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 34);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // label1
             // 
@@ -142,15 +143,15 @@ namespace MovieSYS
             this.grpRevenue.Text = "Revenue Analysis";
             this.grpRevenue.Enter += new System.EventHandler(this.grpRevenue_Enter);
             // 
-            // btnGenerate
+            // comboBox1
             // 
-            this.btnGenerate.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGenerate.Location = new System.Drawing.Point(542, 302);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(94, 35);
-            this.btnGenerate.TabIndex = 22;
-            this.btnGenerate.Text = "Generate";
-            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.comboBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(83, 89);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(76, 31);
+            this.comboBox1.TabIndex = 27;
+            this.comboBox1.Text = "2020";
             // 
             // rbFourthQuart
             // 
@@ -163,15 +164,15 @@ namespace MovieSYS
             this.rbFourthQuart.Text = "Oct - Dec";
             this.rbFourthQuart.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // btnGenerate
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(83, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(76, 31);
-            this.comboBox1.TabIndex = 27;
-            this.comboBox1.Text = "2020";
+            this.btnGenerate.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGenerate.Location = new System.Drawing.Point(542, 302);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(94, 35);
+            this.btnGenerate.TabIndex = 22;
+            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.UseVisualStyleBackColor = true;
             // 
             // frmCustomerStatement
             // 
@@ -195,7 +196,7 @@ namespace MovieSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuAdd;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbFirstQuart;
         private System.Windows.Forms.RadioButton rbSecQuart;

@@ -10,10 +10,27 @@ namespace MovieSYS
 {
     public partial class frmRentalRentDVD : Form
     {
+        frmMainMenu parent;
         public frmRentalRentDVD()
         {
             InitializeComponent();
         }
+
+        public frmRentalRentDVD(frmMainMenu Parent)
+        {
+            InitializeComponent();
+            grpRentDetails.Visible = false;
+            grpSearch.Visible = false;
+            grpSearchRes.Visible = false;
+            this.parent = Parent;
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
+        }
+
         private void frmRent_Load(object sender, EventArgs e)
         {
 
@@ -36,7 +53,7 @@ namespace MovieSYS
 
         private void txtMemId_TextChanged(object sender, EventArgs e)
         {
-
+            //if valid make grpSearch visible
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
@@ -46,7 +63,7 @@ namespace MovieSYS
 
         private void grpSearchRes_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -61,12 +78,12 @@ namespace MovieSYS
 
         private void btnRefine_Click(object sender, EventArgs e)
         {
-
+            //make grpSearchRes visible
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //make grpRentDetails visible
         }
 
         private void grpSearch_Enter(object sender, EventArgs e)
@@ -91,7 +108,7 @@ namespace MovieSYS
 
         private void grpRentDetails_Enter(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -158,5 +175,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

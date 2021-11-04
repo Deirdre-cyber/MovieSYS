@@ -21,6 +21,7 @@ namespace MovieSYS
         {
             InitializeComponent();
             this.parent = Parent;
+            grpReturnDVD.Visible = false;
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace MovieSYS
 
         private void btnSelectMem_Click(object sender, EventArgs e)
         {
-
+            //if valid set grpReturnDVD visible
         }
 
         private void grpReturnDVD_Enter(object sender, EventArgs e)

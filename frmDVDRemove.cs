@@ -10,14 +10,14 @@ namespace MovieSYS
 {
     public partial class frmDVDRemove : Form
     {
-        frmMainPage parent;
+        frmMainMenu parent;
 
         public frmDVDRemove()
         {
             InitializeComponent();
         }
 
-        public frmDVDRemove(frmMainPage Parent)
+        public frmDVDRemove(frmMainMenu Parent)
         {
             InitializeComponent();
             this.parent = Parent;

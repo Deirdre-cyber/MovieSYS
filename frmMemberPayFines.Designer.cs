@@ -30,17 +30,17 @@ namespace MovieSYS
         private void InitializeComponent()
         {
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMemId = new System.Windows.Forms.TextBox();
             this.grpMemDetails = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFineAmount = new System.Windows.Forms.TextBox();
-            this.btnPayPart = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtPayAmount = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnPayPart = new System.Windows.Forms.Button();
+            this.txtFineAmount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mnuAdd.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
             this.grpMemDetails.SuspendLayout();
@@ -52,7 +52,7 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Size = new System.Drawing.Size(725, 38);
@@ -60,14 +60,15 @@ namespace MovieSYS
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.exitToolStripMenuItem.Text = "X";
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.Azure;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 34);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // grpMemCheck
             // 
@@ -136,29 +137,29 @@ namespace MovieSYS
             this.grpMemDetails.Text = "Member Rental Details";
             this.grpMemDetails.Enter += new System.EventHandler(this.grpMemDetails_Enter);
             // 
-            // label1
+            // txtPayAmount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(157, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fine Amount:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.txtPayAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPayAmount.Location = new System.Drawing.Point(316, 157);
+            this.txtPayAmount.MaxLength = 6;
+            this.txtPayAmount.Name = "txtPayAmount";
+            this.txtPayAmount.PlaceholderText = "10.00";
+            this.txtPayAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtPayAmount.Size = new System.Drawing.Size(77, 30);
+            this.txtPayAmount.TabIndex = 7;
+            this.txtPayAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPayAmount.TextChanged += new System.EventHandler(this.txtPayAmount_TextChanged);
             // 
-            // txtFineAmount
+            // label3
             // 
-            this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFineAmount.Location = new System.Drawing.Point(316, 65);
-            this.txtFineAmount.MaxLength = 6;
-            this.txtFineAmount.Name = "txtFineAmount";
-            this.txtFineAmount.PlaceholderText = "10.00";
-            this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtFineAmount.Size = new System.Drawing.Size(77, 30);
-            this.txtFineAmount.TabIndex = 4;
-            this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(104, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(206, 41);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Payment Amount: ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnPayPart
             // 
@@ -174,31 +175,31 @@ namespace MovieSYS
             this.btnPayPart.UseVisualStyleBackColor = false;
             this.btnPayPart.Click += new System.EventHandler(this.btnPayPart_Click);
             // 
-            // label3
+            // txtFineAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(104, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 41);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Payment Amount: ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFineAmount.Location = new System.Drawing.Point(316, 65);
+            this.txtFineAmount.MaxLength = 6;
+            this.txtFineAmount.Name = "txtFineAmount";
+            this.txtFineAmount.PlaceholderText = "10.00";
+            this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtFineAmount.Size = new System.Drawing.Size(77, 30);
+            this.txtFineAmount.TabIndex = 4;
+            this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
-            // txtPayAmount
+            // label1
             // 
-            this.txtPayAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPayAmount.Location = new System.Drawing.Point(316, 157);
-            this.txtPayAmount.MaxLength = 6;
-            this.txtPayAmount.Name = "txtPayAmount";
-            this.txtPayAmount.PlaceholderText = "10.00";
-            this.txtPayAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPayAmount.Size = new System.Drawing.Size(77, 30);
-            this.txtPayAmount.TabIndex = 7;
-            this.txtPayAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPayAmount.TextChanged += new System.EventHandler(this.txtPayAmount_TextChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(157, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 41);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fine Amount:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // frmFines
+            // frmPayFines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -208,7 +209,7 @@ namespace MovieSYS
             this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.mnuAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmFines";
+            this.Name = "frmPayFines";
             this.Text = "frmFines";
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
@@ -224,7 +225,7 @@ namespace MovieSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuAdd;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.GroupBox grpMemCheck;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label label2;

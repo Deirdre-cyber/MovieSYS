@@ -12,13 +12,13 @@ namespace MovieSYS
 {
     public partial class frmDVDCatalogue : Form
     {
-        frmMainPage parent;
+        frmMainMenu parent;
 
         public frmDVDCatalogue()
         {
             InitializeComponent();
         }
-        public frmDVDCatalogue(frmMainPage Parent)
+        public frmDVDCatalogue(frmMainMenu Parent)
         {
             InitializeComponent();
             this.parent = Parent;

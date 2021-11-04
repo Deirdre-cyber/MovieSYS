@@ -1,7 +1,7 @@
 ﻿
 namespace MovieSYS
 {
-    partial class frmMainPage
+    partial class frmMainMenu
     {
         /// <summary>
         /// Required designer variable.

@@ -30,7 +30,7 @@ namespace MovieSYS
         private void InitializeComponent()
         {
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpSearch = new System.Windows.Forms.GroupBox();
             this.btnConfirmRefine = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
@@ -82,14 +82,15 @@ namespace MovieSYS
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
-            // exitToolStripMenuItem
+            // mnuExit
             // 
-            this.exitToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Azure;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 34);
-            this.exitToolStripMenuItem.Text = "X";
+            this.mnuExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuExit.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mnuExit.ForeColor = System.Drawing.Color.Azure;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(38, 34);
+            this.mnuExit.Text = "X";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // grpSearch
             // 
@@ -446,7 +447,7 @@ namespace MovieSYS
             this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
             // 
-            // frmRent
+            // frmRentalRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -460,7 +461,7 @@ namespace MovieSYS
             this.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Name = "frmRent";
+            this.Name = "frmRentalRentDVD";
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
@@ -480,7 +481,7 @@ namespace MovieSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuAdd;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.GroupBox grpSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboSearchOpt;

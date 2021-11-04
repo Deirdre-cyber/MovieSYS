@@ -10,14 +10,14 @@ namespace MovieSYS
 {
     public partial class frmListOverdue : Form
     {
-        frmMainPage parent;
+        frmMainMenu parent;
 
         public frmListOverdue()
         {
             InitializeComponent();
         }
 
-        public frmListOverdue(frmMainPage Parent)
+        public frmListOverdue(frmMainMenu Parent)
         {
             InitializeComponent();
             this.parent = Parent;

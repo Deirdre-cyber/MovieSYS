@@ -10,9 +10,22 @@ namespace MovieSYS.Properties
 {
     public partial class frmAddMember : Form
     {
+        frmMainMenu parent;
         public frmAddMember()
         {
             InitializeComponent();
+        }
+
+        public frmAddMember(frmMainMenu Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
         }
 
         private void frmAddMem_Load(object sender, EventArgs e)
@@ -123,5 +136,7 @@ namespace MovieSYS.Properties
         {
 
         }
+
+        
     }
 }

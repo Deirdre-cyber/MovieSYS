@@ -10,9 +10,23 @@ namespace MovieSYS
 {
     public partial class frmPayFines : Form
     {
+        frmMainMenu parent;
         public frmPayFines()
         {
             InitializeComponent();
+        }
+
+        public frmPayFines(frmMainMenu Parent)
+        {
+            InitializeComponent();
+            this.parent = Parent;
+            grpMemDetails.Visible = false;
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
         }
 
         private void btnPayFull_Click(object sender, EventArgs e)
@@ -37,7 +51,7 @@ namespace MovieSYS
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-
+            //If details valid make grpMemDetails visible
         }
 
         private void grpMemDetails_Enter(object sender, EventArgs e)
@@ -74,5 +88,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

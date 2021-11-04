@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MovieSYS
 {
-    public partial class frmMainPage : Form
+    public partial class frmMainMenu : Form
     {
-        public frmMainPage()
+        public frmMainMenu()
         {
             InitializeComponent();
         }
@@ -69,7 +69,7 @@ namespace MovieSYS
         private void addMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            //frmAddMember addMember = new frmAddMember(this);
+            //frmAddMember addMember = new frmMemberAdd(this);
             //addMember.Show();
         }
 
@@ -83,36 +83,36 @@ namespace MovieSYS
         private void mnuRentDVD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //frmRentalRentDVD rentDVD = new frmRentalRentDVD(this);
-            //rentDVD.Show();
+            frmRentalRentDVD rentDVD = new frmRentalRentDVD(this);
+            rentDVD.Show();
         }
 
         private void mnuReturnDVD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //frmReturnDVD returnDVD = new frmReturnDVD(this);
-            //returnDVD.Show();
+            frmReturnDVD returnDVD = new frmReturnDVD(this);
+            returnDVD.Show();
         }
 
         private void mnuPayFine_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //frmPayFines payFine = new frmPayFines(this);
-            //payFine.Show();
+            frmPayFines payFine = new frmPayFines(this);
+            payFine.Show();
         }
 
         private void mnuYearlyRev_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
-            //revenueOne.Show();
+            frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
+            revenueOne.Show();
         }
 
         private void mnuCustomerStatement_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //frmCustomerStatement customerStatement = new frmCustomerStatement(this);
-            //customerStatement.Show();
+            frmCustomerStatement customerStatement = new frmCustomerStatement(this);
+            customerStatement.Show();
         }
     }
     }

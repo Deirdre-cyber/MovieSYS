@@ -84,5 +84,15 @@ namespace MovieSYS
         {
 
         }
+
+        private void lbOverDue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOverDVDCount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

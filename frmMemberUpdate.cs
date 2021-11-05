@@ -53,7 +53,7 @@ namespace MovieSYS
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-
+            grpEditMem.Visible = true;
         }
 
         private void grpEditMem_Enter(object sender, EventArgs e)

@@ -51,6 +51,8 @@ namespace MovieSYS
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblMemberId = new System.Windows.Forms.Label();
+            this.dtpMemStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblMemStartDate = new System.Windows.Forms.Label();
             this.mnuAdd.SuspendLayout();
             this.grpAddMem.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +68,7 @@ namespace MovieSYS
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 4, 0, 4);
             this.mnuAdd.Size = new System.Drawing.Size(1000, 35);
-            this.mnuAdd.TabIndex = 12;
+            this.mnuAdd.TabIndex = 11;
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
@@ -82,6 +84,8 @@ namespace MovieSYS
             // 
             // grpAddMem
             // 
+            this.grpAddMem.Controls.Add(this.dtpMemStartDate);
+            this.grpAddMem.Controls.Add(this.lblMemStartDate);
             this.grpAddMem.Controls.Add(this.cboMemID);
             this.grpAddMem.Controls.Add(this.btnAddMem);
             this.grpAddMem.Controls.Add(this.txtEmail);
@@ -137,7 +141,7 @@ namespace MovieSYS
             this.btnAddMem.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddMem.Name = "btnAddMem";
             this.btnAddMem.Size = new System.Drawing.Size(100, 35);
-            this.btnAddMem.TabIndex = 9;
+            this.btnAddMem.TabIndex = 10;
             this.btnAddMem.Text = "Add Member";
             this.btnAddMem.UseVisualStyleBackColor = false;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
@@ -181,7 +185,7 @@ namespace MovieSYS
             // txtContactNo
             // 
             this.txtContactNo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtContactNo.Location = new System.Drawing.Point(633, 111);
+            this.txtContactNo.Location = new System.Drawing.Point(633, 115);
             this.txtContactNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtContactNo.MaxLength = 15;
             this.txtContactNo.Name = "txtContactNo";
@@ -225,7 +229,7 @@ namespace MovieSYS
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(247, 109);
+            this.textBox1.Location = new System.Drawing.Point(247, 111);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.MaxLength = 8;
             this.textBox1.Name = "textBox1";
@@ -275,7 +279,7 @@ namespace MovieSYS
             // 
             this.lblContactNo.AutoSize = true;
             this.lblContactNo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblContactNo.Location = new System.Drawing.Point(501, 113);
+            this.lblContactNo.Location = new System.Drawing.Point(501, 117);
             this.lblContactNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContactNo.Name = "lblContactNo";
             this.lblContactNo.Size = new System.Drawing.Size(124, 28);
@@ -335,13 +339,39 @@ namespace MovieSYS
             // 
             this.lblMemberId.AutoSize = true;
             this.lblMemberId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMemberId.Location = new System.Drawing.Point(116, 111);
+            this.lblMemberId.Location = new System.Drawing.Point(116, 113);
             this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberId.Name = "lblMemberId";
             this.lblMemberId.Size = new System.Drawing.Size(123, 28);
             this.lblMemberId.TabIndex = 0;
             this.lblMemberId.Text = "Member ID:";
             this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
+            // 
+            // dtpMemStartDate
+            // 
+            this.dtpMemStartDate.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dtpMemStartDate.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dtpMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpMemStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpMemStartDate.Location = new System.Drawing.Point(633, 337);
+            this.dtpMemStartDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpMemStartDate.Name = "dtpMemStartDate";
+            this.dtpMemStartDate.Size = new System.Drawing.Size(180, 30);
+            this.dtpMemStartDate.TabIndex = 9;
+            this.dtpMemStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
+            this.dtpMemStartDate.ValueChanged += new System.EventHandler(this.dtpMemStartDate_ValueChanged);
+            // 
+            // lblMemStartDate
+            // 
+            this.lblMemStartDate.AutoSize = true;
+            this.lblMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemStartDate.Location = new System.Drawing.Point(511, 339);
+            this.lblMemStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMemStartDate.Name = "lblMemStartDate";
+            this.lblMemStartDate.Size = new System.Drawing.Size(114, 28);
+            this.lblMemStartDate.TabIndex = 0;
+            this.lblMemStartDate.Text = "Start Date:";
+            this.lblMemStartDate.Click += new System.EventHandler(this.lblMemStartDate_Click);
             // 
             // frmMemberAdd
             // 
@@ -391,5 +421,7 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblMemberId;
+        private System.Windows.Forms.DateTimePicker dtpMemStartDate;
+        private System.Windows.Forms.Label lblMemStartDate;
     }
 }

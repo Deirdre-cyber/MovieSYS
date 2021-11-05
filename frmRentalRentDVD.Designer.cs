@@ -245,11 +245,11 @@ namespace MovieSYS
             // 
             this.lblDueBack.AutoSize = true;
             this.lblDueBack.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDueBack.Location = new System.Drawing.Point(453, 107);
+            this.lblDueBack.Location = new System.Drawing.Point(446, 107);
             this.lblDueBack.Name = "lblDueBack";
-            this.lblDueBack.Size = new System.Drawing.Size(106, 28);
+            this.lblDueBack.Size = new System.Drawing.Size(113, 28);
             this.lblDueBack.TabIndex = 20;
-            this.lblDueBack.Text = "Due back:";
+            this.lblDueBack.Text = "Return On:";
             this.lblDueBack.Click += new System.EventHandler(this.lblDueBack_Click);
             // 
             // lblRentedOn

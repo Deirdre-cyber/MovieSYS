@@ -102,7 +102,7 @@ namespace MovieSYS
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            grpOverdueDetails.Visible = false;
         }
 
         private void btnSendReminder_Click(object sender, EventArgs e)

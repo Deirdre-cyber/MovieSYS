@@ -136,6 +136,14 @@ namespace MovieSYS
 
         }
 
-        
+        private void lblMemStartDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpMemStartDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

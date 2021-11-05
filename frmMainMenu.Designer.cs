@@ -260,9 +260,9 @@ namespace MovieSYS
             this.grpLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpLogin.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpLogin.Location = new System.Drawing.Point(118, 134);
+            this.grpLogin.Location = new System.Drawing.Point(176, 194);
             this.grpLogin.Name = "grpLogin";
-            this.grpLogin.Size = new System.Drawing.Size(744, 471);
+            this.grpLogin.Size = new System.Drawing.Size(628, 342);
             this.grpLogin.TabIndex = 2;
             this.grpLogin.TabStop = false;
             this.grpLogin.Text = "Login Details";
@@ -273,7 +273,7 @@ namespace MovieSYS
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPassword.Location = new System.Drawing.Point(234, 196);
+            this.lblPassword.Location = new System.Drawing.Point(186, 177);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(105, 28);
             this.lblPassword.TabIndex = 6;
@@ -285,7 +285,7 @@ namespace MovieSYS
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUsername.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblUsername.Location = new System.Drawing.Point(228, 133);
+            this.lblUsername.Location = new System.Drawing.Point(180, 114);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(111, 28);
             this.lblUsername.TabIndex = 5;
@@ -298,7 +298,7 @@ namespace MovieSYS
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnConfirm.Location = new System.Drawing.Point(323, 263);
+            this.btnConfirm.Location = new System.Drawing.Point(275, 244);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 35);
             this.btnConfirm.TabIndex = 4;
@@ -311,11 +311,12 @@ namespace MovieSYS
             this.txtPass.BackColor = System.Drawing.Color.Azure;
             this.txtPass.Font = new System.Drawing.Font("Nirmala UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPass.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.txtPass.Location = new System.Drawing.Point(345, 198);
+            this.txtPass.Location = new System.Drawing.Point(297, 179);
             this.txtPass.Name = "txtPass";
             this.txtPass.PlaceholderText = "password";
             this.txtPass.Size = new System.Drawing.Size(180, 30);
             this.txtPass.TabIndex = 3;
+            this.txtPass.Text = "123";
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // txtUser
@@ -323,11 +324,12 @@ namespace MovieSYS
             this.txtUser.BackColor = System.Drawing.Color.Azure;
             this.txtUser.Font = new System.Drawing.Font("Nirmala UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUser.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.txtUser.Location = new System.Drawing.Point(345, 135);
+            this.txtUser.Location = new System.Drawing.Point(297, 116);
             this.txtUser.Name = "txtUser";
             this.txtUser.PlaceholderText = "username";
             this.txtUser.Size = new System.Drawing.Size(180, 30);
             this.txtUser.TabIndex = 1;
+            this.txtUser.Text = "ABC";
             this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // frmMainMenu

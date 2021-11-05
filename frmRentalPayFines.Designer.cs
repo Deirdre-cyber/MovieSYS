@@ -41,6 +41,8 @@ namespace MovieSYS
             this.lblFineAmount = new System.Windows.Forms.Label();
             this.txtPayAmount = new System.Windows.Forms.TextBox();
             this.txtFineAmount = new System.Windows.Forms.TextBox();
+            this.lbOverDue = new System.Windows.Forms.Label();
+            this.txtOverDVDCount = new System.Windows.Forms.TextBox();
             this.mnuAdd.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
             this.grpMemDetails.SuspendLayout();
@@ -131,6 +133,8 @@ namespace MovieSYS
             // 
             // grpMemDetails
             // 
+            this.grpMemDetails.Controls.Add(this.lbOverDue);
+            this.grpMemDetails.Controls.Add(this.txtOverDVDCount);
             this.grpMemDetails.Controls.Add(this.btnPay);
             this.grpMemDetails.Controls.Add(this.lblPayAmount);
             this.grpMemDetails.Controls.Add(this.lblFineAmount);
@@ -167,7 +171,7 @@ namespace MovieSYS
             // 
             this.lblPayAmount.AutoSize = true;
             this.lblPayAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPayAmount.Location = new System.Drawing.Point(150, 132);
+            this.lblPayAmount.Location = new System.Drawing.Point(150, 136);
             this.lblPayAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayAmount.Name = "lblPayAmount";
             this.lblPayAmount.Size = new System.Drawing.Size(187, 28);
@@ -217,6 +221,33 @@ namespace MovieSYS
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
+            // lbOverDue
+            // 
+            this.lbOverDue.AutoSize = true;
+            this.lbOverDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbOverDue.Location = new System.Drawing.Point(182, 193);
+            this.lbOverDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbOverDue.Name = "lbOverDue";
+            this.lbOverDue.Size = new System.Drawing.Size(155, 28);
+            this.lbOverDue.TabIndex = 12;
+            this.lbOverDue.Text = "DVDs Overdue:";
+            this.lbOverDue.Click += new System.EventHandler(this.lbOverDue_Click);
+            // 
+            // txtOverDVDCount
+            // 
+            this.txtOverDVDCount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtOverDVDCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.txtOverDVDCount.Location = new System.Drawing.Point(345, 191);
+            this.txtOverDVDCount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtOverDVDCount.MaxLength = 6;
+            this.txtOverDVDCount.Name = "txtOverDVDCount";
+            this.txtOverDVDCount.PlaceholderText = "3";
+            this.txtOverDVDCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtOverDVDCount.Size = new System.Drawing.Size(95, 30);
+            this.txtOverDVDCount.TabIndex = 11;
+            this.txtOverDVDCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOverDVDCount.TextChanged += new System.EventHandler(this.txtOverDVDCount_TextChanged);
+            // 
             // frmPayFines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -258,5 +289,7 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblPayAmount;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
+        private System.Windows.Forms.Label lbOverDue;
+        private System.Windows.Forms.TextBox txtOverDVDCount;
     }
 }

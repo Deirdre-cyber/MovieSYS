@@ -31,6 +31,7 @@ namespace MovieSYS
         {
             this.grpListOverDue = new System.Windows.Forms.GroupBox();
             this.grpOverdueDetails = new System.Windows.Forms.GroupBox();
+            this.btnSendReminder = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.txtFineAmount = new System.Windows.Forms.TextBox();
             this.lblFineDue = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@ namespace MovieSYS
             this.cboOverdue = new System.Windows.Forms.ComboBox();
             this.mnuCloseLogin = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSendReminder = new System.Windows.Forms.Button();
             this.grpListOverDue.SuspendLayout();
             this.grpOverdueDetails.SuspendLayout();
             this.mnuCloseLogin.SuspendLayout();
@@ -89,6 +89,21 @@ namespace MovieSYS
             this.grpOverdueDetails.Text = "Details";
             this.grpOverdueDetails.Enter += new System.EventHandler(this.grpOverdueDetails_Enter);
             // 
+            // btnSendReminder
+            // 
+            this.btnSendReminder.BackColor = System.Drawing.Color.GhostWhite;
+            this.btnSendReminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendReminder.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSendReminder.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSendReminder.Location = new System.Drawing.Point(377, 234);
+            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSendReminder.Name = "btnSendReminder";
+            this.btnSendReminder.Size = new System.Drawing.Size(145, 40);
+            this.btnSendReminder.TabIndex = 8;
+            this.btnSendReminder.Text = "Send Reminder";
+            this.btnSendReminder.UseVisualStyleBackColor = false;
+            this.btnSendReminder.Click += new System.EventHandler(this.btnSendReminder_Click);
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.GhostWhite;
@@ -107,7 +122,7 @@ namespace MovieSYS
             // txtFineAmount
             // 
             this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFineAmount.Location = new System.Drawing.Point(483, 90);
+            this.txtFineAmount.Location = new System.Drawing.Point(483, 88);
             this.txtFineAmount.MaxLength = 6;
             this.txtFineAmount.Name = "txtFineAmount";
             this.txtFineAmount.PlaceholderText = "2.50";
@@ -121,7 +136,7 @@ namespace MovieSYS
             // 
             this.lblFineDue.AutoSize = true;
             this.lblFineDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFineDue.Location = new System.Drawing.Point(377, 92);
+            this.lblFineDue.Location = new System.Drawing.Point(377, 90);
             this.lblFineDue.Name = "lblFineDue";
             this.lblFineDue.Size = new System.Drawing.Size(100, 28);
             this.lblFineDue.TabIndex = 0;
@@ -133,7 +148,7 @@ namespace MovieSYS
             this.lblMember.AutoSize = true;
             this.lblMember.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMember.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMember.Location = new System.Drawing.Point(73, 92);
+            this.lblMember.Location = new System.Drawing.Point(73, 90);
             this.lblMember.Name = "lblMember";
             this.lblMember.Size = new System.Drawing.Size(123, 28);
             this.lblMember.TabIndex = 0;
@@ -143,7 +158,7 @@ namespace MovieSYS
             // txtMemId2
             // 
             this.txtMemId2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMemId2.Location = new System.Drawing.Point(202, 90);
+            this.txtMemId2.Location = new System.Drawing.Point(202, 88);
             this.txtMemId2.MaxLength = 8;
             this.txtMemId2.Name = "txtMemId2";
             this.txtMemId2.PlaceholderText = "00000001";
@@ -249,21 +264,6 @@ namespace MovieSYS
             this.mnuExit.Size = new System.Drawing.Size(35, 27);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
-            // 
-            // btnSendReminder
-            // 
-            this.btnSendReminder.BackColor = System.Drawing.Color.GhostWhite;
-            this.btnSendReminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSendReminder.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSendReminder.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSendReminder.Location = new System.Drawing.Point(377, 234);
-            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSendReminder.Name = "btnSendReminder";
-            this.btnSendReminder.Size = new System.Drawing.Size(145, 40);
-            this.btnSendReminder.TabIndex = 8;
-            this.btnSendReminder.Text = "Send Reminder";
-            this.btnSendReminder.UseVisualStyleBackColor = false;
-            this.btnSendReminder.Click += new System.EventHandler(this.btnSendReminder_Click);
             // 
             // frmListOverdue
             // 

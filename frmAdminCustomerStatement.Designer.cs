@@ -36,14 +36,14 @@ namespace MovieSYS
             this.lblMemberId = new System.Windows.Forms.Label();
             this.txtMemId = new System.Windows.Forms.TextBox();
             this.grpStatementDetails = new System.Windows.Forms.GroupBox();
-            this.lblFinesDue = new System.Windows.Forms.Label();
-            this.txtFineAmount = new System.Windows.Forms.TextBox();
-            this.lblMemebershipStart = new System.Windows.Forms.Label();
-            this.lblMember = new System.Windows.Forms.Label();
-            this.lblCart = new System.Windows.Forms.Label();
-            this.dtpDueBack = new System.Windows.Forms.DateTimePicker();
-            this.lblStatementFrom = new System.Windows.Forms.Label();
-            this.dtpStatementFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnEmail = new System.Windows.Forms.Button();
+            this.lblDVDsOut = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblStatementTo = new System.Windows.Forms.Label();
+            this.dtpStatementTo = new System.Windows.Forms.DateTimePicker();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.cboMemID = new System.Windows.Forms.ComboBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -52,14 +52,14 @@ namespace MovieSYS
             this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblStatementTo = new System.Windows.Forms.Label();
-            this.dtpStatementTo = new System.Windows.Forms.DateTimePicker();
-            this.lblDVDsOut = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnEmail = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.lblStatementFrom = new System.Windows.Forms.Label();
+            this.dtpStatementFrom = new System.Windows.Forms.DateTimePicker();
+            this.lblFinesDue = new System.Windows.Forms.Label();
+            this.txtFineAmount = new System.Windows.Forms.TextBox();
+            this.lblMemebershipStart = new System.Windows.Forms.Label();
+            this.lblMember = new System.Windows.Forms.Label();
+            this.lblCart = new System.Windows.Forms.Label();
+            this.dtpDueBack = new System.Windows.Forms.DateTimePicker();
             this.mnuAdd.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
             this.grpStatementDetails.SuspendLayout();
@@ -177,95 +177,104 @@ namespace MovieSYS
             this.grpStatementDetails.Text = "Statement Details";
             this.grpStatementDetails.Enter += new System.EventHandler(this.grpStatementDetails_Enter);
             // 
-            // lblFinesDue
+            // btnEmail
             // 
-            this.lblFinesDue.AutoSize = true;
-            this.lblFinesDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFinesDue.Location = new System.Drawing.Point(582, 220);
-            this.lblFinesDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFinesDue.Name = "lblFinesDue";
-            this.lblFinesDue.Size = new System.Drawing.Size(109, 28);
-            this.lblFinesDue.TabIndex = 23;
-            this.lblFinesDue.Text = "Fines Due:";
-            this.lblFinesDue.Click += new System.EventHandler(this.lblFinesDue_Click);
+            this.btnEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEmail.Location = new System.Drawing.Point(694, 338);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(100, 35);
+            this.btnEmail.TabIndex = 45;
+            this.btnEmail.Text = "Email";
+            this.btnEmail.UseVisualStyleBackColor = false;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
-            // txtFineAmount
+            // lblDVDsOut
             // 
-            this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFineAmount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtFineAmount.Location = new System.Drawing.Point(699, 218);
-            this.txtFineAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtFineAmount.MaxLength = 6;
-            this.txtFineAmount.Name = "txtFineAmount";
-            this.txtFineAmount.PlaceholderText = "0.00";
-            this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
-            this.txtFineAmount.TabIndex = 22;
-            this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
+            this.lblDVDsOut.AutoSize = true;
+            this.lblDVDsOut.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDVDsOut.Location = new System.Drawing.Point(514, 262);
+            this.lblDVDsOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDVDsOut.Name = "lblDVDsOut";
+            this.lblDVDsOut.Size = new System.Drawing.Size(177, 28);
+            this.lblDVDsOut.TabIndex = 44;
+            this.lblDVDsOut.Text = "Currently Rented:";
+            this.lblDVDsOut.Click += new System.EventHandler(this.lblDVDsOut_Click);
             // 
-            // lblMemebershipStart
+            // btnPrint
             // 
-            this.lblMemebershipStart.AutoSize = true;
-            this.lblMemebershipStart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMemebershipStart.Location = new System.Drawing.Point(52, 93);
-            this.lblMemebershipStart.Name = "lblMemebershipStart";
-            this.lblMemebershipStart.Size = new System.Drawing.Size(152, 28);
-            this.lblMemebershipStart.TabIndex = 20;
-            this.lblMemebershipStart.Text = "Member Since:";
-            this.lblMemebershipStart.Click += new System.EventHandler(this.lblMemebershipStart_Click);
+            this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPrint.Location = new System.Drawing.Point(582, 338);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 35);
+            this.btnPrint.TabIndex = 46;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // lblMember
+            // textBox2
             // 
-            this.lblMember.AutoSize = true;
-            this.lblMember.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMember.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMember.Location = new System.Drawing.Point(152, 273);
-            this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(0, 28);
-            this.lblMember.TabIndex = 17;
+            this.textBox2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.textBox2.Location = new System.Drawing.Point(699, 258);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox2.MaxLength = 6;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PlaceholderText = "3";
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox2.Size = new System.Drawing.Size(95, 30);
+            this.textBox2.TabIndex = 43;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // lblCart
+            // lblStatementTo
             // 
-            this.lblCart.AutoSize = true;
-            this.lblCart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCart.Location = new System.Drawing.Point(32, 66);
-            this.lblCart.Name = "lblCart";
-            this.lblCart.Size = new System.Drawing.Size(0, 28);
-            this.lblCart.TabIndex = 16;
+            this.lblStatementTo.AutoSize = true;
+            this.lblStatementTo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStatementTo.Location = new System.Drawing.Point(533, 94);
+            this.lblStatementTo.Name = "lblStatementTo";
+            this.lblStatementTo.Size = new System.Drawing.Size(142, 28);
+            this.lblStatementTo.TabIndex = 42;
+            this.lblStatementTo.Text = "Statement To:";
+            this.lblStatementTo.Click += new System.EventHandler(this.lblStatementTo_Click);
             // 
-            // dtpDueBack
+            // dtpStatementTo
             // 
-            this.dtpDueBack.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpDueBack.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueBack.Location = new System.Drawing.Point(212, 93);
-            this.dtpDueBack.Name = "dtpDueBack";
-            this.dtpDueBack.Size = new System.Drawing.Size(181, 30);
-            this.dtpDueBack.TabIndex = 12;
-            this.dtpDueBack.Value = new System.DateTime(2019, 7, 18, 0, 0, 0, 0);
-            this.dtpDueBack.ValueChanged += new System.EventHandler(this.dtpDueBack_ValueChanged);
+            this.dtpStatementTo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpStatementTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStatementTo.Location = new System.Drawing.Point(681, 93);
+            this.dtpStatementTo.Name = "dtpStatementTo";
+            this.dtpStatementTo.Size = new System.Drawing.Size(110, 30);
+            this.dtpStatementTo.TabIndex = 41;
+            this.dtpStatementTo.ValueChanged += new System.EventHandler(this.dtpStatementTo_ValueChanged);
             // 
-            // lblStatementFrom
+            // txtEmail
             // 
-            this.lblStatementFrom.AutoSize = true;
-            this.lblStatementFrom.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatementFrom.Location = new System.Drawing.Point(508, 53);
-            this.lblStatementFrom.Name = "lblStatementFrom";
-            this.lblStatementFrom.Size = new System.Drawing.Size(168, 28);
-            this.lblStatementFrom.TabIndex = 28;
-            this.lblStatementFrom.Text = "Statement From:";
-            this.lblStatementFrom.Click += new System.EventHandler(this.lblStatementFrom_Click);
+            this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmail.Location = new System.Drawing.Point(212, 298);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.MaxLength = 50;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(180, 30);
+            this.txtEmail.TabIndex = 40;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // dtpStatementFrom
+            // lblEmail
             // 
-            this.dtpStatementFrom.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpStatementFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStatementFrom.Location = new System.Drawing.Point(681, 52);
-            this.dtpStatementFrom.Name = "dtpStatementFrom";
-            this.dtpStatementFrom.Size = new System.Drawing.Size(110, 30);
-            this.dtpStatementFrom.TabIndex = 27;
-            this.dtpStatementFrom.Value = new System.DateTime(2021, 10, 29, 0, 0, 0, 0);
-            this.dtpStatementFrom.ValueChanged += new System.EventHandler(this.dtpStatementFrom_ValueChanged);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEmail.Location = new System.Drawing.Point(135, 301);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(69, 28);
+            this.lblEmail.TabIndex = 37;
+            this.lblEmail.Text = "Email:";
+            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
             // cboMemID
             // 
@@ -365,104 +374,95 @@ namespace MovieSYS
             this.lblFirstName.Text = "First Name:";
             this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
-            // txtEmail
+            // lblStatementFrom
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(212, 298);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail.MaxLength = 50;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(180, 30);
-            this.txtEmail.TabIndex = 40;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.lblStatementFrom.AutoSize = true;
+            this.lblStatementFrom.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStatementFrom.Location = new System.Drawing.Point(508, 53);
+            this.lblStatementFrom.Name = "lblStatementFrom";
+            this.lblStatementFrom.Size = new System.Drawing.Size(168, 28);
+            this.lblStatementFrom.TabIndex = 28;
+            this.lblStatementFrom.Text = "Statement From:";
+            this.lblStatementFrom.Click += new System.EventHandler(this.lblStatementFrom_Click);
             // 
-            // lblEmail
+            // dtpStatementFrom
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(135, 301);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(69, 28);
-            this.lblEmail.TabIndex = 37;
-            this.lblEmail.Text = "Email:";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
+            this.dtpStatementFrom.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpStatementFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStatementFrom.Location = new System.Drawing.Point(681, 52);
+            this.dtpStatementFrom.Name = "dtpStatementFrom";
+            this.dtpStatementFrom.Size = new System.Drawing.Size(110, 30);
+            this.dtpStatementFrom.TabIndex = 27;
+            this.dtpStatementFrom.Value = new System.DateTime(2021, 10, 29, 0, 0, 0, 0);
+            this.dtpStatementFrom.ValueChanged += new System.EventHandler(this.dtpStatementFrom_ValueChanged);
             // 
-            // lblStatementTo
+            // lblFinesDue
             // 
-            this.lblStatementTo.AutoSize = true;
-            this.lblStatementTo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatementTo.Location = new System.Drawing.Point(533, 94);
-            this.lblStatementTo.Name = "lblStatementTo";
-            this.lblStatementTo.Size = new System.Drawing.Size(142, 28);
-            this.lblStatementTo.TabIndex = 42;
-            this.lblStatementTo.Text = "Statement To:";
-            this.lblStatementTo.Click += new System.EventHandler(this.lblStatementTo_Click);
+            this.lblFinesDue.AutoSize = true;
+            this.lblFinesDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFinesDue.Location = new System.Drawing.Point(582, 220);
+            this.lblFinesDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFinesDue.Name = "lblFinesDue";
+            this.lblFinesDue.Size = new System.Drawing.Size(109, 28);
+            this.lblFinesDue.TabIndex = 23;
+            this.lblFinesDue.Text = "Fines Due:";
+            this.lblFinesDue.Click += new System.EventHandler(this.lblFinesDue_Click);
             // 
-            // dtpStatementTo
+            // txtFineAmount
             // 
-            this.dtpStatementTo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpStatementTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStatementTo.Location = new System.Drawing.Point(681, 93);
-            this.dtpStatementTo.Name = "dtpStatementTo";
-            this.dtpStatementTo.Size = new System.Drawing.Size(110, 30);
-            this.dtpStatementTo.TabIndex = 41;
-            this.dtpStatementTo.ValueChanged += new System.EventHandler(this.dtpStatementTo_ValueChanged);
+            this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFineAmount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.txtFineAmount.Location = new System.Drawing.Point(699, 218);
+            this.txtFineAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtFineAmount.MaxLength = 6;
+            this.txtFineAmount.Name = "txtFineAmount";
+            this.txtFineAmount.PlaceholderText = "0.00";
+            this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
+            this.txtFineAmount.TabIndex = 22;
+            this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
-            // lblDVDsOut
+            // lblMemebershipStart
             // 
-            this.lblDVDsOut.AutoSize = true;
-            this.lblDVDsOut.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDVDsOut.Location = new System.Drawing.Point(514, 262);
-            this.lblDVDsOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDVDsOut.Name = "lblDVDsOut";
-            this.lblDVDsOut.Size = new System.Drawing.Size(177, 28);
-            this.lblDVDsOut.TabIndex = 44;
-            this.lblDVDsOut.Text = "Currently Rented:";
-            this.lblDVDsOut.Click += new System.EventHandler(this.lblDVDsOut_Click);
+            this.lblMemebershipStart.AutoSize = true;
+            this.lblMemebershipStart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemebershipStart.Location = new System.Drawing.Point(52, 93);
+            this.lblMemebershipStart.Name = "lblMemebershipStart";
+            this.lblMemebershipStart.Size = new System.Drawing.Size(152, 28);
+            this.lblMemebershipStart.TabIndex = 20;
+            this.lblMemebershipStart.Text = "Member Since:";
+            this.lblMemebershipStart.Click += new System.EventHandler(this.lblMemebershipStart_Click);
             // 
-            // textBox2
+            // lblMember
             // 
-            this.textBox2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.textBox2.Location = new System.Drawing.Point(699, 258);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox2.MaxLength = 6;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "3";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(95, 30);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.lblMember.AutoSize = true;
+            this.lblMember.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMember.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMember.Location = new System.Drawing.Point(152, 273);
+            this.lblMember.Name = "lblMember";
+            this.lblMember.Size = new System.Drawing.Size(0, 28);
+            this.lblMember.TabIndex = 17;
             // 
-            // btnEmail
+            // lblCart
             // 
-            this.btnEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnEmail.Location = new System.Drawing.Point(694, 338);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(100, 35);
-            this.btnEmail.TabIndex = 45;
-            this.btnEmail.Text = "Email";
-            this.btnEmail.UseVisualStyleBackColor = false;
-            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            this.lblCart.AutoSize = true;
+            this.lblCart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCart.Location = new System.Drawing.Point(32, 66);
+            this.lblCart.Name = "lblCart";
+            this.lblCart.Size = new System.Drawing.Size(0, 28);
+            this.lblCart.TabIndex = 16;
             // 
-            // btnPrint
+            // dtpDueBack
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPrint.Location = new System.Drawing.Point(582, 338);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(100, 35);
-            this.btnPrint.TabIndex = 46;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.dtpDueBack.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDueBack.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDueBack.Location = new System.Drawing.Point(212, 93);
+            this.dtpDueBack.Name = "dtpDueBack";
+            this.dtpDueBack.Size = new System.Drawing.Size(181, 30);
+            this.dtpDueBack.TabIndex = 12;
+            this.dtpDueBack.Value = new System.DateTime(2019, 7, 18, 0, 0, 0, 0);
+            this.dtpDueBack.ValueChanged += new System.EventHandler(this.dtpDueBack_ValueChanged);
             // 
             // frmCustomerStatement
             // 

@@ -117,12 +117,14 @@ namespace MovieSYS
             // 
             this.cboMemID.DropDownWidth = 60;
             this.cboMemID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboMemID.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboMemID.FormattingEnabled = true;
             this.cboMemID.Location = new System.Drawing.Point(247, 168);
             this.cboMemID.Margin = new System.Windows.Forms.Padding(4);
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
             this.cboMemID.TabIndex = 1;
+            this.cboMemID.Text = "CH - Childrens";
             this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
             // btnAddMem
@@ -165,6 +167,7 @@ namespace MovieSYS
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
             this.dateTimePicker1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(247, 337);

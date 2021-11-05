@@ -94,8 +94,8 @@ namespace MovieSYS
             // 
             this.dtpDate.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtpDate.CalendarMonthBackground = System.Drawing.Color.Azure;
-            this.dtpDate.CalendarTitleBackColor = System.Drawing.Color.SlateBlue;
-            this.dtpDate.CalendarTitleForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.dtpDate.CalendarTitleBackColor = System.Drawing.Color.LightSlateGray;
+            this.dtpDate.CalendarTitleForeColor = System.Drawing.Color.LightSlateGray;
             this.dtpDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDate.Location = new System.Drawing.Point(601, 147);
             this.dtpDate.Name = "dtpDate";
@@ -224,51 +224,61 @@ namespace MovieSYS
             // cboAge
             // 
             this.cboAge.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboAge.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboAge.FormattingEnabled = true;
             this.cboAge.Location = new System.Drawing.Point(601, 250);
             this.cboAge.Name = "cboAge";
             this.cboAge.Size = new System.Drawing.Size(50, 31);
             this.cboAge.TabIndex = 9;
+            this.cboAge.Text = "18";
             this.cboAge.SelectedIndexChanged += new System.EventHandler(this.cboAge_SelectedIndexChanged);
             // 
             // cboCat
             // 
             this.cboCat.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboCat.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboCat.FormattingEnabled = true;
             this.cboCat.Location = new System.Drawing.Point(223, 198);
             this.cboCat.Name = "cboCat";
-            this.cboCat.Size = new System.Drawing.Size(140, 31);
+            this.cboCat.Size = new System.Drawing.Size(180, 31);
             this.cboCat.TabIndex = 3;
+            this.cboCat.Text = "NR - New Release";
             this.cboCat.SelectedIndexChanged += new System.EventHandler(this.cboCat_SelectedIndexChanged);
             // 
             // cboLang
             // 
             this.cboLang.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboLang.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboLang.FormattingEnabled = true;
             this.cboLang.Location = new System.Drawing.Point(223, 251);
             this.cboLang.Name = "cboLang";
-            this.cboLang.Size = new System.Drawing.Size(140, 31);
+            this.cboLang.Size = new System.Drawing.Size(180, 31);
             this.cboLang.TabIndex = 4;
+            this.cboLang.Text = "ES - Spanish";
             this.cboLang.SelectedIndexChanged += new System.EventHandler(this.cboLang_SelectedIndexChanged);
             // 
             // cboCountry
             // 
             this.cboCountry.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboCountry.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboCountry.FormattingEnabled = true;
             this.cboCountry.Location = new System.Drawing.Point(601, 198);
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(140, 31);
             this.cboCountry.TabIndex = 8;
+            this.cboCountry.Text = "ES - Spain";
             this.cboCountry.SelectedIndexChanged += new System.EventHandler(this.cboCountry_SelectedIndexChanged);
             // 
             // cboGenre
             // 
             this.cboGenre.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboGenre.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboGenre.FormattingEnabled = true;
             this.cboGenre.Location = new System.Drawing.Point(223, 144);
             this.cboGenre.Name = "cboGenre";
-            this.cboGenre.Size = new System.Drawing.Size(140, 31);
+            this.cboGenre.Size = new System.Drawing.Size(180, 31);
             this.cboGenre.TabIndex = 2;
+            this.cboGenre.Text = "DF - Dark Fantasy";
             this.cboGenre.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
             // 
             // btnConfirmInfo
@@ -318,8 +328,9 @@ namespace MovieSYS
             this.txtDVDName.Location = new System.Drawing.Point(223, 91);
             this.txtDVDName.MaxLength = 30;
             this.txtDVDName.Name = "txtDVDName";
+            this.txtDVDName.PlaceholderText = "El Laberinto Del Fauno";
             this.txtDVDName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDVDName.Size = new System.Drawing.Size(140, 30);
+            this.txtDVDName.Size = new System.Drawing.Size(180, 30);
             this.txtDVDName.TabIndex = 1;
             this.txtDVDName.TextChanged += new System.EventHandler(this.txtDVDName_TextChanged);
             // 

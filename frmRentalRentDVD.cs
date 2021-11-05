@@ -48,12 +48,13 @@ namespace MovieSYS
 
         private void txtMemId_TextChanged(object sender, EventArgs e)
         {
-            //if valid make grpSearch visible
+            
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-
+            //Validate
+            grpSearch.Visible = true;
         }
 
         private void grpSearchRes_Enter(object sender, EventArgs e)
@@ -68,12 +69,13 @@ namespace MovieSYS
 
         private void btnRefine_Click(object sender, EventArgs e)
         {
-            //make grpSearchRes visible
+            //Validate
+            grpRefine.Visible = true;
         }
 
         private void btnAddtoCart1_Click(object sender, EventArgs e)
         {
-
+            grpRentDetails.Visible = true;
         }
 
         private void grpSearch_Enter(object sender, EventArgs e)
@@ -93,7 +95,7 @@ namespace MovieSYS
 
         private void btnConfirmRefine_Click(object sender, EventArgs e)
         {
-
+            grpRentDetails.Visible = true;
         }
 
         private void grpRentDetails_Enter(object sender, EventArgs e)
@@ -158,7 +160,7 @@ namespace MovieSYS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            grpRentDetails.Visible = false;
         }
 
         private void btnBuy_Click(object sender, EventArgs e)

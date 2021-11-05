@@ -46,7 +46,8 @@ namespace MovieSYS
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            //If details valid make grpMemDetails visible
+            //Validate
+            grpMemDetails.Visible = true;
         }
 
         private void grpMemDetails_Enter(object sender, EventArgs e)

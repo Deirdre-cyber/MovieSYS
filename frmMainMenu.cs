@@ -13,6 +13,12 @@ namespace MovieSYS
         public frmMainMenu()
         {
             InitializeComponent();
+            mnuMembers.Visible = false;
+            mnuDVD.Visible = false;
+            mnuRentals.Visible = false;
+            mnuAdmin.Visible = false;
+            mnuLogout.Visible = false;
+
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -115,5 +121,61 @@ namespace MovieSYS
             customerStatement.Show();
         }
 
+        private void grpLogin_Enter(object sender, EventArgs e)
+        {
+            txtPass.PasswordChar = '*';
+            txtPass.MaxLength = 4;
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+            txtPass.MaxLength = 20;
+        }
+
+        private void lblPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text.Equals("ABC") && txtPass.Text.Equals("123"))
+            {
+                MessageBox.Show("Welcome to the System " + txtUser.Text, "Welcome", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                mnuMembers.Visible = true;
+                mnuDVD.Visible = true;
+                mnuRentals.Visible = true;
+                mnuAdmin.Visible = true;
+                grpLogin.Visible = false;
+                mnuLogout.Visible = true;
+            }
+            else if (txtUser.Text.Equals("") || txtPass.Text.Equals(""))
+            {
+                MessageBox.Show("Both fields must be completed", "Information Missing", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else
+                MessageBox.Show("Invalid Username and Password", "Incorrect Details Entered", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+        }
+
+        private void mnuLogout_Click(object sender, EventArgs e)
+        {
+            mnuMembers.Visible = false;
+            mnuDVD.Visible = false;
+            mnuRentals.Visible = false;
+            mnuAdmin.Visible = false;
+            grpLogin.Visible = true;
+            mnuLogout.Visible = false;
+        }
     }
 }

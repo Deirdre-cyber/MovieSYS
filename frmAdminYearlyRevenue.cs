@@ -21,6 +21,9 @@ namespace MovieSYS
         {
             InitializeComponent();
             this.parent = Parent;
+            grpRefine.Visible = false;
+            btnDownload.Visible = false;
+            btnPrint.Visible = false;
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -44,27 +47,27 @@ namespace MovieSYS
 
         }
 
-        private void rbFirstQuart_CheckedChanged(object sender, EventArgs e)
+        private void chkFirstQuart_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void rbSecQuart_CheckedChanged(object sender, EventArgs e)
+        private void chkSecondQuart_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void rbThirdQuart_CheckedChanged(object sender, EventArgs e)
+        private void chkThirdQuart_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void rbFourthQuart_CheckedChanged(object sender, EventArgs e)
+        private void chkFourthQuart_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void rbSelectAll_CheckedChanged(object sender, EventArgs e)
+        private void chkAllQuart_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -78,5 +81,53 @@ namespace MovieSYS
         {
 
         }
+
+        private void btnRefine_Click(object sender, EventArgs e)
+        {
+            //Validate
+            grpRefine.Visible = true;
+        }
+
+        private void grpRefine_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkCategory_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkGenre_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkFinesPaid_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkRefineAll_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGenerateRefine_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

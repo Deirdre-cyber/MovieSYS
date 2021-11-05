@@ -21,6 +21,7 @@ namespace MovieSYS
         {
             InitializeComponent();
             this.parent = Parent;
+            grpOverdueDetails.Visible = false;
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace MovieSYS
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
+            grpOverdueDetails.Visible = true;
         }
 
         private void grpOverdueDetails_Enter(object sender, EventArgs e)
@@ -100,6 +101,11 @@ namespace MovieSYS
         }
 
         private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSendReminder_Click(object sender, EventArgs e)
         {
 
         }

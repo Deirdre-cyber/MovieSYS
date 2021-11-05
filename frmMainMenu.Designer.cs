@@ -46,7 +46,15 @@ namespace MovieSYS
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuYearlyRev = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCustomerStatement = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpLogin = new System.Windows.Forms.GroupBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.mnuMain.SuspendLayout();
+            this.grpLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -59,7 +67,8 @@ namespace MovieSYS
             this.mnuDVD,
             this.mnuMembers,
             this.mnuRentals,
-            this.mnuAdmin});
+            this.mnuAdmin,
+            this.mnuLogout});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Padding = new System.Windows.Forms.Padding(8);
@@ -230,6 +239,97 @@ namespace MovieSYS
             this.mnuCustomerStatement.Text = "Issue Customer Statement";
             this.mnuCustomerStatement.Click += new System.EventHandler(this.mnuCustomerStatement_Click);
             // 
+            // mnuLogout
+            // 
+            this.mnuLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.mnuLogout.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuLogout.Name = "mnuLogout";
+            this.mnuLogout.Size = new System.Drawing.Size(89, 32);
+            this.mnuLogout.Text = "Logout";
+            this.mnuLogout.Click += new System.EventHandler(this.mnuLogout_Click);
+            // 
+            // grpLogin
+            // 
+            this.grpLogin.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.grpLogin.Controls.Add(this.lblPassword);
+            this.grpLogin.Controls.Add(this.lblUsername);
+            this.grpLogin.Controls.Add(this.btnConfirm);
+            this.grpLogin.Controls.Add(this.txtPass);
+            this.grpLogin.Controls.Add(this.txtUser);
+            this.grpLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grpLogin.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpLogin.Location = new System.Drawing.Point(118, 134);
+            this.grpLogin.Name = "grpLogin";
+            this.grpLogin.Size = new System.Drawing.Size(744, 471);
+            this.grpLogin.TabIndex = 2;
+            this.grpLogin.TabStop = false;
+            this.grpLogin.Text = "Login Details";
+            this.grpLogin.Enter += new System.EventHandler(this.grpLogin_Enter);
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPassword.Location = new System.Drawing.Point(234, 196);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(105, 28);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Text = "Password:";
+            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUsername.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblUsername.Location = new System.Drawing.Point(228, 133);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(111, 28);
+            this.lblUsername.TabIndex = 5;
+            this.lblUsername.Text = "Username:";
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirm.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnConfirm.Location = new System.Drawing.Point(323, 263);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(100, 35);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // txtPass
+            // 
+            this.txtPass.BackColor = System.Drawing.Color.Azure;
+            this.txtPass.Font = new System.Drawing.Font("Nirmala UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPass.ForeColor = System.Drawing.Color.LightSlateGray;
+            this.txtPass.Location = new System.Drawing.Point(345, 198);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PlaceholderText = "password";
+            this.txtPass.Size = new System.Drawing.Size(180, 30);
+            this.txtPass.TabIndex = 3;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            // 
+            // txtUser
+            // 
+            this.txtUser.BackColor = System.Drawing.Color.Azure;
+            this.txtUser.Font = new System.Drawing.Font("Nirmala UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUser.ForeColor = System.Drawing.Color.LightSlateGray;
+            this.txtUser.Location = new System.Drawing.Point(345, 135);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.PlaceholderText = "username";
+            this.txtUser.Size = new System.Drawing.Size(180, 30);
+            this.txtUser.TabIndex = 1;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -238,6 +338,7 @@ namespace MovieSYS
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1000, 720);
+            this.Controls.Add(this.grpLogin);
             this.Controls.Add(this.mnuMain);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -249,6 +350,8 @@ namespace MovieSYS
             this.Load += new System.EventHandler(this.frmMainPage_Load);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
+            this.grpLogin.ResumeLayout(false);
+            this.grpLogin.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +375,12 @@ namespace MovieSYS
         private System.Windows.Forms.ToolStripMenuItem mnuCatalogue;
         private System.Windows.Forms.ToolStripMenuItem mnuRemove;
         private System.Windows.Forms.ToolStripMenuItem mnuListOverdue;
+        private System.Windows.Forms.GroupBox grpLogin;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.ToolStripMenuItem mnuLogout;
     }
 }

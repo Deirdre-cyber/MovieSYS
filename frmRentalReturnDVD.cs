@@ -53,7 +53,8 @@ namespace MovieSYS
 
         private void btnSelectMem_Click(object sender, EventArgs e)
         {
-            //if valid set grpReturnDVD visible
+            //Validate
+            grpReturnDVD.Visible = true;
         }
 
         private void grpReturnDVD_Enter(object sender, EventArgs e)

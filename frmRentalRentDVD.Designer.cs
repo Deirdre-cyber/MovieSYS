@@ -44,8 +44,6 @@ namespace MovieSYS
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblDueBack = new System.Windows.Forms.Label();
             this.lblRentedOn = new System.Windows.Forms.Label();
-            this.txtMemId2 = new System.Windows.Forms.TextBox();
-            this.lblMember = new System.Windows.Forms.Label();
             this.lblCart = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -214,8 +212,6 @@ namespace MovieSYS
             this.grpRentDetails.Controls.Add(this.lblTotal);
             this.grpRentDetails.Controls.Add(this.lblDueBack);
             this.grpRentDetails.Controls.Add(this.lblRentedOn);
-            this.grpRentDetails.Controls.Add(this.txtMemId2);
-            this.grpRentDetails.Controls.Add(this.lblMember);
             this.grpRentDetails.Controls.Add(this.lblCart);
             this.grpRentDetails.Controls.Add(this.btnRemove);
             this.grpRentDetails.Controls.Add(this.btnCancel);
@@ -238,7 +234,7 @@ namespace MovieSYS
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(488, 194);
+            this.lblTotal.Location = new System.Drawing.Point(490, 156);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(64, 28);
             this.lblTotal.TabIndex = 21;
@@ -249,7 +245,7 @@ namespace MovieSYS
             // 
             this.lblDueBack.AutoSize = true;
             this.lblDueBack.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDueBack.Location = new System.Drawing.Point(451, 145);
+            this.lblDueBack.Location = new System.Drawing.Point(453, 107);
             this.lblDueBack.Name = "lblDueBack";
             this.lblDueBack.Size = new System.Drawing.Size(106, 28);
             this.lblDueBack.TabIndex = 20;
@@ -260,38 +256,12 @@ namespace MovieSYS
             // 
             this.lblRentedOn.AutoSize = true;
             this.lblRentedOn.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRentedOn.Location = new System.Drawing.Point(444, 104);
+            this.lblRentedOn.Location = new System.Drawing.Point(446, 66);
             this.lblRentedOn.Name = "lblRentedOn";
             this.lblRentedOn.Size = new System.Drawing.Size(113, 28);
             this.lblRentedOn.TabIndex = 19;
             this.lblRentedOn.Text = "Rented on:";
             this.lblRentedOn.Click += new System.EventHandler(this.lblRentedOn_Click);
-            // 
-            // txtMemId2
-            // 
-            this.txtMemId2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMemId2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtMemId2.Location = new System.Drawing.Point(563, 64);
-            this.txtMemId2.MaxLength = 8;
-            this.txtMemId2.Name = "txtMemId2";
-            this.txtMemId2.PlaceholderText = "00000001";
-            this.txtMemId2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtMemId2.Size = new System.Drawing.Size(110, 30);
-            this.txtMemId2.TabIndex = 18;
-            this.txtMemId2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMemId2.TextChanged += new System.EventHandler(this.txtMemId2_TextChanged);
-            // 
-            // lblMember
-            // 
-            this.lblMember.AutoSize = true;
-            this.lblMember.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMember.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMember.Location = new System.Drawing.Point(434, 66);
-            this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(123, 28);
-            this.lblMember.TabIndex = 17;
-            this.lblMember.Text = "Member ID:";
-            this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
             // 
             // lblCart
             // 
@@ -361,7 +331,7 @@ namespace MovieSYS
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrice.Location = new System.Drawing.Point(563, 194);
+            this.txtPrice.Location = new System.Drawing.Point(565, 156);
             this.txtPrice.MaxLength = 8;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PlaceholderText = "0.00";
@@ -374,7 +344,7 @@ namespace MovieSYS
             // 
             this.dtpDueBack.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDueBack.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueBack.Location = new System.Drawing.Point(563, 143);
+            this.dtpDueBack.Location = new System.Drawing.Point(565, 105);
             this.dtpDueBack.Name = "dtpDueBack";
             this.dtpDueBack.Size = new System.Drawing.Size(110, 30);
             this.dtpDueBack.TabIndex = 12;
@@ -385,7 +355,7 @@ namespace MovieSYS
             // 
             this.dtpRentDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpRentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRentDate.Location = new System.Drawing.Point(563, 102);
+            this.dtpRentDate.Location = new System.Drawing.Point(565, 64);
             this.dtpRentDate.Name = "dtpRentDate";
             this.dtpRentDate.Size = new System.Drawing.Size(110, 30);
             this.dtpRentDate.TabIndex = 11;
@@ -501,8 +471,6 @@ namespace MovieSYS
         private System.Windows.Forms.ComboBox cboRefineOptions;
         private System.Windows.Forms.Label lblMemberId;
         private System.Windows.Forms.Label lblCart;
-        private System.Windows.Forms.Label lblMember;
-        private System.Windows.Forms.TextBox txtMemId2;
         private System.Windows.Forms.Label lblRentedOn;
         private System.Windows.Forms.Label lblDueBack;
         private System.Windows.Forms.Label lblTotal;

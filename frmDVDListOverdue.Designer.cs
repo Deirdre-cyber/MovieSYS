@@ -44,6 +44,7 @@ namespace MovieSYS
             this.cboOverdue = new System.Windows.Forms.ComboBox();
             this.mnuCloseLogin = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSendReminder = new System.Windows.Forms.Button();
             this.grpListOverDue.SuspendLayout();
             this.grpOverdueDetails.SuspendLayout();
             this.mnuCloseLogin.SuspendLayout();
@@ -69,6 +70,7 @@ namespace MovieSYS
             // 
             // grpOverdueDetails
             // 
+            this.grpOverdueDetails.Controls.Add(this.btnSendReminder);
             this.grpOverdueDetails.Controls.Add(this.btnClose);
             this.grpOverdueDetails.Controls.Add(this.txtFineAmount);
             this.grpOverdueDetails.Controls.Add(this.lblFineDue);
@@ -248,6 +250,21 @@ namespace MovieSYS
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
+            // btnSendReminder
+            // 
+            this.btnSendReminder.BackColor = System.Drawing.Color.GhostWhite;
+            this.btnSendReminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendReminder.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSendReminder.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnSendReminder.Location = new System.Drawing.Point(377, 234);
+            this.btnSendReminder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSendReminder.Name = "btnSendReminder";
+            this.btnSendReminder.Size = new System.Drawing.Size(145, 40);
+            this.btnSendReminder.TabIndex = 8;
+            this.btnSendReminder.Text = "Send Reminder";
+            this.btnSendReminder.UseVisualStyleBackColor = false;
+            this.btnSendReminder.Click += new System.EventHandler(this.btnSendReminder_Click);
+            // 
             // frmListOverdue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -288,5 +305,6 @@ namespace MovieSYS
         private System.Windows.Forms.TextBox txtFineAmount;
         private System.Windows.Forms.Label lblFineDue;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSendReminder;
     }
 }

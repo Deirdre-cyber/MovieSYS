@@ -23,9 +23,8 @@ namespace MovieSYS
             this.parent = Parent;
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuExit_Click(object sender, EventArgs e)
         {
-            //exit window
             this.Close();
             parent.Visible = true;
         }
@@ -43,6 +42,16 @@ namespace MovieSYS
         private void cboCat_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if option selected, lstDVDs changes to reflect only relevant Categories
+        }
+
+        private void lblEnterTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDVDTitle_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void lblChooseDVD_Click(object sender, EventArgs e)
@@ -65,5 +74,6 @@ namespace MovieSYS
             //if cancel - close warning box
         }
 
+        
     }
 }

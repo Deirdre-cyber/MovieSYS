@@ -45,6 +45,10 @@ namespace MovieSYS
             this.cboOverdue = new System.Windows.Forms.ComboBox();
             this.mnuCloseLogin = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDVDTitle = new System.Windows.Forms.Label();
+            this.txtDVDTitle = new System.Windows.Forms.TextBox();
+            this.txtOverdue = new System.Windows.Forms.TextBox();
+            this.lblOverdue = new System.Windows.Forms.Label();
             this.grpListOverDue.SuspendLayout();
             this.grpOverdueDetails.SuspendLayout();
             this.mnuCloseLogin.SuspendLayout();
@@ -70,6 +74,10 @@ namespace MovieSYS
             // 
             // grpOverdueDetails
             // 
+            this.grpOverdueDetails.Controls.Add(this.txtOverdue);
+            this.grpOverdueDetails.Controls.Add(this.lblOverdue);
+            this.grpOverdueDetails.Controls.Add(this.lblDVDTitle);
+            this.grpOverdueDetails.Controls.Add(this.txtDVDTitle);
             this.grpOverdueDetails.Controls.Add(this.btnSendReminder);
             this.grpOverdueDetails.Controls.Add(this.btnClose);
             this.grpOverdueDetails.Controls.Add(this.txtFineAmount);
@@ -99,7 +107,7 @@ namespace MovieSYS
             this.btnSendReminder.Margin = new System.Windows.Forms.Padding(0);
             this.btnSendReminder.Name = "btnSendReminder";
             this.btnSendReminder.Size = new System.Drawing.Size(145, 40);
-            this.btnSendReminder.TabIndex = 8;
+            this.btnSendReminder.TabIndex = 9;
             this.btnSendReminder.Text = "Send Reminder";
             this.btnSendReminder.UseVisualStyleBackColor = false;
             this.btnSendReminder.Click += new System.EventHandler(this.btnSendReminder_Click);
@@ -114,7 +122,7 @@ namespace MovieSYS
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 40);
-            this.btnClose.TabIndex = 7;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -122,13 +130,13 @@ namespace MovieSYS
             // txtFineAmount
             // 
             this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFineAmount.Location = new System.Drawing.Point(483, 88);
+            this.txtFineAmount.Location = new System.Drawing.Point(528, 182);
             this.txtFineAmount.MaxLength = 6;
             this.txtFineAmount.Name = "txtFineAmount";
             this.txtFineAmount.PlaceholderText = "2.50";
             this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtFineAmount.Size = new System.Drawing.Size(70, 30);
-            this.txtFineAmount.TabIndex = 6;
+            this.txtFineAmount.TabIndex = 8;
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
@@ -136,7 +144,7 @@ namespace MovieSYS
             // 
             this.lblFineDue.AutoSize = true;
             this.lblFineDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFineDue.Location = new System.Drawing.Point(377, 90);
+            this.lblFineDue.Location = new System.Drawing.Point(422, 184);
             this.lblFineDue.Name = "lblFineDue";
             this.lblFineDue.Size = new System.Drawing.Size(100, 28);
             this.lblFineDue.TabIndex = 0;
@@ -148,7 +156,7 @@ namespace MovieSYS
             this.lblMember.AutoSize = true;
             this.lblMember.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMember.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMember.Location = new System.Drawing.Point(73, 90);
+            this.lblMember.Location = new System.Drawing.Point(73, 34);
             this.lblMember.Name = "lblMember";
             this.lblMember.Size = new System.Drawing.Size(123, 28);
             this.lblMember.TabIndex = 0;
@@ -158,10 +166,10 @@ namespace MovieSYS
             // txtMemId2
             // 
             this.txtMemId2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMemId2.Location = new System.Drawing.Point(202, 88);
+            this.txtMemId2.Location = new System.Drawing.Point(202, 32);
             this.txtMemId2.MaxLength = 8;
             this.txtMemId2.Name = "txtMemId2";
-            this.txtMemId2.PlaceholderText = "00000001";
+            this.txtMemId2.PlaceholderText = "0000001";
             this.txtMemId2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtMemId2.Size = new System.Drawing.Size(140, 30);
             this.txtMemId2.TabIndex = 3;
@@ -172,7 +180,7 @@ namespace MovieSYS
             // 
             this.lblDueBack.AutoSize = true;
             this.lblDueBack.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDueBack.Location = new System.Drawing.Point(90, 170);
+            this.lblDueBack.Location = new System.Drawing.Point(90, 184);
             this.lblDueBack.Name = "lblDueBack";
             this.lblDueBack.Size = new System.Drawing.Size(106, 28);
             this.lblDueBack.TabIndex = 0;
@@ -184,10 +192,10 @@ namespace MovieSYS
             this.dtpDueBack.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
             this.dtpDueBack.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDueBack.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueBack.Location = new System.Drawing.Point(202, 169);
+            this.dtpDueBack.Location = new System.Drawing.Point(202, 183);
             this.dtpDueBack.Name = "dtpDueBack";
             this.dtpDueBack.Size = new System.Drawing.Size(140, 30);
-            this.dtpDueBack.TabIndex = 5;
+            this.dtpDueBack.TabIndex = 6;
             this.dtpDueBack.Value = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.dtpDueBack.ValueChanged += new System.EventHandler(this.dtpDueBack_ValueChanged);
             // 
@@ -195,7 +203,7 @@ namespace MovieSYS
             // 
             this.lblRentedon.AutoSize = true;
             this.lblRentedon.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRentedon.Location = new System.Drawing.Point(83, 129);
+            this.lblRentedon.Location = new System.Drawing.Point(83, 143);
             this.lblRentedon.Name = "lblRentedon";
             this.lblRentedon.Size = new System.Drawing.Size(113, 28);
             this.lblRentedon.TabIndex = 0;
@@ -207,10 +215,10 @@ namespace MovieSYS
             this.dtpRentDate.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
             this.dtpRentDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpRentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRentDate.Location = new System.Drawing.Point(202, 128);
+            this.dtpRentDate.Location = new System.Drawing.Point(202, 142);
             this.dtpRentDate.Name = "dtpRentDate";
             this.dtpRentDate.Size = new System.Drawing.Size(140, 30);
-            this.dtpRentDate.TabIndex = 4;
+            this.dtpRentDate.TabIndex = 5;
             this.dtpRentDate.ValueChanged += new System.EventHandler(this.dtpRentDate_ValueChanged);
             // 
             // btnSelect
@@ -250,7 +258,7 @@ namespace MovieSYS
             this.mnuCloseLogin.Name = "mnuCloseLogin";
             this.mnuCloseLogin.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
             this.mnuCloseLogin.Size = new System.Drawing.Size(1000, 33);
-            this.mnuCloseLogin.TabIndex = 8;
+            this.mnuCloseLogin.TabIndex = 11;
             this.mnuCloseLogin.Text = "menuStrip1";
             this.mnuCloseLogin.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuCloseLogin_ItemClicked);
             // 
@@ -264,6 +272,55 @@ namespace MovieSYS
             this.mnuExit.Size = new System.Drawing.Size(35, 27);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // lblDVDTitle
+            // 
+            this.lblDVDTitle.AutoSize = true;
+            this.lblDVDTitle.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDVDTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDVDTitle.Location = new System.Drawing.Point(87, 70);
+            this.lblDVDTitle.Name = "lblDVDTitle";
+            this.lblDVDTitle.Size = new System.Drawing.Size(109, 28);
+            this.lblDVDTitle.TabIndex = 0;
+            this.lblDVDTitle.Text = "DVD Title:";
+            this.lblDVDTitle.Click += new System.EventHandler(this.lblDVDTitle_Click);
+            // 
+            // txtDVDTitle
+            // 
+            this.txtDVDTitle.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDVDTitle.Location = new System.Drawing.Point(202, 68);
+            this.txtDVDTitle.MaxLength = 8;
+            this.txtDVDTitle.Name = "txtDVDTitle";
+            this.txtDVDTitle.PlaceholderText = "The Nightmare Before Christmas";
+            this.txtDVDTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDVDTitle.Size = new System.Drawing.Size(280, 30);
+            this.txtDVDTitle.TabIndex = 4;
+            this.txtDVDTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDVDTitle.TextChanged += new System.EventHandler(this.txtDVDTitle_TextChanged);
+            // 
+            // txtOverdue
+            // 
+            this.txtOverdue.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtOverdue.Location = new System.Drawing.Point(528, 141);
+            this.txtOverdue.MaxLength = 6;
+            this.txtOverdue.Name = "txtOverdue";
+            this.txtOverdue.PlaceholderText = "3";
+            this.txtOverdue.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtOverdue.Size = new System.Drawing.Size(70, 30);
+            this.txtOverdue.TabIndex = 7;
+            this.txtOverdue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOverdue.TextChanged += new System.EventHandler(this.txtOverdue_TextChanged);
+            // 
+            // lblOverdue
+            // 
+            this.lblOverdue.AutoSize = true;
+            this.lblOverdue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOverdue.Location = new System.Drawing.Point(422, 143);
+            this.lblOverdue.Name = "lblOverdue";
+            this.lblOverdue.Size = new System.Drawing.Size(97, 28);
+            this.lblOverdue.TabIndex = 0;
+            this.lblOverdue.Text = "Overdue:";
+            this.lblOverdue.Click += new System.EventHandler(this.lblOverdue_Click);
             // 
             // frmListOverdue
             // 
@@ -306,5 +363,9 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblFineDue;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSendReminder;
+        private System.Windows.Forms.Label lblDVDTitle;
+        private System.Windows.Forms.TextBox txtDVDTitle;
+        private System.Windows.Forms.TextBox txtOverdue;
+        private System.Windows.Forms.Label lblOverdue;
     }
 }

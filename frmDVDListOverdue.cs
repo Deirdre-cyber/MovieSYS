@@ -60,6 +60,16 @@ namespace MovieSYS
 
         }
 
+        private void lblDVDTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDVDTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void lblMember_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +100,16 @@ namespace MovieSYS
 
         }
 
+        private void lblOverdue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOverdue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void lblFineDue_Click(object sender, EventArgs e)
         {
 
@@ -109,5 +129,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

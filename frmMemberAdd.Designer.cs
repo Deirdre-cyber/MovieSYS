@@ -32,18 +32,17 @@ namespace MovieSYS
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpAddMem = new System.Windows.Forms.GroupBox();
+            this.dtpMemStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblMemStartDate = new System.Windows.Forms.Label();
             this.cboMemID = new System.Windows.Forms.ComboBox();
             this.btnAddMem = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtContactNo = new System.Windows.Forms.TextBox();
-            this.txtIban = new System.Windows.Forms.TextBox();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblMemberType = new System.Windows.Forms.Label();
-            this.lblIban = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblContactNo = new System.Windows.Forms.Label();
             this.lblEircode = new System.Windows.Forms.Label();
@@ -51,8 +50,7 @@ namespace MovieSYS
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblMemberId = new System.Windows.Forms.Label();
-            this.dtpMemStartDate = new System.Windows.Forms.DateTimePicker();
-            this.lblMemStartDate = new System.Windows.Forms.Label();
+            this.txtMemId = new System.Windows.Forms.TextBox();
             this.mnuAdd.SuspendLayout();
             this.grpAddMem.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +82,7 @@ namespace MovieSYS
             // 
             // grpAddMem
             // 
+            this.grpAddMem.Controls.Add(this.txtMemId);
             this.grpAddMem.Controls.Add(this.dtpMemStartDate);
             this.grpAddMem.Controls.Add(this.lblMemStartDate);
             this.grpAddMem.Controls.Add(this.cboMemID);
@@ -92,12 +91,9 @@ namespace MovieSYS
             this.grpAddMem.Controls.Add(this.txtLastName);
             this.grpAddMem.Controls.Add(this.dateTimePicker1);
             this.grpAddMem.Controls.Add(this.txtContactNo);
-            this.grpAddMem.Controls.Add(this.txtIban);
             this.grpAddMem.Controls.Add(this.txtEircode);
             this.grpAddMem.Controls.Add(this.txtFirstName);
-            this.grpAddMem.Controls.Add(this.textBox1);
             this.grpAddMem.Controls.Add(this.lblMemberType);
-            this.grpAddMem.Controls.Add(this.lblIban);
             this.grpAddMem.Controls.Add(this.lblEmail);
             this.grpAddMem.Controls.Add(this.lblContactNo);
             this.grpAddMem.Controls.Add(this.lblEircode);
@@ -116,6 +112,32 @@ namespace MovieSYS
             this.grpAddMem.TabStop = false;
             this.grpAddMem.Text = "Add New Member";
             this.grpAddMem.Enter += new System.EventHandler(this.grpAddMem_Enter);
+            // 
+            // dtpMemStartDate
+            // 
+            this.dtpMemStartDate.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dtpMemStartDate.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
+            this.dtpMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpMemStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpMemStartDate.Location = new System.Drawing.Point(633, 279);
+            this.dtpMemStartDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpMemStartDate.Name = "dtpMemStartDate";
+            this.dtpMemStartDate.Size = new System.Drawing.Size(180, 30);
+            this.dtpMemStartDate.TabIndex = 9;
+            this.dtpMemStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
+            this.dtpMemStartDate.ValueChanged += new System.EventHandler(this.dtpMemStartDate_ValueChanged);
+            // 
+            // lblMemStartDate
+            // 
+            this.lblMemStartDate.AutoSize = true;
+            this.lblMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemStartDate.Location = new System.Drawing.Point(511, 281);
+            this.lblMemStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMemStartDate.Name = "lblMemStartDate";
+            this.lblMemStartDate.Size = new System.Drawing.Size(114, 28);
+            this.lblMemStartDate.TabIndex = 0;
+            this.lblMemStartDate.Text = "Start Date:";
+            this.lblMemStartDate.Click += new System.EventHandler(this.lblMemStartDate_Click);
             // 
             // cboMemID
             // 
@@ -193,17 +215,6 @@ namespace MovieSYS
             this.txtContactNo.TabIndex = 5;
             this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
-            // txtIban
-            // 
-            this.txtIban.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIban.Location = new System.Drawing.Point(633, 280);
-            this.txtIban.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIban.MaxLength = 16;
-            this.txtIban.Name = "txtIban";
-            this.txtIban.Size = new System.Drawing.Size(180, 30);
-            this.txtIban.TabIndex = 8;
-            this.txtIban.TextChanged += new System.EventHandler(this.txtIban_TextChanged);
-            // 
             // txtEircode
             // 
             this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -226,19 +237,6 @@ namespace MovieSYS
             this.txtFirstName.TabIndex = 2;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(247, 111);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.MaxLength = 8;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "00000001";
-            this.textBox1.Size = new System.Drawing.Size(180, 30);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // lblMemberType
             // 
             this.lblMemberType.AutoSize = true;
@@ -250,18 +248,6 @@ namespace MovieSYS
             this.lblMemberType.TabIndex = 0;
             this.lblMemberType.Text = "Membership Type:";
             this.lblMemberType.Click += new System.EventHandler(this.lblMemberType_Click);
-            // 
-            // lblIban
-            // 
-            this.lblIban.AutoSize = true;
-            this.lblIban.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblIban.Location = new System.Drawing.Point(559, 280);
-            this.lblIban.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIban.Name = "lblIban";
-            this.lblIban.Size = new System.Drawing.Size(66, 28);
-            this.lblIban.TabIndex = 0;
-            this.lblIban.Text = "IBAN:";
-            this.lblIban.Click += new System.EventHandler(this.lblIban_Click);
             // 
             // lblEmail
             // 
@@ -347,31 +333,18 @@ namespace MovieSYS
             this.lblMemberId.Text = "Member ID:";
             this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
             // 
-            // dtpMemStartDate
+            // txtMemId
             // 
-            this.dtpMemStartDate.CalendarForeColor = System.Drawing.Color.DarkSlateGray;
-            this.dtpMemStartDate.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
-            this.dtpMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpMemStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpMemStartDate.Location = new System.Drawing.Point(633, 337);
-            this.dtpMemStartDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpMemStartDate.Name = "dtpMemStartDate";
-            this.dtpMemStartDate.Size = new System.Drawing.Size(180, 30);
-            this.dtpMemStartDate.TabIndex = 9;
-            this.dtpMemStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
-            this.dtpMemStartDate.ValueChanged += new System.EventHandler(this.dtpMemStartDate_ValueChanged);
-            // 
-            // lblMemStartDate
-            // 
-            this.lblMemStartDate.AutoSize = true;
-            this.lblMemStartDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMemStartDate.Location = new System.Drawing.Point(511, 339);
-            this.lblMemStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMemStartDate.Name = "lblMemStartDate";
-            this.lblMemStartDate.Size = new System.Drawing.Size(114, 28);
-            this.lblMemStartDate.TabIndex = 0;
-            this.lblMemStartDate.Text = "Start Date:";
-            this.lblMemStartDate.Click += new System.EventHandler(this.lblMemStartDate_Click);
+            this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemId.Location = new System.Drawing.Point(247, 115);
+            this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemId.MaxLength = 8;
+            this.txtMemId.Name = "txtMemId";
+            this.txtMemId.PlaceholderText = "0000001";
+            this.txtMemId.Size = new System.Drawing.Size(180, 30);
+            this.txtMemId.TabIndex = 11;
+            this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
             // 
             // frmMemberAdd
             // 
@@ -408,12 +381,9 @@ namespace MovieSYS
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtContactNo;
-        private System.Windows.Forms.TextBox txtIban;
         private System.Windows.Forms.TextBox txtEircode;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblMemberType;
-        private System.Windows.Forms.Label lblIban;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblContactNo;
         private System.Windows.Forms.Label lblEircode;
@@ -423,5 +393,6 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblMemberId;
         private System.Windows.Forms.DateTimePicker dtpMemStartDate;
         private System.Windows.Forms.Label lblMemStartDate;
+        private System.Windows.Forms.TextBox txtMemId;
     }
 }

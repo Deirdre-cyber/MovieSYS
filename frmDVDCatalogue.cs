@@ -35,6 +35,16 @@ namespace MovieSYS
             
         }
 
+        private void lblDvdId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDVDId_TextChanged(object sender, EventArgs e)
+        {
+            //incremented automatically
+        }
+
         private void lblTitle_Click(object sender, EventArgs e)
         {
 

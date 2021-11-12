@@ -41,10 +41,11 @@ namespace MovieSYS
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtMemId_TextChanged(object sender, EventArgs e)
         {
 
         }
+
 
         private void lblMemberType_Click(object sender, EventArgs e)
         {
@@ -116,15 +117,6 @@ namespace MovieSYS
 
         }
 
-        private void lblIban_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIban_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAddMem_Click(object sender, EventArgs e)
         {
@@ -145,5 +137,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

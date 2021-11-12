@@ -34,17 +34,12 @@ namespace MovieSYS
 
         }
 
-        private void lblRefine_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboCat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if option selected, lstDVDs changes to reflect only relevant Categories
-        }
-
         private void lblEnterTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }

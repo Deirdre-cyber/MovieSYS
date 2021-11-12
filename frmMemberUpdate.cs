@@ -41,12 +41,12 @@ namespace MovieSYS
 
         }
 
-        private void lblMemberId_Click(object sender, EventArgs e)
+        private void lblMemberSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtMemId_TextChanged(object sender, EventArgs e)
+        private void txtMemberName_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -54,6 +54,21 @@ namespace MovieSYS
         private void btnCheck_Click(object sender, EventArgs e)
         {
             grpEditMem.Visible = true;
+        }
+
+        private void grpSearchResults_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void grpEditMem_Enter(object sender, EventArgs e)
@@ -127,16 +142,6 @@ namespace MovieSYS
         }
 
         private void txtEircode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblIBAN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIban_TextChanged(object sender, EventArgs e)
         {
 
         }

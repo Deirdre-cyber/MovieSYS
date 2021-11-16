@@ -48,12 +48,14 @@ namespace MovieSYS
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
+            this.txtMemberName = new System.Windows.Forms.TextBox();
+            this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.lstResults = new System.Windows.Forms.ListBox();
-            this.lblMemberSearch = new System.Windows.Forms.Label();
-            this.txtMemberName = new System.Windows.Forms.TextBox();
+            this.txtMemId = new System.Windows.Forms.TextBox();
+            this.lblMemberId = new System.Windows.Forms.Label();
             this.grpEditMem.SuspendLayout();
             this.mnuAdd.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
@@ -62,7 +64,9 @@ namespace MovieSYS
             // 
             // grpEditMem
             // 
+            this.grpEditMem.Controls.Add(this.txtMemId);
             this.grpEditMem.Controls.Add(this.lblLastName);
+            this.grpEditMem.Controls.Add(this.lblMemberId);
             this.grpEditMem.Controls.Add(this.dtpDOB);
             this.grpEditMem.Controls.Add(this.cboMemID);
             this.grpEditMem.Controls.Add(this.btnEditMem);
@@ -285,8 +289,32 @@ namespace MovieSYS
             this.grpMemCheck.Size = new System.Drawing.Size(386, 155);
             this.grpMemCheck.TabIndex = 16;
             this.grpMemCheck.TabStop = false;
-            this.grpMemCheck.Text = "s";
             this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter);
+            // 
+            // txtMemberName
+            // 
+            this.txtMemberName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemberName.Location = new System.Drawing.Point(193, 49);
+            this.txtMemberName.MaxLength = 8;
+            this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.PlaceholderText = "Mary";
+            this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMemberName.Size = new System.Drawing.Size(160, 30);
+            this.txtMemberName.TabIndex = 5;
+            this.txtMemberName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMemberName.TextChanged += new System.EventHandler(this.txtMemberName_TextChanged);
+            // 
+            // lblMemberSearch
+            // 
+            this.lblMemberSearch.AutoSize = true;
+            this.lblMemberSearch.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemberSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMemberSearch.Location = new System.Drawing.Point(21, 51);
+            this.lblMemberSearch.Name = "lblMemberSearch";
+            this.lblMemberSearch.Size = new System.Drawing.Size(166, 28);
+            this.lblMemberSearch.TabIndex = 4;
+            this.lblMemberSearch.Text = "Search Member:";
+            this.lblMemberSearch.Click += new System.EventHandler(this.lblMemberSearch_Click);
             // 
             // btnCheck
             // 
@@ -341,30 +369,30 @@ namespace MovieSYS
             this.lstResults.TabIndex = 0;
             this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
             // 
-            // lblMemberSearch
+            // txtMemId
             // 
-            this.lblMemberSearch.AutoSize = true;
-            this.lblMemberSearch.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMemberSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMemberSearch.Location = new System.Drawing.Point(21, 51);
-            this.lblMemberSearch.Name = "lblMemberSearch";
-            this.lblMemberSearch.Size = new System.Drawing.Size(166, 28);
-            this.lblMemberSearch.TabIndex = 4;
-            this.lblMemberSearch.Text = "Search Member:";
-            this.lblMemberSearch.Click += new System.EventHandler(this.lblMemberSearch_Click);
+            this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemId.Location = new System.Drawing.Point(219, 51);
+            this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemId.MaxLength = 8;
+            this.txtMemId.Name = "txtMemId";
+            this.txtMemId.PlaceholderText = "0000001";
+            this.txtMemId.Size = new System.Drawing.Size(180, 30);
+            this.txtMemId.TabIndex = 19;
+            this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
             // 
-            // txtMemberName
+            // lblMemberId
             // 
-            this.txtMemberName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMemberName.Location = new System.Drawing.Point(193, 49);
-            this.txtMemberName.MaxLength = 8;
-            this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.PlaceholderText = "Mary";
-            this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtMemberName.Size = new System.Drawing.Size(160, 30);
-            this.txtMemberName.TabIndex = 5;
-            this.txtMemberName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMemberName.TextChanged += new System.EventHandler(this.txtMemberName_TextChanged);
+            this.lblMemberId.AutoSize = true;
+            this.lblMemberId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemberId.Location = new System.Drawing.Point(88, 53);
+            this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMemberId.Name = "lblMemberId";
+            this.lblMemberId.Size = new System.Drawing.Size(123, 28);
+            this.lblMemberId.TabIndex = 18;
+            this.lblMemberId.Text = "Member ID:";
+            this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
             // 
             // frmMemberUpdate
             // 
@@ -420,5 +448,7 @@ namespace MovieSYS
         private System.Windows.Forms.ListBox lstResults;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label lblMemberSearch;
+        private System.Windows.Forms.TextBox txtMemId;
+        private System.Windows.Forms.Label lblMemberId;
     }
 }

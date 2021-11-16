@@ -76,6 +76,16 @@ namespace MovieSYS
 
         }
 
+        private void lblMemberId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMemId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void lblMembership_Click(object sender, EventArgs e)
         {
 

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -19,10 +14,15 @@ namespace MovieSYS
         public frmRentalRentDVD(frmMainMenu Parent)
         {
             InitializeComponent();
+            grpSearchResults.Visible = false;
             grpRentDetails.Visible = false;
-            grpRefine.Visible = false;
             grpSearch.Visible = false;
             this.parent = Parent;
+        }
+
+        private void frmRent_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -31,12 +31,43 @@ namespace MovieSYS
             parent.Visible = true;
         }
 
-        private void frmRent_Load(object sender, EventArgs e)
+        private void grpMemCheck_Enter_1(object sender, EventArgs e)
         {
 
         }
 
-        private void grpMemCheck_Enter(object sender, EventArgs e)
+        private void lblMemberSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMemberName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheck_Click_1(object sender, EventArgs e)
+        {
+            grpSearchResults.Visible = true;
+        }
+
+        private void grpSearchResults_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            grpSearch.Visible = true;
+            grpRentDetails.Visible = true;
+        }
+
+        private void grpSearchRes_Enter(object sender, EventArgs e)
         {
 
         }
@@ -48,16 +79,45 @@ namespace MovieSYS
 
         private void txtMemId_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        private void lblName_Click(object sender, EventArgs e)
         {
-            //Validate
-            grpSearch.Visible = true;
+
         }
 
-        private void grpSearchRes_Enter(object sender, EventArgs e)
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFines_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFines_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpRentDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRentId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRentID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSearchDVD_Click(object sender, EventArgs e)
         {
 
         }
@@ -67,43 +127,17 @@ namespace MovieSYS
 
         }
 
-        private void btnRefine_Click(object sender, EventArgs e)
+        private void lstSearchRes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Validate
-            grpRefine.Visible = true;
+
         }
 
         private void btnAddtoCart1_Click(object sender, EventArgs e)
         {
-            grpRentDetails.Visible = true;
+            
         }
 
-        private void grpSearch_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRefine_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboRefineOptions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnConfirmRefine_Click(object sender, EventArgs e)
-        {
-            grpRentDetails.Visible = true;
-        }
-
-        private void grpRentDetails_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCart_Click(object sender, EventArgs e)
+        private void lblCar(object sender, EventArgs e)
         {
 
         }
@@ -114,36 +148,6 @@ namespace MovieSYS
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMember_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMemId2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRentedOn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpRentDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDueBack_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDueBack_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -172,6 +176,6 @@ namespace MovieSYS
         {
 
         }
-
+  
     }
 }

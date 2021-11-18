@@ -36,25 +36,39 @@ namespace MovieSYS
 
         }
 
-        private void grpSearchMembers_Enter(object sender, EventArgs e)
+        private void grpMemCheck_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void lblMemberId_Click(object sender, EventArgs e)
+        private void lblMemberSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtMemberId_TextChanged(object sender, EventArgs e)
+        private void txtMemberName_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSelectMem_Click(object sender, EventArgs e)
+        private void btnCheck_Click(object sender, EventArgs e)
         {
-            //Validate
-            grpReturnDVD.Visible = true;
+
+        }
+
+        private void grpSearchResults_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void grpReturnDVD_Enter(object sender, EventArgs e)

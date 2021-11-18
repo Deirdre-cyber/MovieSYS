@@ -29,25 +29,39 @@ namespace MovieSYS
             parent.Visible = true;
         }
 
-        private void grpMemCheck_Enter(object sender, EventArgs e)
+        private void grpMemCheck_Enter_1(object sender, EventArgs e)
         {
 
         }
 
-        private void lblMemberId_Click(object sender, EventArgs e)
+        private void grpSearchResults_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void txtMemId_TextChanged(object sender, EventArgs e)
+        private void lblMemberSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        private void txtMemberName_TextChanged(object sender, EventArgs e)
         {
-            //Validate
-            grpMemDetails.Visible = true;
+
+        }
+
+        private void btnCheck_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void grpMemDetails_Enter(object sender, EventArgs e)
@@ -94,5 +108,7 @@ namespace MovieSYS
         {
 
         }
+
+        
     }
 }

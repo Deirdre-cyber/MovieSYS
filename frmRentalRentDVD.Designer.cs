@@ -39,7 +39,6 @@ namespace MovieSYS
             this.txtFines = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.btnAddtoCart1 = new System.Windows.Forms.Button();
-            this.cboSearchList = new System.Windows.Forms.ComboBox();
             this.grpRentDetails = new System.Windows.Forms.GroupBox();
             this.lblSearchDVD = new System.Windows.Forms.Label();
             this.txtRentID = new System.Windows.Forms.TextBox();
@@ -60,6 +59,9 @@ namespace MovieSYS
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.lstResults = new System.Windows.Forms.ListBox();
+            this.txtDVDSearch = new System.Windows.Forms.TextBox();
+            this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
+            this.lblReturn = new System.Windows.Forms.Label();
             this.mnuAdd.SuspendLayout();
             this.grpSearch.SuspendLayout();
             this.grpRentDetails.SuspendLayout();
@@ -104,7 +106,7 @@ namespace MovieSYS
             this.grpSearch.ForeColor = System.Drawing.Color.Azure;
             this.grpSearch.Location = new System.Drawing.Point(173, 212);
             this.grpSearch.Name = "grpSearch";
-            this.grpSearch.Size = new System.Drawing.Size(690, 162);
+            this.grpSearch.Size = new System.Drawing.Size(690, 139);
             this.grpSearch.TabIndex = 8;
             this.grpSearch.TabStop = false;
             this.grpSearch.Text = "Member Details";
@@ -195,26 +197,17 @@ namespace MovieSYS
             this.btnAddtoCart1.UseVisualStyleBackColor = false;
             this.btnAddtoCart1.Click += new System.EventHandler(this.btnAddtoCart1_Click);
             // 
-            // cboSearchList
-            // 
-            this.cboSearchList.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cboSearchList.FormattingEnabled = true;
-            this.cboSearchList.Location = new System.Drawing.Point(113, 91);
-            this.cboSearchList.Name = "cboSearchList";
-            this.cboSearchList.Size = new System.Drawing.Size(240, 31);
-            this.cboSearchList.TabIndex = 19;
-            this.cboSearchList.Text = "DVD Titles";
-            this.cboSearchList.SelectedIndexChanged += new System.EventHandler(this.cboList_SelectedIndexChanged);
-            // 
             // grpRentDetails
             // 
+            this.grpRentDetails.Controls.Add(this.lblReturn);
+            this.grpRentDetails.Controls.Add(this.dtpReturnDate);
+            this.grpRentDetails.Controls.Add(this.txtDVDSearch);
             this.grpRentDetails.Controls.Add(this.lblSearchDVD);
             this.grpRentDetails.Controls.Add(this.btnAddtoCart1);
             this.grpRentDetails.Controls.Add(this.txtRentID);
             this.grpRentDetails.Controls.Add(this.lstSearchRes);
             this.grpRentDetails.Controls.Add(this.lblRentId);
             this.grpRentDetails.Controls.Add(this.lblCart);
-            this.grpRentDetails.Controls.Add(this.cboSearchList);
             this.grpRentDetails.Controls.Add(this.btnRemove);
             this.grpRentDetails.Controls.Add(this.lblTotal);
             this.grpRentDetails.Controls.Add(this.btnCancel);
@@ -223,9 +216,9 @@ namespace MovieSYS
             this.grpRentDetails.Controls.Add(this.txtPrice);
             this.grpRentDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpRentDetails.ForeColor = System.Drawing.Color.GhostWhite;
-            this.grpRentDetails.Location = new System.Drawing.Point(78, 380);
+            this.grpRentDetails.Location = new System.Drawing.Point(78, 357);
             this.grpRentDetails.Name = "grpRentDetails";
-            this.grpRentDetails.Size = new System.Drawing.Size(838, 328);
+            this.grpRentDetails.Size = new System.Drawing.Size(838, 351);
             this.grpRentDetails.TabIndex = 15;
             this.grpRentDetails.TabStop = false;
             this.grpRentDetails.Text = "Order Details";
@@ -284,7 +277,7 @@ namespace MovieSYS
             // 
             this.lblCart.AutoSize = true;
             this.lblCart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCart.Location = new System.Drawing.Point(408, 45);
+            this.lblCart.Location = new System.Drawing.Point(408, 49);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(57, 28);
             this.lblCart.TabIndex = 22;
@@ -309,7 +302,7 @@ namespace MovieSYS
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(573, 214);
+            this.lblTotal.Location = new System.Drawing.Point(574, 182);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(64, 28);
             this.lblTotal.TabIndex = 25;
@@ -322,7 +315,7 @@ namespace MovieSYS
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnCancel.Location = new System.Drawing.Point(471, 268);
+            this.btnCancel.Location = new System.Drawing.Point(592, 297);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
             this.btnCancel.TabIndex = 27;
@@ -336,7 +329,7 @@ namespace MovieSYS
             this.btnBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuy.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBuy.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnBuy.Location = new System.Drawing.Point(611, 268);
+            this.btnBuy.Location = new System.Drawing.Point(715, 297);
             this.btnBuy.Name = "btnBuy";
             this.btnBuy.Size = new System.Drawing.Size(100, 35);
             this.btnBuy.TabIndex = 28;
@@ -352,14 +345,14 @@ namespace MovieSYS
             this.lstCart.ItemHeight = 23;
             this.lstCart.Location = new System.Drawing.Point(471, 47);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(240, 142);
+            this.lstCart.Size = new System.Drawing.Size(240, 119);
             this.lstCart.TabIndex = 23;
             this.lstCart.SelectedIndexChanged += new System.EventHandler(this.lstCart_SelectedIndexChanged);
             // 
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrice.Location = new System.Drawing.Point(643, 214);
+            this.txtPrice.Location = new System.Drawing.Point(644, 182);
             this.txtPrice.MaxLength = 8;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PlaceholderText = "10.00";
@@ -459,6 +452,40 @@ namespace MovieSYS
             this.lstResults.TabIndex = 6;
             this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
             // 
+            // txtDVDSearch
+            // 
+            this.txtDVDSearch.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDVDSearch.Location = new System.Drawing.Point(113, 91);
+            this.txtDVDSearch.MaxLength = 30;
+            this.txtDVDSearch.Name = "txtDVDSearch";
+            this.txtDVDSearch.PlaceholderText = "Frankenstein";
+            this.txtDVDSearch.Size = new System.Drawing.Size(178, 30);
+            this.txtDVDSearch.TabIndex = 15;
+            this.txtDVDSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDVDSearch.TextChanged += new System.EventHandler(this.txtDVDSearch_TextChanged);
+            // 
+            // dtpReturnDate
+            // 
+            this.dtpReturnDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpReturnDate.Location = new System.Drawing.Point(592, 229);
+            this.dtpReturnDate.Name = "dtpReturnDate";
+            this.dtpReturnDate.Size = new System.Drawing.Size(119, 30);
+            this.dtpReturnDate.TabIndex = 29;
+            this.dtpReturnDate.ValueChanged += new System.EventHandler(this.dtpReturnDate_ValueChanged);
+            // 
+            // lblReturn
+            // 
+            this.lblReturn.AutoSize = true;
+            this.lblReturn.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReturn.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblReturn.Location = new System.Drawing.Point(476, 229);
+            this.lblReturn.Name = "lblReturn";
+            this.lblReturn.Size = new System.Drawing.Size(110, 28);
+            this.lblReturn.TabIndex = 30;
+            this.lblReturn.Text = "Return on:";
+            this.lblReturn.Click += new System.EventHandler(this.lblReturn_Click);
+            // 
             // frmRentalRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 41F);
@@ -502,7 +529,6 @@ namespace MovieSYS
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnRemove;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ComboBox cboSearchList;
         private System.Windows.Forms.Button btnAddtoCart1;
         private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.Label lblTotal;
@@ -523,5 +549,8 @@ namespace MovieSYS
         private System.Windows.Forms.TextBox txtMemId;
         private System.Windows.Forms.Label lblMemberId;
         private System.Windows.Forms.Label lblSearchDVD;
+        private System.Windows.Forms.TextBox txtDVDSearch;
+        private System.Windows.Forms.Label lblReturn;
+        private System.Windows.Forms.DateTimePicker dtpReturnDate;
     }
 }

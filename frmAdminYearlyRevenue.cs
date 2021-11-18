@@ -21,7 +21,6 @@ namespace MovieSYS
         {
             InitializeComponent();
             this.parent = Parent;
-            grpRefine.Visible = false;
             btnDownload.Visible = false;
             btnPrint.Visible = false;
         }
@@ -82,42 +81,6 @@ namespace MovieSYS
 
         }
 
-        private void btnRefine_Click(object sender, EventArgs e)
-        {
-            //Validate
-            grpRefine.Visible = true;
-        }
-
-        private void grpRefine_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkCategory_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkGenre_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkFinesPaid_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkRefineAll_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGenerateRefine_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
@@ -128,6 +91,9 @@ namespace MovieSYS
 
         }
 
-        
+        private void frmYearlyRevenue_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

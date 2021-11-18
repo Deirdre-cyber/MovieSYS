@@ -122,7 +122,7 @@ namespace MovieSYS
 
         }
 
-        private void cboList_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtDVDSearch_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -162,6 +162,16 @@ namespace MovieSYS
 
         }
 
+        private void lblReturn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpReturnDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             grpRentDetails.Visible = false;
@@ -176,6 +186,7 @@ namespace MovieSYS
         {
 
         }
-  
+
+        
     }
 }

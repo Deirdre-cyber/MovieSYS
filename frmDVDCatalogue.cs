@@ -141,6 +141,34 @@ namespace MovieSYS
             //VALIDATE ALL - all marked fields must be entered
         }
 
-        
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCopy_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStatus_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCopies_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCopies_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

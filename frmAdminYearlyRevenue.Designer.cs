@@ -55,9 +55,9 @@ namespace MovieSYS
             this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
-            this.mnuAdd.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.mnuAdd.Size = new System.Drawing.Size(875, 27);
-            this.mnuAdd.TabIndex = 11;
+            this.mnuAdd.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 33);
+            this.mnuAdd.TabIndex = 12;
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
@@ -67,7 +67,7 @@ namespace MovieSYS
             this.mnuExit.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mnuExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(30, 23);
+            this.mnuExit.Size = new System.Drawing.Size(35, 27);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -83,13 +83,11 @@ namespace MovieSYS
             this.grpRevenue.Controls.Add(this.lblYear);
             this.grpRevenue.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpRevenue.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpRevenue.Location = new System.Drawing.Point(40, 39);
-            this.grpRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpRevenue.Location = new System.Drawing.Point(48, 89);
             this.grpRevenue.Name = "grpRevenue";
-            this.grpRevenue.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpRevenue.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.grpRevenue.Size = new System.Drawing.Size(410, 176);
-            this.grpRevenue.TabIndex = 23;
+            this.grpRevenue.Size = new System.Drawing.Size(469, 235);
+            this.grpRevenue.TabIndex = 1;
             this.grpRevenue.TabStop = false;
             this.grpRevenue.Text = "Revenue Analysis";
             this.grpRevenue.Enter += new System.EventHandler(this.grpRevenue_Enter);
@@ -100,11 +98,10 @@ namespace MovieSYS
             this.chkAllQuart.Checked = true;
             this.chkAllQuart.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkAllQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkAllQuart.Location = new System.Drawing.Point(291, 73);
-            this.chkAllQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkAllQuart.Location = new System.Drawing.Point(333, 97);
             this.chkAllQuart.Name = "chkAllQuart";
-            this.chkAllQuart.Size = new System.Drawing.Size(100, 25);
-            this.chkAllQuart.TabIndex = 34;
+            this.chkAllQuart.Size = new System.Drawing.Size(123, 32);
+            this.chkAllQuart.TabIndex = 9;
             this.chkAllQuart.Text = "Select All";
             this.chkAllQuart.UseVisualStyleBackColor = true;
             this.chkAllQuart.CheckedChanged += new System.EventHandler(this.chkAllQuart_CheckedChanged);
@@ -113,11 +110,10 @@ namespace MovieSYS
             // 
             this.chkFourthQuart.AutoSize = true;
             this.chkFourthQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkFourthQuart.Location = new System.Drawing.Point(291, 42);
-            this.chkFourthQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkFourthQuart.Location = new System.Drawing.Point(333, 56);
             this.chkFourthQuart.Name = "chkFourthQuart";
-            this.chkFourthQuart.Size = new System.Drawing.Size(98, 25);
-            this.chkFourthQuart.TabIndex = 33;
+            this.chkFourthQuart.Size = new System.Drawing.Size(123, 32);
+            this.chkFourthQuart.TabIndex = 8;
             this.chkFourthQuart.Text = "Oct - Dec";
             this.chkFourthQuart.UseVisualStyleBackColor = true;
             this.chkFourthQuart.CheckedChanged += new System.EventHandler(this.chkFourthQuart_CheckedChanged);
@@ -126,11 +122,10 @@ namespace MovieSYS
             // 
             this.chkThirdQuart.AutoSize = true;
             this.chkThirdQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkThirdQuart.Location = new System.Drawing.Point(160, 103);
-            this.chkThirdQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkThirdQuart.Location = new System.Drawing.Point(183, 137);
             this.chkThirdQuart.Name = "chkThirdQuart";
-            this.chkThirdQuart.Size = new System.Drawing.Size(93, 25);
-            this.chkThirdQuart.TabIndex = 32;
+            this.chkThirdQuart.Size = new System.Drawing.Size(115, 32);
+            this.chkThirdQuart.TabIndex = 7;
             this.chkThirdQuart.Text = "Jul - Sep";
             this.chkThirdQuart.UseVisualStyleBackColor = true;
             this.chkThirdQuart.CheckedChanged += new System.EventHandler(this.chkThirdQuart_CheckedChanged);
@@ -139,11 +134,10 @@ namespace MovieSYS
             // 
             this.chkSecondQuart.AutoSize = true;
             this.chkSecondQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkSecondQuart.Location = new System.Drawing.Point(160, 73);
-            this.chkSecondQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkSecondQuart.Location = new System.Drawing.Point(183, 97);
             this.chkSecondQuart.Name = "chkSecondQuart";
-            this.chkSecondQuart.Size = new System.Drawing.Size(97, 25);
-            this.chkSecondQuart.TabIndex = 31;
+            this.chkSecondQuart.Size = new System.Drawing.Size(121, 32);
+            this.chkSecondQuart.TabIndex = 6;
             this.chkSecondQuart.Text = "Apr - Jun";
             this.chkSecondQuart.UseVisualStyleBackColor = true;
             this.chkSecondQuart.CheckedChanged += new System.EventHandler(this.chkSecondQuart_CheckedChanged);
@@ -152,11 +146,10 @@ namespace MovieSYS
             // 
             this.chkFirstQuart.AutoSize = true;
             this.chkFirstQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkFirstQuart.Location = new System.Drawing.Point(160, 42);
-            this.chkFirstQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkFirstQuart.Location = new System.Drawing.Point(183, 56);
             this.chkFirstQuart.Name = "chkFirstQuart";
-            this.chkFirstQuart.Size = new System.Drawing.Size(99, 25);
-            this.chkFirstQuart.TabIndex = 30;
+            this.chkFirstQuart.Size = new System.Drawing.Size(124, 32);
+            this.chkFirstQuart.TabIndex = 5;
             this.chkFirstQuart.Text = "Jan - Mar";
             this.chkFirstQuart.UseVisualStyleBackColor = true;
             this.chkFirstQuart.CheckedChanged += new System.EventHandler(this.chkFirstQuart_CheckedChanged);
@@ -166,11 +159,10 @@ namespace MovieSYS
             this.cboEnterYear.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboEnterYear.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboEnterYear.FormattingEnabled = true;
-            this.cboEnterYear.Location = new System.Drawing.Point(69, 42);
-            this.cboEnterYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboEnterYear.Location = new System.Drawing.Point(79, 56);
             this.cboEnterYear.Name = "cboEnterYear";
-            this.cboEnterYear.Size = new System.Drawing.Size(62, 27);
-            this.cboEnterYear.TabIndex = 27;
+            this.cboEnterYear.Size = new System.Drawing.Size(70, 31);
+            this.cboEnterYear.TabIndex = 4;
             this.cboEnterYear.Text = "2021";
             this.cboEnterYear.SelectedIndexChanged += new System.EventHandler(this.cboEnterYear_SelectedIndexChanged);
             // 
@@ -180,11 +172,10 @@ namespace MovieSYS
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGenerate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnGenerate.Location = new System.Drawing.Point(308, 134);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGenerate.Location = new System.Drawing.Point(352, 179);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(83, 27);
-            this.btnGenerate.TabIndex = 22;
+            this.btnGenerate.Size = new System.Drawing.Size(95, 36);
+            this.btnGenerate.TabIndex = 10;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
@@ -193,10 +184,10 @@ namespace MovieSYS
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblYear.Location = new System.Drawing.Point(15, 46);
+            this.lblYear.Location = new System.Drawing.Point(15, 57);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(48, 21);
-            this.lblYear.TabIndex = 12;
+            this.lblYear.Size = new System.Drawing.Size(58, 28);
+            this.lblYear.TabIndex = 2;
             this.lblYear.Text = "Year:";
             this.lblYear.Click += new System.EventHandler(this.lblYear_Click);
             // 
@@ -206,11 +197,10 @@ namespace MovieSYS
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPrint.Location = new System.Drawing.Point(641, 494);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrint.Location = new System.Drawing.Point(733, 659);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(83, 26);
-            this.btnPrint.TabIndex = 31;
+            this.btnPrint.Size = new System.Drawing.Size(95, 35);
+            this.btnPrint.TabIndex = 11;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -221,10 +211,9 @@ namespace MovieSYS
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDownload.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDownload.Location = new System.Drawing.Point(752, 494);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDownload.Location = new System.Drawing.Point(859, 659);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(96, 26);
+            this.btnDownload.Size = new System.Drawing.Size(110, 35);
             this.btnDownload.TabIndex = 32;
             this.btnDownload.Text = "Download";
             this.btnDownload.UseVisualStyleBackColor = false;
@@ -232,17 +221,16 @@ namespace MovieSYS
             // 
             // frmYearlyRevenue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(875, 540);
+            this.ClientSize = new System.Drawing.Size(1000, 720);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.grpRevenue);
             this.Controls.Add(this.mnuAdd);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmYearlyRevenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmYearlyRevenue";

@@ -86,7 +86,7 @@ namespace MovieSYS
 
         private void txtPayAmount_TextChanged(object sender, EventArgs e)
         {
-
+            //must be equal or less to Fine Amount/must be numeric
         }
 
         private void btnPay_Click(object sender, EventArgs e)

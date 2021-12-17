@@ -82,7 +82,7 @@ namespace MovieSYS
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
             this.mnuAdd.Size = new System.Drawing.Size(1000, 40);
-            this.mnuAdd.TabIndex = 11;
+            this.mnuAdd.TabIndex = 33;
             this.mnuAdd.Text = "menuStrip1";
             // 
             // mnuExit
@@ -128,7 +128,7 @@ namespace MovieSYS
             this.grpStatementDetails.Location = new System.Drawing.Point(79, 219);
             this.grpStatementDetails.Name = "grpStatementDetails";
             this.grpStatementDetails.Size = new System.Drawing.Size(833, 404);
-            this.grpStatementDetails.TabIndex = 18;
+            this.grpStatementDetails.TabIndex = 8;
             this.grpStatementDetails.TabStop = false;
             this.grpStatementDetails.Text = "Statement Details";
             this.grpStatementDetails.Enter += new System.EventHandler(this.grpStatementDetails_Enter);
@@ -140,9 +140,9 @@ namespace MovieSYS
             this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
             this.txtMemId.MaxLength = 8;
             this.txtMemId.Name = "txtMemId";
-            this.txtMemId.PlaceholderText = "00001";
+            this.txtMemId.PlaceholderText = "000001";
             this.txtMemId.Size = new System.Drawing.Size(180, 30);
-            this.txtMemId.TabIndex = 48;
+            this.txtMemId.TabIndex = 10;
             this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged_1);
             // 
@@ -154,7 +154,7 @@ namespace MovieSYS
             this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberId.Name = "lblMemberId";
             this.lblMemberId.Size = new System.Drawing.Size(123, 28);
-            this.lblMemberId.TabIndex = 47;
+            this.lblMemberId.TabIndex = 9;
             this.lblMemberId.Text = "Member ID:";
             this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click_1);
             // 
@@ -167,7 +167,7 @@ namespace MovieSYS
             this.btnEmail.Location = new System.Drawing.Point(694, 338);
             this.btnEmail.Name = "btnEmail";
             this.btnEmail.Size = new System.Drawing.Size(100, 35);
-            this.btnEmail.TabIndex = 45;
+            this.btnEmail.TabIndex = 32;
             this.btnEmail.Text = "Email";
             this.btnEmail.UseVisualStyleBackColor = false;
             this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
@@ -180,7 +180,7 @@ namespace MovieSYS
             this.lblDVDsOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDVDsOut.Name = "lblDVDsOut";
             this.lblDVDsOut.Size = new System.Drawing.Size(177, 28);
-            this.lblDVDsOut.TabIndex = 44;
+            this.lblDVDsOut.TabIndex = 29;
             this.lblDVDsOut.Text = "Currently Rented:";
             this.lblDVDsOut.Click += new System.EventHandler(this.lblDVDsOut_Click);
             // 
@@ -193,7 +193,7 @@ namespace MovieSYS
             this.btnPrint.Location = new System.Drawing.Point(582, 338);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(100, 35);
-            this.btnPrint.TabIndex = 46;
+            this.btnPrint.TabIndex = 31;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -209,7 +209,7 @@ namespace MovieSYS
             this.textBox2.PlaceholderText = "3";
             this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox2.Size = new System.Drawing.Size(95, 30);
-            this.textBox2.TabIndex = 43;
+            this.textBox2.TabIndex = 30;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -220,7 +220,7 @@ namespace MovieSYS
             this.lblStatementTo.Location = new System.Drawing.Point(533, 94);
             this.lblStatementTo.Name = "lblStatementTo";
             this.lblStatementTo.Size = new System.Drawing.Size(142, 28);
-            this.lblStatementTo.TabIndex = 42;
+            this.lblStatementTo.TabIndex = 25;
             this.lblStatementTo.Text = "Statement To:";
             this.lblStatementTo.Click += new System.EventHandler(this.lblStatementTo_Click);
             // 
@@ -231,7 +231,7 @@ namespace MovieSYS
             this.dtpStatementTo.Location = new System.Drawing.Point(681, 93);
             this.dtpStatementTo.Name = "dtpStatementTo";
             this.dtpStatementTo.Size = new System.Drawing.Size(110, 30);
-            this.dtpStatementTo.TabIndex = 41;
+            this.dtpStatementTo.TabIndex = 26;
             this.dtpStatementTo.ValueChanged += new System.EventHandler(this.dtpStatementTo_ValueChanged);
             // 
             // txtEmail
@@ -242,7 +242,7 @@ namespace MovieSYS
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(180, 30);
-            this.txtEmail.TabIndex = 40;
+            this.txtEmail.TabIndex = 22;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lblEmail
@@ -253,7 +253,7 @@ namespace MovieSYS
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(69, 28);
-            this.lblEmail.TabIndex = 37;
+            this.lblEmail.TabIndex = 21;
             this.lblEmail.Text = "Email:";
             this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
@@ -267,7 +267,7 @@ namespace MovieSYS
             this.cboMemID.Margin = new System.Windows.Forms.Padding(4);
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
-            this.cboMemID.TabIndex = 33;
+            this.cboMemID.TabIndex = 14;
             this.cboMemID.Text = "ST - Standard";
             this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
@@ -279,7 +279,7 @@ namespace MovieSYS
             this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 30);
-            this.txtLastName.TabIndex = 35;
+            this.txtLastName.TabIndex = 18;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // dateTimePicker2
@@ -292,7 +292,7 @@ namespace MovieSYS
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(180, 30);
-            this.dateTimePicker2.TabIndex = 36;
+            this.dateTimePicker2.TabIndex = 20;
             this.dateTimePicker2.Value = new System.DateTime(1990, 7, 12, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
@@ -304,7 +304,7 @@ namespace MovieSYS
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(180, 30);
-            this.txtFirstName.TabIndex = 34;
+            this.txtFirstName.TabIndex = 16;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // lblMemberType
@@ -315,7 +315,7 @@ namespace MovieSYS
             this.lblMemberType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberType.Name = "lblMemberType";
             this.lblMemberType.Size = new System.Drawing.Size(186, 28);
-            this.lblMemberType.TabIndex = 29;
+            this.lblMemberType.TabIndex = 13;
             this.lblMemberType.Text = "Membership Type:";
             this.lblMemberType.Click += new System.EventHandler(this.lblMemberType_Click);
             // 
@@ -327,7 +327,7 @@ namespace MovieSYS
             this.lblDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(60, 28);
-            this.lblDateOfBirth.TabIndex = 30;
+            this.lblDateOfBirth.TabIndex = 19;
             this.lblDateOfBirth.Text = "DOB:";
             this.lblDateOfBirth.Click += new System.EventHandler(this.lblDateOfBirth_Click);
             // 
@@ -339,7 +339,7 @@ namespace MovieSYS
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(117, 28);
-            this.lblLastName.TabIndex = 31;
+            this.lblLastName.TabIndex = 17;
             this.lblLastName.Text = "Last Name:";
             this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
             // 
@@ -351,7 +351,7 @@ namespace MovieSYS
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(120, 28);
-            this.lblFirstName.TabIndex = 32;
+            this.lblFirstName.TabIndex = 15;
             this.lblFirstName.Text = "First Name:";
             this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
@@ -362,7 +362,7 @@ namespace MovieSYS
             this.lblStatementFrom.Location = new System.Drawing.Point(508, 53);
             this.lblStatementFrom.Name = "lblStatementFrom";
             this.lblStatementFrom.Size = new System.Drawing.Size(168, 28);
-            this.lblStatementFrom.TabIndex = 28;
+            this.lblStatementFrom.TabIndex = 23;
             this.lblStatementFrom.Text = "Statement From:";
             this.lblStatementFrom.Click += new System.EventHandler(this.lblStatementFrom_Click);
             // 
@@ -373,7 +373,7 @@ namespace MovieSYS
             this.dtpStatementFrom.Location = new System.Drawing.Point(681, 52);
             this.dtpStatementFrom.Name = "dtpStatementFrom";
             this.dtpStatementFrom.Size = new System.Drawing.Size(110, 30);
-            this.dtpStatementFrom.TabIndex = 27;
+            this.dtpStatementFrom.TabIndex = 24;
             this.dtpStatementFrom.Value = new System.DateTime(2021, 10, 29, 0, 0, 0, 0);
             this.dtpStatementFrom.ValueChanged += new System.EventHandler(this.dtpStatementFrom_ValueChanged);
             // 
@@ -385,7 +385,7 @@ namespace MovieSYS
             this.lblFinesDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFinesDue.Name = "lblFinesDue";
             this.lblFinesDue.Size = new System.Drawing.Size(109, 28);
-            this.lblFinesDue.TabIndex = 23;
+            this.lblFinesDue.TabIndex = 27;
             this.lblFinesDue.Text = "Fines Due:";
             this.lblFinesDue.Click += new System.EventHandler(this.lblFinesDue_Click);
             // 
@@ -400,7 +400,7 @@ namespace MovieSYS
             this.txtFineAmount.PlaceholderText = "0.00";
             this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
-            this.txtFineAmount.TabIndex = 22;
+            this.txtFineAmount.TabIndex = 28;
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
@@ -411,7 +411,7 @@ namespace MovieSYS
             this.lblMemebershipStart.Location = new System.Drawing.Point(52, 93);
             this.lblMemebershipStart.Name = "lblMemebershipStart";
             this.lblMemebershipStart.Size = new System.Drawing.Size(152, 28);
-            this.lblMemebershipStart.TabIndex = 20;
+            this.lblMemebershipStart.TabIndex = 11;
             this.lblMemebershipStart.Text = "Member Since:";
             this.lblMemebershipStart.Click += new System.EventHandler(this.lblMemebershipStart_Click);
             // 
@@ -454,7 +454,7 @@ namespace MovieSYS
             this.grpSearchResults.Location = new System.Drawing.Point(530, 58);
             this.grpSearchResults.Name = "grpSearchResults";
             this.grpSearchResults.Size = new System.Drawing.Size(382, 155);
-            this.grpSearchResults.TabIndex = 20;
+            this.grpSearchResults.TabIndex = 5;
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
             this.grpSearchResults.Enter += new System.EventHandler(this.grpSearchResults_Enter);
@@ -468,7 +468,7 @@ namespace MovieSYS
             this.btnSelect.Location = new System.Drawing.Point(271, 66);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(70, 35);
-            this.btnSelect.TabIndex = 4;
+            this.btnSelect.TabIndex = 7;
             this.btnSelect.Text = "Edit";
             this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
@@ -481,7 +481,7 @@ namespace MovieSYS
             this.lstResults.Location = new System.Drawing.Point(21, 37);
             this.lstResults.Name = "lstResults";
             this.lstResults.Size = new System.Drawing.Size(211, 96);
-            this.lstResults.TabIndex = 0;
+            this.lstResults.TabIndex = 6;
             this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
             // 
             // grpMemCheck
@@ -493,7 +493,7 @@ namespace MovieSYS
             this.grpMemCheck.Location = new System.Drawing.Point(79, 58);
             this.grpMemCheck.Name = "grpMemCheck";
             this.grpMemCheck.Size = new System.Drawing.Size(386, 155);
-            this.grpMemCheck.TabIndex = 19;
+            this.grpMemCheck.TabIndex = 1;
             this.grpMemCheck.TabStop = false;
             this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter_1);
             // 
@@ -506,7 +506,7 @@ namespace MovieSYS
             this.txtMemberName.PlaceholderText = "Mary";
             this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtMemberName.Size = new System.Drawing.Size(160, 30);
-            this.txtMemberName.TabIndex = 5;
+            this.txtMemberName.TabIndex = 3;
             this.txtMemberName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMemberName.TextChanged += new System.EventHandler(this.txtMemberName_TextChanged);
             // 
@@ -518,7 +518,7 @@ namespace MovieSYS
             this.lblMemberSearch.Location = new System.Drawing.Point(21, 51);
             this.lblMemberSearch.Name = "lblMemberSearch";
             this.lblMemberSearch.Size = new System.Drawing.Size(166, 28);
-            this.lblMemberSearch.TabIndex = 4;
+            this.lblMemberSearch.TabIndex = 2;
             this.lblMemberSearch.Text = "Search Member:";
             this.lblMemberSearch.Click += new System.EventHandler(this.lblMemberSearch_Click);
             // 
@@ -531,7 +531,7 @@ namespace MovieSYS
             this.btnCheck.Location = new System.Drawing.Point(136, 98);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(145, 35);
-            this.btnCheck.TabIndex = 3;
+            this.btnCheck.TabIndex = 4;
             this.btnCheck.Text = "Check Account";
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click_1);

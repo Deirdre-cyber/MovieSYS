@@ -66,7 +66,7 @@ namespace MovieSYS
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 4, 0, 4);
             this.mnuAdd.Size = new System.Drawing.Size(1000, 35);
-            this.mnuAdd.TabIndex = 11;
+            this.mnuAdd.TabIndex = 21;
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
@@ -108,7 +108,7 @@ namespace MovieSYS
             this.grpAddMem.Name = "grpAddMem";
             this.grpAddMem.Padding = new System.Windows.Forms.Padding(4);
             this.grpAddMem.Size = new System.Drawing.Size(882, 504);
-            this.grpAddMem.TabIndex = 11;
+            this.grpAddMem.TabIndex = 1;
             this.grpAddMem.TabStop = false;
             this.grpAddMem.Text = "Add New Member";
             this.grpAddMem.Enter += new System.EventHandler(this.grpAddMem_Enter);
@@ -120,9 +120,9 @@ namespace MovieSYS
             this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
             this.txtMemId.MaxLength = 8;
             this.txtMemId.Name = "txtMemId";
-            this.txtMemId.PlaceholderText = "0000001";
+            this.txtMemId.PlaceholderText = "000001";
             this.txtMemId.Size = new System.Drawing.Size(180, 30);
-            this.txtMemId.TabIndex = 11;
+            this.txtMemId.TabIndex = 3;
             this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
             // 
@@ -136,7 +136,7 @@ namespace MovieSYS
             this.dtpMemStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpMemStartDate.Name = "dtpMemStartDate";
             this.dtpMemStartDate.Size = new System.Drawing.Size(180, 30);
-            this.dtpMemStartDate.TabIndex = 9;
+            this.dtpMemStartDate.TabIndex = 19;
             this.dtpMemStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
             this.dtpMemStartDate.ValueChanged += new System.EventHandler(this.dtpMemStartDate_ValueChanged);
             // 
@@ -148,7 +148,7 @@ namespace MovieSYS
             this.lblMemStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemStartDate.Name = "lblMemStartDate";
             this.lblMemStartDate.Size = new System.Drawing.Size(114, 28);
-            this.lblMemStartDate.TabIndex = 0;
+            this.lblMemStartDate.TabIndex = 18;
             this.lblMemStartDate.Text = "Start Date:";
             this.lblMemStartDate.Click += new System.EventHandler(this.lblMemStartDate_Click);
             // 
@@ -162,7 +162,7 @@ namespace MovieSYS
             this.cboMemID.Margin = new System.Windows.Forms.Padding(4);
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
-            this.cboMemID.TabIndex = 1;
+            this.cboMemID.TabIndex = 5;
             this.cboMemID.Text = "CH - Childrens";
             this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
             // 
@@ -176,7 +176,7 @@ namespace MovieSYS
             this.btnAddMem.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddMem.Name = "btnAddMem";
             this.btnAddMem.Size = new System.Drawing.Size(100, 35);
-            this.btnAddMem.TabIndex = 10;
+            this.btnAddMem.TabIndex = 20;
             this.btnAddMem.Text = "Add Member";
             this.btnAddMem.UseVisualStyleBackColor = false;
             this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
@@ -189,7 +189,7 @@ namespace MovieSYS
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(180, 30);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 15;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtLastName
@@ -200,7 +200,7 @@ namespace MovieSYS
             this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 30);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabIndex = 9;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // dateTimePicker1
@@ -213,7 +213,7 @@ namespace MovieSYS
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(180, 30);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 11;
             this.dateTimePicker1.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -225,7 +225,7 @@ namespace MovieSYS
             this.txtContactNo.MaxLength = 15;
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(180, 30);
-            this.txtContactNo.TabIndex = 5;
+            this.txtContactNo.TabIndex = 13;
             this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
             // txtEircode
@@ -236,7 +236,7 @@ namespace MovieSYS
             this.txtEircode.MaxLength = 6;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(180, 30);
-            this.txtEircode.TabIndex = 7;
+            this.txtEircode.TabIndex = 17;
             this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
             // 
             // txtFirstName
@@ -247,7 +247,7 @@ namespace MovieSYS
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(180, 30);
-            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TabIndex = 7;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // lblMemberType
@@ -258,7 +258,7 @@ namespace MovieSYS
             this.lblMemberType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberType.Name = "lblMemberType";
             this.lblMemberType.Size = new System.Drawing.Size(186, 28);
-            this.lblMemberType.TabIndex = 0;
+            this.lblMemberType.TabIndex = 4;
             this.lblMemberType.Text = "Membership Type:";
             this.lblMemberType.Click += new System.EventHandler(this.lblMemberType_Click);
             // 
@@ -270,7 +270,7 @@ namespace MovieSYS
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(69, 28);
-            this.lblEmail.TabIndex = 0;
+            this.lblEmail.TabIndex = 14;
             this.lblEmail.Text = "Email:";
             this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
@@ -282,7 +282,7 @@ namespace MovieSYS
             this.lblContactNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContactNo.Name = "lblContactNo";
             this.lblContactNo.Size = new System.Drawing.Size(124, 28);
-            this.lblContactNo.TabIndex = 0;
+            this.lblContactNo.TabIndex = 12;
             this.lblContactNo.Text = "Contact No:";
             this.lblContactNo.Click += new System.EventHandler(this.lblContactNo_Click);
             // 
@@ -294,7 +294,7 @@ namespace MovieSYS
             this.lblEircode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEircode.Name = "lblEircode";
             this.lblEircode.Size = new System.Drawing.Size(87, 28);
-            this.lblEircode.TabIndex = 0;
+            this.lblEircode.TabIndex = 16;
             this.lblEircode.Text = "Eircode:";
             this.lblEircode.Click += new System.EventHandler(this.lblEircode_Click);
             // 
@@ -306,7 +306,7 @@ namespace MovieSYS
             this.lblDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(60, 28);
-            this.lblDateOfBirth.TabIndex = 0;
+            this.lblDateOfBirth.TabIndex = 10;
             this.lblDateOfBirth.Text = "DOB:";
             this.lblDateOfBirth.Click += new System.EventHandler(this.lblDateOfBirth_Click);
             // 
@@ -318,7 +318,7 @@ namespace MovieSYS
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(117, 28);
-            this.lblLastName.TabIndex = 0;
+            this.lblLastName.TabIndex = 8;
             this.lblLastName.Text = "Last Name:";
             this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
             // 
@@ -330,7 +330,7 @@ namespace MovieSYS
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(120, 28);
-            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.TabIndex = 6;
             this.lblFirstName.Text = "First Name:";
             this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
@@ -342,7 +342,7 @@ namespace MovieSYS
             this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemberId.Name = "lblMemberId";
             this.lblMemberId.Size = new System.Drawing.Size(123, 28);
-            this.lblMemberId.TabIndex = 0;
+            this.lblMemberId.TabIndex = 2;
             this.lblMemberId.Text = "Member ID:";
             this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
             // 

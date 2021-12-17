@@ -63,7 +63,7 @@ namespace MovieSYS
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.mnuAdd.Size = new System.Drawing.Size(1000, 31);
-            this.mnuAdd.TabIndex = 11;
+            this.mnuAdd.TabIndex = 16;
             this.mnuAdd.Text = "menuStrip1";
             this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
@@ -93,7 +93,7 @@ namespace MovieSYS
             this.grpMemDetails.Name = "grpMemDetails";
             this.grpMemDetails.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grpMemDetails.Size = new System.Drawing.Size(703, 287);
-            this.grpMemDetails.TabIndex = 4;
+            this.grpMemDetails.TabIndex = 8;
             this.grpMemDetails.TabStop = false;
             this.grpMemDetails.Text = "Member Rental Details";
             this.grpMemDetails.Enter += new System.EventHandler(this.grpMemDetails_Enter);
@@ -106,7 +106,7 @@ namespace MovieSYS
             this.lbOverDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbOverDue.Name = "lbOverDue";
             this.lbOverDue.Size = new System.Drawing.Size(155, 28);
-            this.lbOverDue.TabIndex = 12;
+            this.lbOverDue.TabIndex = 13;
             this.lbOverDue.Text = "DVDs Overdue:";
             this.lbOverDue.Click += new System.EventHandler(this.lbOverDue_Click);
             // 
@@ -121,7 +121,7 @@ namespace MovieSYS
             this.txtOverDVDCount.PlaceholderText = "3";
             this.txtOverDVDCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtOverDVDCount.Size = new System.Drawing.Size(95, 30);
-            this.txtOverDVDCount.TabIndex = 11;
+            this.txtOverDVDCount.TabIndex = 14;
             this.txtOverDVDCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtOverDVDCount.TextChanged += new System.EventHandler(this.txtOverDVDCount_TextChanged);
             // 
@@ -131,11 +131,11 @@ namespace MovieSYS
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPay.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPay.Location = new System.Drawing.Point(563, 211);
+            this.btnPay.Location = new System.Drawing.Point(564, 188);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(70, 35);
-            this.btnPay.TabIndex = 10;
+            this.btnPay.TabIndex = 15;
             this.btnPay.Text = "Pay";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
@@ -148,7 +148,7 @@ namespace MovieSYS
             this.lblPayAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayAmount.Name = "lblPayAmount";
             this.lblPayAmount.Size = new System.Drawing.Size(187, 28);
-            this.lblPayAmount.TabIndex = 9;
+            this.lblPayAmount.TabIndex = 11;
             this.lblPayAmount.Text = "Payment Amount: ";
             this.lblPayAmount.Click += new System.EventHandler(this.lblPayAmount_Click);
             // 
@@ -160,7 +160,7 @@ namespace MovieSYS
             this.lblFineAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFineAmount.Name = "lblFineAmount";
             this.lblFineAmount.Size = new System.Drawing.Size(138, 28);
-            this.lblFineAmount.TabIndex = 8;
+            this.lblFineAmount.TabIndex = 9;
             this.lblFineAmount.Text = "Fine Amount:";
             this.lblFineAmount.Click += new System.EventHandler(this.lblFineAmount_Click);
             // 
@@ -175,7 +175,7 @@ namespace MovieSYS
             this.txtPayAmount.PlaceholderText = "10.00";
             this.txtPayAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPayAmount.Size = new System.Drawing.Size(95, 30);
-            this.txtPayAmount.TabIndex = 7;
+            this.txtPayAmount.TabIndex = 12;
             this.txtPayAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPayAmount.TextChanged += new System.EventHandler(this.txtPayAmount_TextChanged);
             // 
@@ -190,7 +190,7 @@ namespace MovieSYS
             this.txtFineAmount.PlaceholderText = "10.00";
             this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
-            this.txtFineAmount.TabIndex = 4;
+            this.txtFineAmount.TabIndex = 10;
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
@@ -203,7 +203,7 @@ namespace MovieSYS
             this.grpSearchResults.Location = new System.Drawing.Point(531, 62);
             this.grpSearchResults.Name = "grpSearchResults";
             this.grpSearchResults.Size = new System.Drawing.Size(382, 155);
-            this.grpSearchResults.TabIndex = 14;
+            this.grpSearchResults.TabIndex = 5;
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
             this.grpSearchResults.Enter += new System.EventHandler(this.grpSearchResults_Enter);
@@ -242,7 +242,7 @@ namespace MovieSYS
             this.grpMemCheck.Location = new System.Drawing.Point(75, 62);
             this.grpMemCheck.Name = "grpMemCheck";
             this.grpMemCheck.Size = new System.Drawing.Size(386, 155);
-            this.grpMemCheck.TabIndex = 13;
+            this.grpMemCheck.TabIndex = 1;
             this.grpMemCheck.TabStop = false;
             this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter_1);
             // 

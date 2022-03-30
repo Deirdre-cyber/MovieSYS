@@ -29,27 +29,40 @@ namespace MovieSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpMemDetails = new System.Windows.Forms.GroupBox();
-            this.lbOverDue = new System.Windows.Forms.Label();
-            this.txtOverDVDCount = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.lblPayAmount = new System.Windows.Forms.Label();
             this.lblFineAmount = new System.Windows.Forms.Label();
             this.txtPayAmount = new System.Windows.Forms.TextBox();
             this.txtFineAmount = new System.Windows.Forms.TextBox();
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.lstResults = new System.Windows.Forms.ListBox();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.grdSearchResults = new System.Windows.Forms.DataGridView();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.txtMemId = new System.Windows.Forms.TextBox();
+            this.lblMemberId = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grpReceipt = new System.Windows.Forms.GroupBox();
+            this.lblReceipt = new System.Windows.Forms.Label();
+            this.btnEmail = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.mnuAdd.SuspendLayout();
             this.grpMemDetails.SuspendLayout();
             this.grpSearchResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).BeginInit();
             this.grpMemCheck.SuspendLayout();
+            this.grpSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.grpReceipt.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuAdd
@@ -62,10 +75,9 @@ namespace MovieSYS
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.mnuAdd.Size = new System.Drawing.Size(1000, 31);
+            this.mnuAdd.Size = new System.Drawing.Size(875, 31);
             this.mnuAdd.TabIndex = 16;
             this.mnuAdd.Text = "menuStrip1";
-            this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
             // mnuExit
             // 
@@ -79,8 +91,6 @@ namespace MovieSYS
             // 
             // grpMemDetails
             // 
-            this.grpMemDetails.Controls.Add(this.lbOverDue);
-            this.grpMemDetails.Controls.Add(this.txtOverDVDCount);
             this.grpMemDetails.Controls.Add(this.btnPay);
             this.grpMemDetails.Controls.Add(this.lblPayAmount);
             this.grpMemDetails.Controls.Add(this.lblFineAmount);
@@ -88,42 +98,14 @@ namespace MovieSYS
             this.grpMemDetails.Controls.Add(this.txtFineAmount);
             this.grpMemDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpMemDetails.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpMemDetails.Location = new System.Drawing.Point(124, 239);
+            this.grpMemDetails.Location = new System.Drawing.Point(72, 324);
             this.grpMemDetails.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grpMemDetails.Name = "grpMemDetails";
             this.grpMemDetails.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.grpMemDetails.Size = new System.Drawing.Size(703, 287);
+            this.grpMemDetails.Size = new System.Drawing.Size(757, 183);
             this.grpMemDetails.TabIndex = 8;
             this.grpMemDetails.TabStop = false;
-            this.grpMemDetails.Text = "Member Rental Details";
-            this.grpMemDetails.Enter += new System.EventHandler(this.grpMemDetails_Enter);
-            // 
-            // lbOverDue
-            // 
-            this.lbOverDue.AutoSize = true;
-            this.lbOverDue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbOverDue.Location = new System.Drawing.Point(182, 193);
-            this.lbOverDue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbOverDue.Name = "lbOverDue";
-            this.lbOverDue.Size = new System.Drawing.Size(155, 28);
-            this.lbOverDue.TabIndex = 13;
-            this.lbOverDue.Text = "DVDs Overdue:";
-            this.lbOverDue.Click += new System.EventHandler(this.lbOverDue_Click);
-            // 
-            // txtOverDVDCount
-            // 
-            this.txtOverDVDCount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtOverDVDCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtOverDVDCount.Location = new System.Drawing.Point(345, 191);
-            this.txtOverDVDCount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtOverDVDCount.MaxLength = 6;
-            this.txtOverDVDCount.Name = "txtOverDVDCount";
-            this.txtOverDVDCount.PlaceholderText = "3";
-            this.txtOverDVDCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtOverDVDCount.Size = new System.Drawing.Size(95, 30);
-            this.txtOverDVDCount.TabIndex = 14;
-            this.txtOverDVDCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtOverDVDCount.TextChanged += new System.EventHandler(this.txtOverDVDCount_TextChanged);
+            this.grpMemDetails.Text = "Fine Details";
             // 
             // btnPay
             // 
@@ -131,7 +113,7 @@ namespace MovieSYS
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPay.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPay.Location = new System.Drawing.Point(564, 188);
+            this.btnPay.Location = new System.Drawing.Point(567, 124);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(70, 35);
@@ -144,46 +126,43 @@ namespace MovieSYS
             // 
             this.lblPayAmount.AutoSize = true;
             this.lblPayAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPayAmount.Location = new System.Drawing.Point(150, 136);
+            this.lblPayAmount.Location = new System.Drawing.Point(153, 72);
             this.lblPayAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayAmount.Name = "lblPayAmount";
             this.lblPayAmount.Size = new System.Drawing.Size(187, 28);
             this.lblPayAmount.TabIndex = 11;
             this.lblPayAmount.Text = "Payment Amount: ";
-            this.lblPayAmount.Click += new System.EventHandler(this.lblPayAmount_Click);
             // 
             // lblFineAmount
             // 
             this.lblFineAmount.AutoSize = true;
             this.lblFineAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFineAmount.Location = new System.Drawing.Point(199, 77);
+            this.lblFineAmount.Location = new System.Drawing.Point(202, 36);
             this.lblFineAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFineAmount.Name = "lblFineAmount";
             this.lblFineAmount.Size = new System.Drawing.Size(138, 28);
             this.lblFineAmount.TabIndex = 9;
             this.lblFineAmount.Text = "Fine Amount:";
-            this.lblFineAmount.Click += new System.EventHandler(this.lblFineAmount_Click);
             // 
             // txtPayAmount
             // 
             this.txtPayAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPayAmount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtPayAmount.Location = new System.Drawing.Point(345, 134);
+            this.txtPayAmount.Location = new System.Drawing.Point(348, 70);
             this.txtPayAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPayAmount.MaxLength = 6;
             this.txtPayAmount.Name = "txtPayAmount";
-            this.txtPayAmount.PlaceholderText = "10.00";
             this.txtPayAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPayAmount.Size = new System.Drawing.Size(95, 30);
             this.txtPayAmount.TabIndex = 12;
             this.txtPayAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPayAmount.TextChanged += new System.EventHandler(this.txtPayAmount_TextChanged);
+            this.txtPayAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtPayAmount_Validating);
             // 
             // txtFineAmount
             // 
             this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFineAmount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.txtFineAmount.Location = new System.Drawing.Point(345, 75);
+            this.txtFineAmount.Location = new System.Drawing.Point(348, 34);
             this.txtFineAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtFineAmount.MaxLength = 6;
             this.txtFineAmount.Name = "txtFineAmount";
@@ -192,46 +171,51 @@ namespace MovieSYS
             this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
             this.txtFineAmount.TabIndex = 10;
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtFineAmount.TextChanged += new System.EventHandler(this.txtFineAmount_TextChanged);
             // 
             // grpSearchResults
             // 
-            this.grpSearchResults.Controls.Add(this.btnSelect);
-            this.grpSearchResults.Controls.Add(this.lstResults);
+            this.grpSearchResults.Controls.Add(this.btnReturn);
+            this.grpSearchResults.Controls.Add(this.grdSearchResults);
             this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpSearchResults.Location = new System.Drawing.Point(531, 62);
+            this.grpSearchResults.Location = new System.Drawing.Point(420, 57);
             this.grpSearchResults.Name = "grpSearchResults";
-            this.grpSearchResults.Size = new System.Drawing.Size(382, 155);
-            this.grpSearchResults.TabIndex = 5;
+            this.grpSearchResults.Size = new System.Drawing.Size(439, 160);
+            this.grpSearchResults.TabIndex = 16;
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
-            this.grpSearchResults.Enter += new System.EventHandler(this.grpSearchResults_Enter);
             // 
-            // btnSelect
+            // btnReturn
             // 
-            this.btnSelect.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSelect.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSelect.Location = new System.Drawing.Point(297, 63);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(70, 35);
-            this.btnSelect.TabIndex = 7;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnReturn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnReturn.Location = new System.Drawing.Point(381, 66);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(52, 35);
+            this.btnReturn.TabIndex = 27;
+            this.btnReturn.Text = "Exit";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // lstResults
+            // grdSearchResults
             // 
-            this.lstResults.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstResults.FormattingEnabled = true;
-            this.lstResults.ItemHeight = 23;
-            this.lstResults.Location = new System.Drawing.Point(21, 37);
-            this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(239, 96);
-            this.lstResults.TabIndex = 6;
-            this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
+            this.grdSearchResults.AllowUserToAddRows = false;
+            this.grdSearchResults.AllowUserToDeleteRows = false;
+            this.grdSearchResults.AllowUserToResizeColumns = false;
+            this.grdSearchResults.AllowUserToResizeRows = false;
+            this.grdSearchResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearchResults.Location = new System.Drawing.Point(12, 32);
+            this.grdSearchResults.Name = "grdSearchResults";
+            this.grdSearchResults.RowHeadersVisible = false;
+            this.grdSearchResults.RowHeadersWidth = 51;
+            this.grdSearchResults.RowTemplate.Height = 25;
+            this.grdSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdSearchResults.Size = new System.Drawing.Size(354, 111);
+            this.grdSearchResults.TabIndex = 0;
+            this.grdSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchResults_CellClick);
             // 
             // grpMemCheck
             // 
@@ -239,12 +223,11 @@ namespace MovieSYS
             this.grpMemCheck.Controls.Add(this.lblMemberSearch);
             this.grpMemCheck.Controls.Add(this.btnCheck);
             this.grpMemCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this.grpMemCheck.Location = new System.Drawing.Point(75, 62);
+            this.grpMemCheck.Location = new System.Drawing.Point(26, 62);
             this.grpMemCheck.Name = "grpMemCheck";
             this.grpMemCheck.Size = new System.Drawing.Size(386, 155);
-            this.grpMemCheck.TabIndex = 1;
+            this.grpMemCheck.TabIndex = 28;
             this.grpMemCheck.TabStop = false;
-            this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter_1);
             // 
             // txtMemberName
             // 
@@ -252,12 +235,9 @@ namespace MovieSYS
             this.txtMemberName.Location = new System.Drawing.Point(193, 49);
             this.txtMemberName.MaxLength = 8;
             this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.PlaceholderText = "Mary";
             this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtMemberName.Size = new System.Drawing.Size(160, 30);
             this.txtMemberName.TabIndex = 3;
-            this.txtMemberName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMemberName.TextChanged += new System.EventHandler(this.txtMemberName_TextChanged);
             // 
             // lblMemberSearch
             // 
@@ -269,7 +249,6 @@ namespace MovieSYS
             this.lblMemberSearch.Size = new System.Drawing.Size(166, 28);
             this.lblMemberSearch.TabIndex = 2;
             this.lblMemberSearch.Text = "Search Member:";
-            this.lblMemberSearch.Click += new System.EventHandler(this.lblMemberSearch_Click);
             // 
             // btnCheck
             // 
@@ -283,17 +262,130 @@ namespace MovieSYS
             this.btnCheck.TabIndex = 4;
             this.btnCheck.Text = "Check Account";
             this.btnCheck.UseVisualStyleBackColor = false;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click_1);
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // grpSearch
+            // 
+            this.grpSearch.Controls.Add(this.txtMemId);
+            this.grpSearch.Controls.Add(this.lblMemberId);
+            this.grpSearch.Controls.Add(this.lblName);
+            this.grpSearch.Controls.Add(this.txtFirstName);
+            this.grpSearch.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpSearch.ForeColor = System.Drawing.Color.Azure;
+            this.grpSearch.Location = new System.Drawing.Point(96, 223);
+            this.grpSearch.Name = "grpSearch";
+            this.grpSearch.Size = new System.Drawing.Size(690, 95);
+            this.grpSearch.TabIndex = 29;
+            this.grpSearch.TabStop = false;
+            this.grpSearch.Text = "Member Details";
+            // 
+            // txtMemId
+            // 
+            this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMemId.Location = new System.Drawing.Point(188, 37);
+            this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemId.MaxLength = 6;
+            this.txtMemId.Name = "txtMemId";
+            this.txtMemId.Size = new System.Drawing.Size(66, 30);
+            this.txtMemId.TabIndex = 10;
+            // 
+            // lblMemberId
+            // 
+            this.lblMemberId.AutoSize = true;
+            this.lblMemberId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMemberId.Location = new System.Drawing.Point(57, 37);
+            this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMemberId.Name = "lblMemberId";
+            this.lblMemberId.Size = new System.Drawing.Size(123, 28);
+            this.lblMemberId.TabIndex = 9;
+            this.lblMemberId.Text = "Member ID:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(367, 37);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(73, 28);
+            this.lblName.TabIndex = 11;
+            this.lblName.Text = "Name:";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFirstName.Location = new System.Drawing.Point(448, 37);
+            this.txtFirstName.MaxLength = 30;
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.PlaceholderText = "Mary Bloggs";
+            this.txtFirstName.Size = new System.Drawing.Size(178, 30);
+            this.txtFirstName.TabIndex = 12;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // grpReceipt
+            // 
+            this.grpReceipt.Controls.Add(this.lblReceipt);
+            this.grpReceipt.Controls.Add(this.btnEmail);
+            this.grpReceipt.Controls.Add(this.btnPrint);
+            this.grpReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grpReceipt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpReceipt.Location = new System.Drawing.Point(257, 513);
+            this.grpReceipt.Name = "grpReceipt";
+            this.grpReceipt.Size = new System.Drawing.Size(367, 122);
+            this.grpReceipt.TabIndex = 30;
+            this.grpReceipt.TabStop = false;
+            this.grpReceipt.Text = "Receipt";
+            // 
+            // lblReceipt
+            // 
+            this.lblReceipt.AutoSize = true;
+            this.lblReceipt.Location = new System.Drawing.Point(80, 23);
+            this.lblReceipt.Name = "lblReceipt";
+            this.lblReceipt.Size = new System.Drawing.Size(192, 23);
+            this.lblReceipt.TabIndex = 29;
+            this.lblReceipt.Text = "Print or email Receipt?";
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEmail.Location = new System.Drawing.Point(194, 65);
+            this.btnEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(92, 35);
+            this.btnEmail.TabIndex = 28;
+            this.btnEmail.Text = "Email";
+            this.btnEmail.UseVisualStyleBackColor = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPrint.Location = new System.Drawing.Point(80, 65);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(95, 35);
+            this.btnPrint.TabIndex = 27;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
             // 
             // frmPayFines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1000, 720);
+            this.ClientSize = new System.Drawing.Size(875, 649);
+            this.Controls.Add(this.grpReceipt);
+            this.Controls.Add(this.grpSearch);
+            this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.grpSearchResults);
             this.Controls.Add(this.grpMemDetails);
-            this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.mnuAdd);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -302,13 +394,20 @@ namespace MovieSYS
             this.Name = "frmPayFines";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFines";
+            this.Load += new System.EventHandler(this.frmPayFines_Load);
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
             this.grpMemDetails.ResumeLayout(false);
             this.grpMemDetails.PerformLayout();
             this.grpSearchResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).EndInit();
             this.grpMemCheck.ResumeLayout(false);
             this.grpMemCheck.PerformLayout();
+            this.grpSearch.ResumeLayout(false);
+            this.grpSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.grpReceipt.ResumeLayout(false);
+            this.grpReceipt.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,14 +423,22 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblPayAmount;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.Label lbOverDue;
-        private System.Windows.Forms.TextBox txtOverDVDCount;
         private System.Windows.Forms.GroupBox grpSearchResults;
-        private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.ListBox lstResults;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.DataGridView grdSearchResults;
         private System.Windows.Forms.GroupBox grpMemCheck;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label lblMemberSearch;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.GroupBox grpSearch;
+        private System.Windows.Forms.TextBox txtMemId;
+        private System.Windows.Forms.Label lblMemberId;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox grpReceipt;
+        private System.Windows.Forms.Label lblReceipt;
+        private System.Windows.Forms.Button btnEmail;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

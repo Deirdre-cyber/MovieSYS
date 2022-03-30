@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,161 +15,321 @@ namespace MovieSYS
     {
         frmMainMenu parent;
 
+        private bool validName = false;
+        private bool validDuration = false;
+        private bool validYear = false;
+        private bool validCopies = false;
+
+
         public frmDVDCatalogue()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
         public frmDVDCatalogue(frmMainMenu Parent)
         {
-            InitializeComponent();
-            this.parent = Parent;
+            try
+            {
+                InitializeComponent();
+                this.parent = Parent;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            parent.Visible = true;
+            try
+            {
+                this.Close();
+                parent.Visible = true;
+            }
+            catch (NullReferenceException nre)
+            {
+                Debug.WriteLine("An error has occured\n" + nre.ToString());
+            }
         }
 
-        private void grpDetails_Enter(object sender, EventArgs e)
+        private void frmDVDCatalogue_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void lblDvdId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDVDId_TextChanged(object sender, EventArgs e)
-        {
-            //incremented automatically
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDVDName_TextChanged(object sender, EventArgs e)
-        {
-            //must be less than 30 characters
-        }
-
-        private void lblGenre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List genre items = genre table
-        }
-
-        private void lblCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboCat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List category items = category table
-        }
-
-        private void lblLanguage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboLang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List language items = language table
-        }
-
-        private void lblYear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtYear_TextChanged(object sender, EventArgs e)
-        {
-            //Must be 4 digits
-        }
-
-        private void lblDuration_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDuration_TextChanged(object sender, EventArgs e)
-        {
-            //must be max 3 numbers 0-999
-        }
-
-        private void lblDateAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDate_ValueChanged(object sender, EventArgs e)
-        {
-            //must be numbers in dd-mm-yy format
-            //dd: 01-31 mm: 01-12 yy: 00-99
-        }
-
-        private void lblCountry_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List items from Country = country table
-        }
-
-        private void lblAgeRating_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboAge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List items from Age rating = Age_Cert Table
+            LoadUI();
         }
 
         private void btnConfirmInfo_Click(object sender, EventArgs e)
         {
-            //VALIDATE ALL - all marked fields must be entered
+            if (allValid())
+            {
+                DialogResult result = MessageBox.Show(null, "Do you want to add " + txtCopies.Text + " copies of '" + txtDVDName.Text + "' to MovieSYS?", "Confirm", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        AddDvdCopy();
+
+                        MessageBox.Show(null, "DVD has been added successfuly", "Added Successfully", MessageBoxButtons.OK);
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show(null, "All fields must be completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show(null, "All fields must be completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(null, "Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            
+            ResetUI();
+            txtDVDId.Text = DVD.GetNextDVDID().ToString("0000");
         }
 
-        private void lblStatus_Click(object sender, EventArgs e)
+        //LOACAL METHODS
+        public void LoadUI()
         {
+            txtDVDId.Text = DVD.GetNextDVDID().ToString("0000");
 
+            dtpDate.Value = DateTime.Today;
+
+            DataSet genreDS = Utility.getGenreCodes();
+            for (int i = 0; i < genreDS.Tables[0].Rows.Count; i++)
+                cboGenre.Items.Add(genreDS.Tables[0].Rows[i][0] + " - " + genreDS.Tables[0].Rows[i][1]);
+
+            DataSet catDS = Utility.getCategoryCodes();
+            for (int i = 0; i < catDS.Tables[0].Rows.Count; i++)
+                cboCat.Items.Add(catDS.Tables[0].Rows[i][0] + " - " + catDS.Tables[0].Rows[i][1]);
+
+            DataSet countryDS = Utility.getCountryCodes();
+            for (int i = 0; i < countryDS.Tables[0].Rows.Count; i++)
+                cboCountry.Items.Add(countryDS.Tables[0].Rows[i][0] + " - " + countryDS.Tables[0].Rows[i][1]);
+
+            DataSet ageDS = Utility.getAgeCodes();
+            for (int i = 0; i < ageDS.Tables[0].Rows.Count; i++)
+                cboAge.Items.Add(ageDS.Tables[0].Rows[i][0]);
+        }
+        private void AddDvdCopy()
+        {
+            if (Convert.ToInt32(txtCopies.Text) >= 1)
+            {
+                for (int i = 0; i < Convert.ToInt32(txtCopies.Text); i++)
+                {
+                    DVD aDVD = new DVD(Convert.ToInt32(txtDVDId.Text), txtDVDName.Text, cboCat.Text.Substring(0, 2),
+                            Utility.setGenre(cboGenre.Text), cboCountry.Text.Substring(0, 2), txtYear.Text, Convert.ToInt32(txtDuration.Text),
+                            String.Format("{0:dd-MMM-yy}", dtpDate.Value), cboAge.Text.Substring(0, 2), "A");
+
+                    aDVD.AddDVD();
+                }
+            }            
+        }
+        private void ResetUI() //MAKE UNIVERSAL METHOD IN UTILITY CLASS
+        {
+            Utility.ClearText(this.Controls);
+            dtpDate.Value = DateTime.Today;
+            cboCat.Text = null;
+            cboGenre.Text = null;
+            cboCountry.Text = null;
+            cboAge.Text = null;
+            txtDVDName.Focus();
+        }
+        private void AutoCompleteDvd()
+        {
+            DVD bDVD = new DVD();
+            bDVD.GetPartialDvdDetails(txtDVDName.Text.ToUpper());
+            txtDVDName.Text = bDVD.Title;
+            cboCat.Text = bDVD.CategoryCode;
+            cboGenre.Text = bDVD.GenreCode;
+            cboCountry.Text = bDVD.CountryCode;
+            txtYear.Text = bDVD.ReleaseYear;
+            txtDuration.Text = Convert.ToString(bDVD.Duration);
+            cboAge.Text = bDVD.AgeCode;
         }
 
-        private void txtCopy_TextChanged(object sender, EventArgs e)
+        //VALIDATION METHODS
+        private bool allValid()
         {
-
+            if (validName && validDuration && validYear && validCopies)
+                return true;
+            else
+                return false;
         }
-
-        private void lblStatus_Click_1(object sender, EventArgs e)
+        private void txtDVDName_Validating_1(object sender, CancelEventArgs e)
         {
+            
+            if (string.IsNullOrWhiteSpace(txtDVDName.Text))
+            {
+                txtDVDName.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtDVDName, "Title should not be left blank");
+                validName = false;
+            }
+            else if (!Validation.IsTableEmpty(DVD.SearchDVD(txtDVDName.Text.ToUpper()))) { 
+                
+                DialogResult res = MessageBox.Show(null, "DVD title already exists, autocomplete form?", "DVD Title already exists", MessageBoxButtons.OKCancel);
 
+                if (res == DialogResult.OK)
+                {
+                    AutoCompleteDvd();
+                    txtDVDName.BackColor = Color.White;
+                    errorProvider1.Clear();
+                    validName = true;
+                }
+                else
+                    validName = false;
+            }
+            else
+            {
+                txtDVDName.BackColor = Color.White;
+                errorProvider1.Clear();
+                validName = true;
+            }
         }
-
-        private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboCat_Validating(object sender, CancelEventArgs e)
         {
-
+            if(cboCat.Text == null && cboCat.SelectedIndex == -1)
+            {
+                cboCat.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(cboCat, "Must choose category");
+            }
+            else
+            {
+                cboCat.BackColor = Color.White;
+                errorProvider1.Clear();
+            }
         }
-
-        private void lblCopies_Click(object sender, EventArgs e)
+        private void cboGenre_Validating(object sender, CancelEventArgs e)
         {
-
+            if (cboGenre.Text == null && cboGenre.SelectedIndex == -1)
+            {
+                cboGenre.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(cboGenre, "Must choose genre");
+            }
+            else
+            {
+                cboGenre.BackColor = Color.White;
+                errorProvider1.Clear();
+            }
         }
-
-        private void txtCopies_TextChanged(object sender, EventArgs e)
+        private void cboCountry_Validating(object sender, CancelEventArgs e)
+        {
+            if (cboCountry.Text == null && cboCountry.SelectedIndex == -1)
+            {
+                cboCountry.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(cboCountry, "Must choose country");
+            }
+            else
+            {
+                cboCountry.BackColor = Color.White;
+                errorProvider1.Clear();
+            }
+        }
+        private void cboAge_Validating(object sender, CancelEventArgs e)
+        {
+            if (cboAge.Text == null && cboAge.SelectedIndex == -1)
+            {
+                cboAge.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(cboAge, "Must choose age rating");
+            }
+            else
+            {
+                cboAge.BackColor = Color.White;
+                errorProvider1.Clear();
+            }
+        }
+        private void txtDuration_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDuration.Text))
+            {
+                txtDuration.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtDuration, "Duration cannot be left blank");
+                validDuration = false;
+            }
+            else if (!Validation.IsNumber(txtDuration.Text))
+            {
+                txtDuration.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtDuration, "Duration should be only digits");
+                validDuration = false;
+            }
+            else if (Convert.ToInt32(txtDuration.Text) <= 0)
+            {
+                txtDuration.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtDuration, "Duration should be more than 0");
+                validDuration = false;
+            }
+            else
+            {
+                txtDuration.BackColor = Color.White;
+                errorProvider1.Clear();
+                validDuration = true;
+            }
+        }
+        private void txtCopies_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCopies.Text))
+            {
+                txtCopies.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtCopies, "Copies cannot be left blank");
+                validCopies = false;
+            }
+            else if (!Validation.IsNumber(txtCopies.Text))
+            {
+                txtCopies.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtCopies, "Copies should be only digits");
+                validCopies = false;
+            }
+            else if (Convert.ToInt32(txtCopies.Text) <= 0)
+            {
+                txtCopies.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtCopies, "Copies should be more than 0");
+                validCopies = false;
+            }
+            else
+            {
+                txtCopies.BackColor = Color.White;
+                errorProvider1.Clear();
+                validCopies = true;
+            }
+        }
+        private void txtYear_Validating(object sender, CancelEventArgs e)
         {
 
+            if (string.IsNullOrWhiteSpace(txtYear.Text))
+            {
+                txtYear.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtYear, "Year cannot be left blank");
+                validYear = false;
+            }
+            else if (!Validation.HasDigits(txtYear.Text))
+            {
+                txtYear.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtYear, "Year should be four digits");
+                validYear = false;
+            }
+            else if (Convert.ToInt32(txtYear.Text) < 1900 || Convert.ToInt32(txtYear.Text) > 2999)
+            {
+                txtYear.BackColor = Color.DarkSalmon;
+                errorProvider1.SetError(txtYear, "Year should be valid year");
+                validYear = false;
+            }
+            else
+            {
+                txtYear.BackColor = Color.White;
+                errorProvider1.Clear();
+                validYear = true;
+            }
         }
     }
 }

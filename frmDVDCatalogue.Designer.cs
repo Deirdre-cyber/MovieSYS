@@ -29,11 +29,10 @@ namespace MovieSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpDetails = new System.Windows.Forms.GroupBox();
             this.txtCopies = new System.Windows.Forms.TextBox();
             this.lblCopies = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.lblGenre = new System.Windows.Forms.Label();
             this.cboGenre = new System.Windows.Forms.ComboBox();
             this.txtDVDId = new System.Windows.Forms.TextBox();
@@ -44,13 +43,11 @@ namespace MovieSYS
             this.lblDateAdd = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
-            this.lblLanguage = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
             this.cboAge = new System.Windows.Forms.ComboBox();
             this.cboCat = new System.Windows.Forms.ComboBox();
-            this.cboLang = new System.Windows.Forms.ComboBox();
             this.cboCountry = new System.Windows.Forms.ComboBox();
             this.btnConfirmInfo = new System.Windows.Forms.Button();
             this.lblMins = new System.Windows.Forms.Label();
@@ -59,8 +56,10 @@ namespace MovieSYS
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpDetails.SuspendLayout();
             this.mnuAdd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpDetails
@@ -68,8 +67,6 @@ namespace MovieSYS
             this.grpDetails.BackColor = System.Drawing.Color.LightSlateGray;
             this.grpDetails.Controls.Add(this.txtCopies);
             this.grpDetails.Controls.Add(this.lblCopies);
-            this.grpDetails.Controls.Add(this.cboStatus);
-            this.grpDetails.Controls.Add(this.lblStatus);
             this.grpDetails.Controls.Add(this.lblGenre);
             this.grpDetails.Controls.Add(this.cboGenre);
             this.grpDetails.Controls.Add(this.txtDVDId);
@@ -80,13 +77,11 @@ namespace MovieSYS
             this.grpDetails.Controls.Add(this.lblDateAdd);
             this.grpDetails.Controls.Add(this.lblDuration);
             this.grpDetails.Controls.Add(this.lblYear);
-            this.grpDetails.Controls.Add(this.lblLanguage);
             this.grpDetails.Controls.Add(this.lblCategory);
             this.grpDetails.Controls.Add(this.lblTitle);
             this.grpDetails.Controls.Add(this.txtYear);
             this.grpDetails.Controls.Add(this.cboAge);
             this.grpDetails.Controls.Add(this.cboCat);
-            this.grpDetails.Controls.Add(this.cboLang);
             this.grpDetails.Controls.Add(this.cboCountry);
             this.grpDetails.Controls.Add(this.btnConfirmInfo);
             this.grpDetails.Controls.Add(this.lblMins);
@@ -100,62 +95,37 @@ namespace MovieSYS
             this.grpDetails.TabIndex = 1;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "DVD Details";
-            this.grpDetails.Enter += new System.EventHandler(this.grpDetails_Enter);
             // 
             // txtCopies
             // 
             this.txtCopies.BackColor = System.Drawing.SystemColors.Window;
             this.txtCopies.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCopies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCopies.Location = new System.Drawing.Point(618, 357);
-            this.txtCopies.MaxLength = 3;
+            this.txtCopies.Location = new System.Drawing.Point(615, 249);
+            this.txtCopies.MaxLength = 2;
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.PlaceholderText = "0";
             this.txtCopies.Size = new System.Drawing.Size(50, 30);
-            this.txtCopies.TabIndex = 25;
+            this.txtCopies.TabIndex = 10;
             this.txtCopies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCopies.TextChanged += new System.EventHandler(this.txtCopies_TextChanged);
+            this.txtCopies.Validating += new System.ComponentModel.CancelEventHandler(this.txtCopies_Validating);
             // 
             // lblCopies
             // 
             this.lblCopies.AutoSize = true;
             this.lblCopies.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCopies.Location = new System.Drawing.Point(533, 357);
+            this.lblCopies.Location = new System.Drawing.Point(530, 249);
             this.lblCopies.Name = "lblCopies";
             this.lblCopies.Size = new System.Drawing.Size(79, 28);
             this.lblCopies.TabIndex = 24;
             this.lblCopies.Text = "Copies:";
-            this.lblCopies.Click += new System.EventHandler(this.lblCopies_Click);
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cboStatus.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(617, 302);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(50, 31);
-            this.cboStatus.TabIndex = 23;
-            this.cboStatus.SelectedIndexChanged += new System.EventHandler(this.cboStatus_SelectedIndexChanged);
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatus.Location = new System.Drawing.Point(536, 305);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(75, 28);
-            this.lblStatus.TabIndex = 22;
-            this.lblStatus.Text = "Status:";
-            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click_1);
             // 
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
             this.lblGenre.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGenre.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblGenre.Location = new System.Drawing.Point(146, 252);
+            this.lblGenre.Location = new System.Drawing.Point(142, 252);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(73, 28);
             this.lblGenre.TabIndex = 8;
@@ -163,26 +133,25 @@ namespace MovieSYS
             // 
             // cboGenre
             // 
-            this.cboGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGenre.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboGenre.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboGenre.FormattingEnabled = true;
             this.cboGenre.Location = new System.Drawing.Point(221, 249);
             this.cboGenre.Name = "cboGenre";
             this.cboGenre.Size = new System.Drawing.Size(180, 31);
-            this.cboGenre.TabIndex = 9;
+            this.cboGenre.TabIndex = 4;
+            this.cboGenre.Validating += new System.ComponentModel.CancelEventHandler(this.cboGenre_Validating);
             // 
             // txtDVDId
             // 
+            this.txtDVDId.Enabled = false;
             this.txtDVDId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDVDId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDVDId.Location = new System.Drawing.Point(221, 93);
             this.txtDVDId.MaxLength = 4;
             this.txtDVDId.Name = "txtDVDId";
-            this.txtDVDId.PlaceholderText = "00001";
             this.txtDVDId.Size = new System.Drawing.Size(58, 30);
-            this.txtDVDId.TabIndex = 3;
-            this.txtDVDId.TextChanged += new System.EventHandler(this.txtDVDId_TextChanged);
+            this.txtDVDId.TabIndex = 1;
             // 
             // lblDvdId
             // 
@@ -194,7 +163,6 @@ namespace MovieSYS
             this.lblDvdId.Size = new System.Drawing.Size(87, 28);
             this.lblDvdId.TabIndex = 2;
             this.lblDvdId.Text = "DVD ID:";
-            this.lblDvdId.Click += new System.EventHandler(this.lblDvdId_Click);
             // 
             // dtpDate
             // 
@@ -202,94 +170,79 @@ namespace MovieSYS
             this.dtpDate.CalendarMonthBackground = System.Drawing.Color.Azure;
             this.dtpDate.CalendarTitleBackColor = System.Drawing.Color.LightSlateGray;
             this.dtpDate.CalendarTitleForeColor = System.Drawing.Color.LightSlateGray;
+            this.dtpDate.Enabled = false;
             this.dtpDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpDate.Location = new System.Drawing.Point(618, 143);
+            this.dtpDate.Location = new System.Drawing.Point(615, 195);
+            this.dtpDate.MaxDate = new System.DateTime(2099, 2, 4, 0, 0, 0, 0);
+            this.dtpDate.MinDate = new System.DateTime(2020, 12, 25, 0, 0, 0, 0);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(140, 30);
-            this.dtpDate.TabIndex = 17;
-            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
+            this.dtpDate.TabIndex = 9;
+            this.dtpDate.Value = new System.DateTime(2022, 1, 27, 0, 0, 0, 0);
             // 
             // lblAgeRating
             // 
             this.lblAgeRating.AutoSize = true;
             this.lblAgeRating.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblAgeRating.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblAgeRating.Location = new System.Drawing.Point(486, 252);
+            this.lblAgeRating.Location = new System.Drawing.Point(90, 354);
             this.lblAgeRating.Name = "lblAgeRating";
             this.lblAgeRating.Size = new System.Drawing.Size(122, 28);
             this.lblAgeRating.TabIndex = 20;
             this.lblAgeRating.Text = "Age Rating:";
-            this.lblAgeRating.Click += new System.EventHandler(this.lblAgeRating_Click);
             // 
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCountry.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblCountry.Location = new System.Drawing.Point(515, 201);
+            this.lblCountry.Location = new System.Drawing.Point(122, 305);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(93, 28);
             this.lblCountry.TabIndex = 18;
             this.lblCountry.Text = "Country:";
-            this.lblCountry.Click += new System.EventHandler(this.lblCountry_Click);
             // 
             // lblDateAdd
             // 
             this.lblDateAdd.AutoSize = true;
             this.lblDateAdd.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDateAdd.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblDateAdd.Location = new System.Drawing.Point(480, 147);
+            this.lblDateAdd.Location = new System.Drawing.Point(477, 199);
             this.lblDateAdd.Name = "lblDateAdd";
             this.lblDateAdd.Size = new System.Drawing.Size(129, 28);
             this.lblDateAdd.TabIndex = 16;
             this.lblDateAdd.Text = "Date Added:";
-            this.lblDateAdd.Click += new System.EventHandler(this.lblDateAdd_Click);
             // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
             this.lblDuration.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDuration.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblDuration.Location = new System.Drawing.Point(502, 94);
+            this.lblDuration.Location = new System.Drawing.Point(499, 146);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(101, 28);
             this.lblDuration.TabIndex = 14;
             this.lblDuration.Text = "Duration:";
-            this.lblDuration.Click += new System.EventHandler(this.lblDuration_Click);
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblYear.Location = new System.Drawing.Point(157, 359);
+            this.lblYear.Location = new System.Drawing.Point(551, 94);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(58, 28);
             this.lblYear.TabIndex = 12;
             this.lblYear.Text = "Year:";
-            this.lblYear.Click += new System.EventHandler(this.lblYear_Click);
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLanguage.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblLanguage.Location = new System.Drawing.Point(114, 305);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(108, 28);
-            this.lblLanguage.TabIndex = 10;
-            this.lblLanguage.Text = "Language:";
-            this.lblLanguage.Click += new System.EventHandler(this.lblLanguage_Click);
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCategory.Location = new System.Drawing.Point(121, 198);
+            this.lblCategory.Location = new System.Drawing.Point(112, 198);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(103, 28);
             this.lblCategory.TabIndex = 6;
             this.lblCategory.Text = "Category:";
-            this.lblCategory.Click += new System.EventHandler(this.lblCategory_Click);
             // 
             // lblTitle
             // 
@@ -301,67 +254,51 @@ namespace MovieSYS
             this.lblTitle.Size = new System.Drawing.Size(60, 28);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Title:";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // txtYear
             // 
             this.txtYear.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtYear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtYear.Location = new System.Drawing.Point(221, 359);
+            this.txtYear.Location = new System.Drawing.Point(615, 96);
             this.txtYear.MaxLength = 4;
             this.txtYear.Name = "txtYear";
-            this.txtYear.PlaceholderText = "YYYY";
             this.txtYear.Size = new System.Drawing.Size(50, 30);
-            this.txtYear.TabIndex = 13;
-            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
+            this.txtYear.TabIndex = 7;
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
             // 
             // cboAge
             // 
+            this.cboAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAge.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboAge.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboAge.FormattingEnabled = true;
-            this.cboAge.Location = new System.Drawing.Point(617, 249);
+            this.cboAge.Location = new System.Drawing.Point(221, 351);
             this.cboAge.Name = "cboAge";
             this.cboAge.Size = new System.Drawing.Size(50, 31);
-            this.cboAge.TabIndex = 21;
-            this.cboAge.Text = "18";
-            this.cboAge.SelectedIndexChanged += new System.EventHandler(this.cboAge_SelectedIndexChanged);
+            this.cboAge.TabIndex = 6;
+            this.cboAge.Validating += new System.ComponentModel.CancelEventHandler(this.cboAge_Validating);
             // 
             // cboCat
             // 
-            this.cboCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCat.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboCat.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboCat.FormattingEnabled = true;
             this.cboCat.Location = new System.Drawing.Point(221, 195);
             this.cboCat.Name = "cboCat";
             this.cboCat.Size = new System.Drawing.Size(180, 31);
-            this.cboCat.TabIndex = 7;
-            this.cboCat.SelectedIndexChanged += new System.EventHandler(this.cboCat_SelectedIndexChanged);
-            // 
-            // cboLang
-            // 
-            this.cboLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLang.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cboLang.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.cboLang.FormattingEnabled = true;
-            this.cboLang.Location = new System.Drawing.Point(221, 303);
-            this.cboLang.Name = "cboLang";
-            this.cboLang.Size = new System.Drawing.Size(180, 31);
-            this.cboLang.TabIndex = 11;
-            this.cboLang.SelectedIndexChanged += new System.EventHandler(this.cboLang_SelectedIndexChanged);
+            this.cboCat.TabIndex = 3;
+            this.cboCat.Validating += new System.ComponentModel.CancelEventHandler(this.cboCat_Validating);
             // 
             // cboCountry
             // 
-            this.cboCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCountry.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboCountry.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboCountry.FormattingEnabled = true;
-            this.cboCountry.Location = new System.Drawing.Point(618, 198);
+            this.cboCountry.Location = new System.Drawing.Point(221, 302);
             this.cboCountry.Name = "cboCountry";
-            this.cboCountry.Size = new System.Drawing.Size(140, 31);
-            this.cboCountry.TabIndex = 19;
-            this.cboCountry.SelectedIndexChanged += new System.EventHandler(this.cboCountry_SelectedIndexChanged);
+            this.cboCountry.Size = new System.Drawing.Size(180, 31);
+            this.cboCountry.TabIndex = 5;
+            this.cboCountry.Validating += new System.ComponentModel.CancelEventHandler(this.cboCountry_Validating);
             // 
             // btnConfirmInfo
             // 
@@ -372,7 +309,7 @@ namespace MovieSYS
             this.btnConfirmInfo.Location = new System.Drawing.Point(688, 414);
             this.btnConfirmInfo.Name = "btnConfirmInfo";
             this.btnConfirmInfo.Size = new System.Drawing.Size(70, 40);
-            this.btnConfirmInfo.TabIndex = 26;
+            this.btnConfirmInfo.TabIndex = 11;
             this.btnConfirmInfo.Text = "Add";
             this.btnConfirmInfo.UseVisualStyleBackColor = false;
             this.btnConfirmInfo.Click += new System.EventHandler(this.btnConfirmInfo_Click);
@@ -382,7 +319,7 @@ namespace MovieSYS
             this.lblMins.AutoSize = true;
             this.lblMins.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMins.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblMins.Location = new System.Drawing.Point(674, 94);
+            this.lblMins.Location = new System.Drawing.Point(671, 146);
             this.lblMins.Name = "lblMins";
             this.lblMins.Size = new System.Drawing.Size(54, 25);
             this.lblMins.TabIndex = 0;
@@ -393,14 +330,14 @@ namespace MovieSYS
             this.txtDuration.BackColor = System.Drawing.SystemColors.Window;
             this.txtDuration.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDuration.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtDuration.Location = new System.Drawing.Point(618, 92);
+            this.txtDuration.Location = new System.Drawing.Point(615, 144);
             this.txtDuration.MaxLength = 3;
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.PlaceholderText = "0";
             this.txtDuration.Size = new System.Drawing.Size(50, 30);
-            this.txtDuration.TabIndex = 15;
+            this.txtDuration.TabIndex = 8;
             this.txtDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDuration.TextChanged += new System.EventHandler(this.txtDuration_TextChanged);
+            this.txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtDuration_Validating);
             // 
             // txtDVDName
             // 
@@ -408,13 +345,12 @@ namespace MovieSYS
             this.txtDVDName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDVDName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDVDName.Location = new System.Drawing.Point(221, 143);
-            this.txtDVDName.MaxLength = 30;
+            this.txtDVDName.MaxLength = 50;
             this.txtDVDName.Name = "txtDVDName";
-            this.txtDVDName.PlaceholderText = "El Laberinto Del Fauno";
             this.txtDVDName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDVDName.Size = new System.Drawing.Size(180, 30);
-            this.txtDVDName.TabIndex = 5;
-            this.txtDVDName.TextChanged += new System.EventHandler(this.txtDVDName_TextChanged);
+            this.txtDVDName.TabIndex = 2;
+            this.txtDVDName.Validating += new System.ComponentModel.CancelEventHandler(this.txtDVDName_Validating_1);
             // 
             // mnuAdd
             // 
@@ -426,7 +362,7 @@ namespace MovieSYS
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Size = new System.Drawing.Size(1000, 31);
-            this.mnuAdd.TabIndex = 27;
+            this.mnuAdd.TabIndex = 13;
             this.mnuAdd.Text = "menuStrip1";
             // 
             // mnuExit
@@ -439,12 +375,17 @@ namespace MovieSYS
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmDVDCatalogue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1000, 720);
+            this.ClientSize = new System.Drawing.Size(1000, 731);
             this.Controls.Add(this.grpDetails);
             this.Controls.Add(this.mnuAdd);
             this.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -453,10 +394,12 @@ namespace MovieSYS
             this.Name = "frmDVDCatalogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogue A DVD";
+            this.Load += new System.EventHandler(this.frmDVDCatalogue_Load);
             this.grpDetails.ResumeLayout(false);
             this.grpDetails.PerformLayout();
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,7 +415,6 @@ namespace MovieSYS
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox cboCountry;
         private System.Windows.Forms.ComboBox cboCat;
-        private System.Windows.Forms.ComboBox cboLang;
         private System.Windows.Forms.ComboBox cboAge;
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label lblAgeRating;
@@ -480,7 +422,6 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblDateAdd;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
@@ -489,10 +430,9 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblDvdId;
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.ComboBox cboGenre;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox txtCopies;
         private System.Windows.Forms.Label lblCopies;
-        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

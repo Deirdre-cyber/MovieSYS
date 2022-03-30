@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -6,187 +8,341 @@ namespace MovieSYS
     public partial class frmRentalRentDVD : Form
     {
         frmMainMenu parent;
+
+        private Member aMember = new Member();
+        private int memId;
+        private float price = 0.00f;
+        private int dvdLimit = 5;
+        private int cartIndex;
+
         public frmRentalRentDVD()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         public frmRentalRentDVD(frmMainMenu Parent)
         {
-            InitializeComponent();
-            grpSearchResults.Visible = false;
-            grpRentDetails.Visible = false;
-            grpSearch.Visible = false;
-            this.parent = Parent;
+            try
+            {
+                InitializeComponent();
+                this.parent = Parent;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         private void frmRent_Load(object sender, EventArgs e)
         {
-
+            LoadUI();
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            parent.Visible = true;
+            try
+            {
+                this.Close();
+                parent.Visible = true;
+            }
+            catch (NullReferenceException nre)
+            {
+                Debug.WriteLine("An error has occured\n" + nre.ToString());
+            }
         }
 
         private void grpMemCheck_Enter_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblMemberSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMemberName_TextChanged(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void btnCheck_Click_1(object sender, EventArgs e)
         {
-            grpSearchResults.Visible = true;
+            if (String.IsNullOrEmpty(txtMemberName.Text))
+            {
+                MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
+                {
+                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                    grdSearchResults.DataSource = null;
+                    txtMemberName.Clear();
+                }
+                else
+                    LoadMemberGrid();
+            }
         }
 
-        private void grpSearchResults_Enter(object sender, EventArgs e)
-        {
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        { 
+            ClearListBox();
         }
 
-        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCheckOut_Click(object sender, EventArgs e)
         {
-
+            ProcessRental();
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
-            grpSearch.Visible = true;
-            grpRentDetails.Visible = true;
+            ResetUI();      //create univeral method...
+            LoadUI();
         }
 
-        private void grpSearchRes_Enter(object sender, EventArgs e)
+        private void grdDvdSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (lstCart.Items.Count < dvdLimit)
+            {
+                int i;
 
-        }
-
-        private void lblMemberId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMemId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFines_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFines_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpRentDetails_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRentId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRentID_TextChanged(object sender, EventArgs e)
-        {
+                if (lstCart.Items.Count > 0)
+                    {
+                        for (i = 0; i < lstCart.Items.Count; i++)
+                        {
+                            if (lstCart.FindString(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value)) != -1)
+                            break;
+                        }
+                        if(i != lstCart.Items.Count)
+                        {
+                            MessageBox.Show(null, grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                            " has already been selected", "Error", MessageBoxButtons.OK);
+                        }
+                        else
+                            AddToCart();
+                    }
+                else
+                    AddToCart();
+            }
+            else
+                MessageBox.Show(null, "Cannot rent more than " + dvdLimit + " DVDs", "Limit Reached", MessageBoxButtons.OK);
 
         }
 
-        private void lblSearchDVD_Click(object sender, EventArgs e)
+        private void grdSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
+            {
+                memId = (int)grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value;
 
+                if (!aMember.HasFine(memId) && !aMember.HasOverdue(memId))
+                {
+                    LoadMemberDetails();
+                }
+                else
+                {
+                    MessageBox.Show(null, "There are fines or overdue DVDs connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    grpSearchResults.Visible = false;
+                    txtMemberName.Clear();
+                    grpMemCheck.Visible = true;
+                }
+            }
+            else
+                MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void txtDVDSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lstSearchRes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddtoCart1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lblCar(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstCart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //incrementally populated with DVDs - max depending on membership type...
+            if (string.IsNullOrWhiteSpace(txtDVDSearch.Text) || string.IsNullOrEmpty(txtDVDSearch.Text))
+            {
+                MessageBox.Show(null, "Please enter the name of a DVD Title", "No Search Entered", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (Validation.IsTableEmpty(DVD.SearchDVD(txtDVDSearch.Text.ToUpper())))
+                {
+                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                    txtDVDSearch.Clear();
+                }
+                else
+                    LoadDvdDetails();
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            cartIndex = lstCart.SelectedIndex;
 
+            if (cartIndex != -1)
+            {
+                RemoveFromCart();
+            }
+            else
+                MessageBox.Show(null, "Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void lblTotal_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-
+            LoadUI();
         }
 
-        private void txtPrice_TextChanged(object sender, EventArgs e)
+
+        //LOCAL METHODS
+        private void LoadUI()
         {
-
-        }
-
-        private void lblReturn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpReturnDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
+            grpMemCheck.Location = new Point(260, 100);
+            grdSearchResults.DataSource = null;
+            grpSearchResults.Visible = false;
+            dtpReturnDate.MinDate = DateTime.Today.AddDays(7);
+            dtpReturnDate.MaxDate = DateTime.Today.AddDays(14);
             grpRentDetails.Visible = false;
+            grpSearch.Visible = false;
+            txtMemberName.Clear();
+            grpMemCheck.Visible = true;
         }
 
-        private void btnBuy_Click(object sender, EventArgs e)
+        private void AddToCart()
         {
-            //if all valid show window to confirm and print reciept
+            lstCart.Items.Add(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value) +
+                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
+
+            IncreasePrice();
+
+            txtPrice.Text = price.ToString("0.00");
         }
 
-        private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void IncreasePrice()
         {
-
+            if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("CH"))
+                price += 3.50f;
+            else if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("NR"))
+                price += 8.00f;
+            else
+                price += 5.00f;
         }
 
-        
+        private void DecreasePrice()
+        {
+            if (lstCart.Items[cartIndex].ToString().Contains("CH"))
+                price -= 3.50f;
+            else if (lstCart.Items[cartIndex].ToString().Contains("NR"))
+                price -= 8.00f;
+            else
+                price -= 5.00f;
+        }
+
+        private void RemoveFromCart()
+        {
+            DecreasePrice();
+            lstCart.Items.RemoveAt(cartIndex);
+            txtPrice.Text = price.ToString("0.00");
+        }
+
+        private void ResetUI()
+        {
+            txtMemId.Clear();
+            txtRentID.Clear();
+            txtDVDSearch.Clear();
+            lstCart.Items.Clear();
+            txtPrice.Clear();
+            price = 0.00f;
+        }
+
+        private void LoadMemberDetails()
+        {
+            txtRentID.Text = Rental.GetNextRentalId().ToString("00000");
+
+            aMember.GetMemberDetails(memId);
+            txtMemId.Text = Convert.ToString(memId);
+            txtFirstName.Text = aMember.FirstName + " " + aMember.LastName;
+
+            if (aMember.MembershipID == "PM")
+            {
+                dvdLimit = 10;
+            }
+
+            grpSearchResults.Visible = false;
+            grpSearch.Visible = true;
+
+            grpRentDetails.Visible = true;
+        }
+
+        private void LoadMemberGrid()
+        {
+            grdSearchResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            grdSearchResults.DefaultCellStyle.Font = new Font("Courier", 9);
+            grdSearchResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdSearchResults.Size = new Size(720, 300);
+            btnReturn.Location = new Point(750, 150);
+
+            grpMemCheck.Visible = false;
+
+            grpSearchResults.Visible = true;
+            grpSearchResults.Size = new Size(850, 350);
+            grpSearchResults.Location = new Point(100, 100);
+        }//add to utility class? - reused
+
+        private void LoadDvdDetails()
+        {
+            grdDvdSearch.Visible = false;
+            grdDvdSearch.DataSource = DVD.SearchDVD(txtDVDSearch.Text.ToUpper()).Tables["search"];
+            grdDvdSearch.DefaultCellStyle.Font = new Font("Tahoma", 8);
+            grdDvdSearch.DefaultCellStyle.ForeColor = Color.Black;
+            grdDvdSearch.Visible = true;
+        }
+
+        private void ProcessRental()
+        {
+            try
+            {
+                UpdateRental();
+                UpdateRentalItem();
+
+                MessageBox.Show(null, "Order complete", "Successful", MessageBoxButtons.OK);
+                ResetUI();
+                grpRentDetails.Visible = false;
+                grpSearch.Visible = false;
+                grdDvdSearch.DataSource = null;
+                grpMemCheck.Visible = true;
+                LoadUI();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(null, "Error updating Database", "Error", MessageBoxButtons.OK);
+                Debug.WriteLine("Error updating Database\n" + e.ToString());
+            }
+        }
+
+        private void UpdateRentalItem()
+        {
+            for (int i = 0; i < lstCart.Items.Count; i++)
+            {
+                int dvdId = Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 4));
+
+                DVD.UpdateStatus(dvdId, "A");
+
+                RentalItem aRentalItem = new RentalItem(Convert.ToInt32(txtRentID.Text), dvdId, 0.00f);
+
+                aRentalItem.AddRentalItem();
+            }
+        }
+
+        private void UpdateRental()
+        {
+            Rental aRental = new Rental(Convert.ToInt32(txtRentID.Text), String.Format("{0:dd-MMM-yy}", DateTime.Today),
+                String.Format("{0:dd-MMM-yy}", dtpReturnDate.Value),
+                (float)Math.Round(Convert.ToDouble(txtPrice.Text), 2), Convert.ToInt32(txtMemId.Text));
+
+            aRental.AddRental();
+        }
+
+        private void ClearListBox()
+        {
+            if (lstCart.Items.Count > 0)
+            {
+                lstCart.Items.Clear();
+                price = 0.00f;
+                txtPrice.Text = price.ToString("0.00");
+            }
+        }
     }
 }

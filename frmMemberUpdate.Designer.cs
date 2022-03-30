@@ -29,7 +29,15 @@ namespace MovieSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpEditMem = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.txtMemId = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblMemberId = new System.Windows.Forms.Label();
@@ -54,16 +62,25 @@ namespace MovieSYS
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.lstResults = new System.Windows.Forms.ListBox();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.grdSearchRes = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpEditMem.SuspendLayout();
             this.mnuAdd.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
             this.grpSearchResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpEditMem
             // 
+            this.grpEditMem.Controls.Add(this.btnCancel);
+            this.grpEditMem.Controls.Add(this.dtpStartDate);
+            this.grpEditMem.Controls.Add(this.lblStartDate);
+            this.grpEditMem.Controls.Add(this.cboStatus);
+            this.grpEditMem.Controls.Add(this.lblStatus);
             this.grpEditMem.Controls.Add(this.txtMemId);
             this.grpEditMem.Controls.Add(this.lblLastName);
             this.grpEditMem.Controls.Add(this.lblMemberId);
@@ -89,20 +106,74 @@ namespace MovieSYS
             this.grpEditMem.TabIndex = 8;
             this.grpEditMem.TabStop = false;
             this.grpEditMem.Text = "Edit Member";
-            this.grpEditMem.Enter += new System.EventHandler(this.grpEditMem_Enter);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnCancel.Location = new System.Drawing.Point(452, 315);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(102, 35);
+            this.btnCancel.TabIndex = 29;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Enabled = false;
+            this.dtpStartDate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(570, 48);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(132, 30);
+            this.dtpStartDate.TabIndex = 15;
+            this.dtpStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
+            this.dtpStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpStartDate_Validating);
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStartDate.Location = new System.Drawing.Point(452, 48);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(114, 28);
+            this.lblStartDate.TabIndex = 28;
+            this.lblStartDate.Text = "Start Date:";
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.DropDownWidth = 60;
+            this.cboStatus.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Location = new System.Drawing.Point(571, 214);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(50, 31);
+            this.cboStatus.TabIndex = 19;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStatus.Location = new System.Drawing.Point(479, 215);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(75, 28);
+            this.lblStatus.TabIndex = 26;
+            this.lblStatus.Text = "Status:";
             // 
             // txtMemId
             // 
+            this.txtMemId.Enabled = false;
             this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMemId.Location = new System.Drawing.Point(219, 51);
-            this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMemId.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtMemId.MaxLength = 8;
             this.txtMemId.Name = "txtMemId";
-            this.txtMemId.PlaceholderText = "000001";
-            this.txtMemId.Size = new System.Drawing.Size(180, 30);
+            this.txtMemId.Size = new System.Drawing.Size(62, 30);
             this.txtMemId.TabIndex = 10;
-            this.txtMemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMemId.TextChanged += new System.EventHandler(this.txtMemId_TextChanged);
             // 
             // lblLastName
             // 
@@ -113,41 +184,39 @@ namespace MovieSYS
             this.lblLastName.Size = new System.Drawing.Size(117, 28);
             this.lblLastName.TabIndex = 15;
             this.lblLastName.Text = "Last Name:";
-            this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
             // 
             // lblMemberId
             // 
             this.lblMemberId.AutoSize = true;
             this.lblMemberId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMemberId.Location = new System.Drawing.Point(88, 53);
-            this.lblMemberId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMemberId.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblMemberId.Name = "lblMemberId";
             this.lblMemberId.Size = new System.Drawing.Size(123, 28);
             this.lblMemberId.TabIndex = 9;
             this.lblMemberId.Text = "Member ID:";
-            this.lblMemberId.Click += new System.EventHandler(this.lblMemberId_Click);
             // 
             // dtpDOB
             // 
+            this.dtpDOB.Enabled = false;
             this.dtpDOB.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(220, 213);
+            this.dtpDOB.Location = new System.Drawing.Point(219, 213);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(180, 30);
-            this.dtpDOB.TabIndex = 18;
+            this.dtpDOB.Size = new System.Drawing.Size(133, 30);
+            this.dtpDOB.TabIndex = 14;
             this.dtpDOB.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
-            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
             // 
             // cboMemID
             // 
             this.cboMemID.DropDownWidth = 60;
             this.cboMemID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboMemID.FormattingEnabled = true;
-            this.cboMemID.Location = new System.Drawing.Point(220, 91);
+            this.cboMemID.Location = new System.Drawing.Point(219, 91);
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
-            this.cboMemID.TabIndex = 12;
-            this.cboMemID.SelectedIndexChanged += new System.EventHandler(this.cboMemID_SelectedIndexChanged);
+            this.cboMemID.TabIndex = 11;
+            this.cboMemID.Validating += new System.ComponentModel.CancelEventHandler(this.cboMemID_Validating);
             // 
             // btnEditMem
             // 
@@ -157,8 +226,8 @@ namespace MovieSYS
             this.btnEditMem.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnEditMem.Location = new System.Drawing.Point(611, 315);
             this.btnEditMem.Name = "btnEditMem";
-            this.btnEditMem.Size = new System.Drawing.Size(140, 35);
-            this.btnEditMem.TabIndex = 25;
+            this.btnEditMem.Size = new System.Drawing.Size(139, 35);
+            this.btnEditMem.TabIndex = 20;
             this.btnEditMem.Text = "Confirm Edit";
             this.btnEditMem.UseVisualStyleBackColor = false;
             this.btnEditMem.Click += new System.EventHandler(this.btnEditMem_Click);
@@ -170,59 +239,58 @@ namespace MovieSYS
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(180, 30);
-            this.txtEmail.TabIndex = 22;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.TabIndex = 17;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Location = new System.Drawing.Point(220, 173);
+            this.txtLastName.Location = new System.Drawing.Point(219, 173);
             this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 30);
-            this.txtLastName.TabIndex = 16;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            this.txtLastName.TabIndex = 13;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // txtContactNo
             // 
             this.txtContactNo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtContactNo.Location = new System.Drawing.Point(571, 88);
-            this.txtContactNo.MaxLength = 15;
+            this.txtContactNo.MaxLength = 10;
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(180, 30);
-            this.txtContactNo.TabIndex = 20;
-            this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
+            this.txtContactNo.TabIndex = 16;
+            this.txtContactNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtContactNo_Validating);
             // 
             // txtEircode
             // 
             this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEircode.Location = new System.Drawing.Point(571, 170);
-            this.txtEircode.MaxLength = 6;
+            this.txtEircode.Location = new System.Drawing.Point(571, 171);
+            this.txtEircode.MaxLength = 7;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(180, 30);
-            this.txtEircode.TabIndex = 24;
-            this.txtEircode.TextChanged += new System.EventHandler(this.txtEircode_TextChanged);
+            this.txtEircode.TabIndex = 18;
+            this.txtEircode.Validating += new System.ComponentModel.CancelEventHandler(this.txtEircode_Validating);
             // 
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFirstName.Location = new System.Drawing.Point(220, 132);
+            this.txtFirstName.Location = new System.Drawing.Point(219, 132);
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(180, 30);
-            this.txtFirstName.TabIndex = 14;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.TabIndex = 12;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // lblMembership
             // 
             this.lblMembership.AutoSize = true;
             this.lblMembership.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMembership.Location = new System.Drawing.Point(28, 94);
+            this.lblMembership.Location = new System.Drawing.Point(27, 93);
             this.lblMembership.Name = "lblMembership";
             this.lblMembership.Size = new System.Drawing.Size(186, 28);
             this.lblMembership.TabIndex = 11;
             this.lblMembership.Text = "Membership Type:";
-            this.lblMembership.Click += new System.EventHandler(this.lblMembership_Click);
             // 
             // lblEmail
             // 
@@ -233,7 +301,6 @@ namespace MovieSYS
             this.lblEmail.Size = new System.Drawing.Size(69, 28);
             this.lblEmail.TabIndex = 21;
             this.lblEmail.Text = "Email:";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
             // lblContactNo
             // 
@@ -244,7 +311,6 @@ namespace MovieSYS
             this.lblContactNo.Size = new System.Drawing.Size(124, 28);
             this.lblContactNo.TabIndex = 19;
             this.lblContactNo.Text = "Contact No:";
-            this.lblContactNo.Click += new System.EventHandler(this.lblContactNo_Click);
             // 
             // lblEircode
             // 
@@ -255,7 +321,6 @@ namespace MovieSYS
             this.lblEircode.Size = new System.Drawing.Size(87, 28);
             this.lblEircode.TabIndex = 23;
             this.lblEircode.Text = "Eircode:";
-            this.lblEircode.Click += new System.EventHandler(this.lblEircode_Click);
             // 
             // lblDateOfBirth
             // 
@@ -266,18 +331,16 @@ namespace MovieSYS
             this.lblDateOfBirth.Size = new System.Drawing.Size(60, 28);
             this.lblDateOfBirth.TabIndex = 17;
             this.lblDateOfBirth.Text = "DOB:";
-            this.lblDateOfBirth.Click += new System.EventHandler(this.lblDateOfBirth_Click);
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFirstName.Location = new System.Drawing.Point(94, 134);
+            this.lblFirstName.Location = new System.Drawing.Point(94, 133);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(120, 28);
             this.lblFirstName.TabIndex = 13;
             this.lblFirstName.Text = "First Name:";
-            this.lblFirstName.Click += new System.EventHandler(this.lblFirstName_Click);
             // 
             // mnuAdd
             // 
@@ -288,10 +351,10 @@ namespace MovieSYS
             this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
-            this.mnuAdd.Size = new System.Drawing.Size(1000, 31);
-            this.mnuAdd.TabIndex = 26;
+            this.mnuAdd.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 33);
+            this.mnuAdd.TabIndex = 21;
             this.mnuAdd.Text = "menuStrip1";
-            this.mnuAdd.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAdd_ItemClicked);
             // 
             // mnuExit
             // 
@@ -322,12 +385,9 @@ namespace MovieSYS
             this.txtMemberName.Location = new System.Drawing.Point(193, 49);
             this.txtMemberName.MaxLength = 8;
             this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.PlaceholderText = "Mary";
             this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtMemberName.Size = new System.Drawing.Size(160, 30);
+            this.txtMemberName.Size = new System.Drawing.Size(159, 30);
             this.txtMemberName.TabIndex = 3;
-            this.txtMemberName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMemberName.TextChanged += new System.EventHandler(this.txtMemberName_TextChanged);
             // 
             // lblMemberSearch
             // 
@@ -339,7 +399,6 @@ namespace MovieSYS
             this.lblMemberSearch.Size = new System.Drawing.Size(166, 28);
             this.lblMemberSearch.TabIndex = 2;
             this.lblMemberSearch.Text = "Search Member:";
-            this.lblMemberSearch.Click += new System.EventHandler(this.lblMemberSearch_Click);
             // 
             // btnCheck
             // 
@@ -347,7 +406,7 @@ namespace MovieSYS
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheck.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCheck.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnCheck.Location = new System.Drawing.Point(136, 98);
+            this.btnCheck.Location = new System.Drawing.Point(136, 99);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(145, 35);
             this.btnCheck.TabIndex = 4;
@@ -357,49 +416,80 @@ namespace MovieSYS
             // 
             // grpSearchResults
             // 
-            this.grpSearchResults.Controls.Add(this.btnSelect);
-            this.grpSearchResults.Controls.Add(this.lstResults);
+            this.grpSearchResults.Controls.Add(this.btnReturn);
+            this.grpSearchResults.Controls.Add(this.grdSearchRes);
             this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grpSearchResults.Location = new System.Drawing.Point(511, 47);
             this.grpSearchResults.Name = "grpSearchResults";
-            this.grpSearchResults.Size = new System.Drawing.Size(382, 155);
+            this.grpSearchResults.Size = new System.Drawing.Size(477, 155);
             this.grpSearchResults.TabIndex = 5;
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
-            this.grpSearchResults.Enter += new System.EventHandler(this.grpSearchResults_Enter);
             // 
-            // btnSelect
+            // btnReturn
             // 
-            this.btnSelect.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSelect.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSelect.Location = new System.Drawing.Point(271, 66);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(70, 35);
-            this.btnSelect.TabIndex = 7;
-            this.btnSelect.Text = "Edit";
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnReturn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnReturn.Location = new System.Drawing.Point(379, 68);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(52, 35);
+            this.btnReturn.TabIndex = 28;
+            this.btnReturn.Text = "Exit";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // lstResults
+            // grdSearchRes
             // 
-            this.lstResults.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstResults.FormattingEnabled = true;
-            this.lstResults.ItemHeight = 23;
-            this.lstResults.Location = new System.Drawing.Point(21, 37);
-            this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(211, 96);
-            this.lstResults.TabIndex = 6;
-            this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
+            this.grdSearchRes.AllowUserToAddRows = false;
+            this.grdSearchRes.AllowUserToDeleteRows = false;
+            this.grdSearchRes.AllowUserToResizeColumns = false;
+            this.grdSearchRes.AllowUserToResizeRows = false;
+            this.grdSearchRes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grdSearchRes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdSearchRes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdSearchRes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdSearchRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearchRes.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdSearchRes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grdSearchRes.GridColor = System.Drawing.Color.DarkSlateGray;
+            this.grdSearchRes.Location = new System.Drawing.Point(3, 34);
+            this.grdSearchRes.Name = "grdSearchRes";
+            this.grdSearchRes.RowHeadersVisible = false;
+            this.grdSearchRes.RowHeadersWidth = 45;
+            this.grdSearchRes.RowTemplate.Height = 29;
+            this.grdSearchRes.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.grdSearchRes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdSearchRes.Size = new System.Drawing.Size(370, 100);
+            this.grdSearchRes.TabIndex = 8;
+            this.grdSearchRes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchRes_CellClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmMemberUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1000, 630);
+            this.ClientSize = new System.Drawing.Size(1000, 629);
             this.Controls.Add(this.grpSearchResults);
             this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.mnuAdd);
@@ -417,6 +507,8 @@ namespace MovieSYS
             this.grpMemCheck.ResumeLayout(false);
             this.grpMemCheck.PerformLayout();
             this.grpSearchResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,11 +536,18 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.GroupBox grpSearchResults;
-        private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.ListBox lstResults;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label lblMemberSearch;
         private System.Windows.Forms.TextBox txtMemId;
         private System.Windows.Forms.Label lblMemberId;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.DataGridView grdSearchRes;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

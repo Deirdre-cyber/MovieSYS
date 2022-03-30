@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -14,86 +10,84 @@ namespace MovieSYS
 
         public frmYearlyRevenue()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         public frmYearlyRevenue(frmMainMenu Parent)
         {
-            InitializeComponent();
-            this.parent = Parent;
-            btnDownload.Visible = false;
-            btnPrint.Visible = false;
+            try
+            {
+                InitializeComponent();
+                this.parent = Parent;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            parent.Visible = true;
-        }
-
-        private void grpRevenue_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblYear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboEnterYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkFirstQuart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkSecondQuart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkThirdQuart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkFourthQuart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkAllQuart_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGenerate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuAdd_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDownload_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                this.Close();
+                parent.Visible = true;
+            }
+            catch (NullReferenceException nre)
+            {
+                Debug.WriteLine("An error has occured\n" + nre.ToString());
+            }
         }
 
         private void frmYearlyRevenue_Load(object sender, EventArgs e)
         {
+            LoadUI();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Revenue Analysis " + cboYear.Text;
+            grdRevenue.DataSource = Rental.GetRevenueAnalysis(cboYear.Text.Substring(0,1)).Tables["RA"];
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void grdRevenue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //LOCAL METHODS
+        public void LoadUI()
+        {
+            btnDownload.Visible = false;
+            btnPrint.Visible = false;
+            LoadYears();
+        }
+
+        public void LoadYears()
+        {
+            int year = DateTime.Today.Year;
+            int years = 5;
+
+            for (int i= 0; i < years; i++)
+            {
+                    cboYear.Items.Add(Convert.ToString(year-i));
+            }
+
+            cboYear.Text = year.ToString();
+        }
+
+        
     }
 }

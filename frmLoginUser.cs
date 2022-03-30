@@ -40,12 +40,11 @@ namespace MovieSYS
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             //Validate Username and password
-            
+                       
 
-            if (txtUser.Text.Equals("ABCD") && txtPass.Text.Equals("1234"))
+            if (txtUser.Text.Equals("User") && txtPass.Text.Equals("1234"))
             {
                 MessageBox.Show("Welcome to the System Deirdre", "Welcome", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                //Show relevant Form (Catalogue, Remove, List) and hide login
             }
             else if (txtUser.Text.Equals("") || txtPass.Text.Equals(""))
             {

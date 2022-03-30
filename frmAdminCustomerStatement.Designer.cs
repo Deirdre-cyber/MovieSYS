@@ -59,16 +59,16 @@ namespace MovieSYS
             this.lblCart = new System.Windows.Forms.Label();
             this.dtpDueBack = new System.Windows.Forms.DateTimePicker();
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.lstResults = new System.Windows.Forms.ListBox();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.grdSearchRes = new System.Windows.Forms.DataGridView();
             this.mnuAdd.SuspendLayout();
             this.grpStatementDetails.SuspendLayout();
             this.grpSearchResults.SuspendLayout();
             this.grpMemCheck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchRes)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuAdd
@@ -447,8 +447,7 @@ namespace MovieSYS
             // 
             // grpSearchResults
             // 
-            this.grpSearchResults.Controls.Add(this.btnSelect);
-            this.grpSearchResults.Controls.Add(this.lstResults);
+            this.grpSearchResults.Controls.Add(this.grdSearchRes);
             this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grpSearchResults.Location = new System.Drawing.Point(530, 58);
@@ -458,31 +457,6 @@ namespace MovieSYS
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
             this.grpSearchResults.Enter += new System.EventHandler(this.grpSearchResults_Enter);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSelect.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSelect.Location = new System.Drawing.Point(271, 66);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(70, 35);
-            this.btnSelect.TabIndex = 7;
-            this.btnSelect.Text = "Edit";
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // lstResults
-            // 
-            this.lstResults.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lstResults.FormattingEnabled = true;
-            this.lstResults.ItemHeight = 23;
-            this.lstResults.Location = new System.Drawing.Point(21, 37);
-            this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(211, 96);
-            this.lstResults.TabIndex = 6;
-            this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
             // 
             // grpMemCheck
             // 
@@ -536,6 +510,20 @@ namespace MovieSYS
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click_1);
             // 
+            // grdSearchRes
+            // 
+            this.grdSearchRes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdSearchRes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.grdSearchRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearchRes.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.grdSearchRes.Location = new System.Drawing.Point(6, 37);
+            this.grdSearchRes.Name = "grdSearchRes";
+            this.grdSearchRes.RowHeadersWidth = 51;
+            this.grdSearchRes.RowTemplate.Height = 29;
+            this.grdSearchRes.Size = new System.Drawing.Size(358, 107);
+            this.grdSearchRes.TabIndex = 9;
+            this.grdSearchRes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchRes_CellContentClick);
+            // 
             // frmCustomerStatement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -560,6 +548,7 @@ namespace MovieSYS
             this.grpSearchResults.ResumeLayout(false);
             this.grpMemCheck.ResumeLayout(false);
             this.grpMemCheck.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchRes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,13 +584,12 @@ namespace MovieSYS
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox grpSearchResults;
-        private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.ListBox lstResults;
         private System.Windows.Forms.GroupBox grpMemCheck;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label lblMemberSearch;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.TextBox txtMemId;
         private System.Windows.Forms.Label lblMemberId;
+        private System.Windows.Forms.DataGridView grdSearchRes;
     }
 }

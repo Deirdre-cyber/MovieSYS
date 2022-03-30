@@ -21,6 +21,7 @@ namespace MovieSYS
         {
             InitializeComponent();
             this.parent = Parent;
+            grpSearchResults.Visible = false;
             grpStatementDetails.Visible = false;
         }
 
@@ -41,6 +42,11 @@ namespace MovieSYS
 
         private void btnCheck_Click_1(object sender, EventArgs e)
         {
+            grpSearchResults.Visible = true;
+            Member.SearchMember(txtMemberName.Text);
+            grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+
+            //load all data corresponding to search result
 
         }
 
@@ -56,7 +62,9 @@ namespace MovieSYS
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
+            grpStatementDetails.Visible = true;
+            Member.SearchMember(txtMemberName.Text);
+            grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -182,16 +190,19 @@ namespace MovieSYS
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            //if successful
+            MessageBox.Show(null, "Statement sent to printer", "Printed", MessageBoxButtons.OK);
         }
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-
+            //if successful
+            MessageBox.Show(null, "Statement sent to member", "Email Sent", MessageBoxButtons.OK);
         }
 
-        
+        private void grdSearchRes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-        
+        }
     }
 }

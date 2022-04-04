@@ -29,14 +29,12 @@ namespace MovieSYS
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRevenue = new System.Windows.Forms.GroupBox();
-            this.chkAllQuart = new System.Windows.Forms.CheckBox();
-            this.chkFourthQuart = new System.Windows.Forms.CheckBox();
-            this.chkThirdQuart = new System.Windows.Forms.CheckBox();
-            this.chkSecondQuart = new System.Windows.Forms.CheckBox();
-            this.chkFirstQuart = new System.Windows.Forms.CheckBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.lblYear = new System.Windows.Forms.Label();
@@ -61,8 +59,8 @@ namespace MovieSYS
             this.mnuExit});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
-            this.mnuAdd.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.mnuAdd.Size = new System.Drawing.Size(875, 27);
+            this.mnuAdd.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 33);
             this.mnuAdd.TabIndex = 12;
             this.mnuAdd.Text = "menuStrip1";
             // 
@@ -72,103 +70,33 @@ namespace MovieSYS
             this.mnuExit.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mnuExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(30, 23);
+            this.mnuExit.Size = new System.Drawing.Size(35, 27);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // grpRevenue
             // 
-            this.grpRevenue.Controls.Add(this.chkAllQuart);
-            this.grpRevenue.Controls.Add(this.chkFourthQuart);
-            this.grpRevenue.Controls.Add(this.chkThirdQuart);
-            this.grpRevenue.Controls.Add(this.chkSecondQuart);
-            this.grpRevenue.Controls.Add(this.chkFirstQuart);
             this.grpRevenue.Controls.Add(this.cboYear);
             this.grpRevenue.Controls.Add(this.btnGenerate);
             this.grpRevenue.Controls.Add(this.lblYear);
             this.grpRevenue.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpRevenue.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpRevenue.Location = new System.Drawing.Point(171, 43);
-            this.grpRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpRevenue.Location = new System.Drawing.Point(285, 70);
             this.grpRevenue.Name = "grpRevenue";
-            this.grpRevenue.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpRevenue.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.grpRevenue.Size = new System.Drawing.Size(516, 175);
+            this.grpRevenue.Size = new System.Drawing.Size(424, 137);
             this.grpRevenue.TabIndex = 1;
             this.grpRevenue.TabStop = false;
             this.grpRevenue.Text = "Revenue Analysis";
-            // 
-            // chkAllQuart
-            // 
-            this.chkAllQuart.AutoSize = true;
-            this.chkAllQuart.Checked = true;
-            this.chkAllQuart.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAllQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkAllQuart.Location = new System.Drawing.Point(383, 70);
-            this.chkAllQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkAllQuart.Name = "chkAllQuart";
-            this.chkAllQuart.Size = new System.Drawing.Size(100, 25);
-            this.chkAllQuart.TabIndex = 9;
-            this.chkAllQuart.Text = "Select All";
-            this.chkAllQuart.UseVisualStyleBackColor = true;
-            // 
-            // chkFourthQuart
-            // 
-            this.chkFourthQuart.AutoSize = true;
-            this.chkFourthQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkFourthQuart.Location = new System.Drawing.Point(383, 39);
-            this.chkFourthQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkFourthQuart.Name = "chkFourthQuart";
-            this.chkFourthQuart.Size = new System.Drawing.Size(98, 25);
-            this.chkFourthQuart.TabIndex = 8;
-            this.chkFourthQuart.Text = "Oct - Dec";
-            this.chkFourthQuart.UseVisualStyleBackColor = true;
-            // 
-            // chkThirdQuart
-            // 
-            this.chkThirdQuart.AutoSize = true;
-            this.chkThirdQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkThirdQuart.Location = new System.Drawing.Point(252, 100);
-            this.chkThirdQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkThirdQuart.Name = "chkThirdQuart";
-            this.chkThirdQuart.Size = new System.Drawing.Size(93, 25);
-            this.chkThirdQuart.TabIndex = 7;
-            this.chkThirdQuart.Text = "Jul - Sep";
-            this.chkThirdQuart.UseVisualStyleBackColor = true;
-            // 
-            // chkSecondQuart
-            // 
-            this.chkSecondQuart.AutoSize = true;
-            this.chkSecondQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkSecondQuart.Location = new System.Drawing.Point(252, 70);
-            this.chkSecondQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkSecondQuart.Name = "chkSecondQuart";
-            this.chkSecondQuart.Size = new System.Drawing.Size(97, 25);
-            this.chkSecondQuart.TabIndex = 6;
-            this.chkSecondQuart.Text = "Apr - Jun";
-            this.chkSecondQuart.UseVisualStyleBackColor = true;
-            // 
-            // chkFirstQuart
-            // 
-            this.chkFirstQuart.AutoSize = true;
-            this.chkFirstQuart.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chkFirstQuart.Location = new System.Drawing.Point(252, 39);
-            this.chkFirstQuart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkFirstQuart.Name = "chkFirstQuart";
-            this.chkFirstQuart.Size = new System.Drawing.Size(99, 25);
-            this.chkFirstQuart.TabIndex = 5;
-            this.chkFirstQuart.Text = "Jan - Mar";
-            this.chkFirstQuart.UseVisualStyleBackColor = true;
             // 
             // cboYear
             // 
             this.cboYear.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cboYear.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.cboYear.FormattingEnabled = true;
-            this.cboYear.Location = new System.Drawing.Point(69, 42);
-            this.cboYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboYear.Location = new System.Drawing.Point(114, 54);
             this.cboYear.Name = "cboYear";
-            this.cboYear.Size = new System.Drawing.Size(62, 27);
+            this.cboYear.Size = new System.Drawing.Size(70, 31);
             this.cboYear.TabIndex = 4;
             // 
             // btnGenerate
@@ -177,10 +105,9 @@ namespace MovieSYS
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGenerate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnGenerate.Location = new System.Drawing.Point(400, 131);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGenerate.Location = new System.Drawing.Point(241, 53);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(83, 27);
+            this.btnGenerate.Size = new System.Drawing.Size(95, 36);
             this.btnGenerate.TabIndex = 10;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -190,9 +117,9 @@ namespace MovieSYS
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblYear.Location = new System.Drawing.Point(13, 43);
+            this.lblYear.Location = new System.Drawing.Point(50, 55);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(48, 21);
+            this.lblYear.Size = new System.Drawing.Size(58, 28);
             this.lblYear.TabIndex = 2;
             this.lblYear.Text = "Year:";
             // 
@@ -202,13 +129,13 @@ namespace MovieSYS
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPrint.Location = new System.Drawing.Point(334, 503);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrint.Location = new System.Drawing.Point(399, 682);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(83, 26);
+            this.btnPrint.Size = new System.Drawing.Size(95, 35);
             this.btnPrint.TabIndex = 11;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnDownload
             // 
@@ -216,13 +143,13 @@ namespace MovieSYS
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDownload.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDownload.Location = new System.Drawing.Point(445, 503);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDownload.Location = new System.Drawing.Point(526, 682);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(96, 26);
+            this.btnDownload.Size = new System.Drawing.Size(110, 35);
             this.btnDownload.TabIndex = 32;
             this.btnDownload.Text = "Download";
             this.btnDownload.UseVisualStyleBackColor = false;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // grpRevenueDetails
             // 
@@ -231,9 +158,11 @@ namespace MovieSYS
             this.grpRevenueDetails.Controls.Add(this.btnClose);
             this.grpRevenueDetails.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpRevenueDetails.ForeColor = System.Drawing.Color.White;
-            this.grpRevenueDetails.Location = new System.Drawing.Point(171, 223);
+            this.grpRevenueDetails.Location = new System.Drawing.Point(43, 247);
+            this.grpRevenueDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpRevenueDetails.Name = "grpRevenueDetails";
-            this.grpRevenueDetails.Size = new System.Drawing.Size(516, 257);
+            this.grpRevenueDetails.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpRevenueDetails.Size = new System.Drawing.Size(914, 393);
             this.grpRevenueDetails.TabIndex = 33;
             this.grpRevenueDetails.TabStop = false;
             this.grpRevenueDetails.Text = "Revenue Details";
@@ -241,22 +170,58 @@ namespace MovieSYS
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(130, 29);
+            this.lblTitle.Location = new System.Drawing.Point(330, 39);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(156, 25);
+            this.lblTitle.Size = new System.Drawing.Size(198, 32);
             this.lblTitle.TabIndex = 13;
             this.lblTitle.Text = "Revenue Analysis";
             // 
             // grdRevenue
             // 
+            this.grdRevenue.AllowUserToAddRows = false;
+            this.grdRevenue.AllowUserToDeleteRows = false;
+            this.grdRevenue.AllowUserToResizeColumns = false;
+            this.grdRevenue.AllowUserToResizeRows = false;
             this.grdRevenue.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdRevenue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdRevenue.Location = new System.Drawing.Point(13, 69);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdRevenue.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grdRevenue.Enabled = false;
+            this.grdRevenue.EnableHeadersVisualStyles = false;
+            this.grdRevenue.Location = new System.Drawing.Point(15, 92);
+            this.grdRevenue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdRevenue.MultiSelect = false;
             this.grdRevenue.Name = "grdRevenue";
+            this.grdRevenue.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdRevenue.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdRevenue.RowHeadersWidth = 51;
             this.grdRevenue.RowTemplate.Height = 25;
-            this.grdRevenue.Size = new System.Drawing.Size(486, 145);
+            this.grdRevenue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.grdRevenue.ShowCellToolTips = false;
+            this.grdRevenue.ShowEditingIcon = false;
+            this.grdRevenue.Size = new System.Drawing.Size(880, 193);
             this.grdRevenue.TabIndex = 12;
-            this.grdRevenue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRevenue_CellContentClick);
             // 
             // btnClose
             // 
@@ -264,10 +229,9 @@ namespace MovieSYS
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnClose.Location = new System.Drawing.Point(439, 219);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(440, 292);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(60, 28);
+            this.btnClose.Size = new System.Drawing.Size(69, 37);
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -275,10 +239,10 @@ namespace MovieSYS
             // 
             // frmYearlyRevenue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(875, 540);
+            this.ClientSize = new System.Drawing.Size(1000, 771);
             this.Controls.Add(this.grpRevenueDetails);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.btnPrint);
@@ -286,7 +250,6 @@ namespace MovieSYS
             this.Controls.Add(this.mnuAdd);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmYearlyRevenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmYearlyRevenue";
@@ -313,11 +276,6 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnDownload;
-        private System.Windows.Forms.CheckBox chkAllQuart;
-        private System.Windows.Forms.CheckBox chkFourthQuart;
-        private System.Windows.Forms.CheckBox chkThirdQuart;
-        private System.Windows.Forms.CheckBox chkSecondQuart;
-        private System.Windows.Forms.CheckBox chkFirstQuart;
         private System.Windows.Forms.GroupBox grpRevenueDetails;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView grdRevenue;

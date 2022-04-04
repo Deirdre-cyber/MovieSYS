@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -72,7 +70,7 @@ namespace MovieSYS
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtMemberName.Text))
+            if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter the name of a member", "No Search Entered", MessageBoxButtons.OK);
             }
@@ -203,8 +201,6 @@ namespace MovieSYS
             grdSearchRes.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
             grdSearchRes.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             grdSearchRes.DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
-
-            grdSearchRes.ScrollBars = ScrollBars.Horizontal;  //not working
 
             DataGridViewColumn column = grdSearchRes.Columns[0];
             column.Width = 60;

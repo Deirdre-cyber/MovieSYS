@@ -17,6 +17,7 @@ namespace MovieSYS
 
             return true;
         }
+
         //edit - replace with if txtBox.All(char.IsLetter)
         public static bool HasChars(String name)
         {
@@ -27,6 +28,7 @@ namespace MovieSYS
             else
                 return false;
         }
+
         //edit - replace with if txtBox.All(char.IsDigit)
         public static bool HasDigits(String number)
         {

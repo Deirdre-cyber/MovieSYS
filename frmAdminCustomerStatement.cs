@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -14,177 +15,67 @@ namespace MovieSYS
 
         public frmCustomerStatement()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
         }
 
         public frmCustomerStatement(frmMainMenu Parent)
         {
-            InitializeComponent();
-            this.parent = Parent;
-            grpSearchResults.Visible = false;
-            grpStatementDetails.Visible = false;
-        }
-
-        private void grpMemCheck_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMemberSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMemberName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCheck_Click_1(object sender, EventArgs e)
-        {
-            grpSearchResults.Visible = true;
-            Member.SearchMember(txtMemberName.Text);
-            grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-
-            //load all data corresponding to search result
-
-        }
-
-        private void grpSearchResults_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstResults_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            grpStatementDetails.Visible = true;
-            Member.SearchMember(txtMemberName.Text);
-            grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            try
+            {
+                InitializeComponent();
+                this.parent = Parent;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
+            
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            parent.Visible = true;
+            try
+            {
+                this.Close();
+                parent.Visible = true;
+            }
+            catch (NullReferenceException nre)
+            {
+                Debug.WriteLine("An error has occured\n" + nre.ToString());
+            }
         }
 
-        private void grpStatementDetails_Enter(object sender, EventArgs e)
+        private void frmCustomerStatement_Load(object sender, EventArgs e)
         {
-
+            LoadUI();
         }
 
-        private void lblMemberId_Click_1(object sender, EventArgs e)
+        private void btnCheck_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMemberName.Text))
+            {
+                MessageBox.Show(null, "Please enter the name of a member", "No Search Entered", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
+                {
+                    MessageBox.Show(null, "There were no results matching your search", "No Member Found", MessageBoxButtons.OK);
+                    txtMemberName.Clear();
+                }
+                else
+                {
+                    ShowMemberResults();
+                }
 
-        }
-
-        private void txtMemId_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMemebershipStart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDueBack_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMemberType_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboMemID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFirstName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblLastName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDateOfBirth_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStatementFrom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpStatementFrom_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStatementTo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpStatementTo_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFinesDue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFineAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDVDsOut_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            }
 
         }
 
@@ -200,9 +91,37 @@ namespace MovieSYS
             MessageBox.Show(null, "Statement sent to member", "Email Sent", MessageBoxButtons.OK);
         }
 
-        private void grdSearchRes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //LOCAL METHODS
 
+        private void LoadUI()
+        {
+            grpSearchResults.Visible = false;
+            grpStatementDetails.Visible = false;
+            grpMemCheck.Location = new Point(300, 100);
         }
+        private void ShowMemberResults()
+        {
+            grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
+            grdSearchRes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdSearchRes.DefaultCellStyle.Font = new Font("Franklin", 8);
+            grdSearchRes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdSearchRes.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+            grdSearchRes.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            grdSearchRes.DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
+
+            DataGridViewColumn column = grdSearchRes.Columns[0];
+            column.Width = 60;
+
+            grdSearchRes.Size = new Size(800, 350);
+            //btnReturn.Location = new Point(750, 150);
+
+            grpMemCheck.Visible = false;
+
+            grpSearchResults.Visible = true;
+            grpSearchResults.Size = new Size(850, 360);
+            grpSearchResults.Location = new Point(100, 100);
+        }
+
     }
 }

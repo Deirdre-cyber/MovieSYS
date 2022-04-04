@@ -143,7 +143,8 @@ namespace MovieSYS
                 String SQLquery = "SELECT EXTRACT(MONTH FROM Rent_Date), SUM(Rental_Price) " +
                                   "FROM Rentals " +
                                   "WHERE Rent_Date LIKE '%" + year + "' " +
-                                  "GROUP BY EXTRACT(MONTH FROM Rent_Date)";
+                                  "GROUP BY EXTRACT(MONTH FROM Rent_Date) " +
+                                  "ORDER BY EXTRACT(MONTH FROM Rent_Date)";
 
                 OracleCommand cmd = new OracleCommand(SQLquery, conn);
 

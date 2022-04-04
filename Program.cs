@@ -21,8 +21,7 @@ namespace MovieSYS
             //Application.Run(new frmMainMenu());
             //Application.Run(new frmLoginUser());
 
-            //Application.Run(new frmCustomerStatement);
-            Application.Run(new frmYearlyRevenue());
+            Application.Run(new frmCustomerStatement());
 
 
         }

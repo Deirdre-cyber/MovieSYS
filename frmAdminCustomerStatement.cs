@@ -85,12 +85,18 @@ namespace MovieSYS
         {
             if (grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
-                LoadMemberDetails();
+                LoadStatementDatePicker();
+                
             }
             else
             {
                 MessageBox.Show(null, "Please choose a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnViewStatement_Click(object sender, EventArgs e)
+        {
+            LoadStatement();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -117,22 +123,38 @@ namespace MovieSYS
 
         private void LoadUI()
         {
+            this.Height = 600;
+
             grpSearchResults.Visible = false;
             grpStatementDetails.Visible = false;
             btnPrint.Visible = false;
             btnEmail.Visible = false;
             grpStatementPeriod.Visible = false;
 
-            lblFinesDue.Visible = false;
-            txtFinesUnpaid.Visible = false;
-            lblDVDsRented.Visible = false;
-            lstRented.Visible = false;
+            optYear.Visible = false;
+            optQuarter.Visible = false;
+            optStart.Visible = false;
+
+            dtpStatementFrom.Visible = false;
+            dtpStatementTo.Visible = false;
+
+            lblTotal.Visible = false;
+            lblTotal.Visible = false;
+            lblRentals.Visible = false;
+            txtRentals.Visible = false;
+            lblFinesOwed.Visible = false;
+            txtFinesOwed.Visible = false;
+            lblFinesPaid.Visible = false;
+            txtFinesPaid.Visible = false;
+
+            txtTotal.Visible = false;
 
             grpMemCheck.Location = new Point(300, 100);
         }
 
         private void ShowMemberResults()
         {
+            grpMemCheck.Visible = false;
             grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
             grdSearchRes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -141,47 +163,73 @@ namespace MovieSYS
             grdSearchRes.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
             grdSearchRes.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             grdSearchRes.DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
-
             DataGridViewColumn column = grdSearchRes.Columns[0];
             column.Width = 60;
 
-            grdSearchRes.Size = new Size(800, 350);
-            btnReturn.Location = new Point(750, 150);
-
-            grpMemCheck.Visible = false;
-
+            grdSearchRes.Size = new Size(820, 150);
+            btnReturn.Location = new Point(350, 200);
             grpSearchResults.Visible = true;
-            grpSearchResults.Size = new Size(850, 360);
+            grpSearchResults.Size = new Size(850, 240);
             grpSearchResults.Location = new Point(100, 100);
         }
 
-        private void LoadMemberDetails()
+        private void LoadStatementDatePicker()
         {
             memId = Convert.ToInt32(grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value);
-
             aMember.GetMemberDetails(memId);
 
+            int currentYear = DateTime.Today.Year;
+            int Years = currentYear - Convert.ToDateTime(aMember.StartDate).Year;
+
+            for (int i = 0; i <= Years; i++)
+            {
+                cboYear.Items.Add(Convert.ToString(currentYear - i));
+            }
+
+            cboYear.Text = currentYear.ToString();
+
+            optYear.Visible = true;
+            optQuarter.Visible = true;
+            optStart.Visible = true;
+
+            dtpStatementFrom.MinDate = Convert.ToDateTime(aMember.StartDate);
+            dtpStatementFrom.Value = DateTime.Today;
+
+            dtpStatementTo.MaxDate = DateTime.Today;
+            dtpStatementTo.Value = DateTime.Today;
+
+            grpStatementPeriod.Location = new Point(100, 400);
+            grpStatementPeriod.Visible = true;
+        }
+
+        private void LoadStatement()
+        {
+            this.Height = 1200;
+            //position
+            //statement period options
+
+            //CONTINUE FROM HERE +++++++
+
+
             txtMemId.Text = Convert.ToString(memId);
-            cboMemID.Text = aMember.MembershipID;
-            dtpStartDate.Value = Convert.ToDateTime(aMember.StartDate);
-            txtFirstName.Text = aMember.FirstName;
-            txtLastName.Text = aMember.LastName;
-            dtpDOB.Value = Convert.ToDateTime(aMember.DOB1);
+
+            txtMembership.Text = aMember.MembershipID;
+
+            txtPeriod.Text = dtpStatementFrom.Text + " - " + dtpStatementTo.Text;
+
+            txtName.Text = aMember.FirstName + " " + aMember.LastName;
             txtEmail.Text = aMember.Email;
+            txtContact.Text = aMember.ContactNo;
 
             txtFinesPaid.Text = String.Format("{0:0.00}", Member.GetFines(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value)));
 
             //txtFinesUnpaid.Text = Convert.ToString(Member.GetFinesOwed(memId));
 
-            dtpStatementFrom.MinDate = Convert.ToDateTime(aMember.StartDate);
-            dtpStatementFrom.Value = Convert.ToDateTime(aMember.StartDate);
-            dtpStatementTo.MaxDate = DateTime.Today;
-            dtpStatementTo.Value = DateTime.Today;
-
             grpSearchResults.Visible = false;
             grpStatementDetails.Visible = true;
-            grpStatementPeriod.Visible = true;
-            grpStatementPeriod.Location = new Point(150, 200);
+            
         }
+
+        
     }
 }

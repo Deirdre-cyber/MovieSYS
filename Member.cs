@@ -228,6 +228,7 @@ namespace MovieSYS
             }
         }
 
+        //repeating code - combine
         public bool HasFine(int memId)
         {
             try
@@ -343,6 +344,48 @@ namespace MovieSYS
                 Debug.WriteLine("Error retrieving data\n" + e.ToString());
                 throw new Exception("Error connecting to database");
             }
+        }
+
+        public static float GetFines(int memId, String start, String end)
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                String sqlGetFine = "SELECT SUM(Fine_Amount) FROM Rental_Items " +
+                                    "WHERE Rent_Id IN " +
+                                        "(SELECT Rent_Id " +
+                                        "FROM Rentals " +
+                                        "WHERE Member_Id = " + memId + " AND " +
+                                        "Rent_Date BETWEEN '" + start + "' AND '" + end + "')";
+
+
+                OracleCommand cmd = new OracleCommand(sqlGetFine, conn);
+                conn.Open();
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                float total;
+
+                dr.Read();
+
+                if (dr.IsDBNull(0))
+                    total = 0;
+                else
+                {
+                    total = dr.GetFloat(0);
+                }
+
+                conn.Close();
+
+                return total;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
+            }
+
         }
 
         public static void UpdateFine(int id, float fine)

@@ -377,7 +377,6 @@ namespace MovieSYS
             this.grpMemCheck.Size = new System.Drawing.Size(386, 155);
             this.grpMemCheck.TabIndex = 1;
             this.grpMemCheck.TabStop = false;
-            this.grpMemCheck.Enter += new System.EventHandler(this.grpMemCheck_Enter);
             // 
             // txtMemberName
             // 

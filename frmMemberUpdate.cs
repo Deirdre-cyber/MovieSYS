@@ -61,10 +61,6 @@ namespace MovieSYS
         {
             grpSearchResults.Visible = false;
             grpEditMem.Visible = false;
-        }
-
-        private void grpMemCheck_Enter(object sender, EventArgs e)
-        {
             grpMemCheck.Location = new Point(260, 100);
         }
 

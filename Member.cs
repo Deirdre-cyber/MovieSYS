@@ -162,8 +162,6 @@ namespace MovieSYS
 
         public static DataSet SearchMember(String fName)
         {
-            //Show results as typing
-
             try
             {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -228,18 +226,12 @@ namespace MovieSYS
             }
         }
 
-        //repeating code - combine
+        //repeating code - combine?
         public bool HasFine(int memId)
         {
             try
             {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
-
-                /*String sqlGetFine = "SELECT COUNT(*) FROM Rental_Items " +
-                                    "WHERE Fine_Amount > 0 AND Rent_Id IN " +
-                                        "(SELECT Rent_Id " +
-                                        "FROM Rentals " +
-                                        "WHERE Member_Id = " + memId + ")";*/
 
                 String sqlGetFine = "SELECT Fines_Total " +
                                     "FROM Members " +
@@ -346,7 +338,31 @@ namespace MovieSYS
             }
         }
 
-        public static float GetFines(int memId, String start, String end)
+        public static void UpdateFine(int id, float fine)
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                String sqlQuery = "UPDATE Members " +
+                                  "SET Fines_Total = " + fine + "" +
+                                  "WHERE Member_Id = " + id;
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error updating Database\n" + e.ToString());
+            }
+        }
+
+        public float GetFinesForPeriod(int memId, String start, String end)
         {
             try
             {
@@ -388,27 +404,110 @@ namespace MovieSYS
 
         }
 
-        public static void UpdateFine(int id, float fine)
+        public float GetTotalForPeriod(int memId, String start, String end)
         {
             try
             {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-                String sqlQuery = "UPDATE Members " +
-                                  "SET Fines_Total = " + fine + "" +
-                                  "WHERE Member_Id = " + id;
+                String sqlGetFine = "SELECT SUM(Rental_Price) FROM Rentals " +
+                                    "WHERE Member_Id = " + memId + " AND " +
+                                    "Rent_Date BETWEEN '" + start + "' AND '" + end + "'";
 
-                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
+                OracleCommand cmd = new OracleCommand(sqlGetFine, conn);
                 conn.Open();
 
-                cmd.ExecuteNonQuery();
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                float total;
+
+                dr.Read();
+
+                if (dr.IsDBNull(0))
+                    total = 0;
+                else
+                {
+                    total = dr.GetFloat(0);
+                }
 
                 conn.Close();
+
+                return total;
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Error updating Database\n" + e.ToString());
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
+            }
+
+        }
+
+        public DataSet GetReturnedDVDsForPeriod(int memId, String start, String end)
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                String sqlQuery = "SELECT RI.DVD_Id, DVD_Title, Category_Id, TO_DATE(Return_Date) " +
+                                  "FROM DVDs D JOIN Rental_Items RI ON D.DVD_Id = RI.DVD_Id " +
+                                  "JOIN Rentals R ON R.Rent_Id = RI.Rent_Id " +
+                                  "JOIN Members M ON M.Member_Id = R.Member_Id " +
+                                  "WHERE R.Member_Id = " + memId + " " +
+                                  "AND Rent_Date BETWEEN '" + start + "' AND '" + end + "' " +
+                                  "AND Return_Date IS NOT NULL " +
+                                  "ORDER BY DVD_Title";
+
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "returned");
+
+                conn.Close();
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
+            }
+        }
+        public DataSet GetRentedDVDsForPeriod(int memId, String start, String end)
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+                String sqlQuery = "SELECT RI.DVD_Id, DVD_Title, Category_Id, Due_Date " +
+                                  "FROM DVDs D JOIN Rental_Items RI ON D.DVD_Id = RI.DVD_Id " +
+                                  "JOIN Rentals R ON R.Rent_Id = RI.Rent_Id " +
+                                  "JOIN Members M ON M.Member_Id = R.Member_Id " +
+                                  "WHERE R.Member_Id = " + memId + " " +
+                                  "AND Rent_Date BETWEEN '" + start + "' AND '" + end + "' " +
+                                  "AND Return_Date IS NULL " +
+                                  "ORDER BY DVD_Title";
+
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "rented");
+
+                conn.Close();
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
             }
         }
     }

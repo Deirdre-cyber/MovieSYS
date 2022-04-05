@@ -89,7 +89,6 @@ namespace MovieSYS
             grdOverdueDVDs.DataSource = Rental.GetOverdueDvds().Tables["overdue"];
             grdOverdueDVDs.DefaultCellStyle.Font = new Font("Tahoma", 8);
             grdOverdueDVDs.DefaultCellStyle.ForeColor = Color.Black;
-            
         }
 
         private void LoadDetails()

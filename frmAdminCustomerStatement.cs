@@ -13,7 +13,9 @@ namespace MovieSYS
     {
         frmMainMenu parent;
         private Member aMember = new Member();
-        int memId;
+        private int memId;
+        private int currentYear = DateTime.Today.Year;
+        private DateTime startYear = new DateTime();
 
         public frmCustomerStatement()
         {
@@ -86,7 +88,6 @@ namespace MovieSYS
             if (grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
                 LoadStatementDatePicker();
-                
             }
             else
             {
@@ -96,15 +97,44 @@ namespace MovieSYS
 
         private void btnViewStatement_Click(object sender, EventArgs e)
         {
-            LoadStatement();
+            LoadStatementDetails();
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void optYear_CheckedChanged(object sender, EventArgs e)
         {
-            grdSearchRes.DataSource = null;
-            grpSearchResults.Visible = false;
-            txtMemberName.Clear();
-            grpMemCheck.Visible = true;
+            CheckStatementPeriod();
+        }
+
+        private void optQuarter_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckStatementPeriod();
+        }
+
+        private void optStart_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckStatementPeriod();
+        }
+
+        private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckStatementPeriod();
+        }
+
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            if (grpSearchResults.Visible || grpStatementPeriod.Visible)
+            {
+                grpSearchResults.Visible = false;
+                grpStatementPeriod.Visible = false;
+                txtMemberName.Clear();
+                grpMemCheck.Visible = true;
+            }
+            else if (grpStatementDetails.Visible)
+            {
+                grpStatementDetails.Visible = false;
+                grpSearchResults.Visible = true;
+                grpStatementPeriod.Visible = true;
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -127,27 +157,10 @@ namespace MovieSYS
 
             grpSearchResults.Visible = false;
             grpStatementDetails.Visible = false;
-            btnPrint.Visible = false;
-            btnEmail.Visible = false;
             grpStatementPeriod.Visible = false;
 
-            optYear.Visible = false;
-            optQuarter.Visible = false;
-            optStart.Visible = false;
-
-            dtpStatementFrom.Visible = false;
-            dtpStatementTo.Visible = false;
-
-            lblTotal.Visible = false;
-            lblTotal.Visible = false;
-            lblRentals.Visible = false;
-            txtRentals.Visible = false;
-            lblFinesOwed.Visible = false;
-            txtFinesOwed.Visible = false;
-            lblFinesPaid.Visible = false;
-            txtFinesPaid.Visible = false;
-
-            txtTotal.Visible = false;
+            HideRadioButtons();
+            HideTextBoxes();
 
             grpMemCheck.Location = new Point(300, 100);
         }
@@ -155,6 +168,17 @@ namespace MovieSYS
         private void ShowMemberResults()
         {
             grpMemCheck.Visible = false;
+
+            SetMemberGridAttributes();
+
+            grdSearchRes.Size = new Size(840, 150);
+            grpSearchResults.Size = new Size(850, 200);
+            grpSearchResults.Location = new Point(100, 100);
+            grpSearchResults.Visible = true;
+        }
+
+        private void SetMemberGridAttributes()      //universal method for all grids?
+        {
             grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
             grdSearchRes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -163,14 +187,6 @@ namespace MovieSYS
             grdSearchRes.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
             grdSearchRes.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             grdSearchRes.DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
-            DataGridViewColumn column = grdSearchRes.Columns[0];
-            column.Width = 60;
-
-            grdSearchRes.Size = new Size(820, 150);
-            btnReturn.Location = new Point(350, 200);
-            grpSearchResults.Visible = true;
-            grpSearchResults.Size = new Size(850, 240);
-            grpSearchResults.Location = new Point(100, 100);
         }
 
         private void LoadStatementDatePicker()
@@ -178,7 +194,19 @@ namespace MovieSYS
             memId = Convert.ToInt32(grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value);
             aMember.GetMemberDetails(memId);
 
-            int currentYear = DateTime.Today.Year;
+            cboYear.Items.Clear();
+            LoadYears();
+            ShowRadioButtons();
+
+            dtpStatementFrom.Visible = false;
+            dtpStatementTo.Visible = false;
+
+            grpStatementPeriod.Location = new Point(100, 400);
+            grpStatementPeriod.Visible = true;
+        }
+
+        private void LoadYears()
+        {
             int Years = currentYear - Convert.ToDateTime(aMember.StartDate).Year;
 
             for (int i = 0; i <= Years; i++)
@@ -187,49 +215,192 @@ namespace MovieSYS
             }
 
             cboYear.Text = currentYear.ToString();
-
-            optYear.Visible = true;
-            optQuarter.Visible = true;
-            optStart.Visible = true;
-
-            dtpStatementFrom.MinDate = Convert.ToDateTime(aMember.StartDate);
-            dtpStatementFrom.Value = DateTime.Today;
-
-            dtpStatementTo.MaxDate = DateTime.Today;
-            dtpStatementTo.Value = DateTime.Today;
-
-            grpStatementPeriod.Location = new Point(100, 400);
-            grpStatementPeriod.Visible = true;
         }
 
-        private void LoadStatement()
+        private void LoadStatementDetails()
         {
-            this.Height = 1200;
-            //position
-            //statement period options
+            if (optYear.Checked || optStart.Checked || optCustom.Checked)
+            {
+                PopulateTextBoxes();
 
-            //CONTINUE FROM HERE +++++++
+                this.Height = 900;
 
+                ShowTextBoxes();
+                LoadReturnedDvdGrid();
+                LoadRentedDvdGrid();
 
-            txtMemId.Text = Convert.ToString(memId);
+                grpSearchResults.Visible = false;
+                grpStatementPeriod.Visible = false;
+                grpStatementDetails.Visible = true;
+                grpStatementDetails.Location = new Point(50, 100);
+            }
+            else
+            {
+                MessageBox.Show(null, "Please select a statement period option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                cboYear.Focus();
+            }
+        }
 
+        private void LoadReturnedDvdGrid()
+        {
+            grdReturned.DataSource = aMember.GetReturnedDVDsForPeriod(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value)).Tables["returned"];
+
+            grdReturned.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
+            grdReturned.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdReturned.DefaultCellStyle.Font = new Font("Franklin", 10);
+            grdReturned.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdReturned.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+            grdReturned.DefaultCellStyle.SelectionForeColor = Color.DarkSlateGray;
+            grdReturned.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke;
+        }
+
+        private void LoadRentedDvdGrid()
+        {
+            grdRented.DataSource = aMember.GetRentedDVDsForPeriod(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value)).Tables["rented"];
+
+            grdRented.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
+            grdRented.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdRented.DefaultCellStyle.Font = new Font("Franklin", 10);
+            grdRented.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdRented.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+            grdRented.DefaultCellStyle.SelectionForeColor = Color.DarkSlateGray;
+            grdRented.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke;
+        }
+
+        private void PopulateTextBoxes()
+        {
+            txtMemId.Text = String.Format("{0:00000}", memId);
             txtMembership.Text = aMember.MembershipID;
-
             txtPeriod.Text = dtpStatementFrom.Text + " - " + dtpStatementTo.Text;
-
             txtName.Text = aMember.FirstName + " " + aMember.LastName;
             txtEmail.Text = aMember.Email;
             txtContact.Text = aMember.ContactNo;
 
-            txtFinesPaid.Text = String.Format("{0:0.00}", Member.GetFines(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value)));
+            float finesPaid = aMember.GetFinesForPeriod(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value));
 
-            //txtFinesUnpaid.Text = Convert.ToString(Member.GetFinesOwed(memId));
+            float rentals = aMember.GetTotalForPeriod(memId, String.Format("{0:dd-MMM-yy}", dtpStatementFrom.Value), String.Format("{0:dd-MMM-yy}", dtpStatementTo.Value));
 
-            grpSearchResults.Visible = false;
-            grpStatementDetails.Visible = true;
+            txtFinesPaid.Text = String.Format("{0:0.00}", finesPaid);
+            txtFinesOwed.Text = Convert.ToString(Member.GetFinesOwed(memId));
+
+            if (txtFinesOwed.Text != "0")
+            {
+                txtFinesOwed.BackColor = Color.LightGray;  //change font color not bg
+                lblFinesOwed.Visible = true;
+                txtFinesOwed.Visible = true;
+            }
+
+            txtRentals.Text = String.Format("{0:0.00}", rentals);
+            txtTotal.Text = String.Format("{0:0.00}", finesPaid + rentals);
+        }
+
+        private void HideTextBoxes()
+        {
+            btnPrint.Visible = false;
+            btnEmail.Visible = false;
+            lblTotal.Visible = false;
+            txtTotal.Visible = false;
+            lblRentals.Visible = false;
+            txtRentals.Visible = false;
+            lblFinesOwed.Visible = false;
+            txtFinesOwed.Visible = false;
+            lblFinesPaid.Visible = false;
+            txtFinesPaid.Visible = false;
+        }
+
+        private void ShowTextBoxes()
+        {
+            btnEmail.Visible = true;
+            btnPrint.Visible = true;
+            lblTotal.Visible = true;
+            txtTotal.Visible = true;
+            lblRentals.Visible = true;
+            txtRentals.Visible = true;
+            lblFinesPaid.Visible = true;
+            txtFinesPaid.Visible = true;
+        }
+
+        private void HideRadioButtons()
+        {
+            optYear.Visible = false;
+            optCustom.Visible = false;
+            optStart.Visible = false;
+        }
+
+        private void ShowRadioButtons()
+        {
+            optYear.Visible = true;
+            optCustom.Visible = true;
+            optStart.Visible = true;
+        }
+
+        private void CheckStatementPeriod()
+        {
+            if (optYear.Checked)
+            {
+                SetYearPeriod();
+            }
+            else if (optCustom.Checked)
+            {
+                SetCustomPeriod();
+            }
+            else if (optStart.Checked)
+            {
+                SetTotalPeriod();
+            }
+
+            btnViewStatement.Focus();
+        }
+
+        private void SetYearPeriod()
+        {
+            cboYear.Enabled = true;
+
+            int year = currentYear - Convert.ToInt32(cboYear.Text);
+
+            dtpStatementFrom.MinDate = startYear.AddYears(currentYear - (year + 1));
+
+            dtpStatementFrom.Value = startYear.AddYears(currentYear - (year + 1));
+
+            if (cboYear.Text.Equals(currentYear.ToString()))
+            {
+                dtpStatementTo.Value = DateTime.Today.AddYears(-year);
+            }
+            else
+            {
+                dtpStatementTo.Value = startYear.AddYears(currentYear - (year + 1)).AddMonths(11).AddDays(30);
+            }
+
+            dtpStatementFrom.Enabled = false;
+            dtpStatementTo.Enabled = false;
+            dtpStatementFrom.Visible = true;
+            dtpStatementTo.Visible = true;
             
         }
 
-        
+        private void SetCustomPeriod()
+        {
+            cboYear.Enabled = false;
+            dtpStatementFrom.MinDate = Convert.ToDateTime(aMember.StartDate);
+            dtpStatementTo.MaxDate = DateTime.Today;
+            dtpStatementFrom.Value = Convert.ToDateTime(aMember.StartDate);
+            dtpStatementTo.Value = DateTime.Today;
+            dtpStatementFrom.Enabled = true;
+            dtpStatementTo.Enabled = true;
+            dtpStatementFrom.Visible = true;
+            dtpStatementTo.Visible = true;
+        }
+
+        private void SetTotalPeriod()
+        {
+            cboYear.Enabled = true;
+            dtpStatementFrom.MinDate = Convert.ToDateTime(aMember.StartDate);
+            dtpStatementFrom.Value = Convert.ToDateTime(aMember.StartDate);
+            dtpStatementTo.Value = DateTime.Today;
+            dtpStatementFrom.Enabled = false;
+            dtpStatementTo.Enabled = false;
+            dtpStatementFrom.Visible = true;
+            dtpStatementTo.Visible = true;
+        }
     }
 }

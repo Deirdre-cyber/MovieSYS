@@ -126,7 +126,6 @@ namespace MovieSYS
         
         public static DataSet SearchDVD(String title)
         {
-            //Show results/suggestions as typing ? ? ?
             try
             {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -156,6 +155,7 @@ namespace MovieSYS
             }
         }
 
+        //code very similar - resolve
         public void GetAllDvdDetails(int id)
         {
             try

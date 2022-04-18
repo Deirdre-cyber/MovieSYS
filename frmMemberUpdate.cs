@@ -10,7 +10,6 @@ namespace MovieSYS
     public partial class frmMemberUpdate : Form
     {
         frmMainMenu parent;
-
         private Member aMember = new Member();
         private int memId;
         private bool validFirstName = true;
@@ -59,9 +58,7 @@ namespace MovieSYS
 
         private void frmMemberUpdate_Load(object sender, EventArgs e)
         {
-            grpSearchResults.Visible = false;
-            grpEditMem.Visible = false;
-            grpMemCheck.Location = new Point(260, 100);
+            LoadUI();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
@@ -76,12 +73,11 @@ namespace MovieSYS
                 {
                     MessageBox.Show(null, "There were no results matching your search", "No Member Found", MessageBoxButtons.OK);
                     txtMemberName.Clear();
+                    return;
                 }
-                else
-                {
-                    ShowMemberResults();
-                }
-                    
+
+                ShowMemberResults();
+
             }            
         }
 
@@ -89,7 +85,7 @@ namespace MovieSYS
         {
             try
             {
-                if (allValid())
+                if (AllValid())
                 {
                     Member.UpdateMember(Convert.ToInt32(txtMemId.Text), cboMemID.Text.Substring(0, 2),
                                         txtFirstName.Text, txtLastName.Text, String.Format("{0:dd-MMM-yy}", dtpDOB.Value), txtContactNo.Text,
@@ -124,7 +120,7 @@ namespace MovieSYS
         {
             if (grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
-                LoadMemberDetails();
+                ShowMemberDetails();
             }
             else
             {
@@ -132,13 +128,7 @@ namespace MovieSYS
             }
                 
         }
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            grdSearchRes.DataSource = null;
-            grpSearchResults.Visible = false;
-            txtMemberName.Clear();
-            grpMemCheck.Visible = true;
-        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ResetUI();
@@ -147,8 +137,32 @@ namespace MovieSYS
             grpMemCheck.Visible = true;
         }
 
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            if (grpSearchResults.Visible == true)
+            {
+                grdSearchRes.DataSource = null;
+                txtMemberName.Clear();
+                grpMemCheck.Visible = true;
+                grpSearchResults.Visible = false;
+            }
+
+            if (grpEditMem.Visible == true)
+            {
+                grpSearchResults.Visible = true;
+                grpEditMem.Visible = false;
+                ResetUI();
+            }
+        }
+
         //LOCAL METHODS
-        private void LoadStatus()
+        private void LoadUI()
+        {
+            grpSearchResults.Visible = false;
+            grpEditMem.Visible = false;
+            grpMemCheck.Location = new Point(260, 100);
+        }
+        private void LoadStatusOptions()
         {
             cboStatus.Items.Clear();
 
@@ -161,7 +175,7 @@ namespace MovieSYS
 
             cboStatus.SelectedIndex = 0;
         }
-        private void LoadMemberDetails()
+        private void ShowMemberDetails()
         {
             memId = Convert.ToInt32(grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value);
 
@@ -182,7 +196,7 @@ namespace MovieSYS
             txtEircode.Text = aMember.Eircode;
             dtpStartDate.Value = Convert.ToDateTime(aMember.StartDate);
 
-            LoadStatus();
+            LoadStatusOptions();
 
             grpSearchResults.Visible = false;
             grpEditMem.Visible = true;
@@ -202,7 +216,6 @@ namespace MovieSYS
             column.Width = 60;
 
             grdSearchRes.Size = new Size(720, 350);
-            btnReturn.Location = new Point(750, 150);
 
             grpMemCheck.Visible = false;
 
@@ -210,29 +223,39 @@ namespace MovieSYS
             grpSearchResults.Size = new Size(850, 350);
             grpSearchResults.Location = new Point(100, 100);
         }
-        private void ResetUI()      
+        private void ResetUI()     //universal method 
         {
             Utility.ClearText(this.Controls);
             cboMemID.Text = null;
             dtpStartDate.Value = DateTime.Today;
-        }  //universal method
+        }  
 
         //VALIDATION
-        private bool allValid()
+        private bool AllValid()
         {
             if (validFirstName && validLastName && validContact && validEmail && validEircode)
                 return true;
             else
                 return false;
         }
-        private void cboMemID_Validating(object sender, CancelEventArgs e)
+        private void CboMemID_Validating(object sender, CancelEventArgs e)
         {
             if (cboMemID.Text == null && cboMemID.SelectedIndex == -1)
             {
                 cboMemID.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(cboMemID, "Must choose category");
+                return;
             }
-            else if (cboMemID.SelectedIndex != -1)
+            if (cboMemID.SelectedIndex != -1)
+            {
+                SetDobRange();
+                return;
+            }
+
+            cboMemID.BackColor = Color.White;
+            errorProvider1.Clear();
+
+            void SetDobRange()
             {
                 if (cboMemID.Text.Substring(0, 2).Equals("CH"))
                 {
@@ -249,136 +272,130 @@ namespace MovieSYS
                     errorProvider1.Clear();
                 }
             }
-            else
-            {
-                cboMemID.BackColor = Color.White;
-                errorProvider1.Clear();
-            }
         }
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        private void TxtFirstName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
                 txtFirstName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtFirstName, "First name should not be left blank");
                 validFirstName = false;
+                return;
             }
-            else if (!Validation.HasChars(txtFirstName.Text))
+            if (!Validation.HasChars(txtFirstName.Text))
             {
                 txtFirstName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtFirstName, "First name should not contain any digits");
                 validFirstName = false;
+                return;
             }
-            else
-            {
-                txtFirstName.BackColor = Color.White;
-                errorProvider1.Clear();
-                validFirstName = true;
-            }
+
+            txtFirstName.BackColor = Color.White;
+            errorProvider1.Clear();
+            validFirstName = true;
         }
-        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        private void TxtLastName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 txtLastName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtLastName, "Last name should not be left blank");
                 validLastName = false;
+                return;
             }
-            else if (!Validation.HasChars(txtLastName.Text))
+            if (!Validation.HasChars(txtLastName.Text))
             {
                 txtLastName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtLastName, "Last name should not contain any digits");
                 validLastName = false;
+                return;
             }
-            else
-            {
-                txtLastName.BackColor = Color.White;
-                errorProvider1.Clear();
-                validLastName = true;
-            }
+
+            txtLastName.BackColor = Color.White;
+            errorProvider1.Clear();
+            validLastName = true;
         }
-        private void txtContactNo_Validating(object sender, CancelEventArgs e)
+        private void TxtContactNo_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should not be left blank");
                 validContact = false;
+                return;
             }
-            else if (!Validation.HasDigits(txtContactNo.Text))
+            if (!Validation.HasDigits(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should contain only digits");
                 validContact = false;
+                return;
             }
-            else if (txtContactNo.Text.Length > 10)
+            if (txtContactNo.Text.Length > 10)
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should only be 10 digits");
                 validContact = false;
+                return;
             }
-            else
-            {
-                txtContactNo.BackColor = Color.White;
-                errorProvider1.Clear();
-                validContact = true;
-            }
+
+            txtContactNo.BackColor = Color.White;
+            errorProvider1.Clear();
+            validContact = true;
         }
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        private void TxtEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                e.Cancel = true;
                 txtEmail.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEmail, "Email should not be left blank");
                 validEmail = false;
+                return;
             }
-            else if (!Validation.IsValidEmail(txtEmail.Text))
+            if (!Validation.IsValidEmail(txtEmail.Text))
             {
                 txtEmail.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEmail, "Email not a valid email address");
                 validEmail = false;
+                return;
             }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-                errorProvider1.Clear();
-                validEmail = true;
-            }
+
+            txtEmail.BackColor = Color.White;
+            errorProvider1.Clear();
+            validEmail = true;
         }
-        private void txtEircode_Validating(object sender, CancelEventArgs e)
+        private void TxtEircode_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEircode.Text))
             {
                 txtEircode.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEircode, "Eircode should not be left blank");
                 validEircode = false;
+                return;
             }
-            else if (!Validation.IsValidEircode(txtEircode.Text))
+            if (!Validation.IsValidEircode(txtEircode.Text))
             {
                 txtEircode.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEircode, "Eircode not valid");
                 validEircode = false;
+                return;
             }
-            else
-            {
-                txtEircode.BackColor = Color.White;
-                errorProvider1.Clear();
-                validEircode = true;
-            }
+
+            txtEircode.BackColor = Color.White;
+            errorProvider1.Clear();
+            validEircode = true;
         }
-        private void dtpStartDate_Validating(object sender, CancelEventArgs e)
+        private void DtpStartDate_Validating(object sender, CancelEventArgs e)
         {
             if (dtpStartDate.Value >= DateTime.Today)
             {
                 dtpStartDate.BackColor = Color.White;
                 errorProvider1.Clear();
+                return;
             }
-            else
-            {
-                dtpStartDate.BackColor = Color.DarkSalmon;
-                errorProvider1.SetError(dtpStartDate, "Start date must be not in the past");
-            }
+
+            dtpStartDate.BackColor = Color.DarkSalmon;
+            errorProvider1.SetError(dtpStartDate, "Start date must be not in the past");
         }
 
     }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MovieSYS
 {
@@ -13,7 +11,6 @@ namespace MovieSYS
     {
 
         frmMainMenu parent;
-
         private bool validFirstName = false;
         private bool validLastName = false;
         private bool validNumber = false;
@@ -69,7 +66,6 @@ namespace MovieSYS
                 if (AllValid())
                 {
                     AddNewMember();
-
                     MessageBox.Show(null, "Member has been added successfuly", "New Member Added", MessageBoxButtons.OK);
                 }
                 else
@@ -90,7 +86,6 @@ namespace MovieSYS
             }
 
             ResetUI();
-            txtMemId.Text = Member.GetNextMemberID().ToString("00000");
 
             grpReceipt.Visible = true;
             grpAddMem.Visible = false; 
@@ -101,9 +96,9 @@ namespace MovieSYS
             //ironpdf.com/docs/questions/csharp-print-pdf/
             //printReceipt();
             MessageBox.Show(null, "Receipt sent to printer", "Print", MessageBoxButtons.OK);
-            grpReceipt.Visible = false;
+
             ResetUI();
-            //txtMemId.Text = Member.getNextMemberID().ToString("00000");
+            grpReceipt.Visible = false;
             grpAddMem.Visible = true;
         }
 
@@ -112,9 +107,9 @@ namespace MovieSYS
             //docs.microsoft.com/en-us/visualstudio/vsto/how-to-programmatically-send-e-mail-programmatically?view=vs-2022
             //emailReceipt();
             MessageBox.Show(null, "Receipt sent to member", "Email", MessageBoxButtons.OK);
-            grpReceipt.Visible = false;
+
             ResetUI();
-            //txtMemId.Text = Member.getNextMemberID().ToString("00000");
+            grpReceipt.Visible = false;
             grpAddMem.Visible = true;
 
         }
@@ -123,14 +118,10 @@ namespace MovieSYS
         private void LoadUI()
         {
             grpReceipt.Visible = false;
-
             txtMemId.Text = Member.GetNextMemberID().ToString("00000");
-
             dtpDOB.MaxDate = DateTime.Today.AddYears(-13);
-
             dtpMemStartDate.MinDate = DateTime.Today;
             dtpMemStartDate.Value = DateTime.Today;
-
             dtpMemStartDate.MaxDate = DateTime.Today.AddMonths(1);
 
             DataSet memDS = Utility.getMembershipCodes();
@@ -147,10 +138,10 @@ namespace MovieSYS
                 cboMemID.Text.Substring(0, 2), "A");
 
             aMember.AddMember();
-
         }
         private void ResetUI()    //Universal Method for Reset UI
         {
+            txtMemId.Text = Member.GetNextMemberID().ToString("00000");
             txtFirstName.Clear();
             txtLastName.Clear();
             dtpDOB.Value = DateTime.Today.AddYears(-13);
@@ -165,8 +156,6 @@ namespace MovieSYS
         //private void printReceipt(){}
         //private void emailReceipt(){}
 
-
-
         //VALIDATION
         private bool AllValid()
         {
@@ -175,14 +164,24 @@ namespace MovieSYS
             else
                 return false;
         }
-        private void cboMemID_Validating(object sender, CancelEventArgs e)
+        private void CboMemID_Validating(object sender, CancelEventArgs e)
         {
-            if (cboMemID.Text == null && cboMemID.SelectedIndex == -1)
+            if (cboMemID.Text == "" && cboMemID.SelectedIndex == -1)
             {
                 cboMemID.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(cboMemID, "Must choose membership");
+                return;
             }
-            else if (cboMemID.SelectedIndex != -1)
+            if (cboMemID.SelectedIndex != -1)
+            {
+                SetDobRange();
+                return;
+            }
+
+            cboMemID.BackColor = Color.White;
+            errorProvider1.Clear();
+
+            void SetDobRange()
             {
                 if (cboMemID.Text.Substring(0, 2).Equals("CH"))
                 {
@@ -190,150 +189,145 @@ namespace MovieSYS
                     dtpDOB.MinDate = DateTime.Today.AddYears(-13);
                     cboMemID.BackColor = Color.White;
                     errorProvider1.Clear();
+                    return;
                 }
-                else
-                {
-                    dtpDOB.MaxDate = DateTime.Today.AddYears(-13);
-                    dtpDOB.MinDate = new DateTime(1900, 1, 1);
-                    cboMemID.BackColor = Color.White;
-                    errorProvider1.Clear();
-                }
-            }
-            else
-            {
+
+                dtpDOB.MaxDate = DateTime.Today.AddYears(-13);
+                dtpDOB.MinDate = new DateTime(1900, 1, 1);
                 cboMemID.BackColor = Color.White;
                 errorProvider1.Clear();
             }
         }
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        private void TxtFirstName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
                 txtFirstName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtFirstName, "First name should not be left blank");
                 validFirstName = false;
+                return;
             }
-            else if (!Validation.HasChars(txtFirstName.Text))
+            if (!Validation.HasChars(txtFirstName.Text))
             {
                 txtFirstName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtFirstName, "First name should not contain any digits");
                 validFirstName = false;
+                return;
             }
-            else
-            {
-                txtFirstName.BackColor = Color.White;
-                errorProvider1.Clear();
-                validFirstName = true;
-            }
+
+            txtFirstName.BackColor = Color.White;
+            errorProvider1.Clear();
+            validFirstName = true;
         }
-        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        private void TxtLastName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 txtLastName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtLastName, "Last name should not be left blank");
                 validLastName = false;
+                return;
             }
-            else if (!Validation.HasChars(txtLastName.Text))
+            if (!Validation.HasChars(txtLastName.Text))
             {
                 txtLastName.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtLastName, "Last name should not contain any digits");
                 validLastName = false;
+                return;
             }
-            else
-            {
-                txtLastName.BackColor = Color.White;
-                errorProvider1.Clear();
-                validLastName = true;
-            }
+
+            txtLastName.BackColor = Color.White;
+            errorProvider1.Clear();
+            validLastName = true;
         }
-        private void txtContactNo_Validating(object sender, CancelEventArgs e)
+        private void TxtContactNo_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should not be left blank");
                 validNumber = false;
+                return;
             }
-            else if (!Validation.HasDigits(txtContactNo.Text))
+            if (!Validation.HasDigits(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should contain only digits");
                 validNumber = false;
+                return;
             }
-            else if (txtContactNo.Text.Length < 10)
+            if (txtContactNo.Text.Length < 10)
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should contain 10 digits");
                 validNumber = false;
+                return;
             }
-            else
-            {
-                txtContactNo.BackColor = Color.White;
-                errorProvider1.Clear();
-                validNumber = true;
-            }
+
+            txtContactNo.BackColor = Color.White;
+            errorProvider1.Clear();
+            validNumber = true;
         }
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        private void TxtEmail_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 txtEmail.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEmail, "Email should not be left blank");
                 validEmail = false;
+                return;
             }
-            else if (!Validation.IsValidEmail(txtEmail.Text))
+            if (!Validation.IsValidEmail(txtEmail.Text))
             {
                 txtEmail.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEmail, "Email not a valid email address");
                 validEmail = false;
+                return;
             }
-            else if (Validation.EmailExists(txtEmail.Text))
+            if (Validation.EmailExists(txtEmail.Text))
             {
                 txtEmail.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEmail, "Email already exists");
                 validEmail = false;
+                return;
             }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-                errorProvider1.Clear();
-                validEmail = true;
-            }
+
+            txtEmail.BackColor = Color.White;
+            errorProvider1.Clear();
+            validEmail = true;
         }
-        private void txtEircode_Validating(object sender, CancelEventArgs e)
+        private void TxtEircode_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtEircode.Text))
             {
                 txtEircode.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEircode, "Eircode should not be left blank");
                 validEircode = false;
+                return;
             }
-            else if (!Validation.IsValidEircode(txtEircode.Text))
+            if (!Validation.IsValidEircode(txtEircode.Text))
             {
                 txtEircode.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtEircode, "Eircode not valid");
                 validEircode = false;
+                return;
             }
-            else
-            {
-                txtEircode.BackColor = Color.White;
-                errorProvider1.Clear();
-                validEircode = true;
-            }
+
+            txtEircode.BackColor = Color.White;
+            errorProvider1.Clear();
+            validEircode = true;
         }
-        private void dtpMemStartDate_Validating(object sender, CancelEventArgs e)
+        private void DtpMemStartDate_Validating(object sender, CancelEventArgs e)
         {
             if(dtpMemStartDate.Value >= DateTime.Today)
             {
                 dtpMemStartDate.BackColor = Color.White;
                 errorProvider1.Clear();
+                return;
             }
-            else
-            {
-                dtpMemStartDate.BackColor = Color.DarkSalmon;
-                errorProvider1.SetError(dtpMemStartDate, "Start date must be not in the past");
-            }
+
+            dtpMemStartDate.BackColor = Color.DarkSalmon;
+            errorProvider1.SetError(dtpMemStartDate, "Start date must be not in the past");
         }
     }
 }

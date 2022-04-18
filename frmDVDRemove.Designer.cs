@@ -31,6 +31,7 @@ namespace MovieSYS
         {
             this.components = new System.ComponentModel.Container();
             this.grpRemove = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.grdDVDList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtDVDTitle = new System.Windows.Forms.TextBox();
@@ -71,6 +72,7 @@ namespace MovieSYS
             // grpRemove
             // 
             this.grpRemove.BackColor = System.Drawing.Color.LightSlateGray;
+            this.grpRemove.Controls.Add(this.btnClear);
             this.grpRemove.Controls.Add(this.grdDVDList);
             this.grpRemove.Controls.Add(this.btnSearch);
             this.grpRemove.Controls.Add(this.txtDVDTitle);
@@ -85,6 +87,21 @@ namespace MovieSYS
             this.grpRemove.TabIndex = 1;
             this.grpRemove.TabStop = false;
             this.grpRemove.Text = "Remove DVD";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClear.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnClear.Location = new System.Drawing.Point(606, 34);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(101, 41);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // grdDVDList
             // 
@@ -110,7 +127,7 @@ namespace MovieSYS
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearch.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnSearch.Location = new System.Drawing.Point(565, 36);
+            this.btnSearch.Location = new System.Drawing.Point(487, 34);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(101, 41);
@@ -529,5 +546,6 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblMins;
         private System.Windows.Forms.TextBox txtDuration;
         private System.Windows.Forms.TextBox txtDVDName;
+        private System.Windows.Forms.Button btnClear;
     }
 }

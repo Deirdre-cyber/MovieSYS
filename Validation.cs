@@ -40,7 +40,7 @@ namespace MovieSYS
                 return false;
         }
 
-        //makes sure4 number starts with 08...
+        //makes sure number starts with 08...
         public static bool IsNumber(String number)
         {
             if (Int32.TryParse(number, out int num))

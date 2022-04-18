@@ -58,14 +58,9 @@ namespace MovieSYS
             }
         }
 
-        private void grpMemCheck_Enter_1(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnCheck_Click_1(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtMemberName.Text))
+            if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
             }
@@ -76,15 +71,16 @@ namespace MovieSYS
                     MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
                     grdSearchResults.DataSource = null;
                     txtMemberName.Clear();
+                    return;
                 }
-                else
-                    LoadMemberGrid();
+
+                ShowMemberResults();
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         { 
-            ClearListBox();
+            EmptyCart();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
@@ -100,30 +96,35 @@ namespace MovieSYS
 
         private void grdDvdSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            //fix
             if (lstCart.Items.Count < dvdLimit)
             {
-                int i;
-
                 if (lstCart.Items.Count > 0)
+                {
+                    int count;
+
+                    for (count = 0; count < lstCart.Items.Count; count++)
                     {
-                        for (i = 0; i < lstCart.Items.Count; i++)
-                        {
-                            if (lstCart.FindString(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value)) != -1)
+                        if (lstCart.FindString(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value)) != -1)
                             break;
-                        }
-                        if(i != lstCart.Items.Count)
-                        {
-                            MessageBox.Show(null, grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
-                            " has already been selected", "Error", MessageBoxButtons.OK);
-                        }
-                        else
-                            AddToCart();
                     }
+
+                    if (count != lstCart.Items.Count)
+                    {
+                        MessageBox.Show(null, grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                        " has already been selected", "Error", MessageBoxButtons.OK);
+                    }
+                    else
+                        AddToCart();
+                }
                 else
                     AddToCart();
+
+                return;
             }
-            else
-                MessageBox.Show(null, "Cannot rent more than " + dvdLimit + " DVDs", "Limit Reached", MessageBoxButtons.OK);
+
+            MessageBox.Show(null, "Cannot rent more than " + dvdLimit + " DVDs", "Limit Reached", MessageBoxButtons.OK);
 
         }
 
@@ -135,18 +136,16 @@ namespace MovieSYS
 
                 if (!aMember.HasFine(memId) && !aMember.HasOverdue(memId))
                 {
-                    LoadMemberDetails();
+                    ShowMemberDetails();
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show(null, "There are fines or overdue DVDs connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    grpSearchResults.Visible = false;
-                    txtMemberName.Clear();
-                    grpMemCheck.Visible = true;
-                }
+
+                MessageBox.Show(null, "There are fines or overdue DVDs connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadUI();
+                return;
             }
-            else
-                MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -161,9 +160,10 @@ namespace MovieSYS
                 {
                     MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
                     txtDVDSearch.Clear();
+                    return;
                 }
-                else
-                    LoadDvdDetails();
+
+                ShowDvdDetails();
             }
         }
 
@@ -174,9 +174,10 @@ namespace MovieSYS
             if (cartIndex != -1)
             {
                 RemoveFromCart();
+                return;
             }
-            else
-                MessageBox.Show(null, "Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            MessageBox.Show(null, "Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -188,6 +189,7 @@ namespace MovieSYS
         //LOCAL METHODS
         private void LoadUI()
         {
+            grdDvdSearch.DataSource = null;
             grpMemCheck.Location = new Point(260, 100);
             grdSearchResults.DataSource = null;
             grpSearchResults.Visible = false;
@@ -197,44 +199,6 @@ namespace MovieSYS
             grpSearch.Visible = false;
             txtMemberName.Clear();
             grpMemCheck.Visible = true;
-        }
-
-        private void AddToCart()
-        {
-            lstCart.Items.Add(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value) +
-                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
-                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
-
-            IncreasePrice();
-
-            txtPrice.Text = price.ToString("0.00");
-        }
-
-        private void IncreasePrice()
-        {
-            if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("CH"))
-                price += 3.50f;
-            else if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("NR"))
-                price += 8.00f;
-            else
-                price += 5.00f;
-        }
-
-        private void DecreasePrice()
-        {
-            if (lstCart.Items[cartIndex].ToString().Contains("CH"))
-                price -= 3.50f;
-            else if (lstCart.Items[cartIndex].ToString().Contains("NR"))
-                price -= 8.00f;
-            else
-                price -= 5.00f;
-        }
-
-        private void RemoveFromCart()
-        {
-            DecreasePrice();
-            lstCart.Items.RemoveAt(cartIndex);
-            txtPrice.Text = price.ToString("0.00");
         }
 
         private void ResetUI()
@@ -247,7 +211,44 @@ namespace MovieSYS
             price = 0.00f;
         }
 
-        private void LoadMemberDetails()
+        private void AddToCart()
+        {
+            lstCart.Items.Add(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value) +
+                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
+
+            IncreasePrice();
+            txtPrice.Text = price.ToString("0.00");
+            
+            void IncreasePrice()
+            {
+                if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("CH"))
+                    price += 3.50f;
+                else if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("NR"))
+                    price += 8.00f;
+                else
+                    price += 5.00f;
+            }
+        }
+
+        private void RemoveFromCart()
+        {
+            lstCart.Items.RemoveAt(cartIndex);
+            DecreasePrice();
+            txtPrice.Text = price.ToString("0.00");
+
+            void DecreasePrice()
+            {
+                if (lstCart.Items[cartIndex].ToString().Contains("CH"))
+                    price -= 3.50f;
+                else if (lstCart.Items[cartIndex].ToString().Contains("NR"))
+                    price -= 8.00f;
+                else
+                    price -= 5.00f;
+            }
+        }
+
+        private void ShowMemberDetails()
         {
             txtRentID.Text = Rental.GetNextRentalId().ToString("00000");
 
@@ -262,11 +263,10 @@ namespace MovieSYS
 
             grpSearchResults.Visible = false;
             grpSearch.Visible = true;
-
             grpRentDetails.Visible = true;
         }
 
-        private void LoadMemberGrid()
+        private void ShowMemberResults()
         {
             grdSearchResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdSearchResults.DefaultCellStyle.Font = new Font("Courier", 9);
@@ -279,9 +279,9 @@ namespace MovieSYS
             grpSearchResults.Visible = true;
             grpSearchResults.Size = new Size(850, 350);
             grpSearchResults.Location = new Point(100, 100);
-        }//add to utility class? - reused
+        }
 
-        private void LoadDvdDetails()
+        private void ShowDvdDetails()
         {
             grdDvdSearch.Visible = false;
             grdDvdSearch.DataSource = DVD.SearchDVD(txtDVDSearch.Text.ToUpper()).Tables["search"];
@@ -298,11 +298,7 @@ namespace MovieSYS
                 UpdateRentalItem();
 
                 MessageBox.Show(null, "Order complete", "Successful", MessageBoxButtons.OK);
-                ResetUI();
-                grpRentDetails.Visible = false;
-                grpSearch.Visible = false;
-                grdDvdSearch.DataSource = null;
-                grpMemCheck.Visible = true;
+                ResetUI();  //necessary
                 LoadUI();
             }
             catch (Exception e)
@@ -317,11 +313,8 @@ namespace MovieSYS
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
                 int dvdId = Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 4));
-
                 DVD.UpdateStatus(dvdId, "A");
-
                 RentalItem aRentalItem = new RentalItem(Convert.ToInt32(txtRentID.Text), dvdId, 0.00f);
-
                 aRentalItem.AddRentalItem();
             }
         }
@@ -335,7 +328,7 @@ namespace MovieSYS
             aRental.AddRental();
         }
 
-        private void ClearListBox()
+        private void EmptyCart()
         {
             if (lstCart.Items.Count > 0)
             {

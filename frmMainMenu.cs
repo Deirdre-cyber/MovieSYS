@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,43 +13,32 @@ namespace MovieSYS
     {
         public frmMainMenu()
         {
-            InitializeComponent();
-            mnuMembers.Visible = false;
-            mnuDVD.Visible = false;
-            mnuRentals.Visible = false;
-            mnuAdmin.Visible = false;
-            mnuLogout.Visible = false;
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("An error has occured\n" + e.ToString());
+            }
 
+        }
+
+        private void frmMainMenu_Load(object sender, EventArgs e)
+        {
+            LoadUI();
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void frmMainPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuDVD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuMembers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuRentals_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuAdmin_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                this.Close();
+            }
+            catch (NullReferenceException nre)
+            {
+                Debug.WriteLine("An error has occured\n" + nre.ToString());
+            }
         }
 
         private void mnuCatalogue_Click_1(object sender, EventArgs e)
@@ -61,15 +51,8 @@ namespace MovieSYS
         private void mnuRemove_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            frmDVDRemove rentItem = new frmDVDRemove(this);
-            rentItem.Show();
-        }
-
-        private void mnuListOverdue_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmListOverdue listOverdue = new frmListOverdue(this);
-            listOverdue.Show();
+            frmDVDRemove removeDVD = new frmDVDRemove(this);
+            removeDVD.Show();
         }
 
         private void mnuAddMember_Click(object sender, EventArgs e)
@@ -107,44 +90,25 @@ namespace MovieSYS
             payFine.Show();
         }
 
+        private void mnuListOverdue_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmListOverdue listOverdue = new frmListOverdue(this);
+            listOverdue.Show();
+        }
+
         private void mnuYearlyRev_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmYearlyRevenue revenueOne = new frmYearlyRevenue(this);
-            revenueOne.Show();
+            frmYearlyRevenue issueYrlyRevenue = new frmYearlyRevenue(this);
+            issueYrlyRevenue.Show();
         }
 
         private void mnuCustomerStatement_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCustomerStatement customerStatement = new frmCustomerStatement(this);
-            customerStatement.Show();
-        }
-
-        private void grpLogin_Enter(object sender, EventArgs e)
-        {
-            txtPass.PasswordChar = '*';
-            txtPass.MaxLength = 4;
-        }
-
-        private void lblUsername_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-            txtPass.MaxLength = 20;
-        }
-
-        private void lblPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPass_TextChanged(object sender, EventArgs e)
-        {
-
+            frmCustomerStatement issueCustStatement = new frmCustomerStatement(this);
+            issueCustStatement.Show();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -152,30 +116,49 @@ namespace MovieSYS
             if (txtUser.Text.Equals("ABC") && txtPass.Text.Equals("123"))
             {
                 MessageBox.Show("Welcome to the System " + txtUser.Text, "Welcome", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                mnuMembers.Visible = true;
-                mnuDVD.Visible = true;
-                mnuRentals.Visible = true;
-                mnuAdmin.Visible = true;
+                ShowMenuItems();
                 grpLogin.Visible = false;
-                mnuLogout.Visible = true;
             }
             else if (txtUser.Text.Equals("") || txtPass.Text.Equals(""))
             {
-                MessageBox.Show("Both fields must be completed", "Information Missing", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Both fields must be completed", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
             else
-                MessageBox.Show("Invalid Username and Password", "Incorrect Details Entered", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid Username and Password", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
         }
 
         private void mnuLogout_Click(object sender, EventArgs e)
         {
+            HideMenuItems();
+            grpLogin.Visible = true;
+        }
+
+        //LOCAL METHOD
+        private void LoadUI()
+        {
+            HideMenuItems();
+            txtPass.PasswordChar = '*';
+            txtPass.MaxLength = 8;
+            txtUser.MaxLength = 70;
+        }
+
+        private void HideMenuItems()
+        {
             mnuMembers.Visible = false;
             mnuDVD.Visible = false;
             mnuRentals.Visible = false;
             mnuAdmin.Visible = false;
-            grpLogin.Visible = true;
             mnuLogout.Visible = false;
+        }
+        
+        private void ShowMenuItems()
+        {
+            mnuMembers.Visible = true;
+            mnuDVD.Visible = true;
+            mnuRentals.Visible = true;
+            mnuAdmin.Visible = true;
+            mnuLogout.Visible = true;
         }
     }
 }

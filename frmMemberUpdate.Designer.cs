@@ -57,12 +57,12 @@ namespace MovieSYS
             this.lblFirstName = new System.Windows.Forms.Label();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.grpSearchResults = new System.Windows.Forms.GroupBox();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.grdSearchRes = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -131,7 +131,7 @@ namespace MovieSYS
             this.dtpStartDate.Size = new System.Drawing.Size(132, 30);
             this.dtpStartDate.TabIndex = 15;
             this.dtpStartDate.Value = new System.DateTime(2021, 10, 25, 23, 59, 59, 0);
-            this.dtpStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpStartDate_Validating);
+            this.dtpStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.DtpStartDate_Validating);
             // 
             // lblStartDate
             // 
@@ -216,7 +216,7 @@ namespace MovieSYS
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
             this.cboMemID.TabIndex = 11;
-            this.cboMemID.Validating += new System.ComponentModel.CancelEventHandler(this.cboMemID_Validating);
+            this.cboMemID.Validating += new System.ComponentModel.CancelEventHandler(this.CboMemID_Validating);
             // 
             // btnEditMem
             // 
@@ -240,7 +240,7 @@ namespace MovieSYS
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(180, 30);
             this.txtEmail.TabIndex = 17;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
             // txtLastName
             // 
@@ -250,7 +250,7 @@ namespace MovieSYS
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 30);
             this.txtLastName.TabIndex = 13;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtLastName_Validating);
             // 
             // txtContactNo
             // 
@@ -260,7 +260,7 @@ namespace MovieSYS
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(180, 30);
             this.txtContactNo.TabIndex = 16;
-            this.txtContactNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtContactNo_Validating);
+            this.txtContactNo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtContactNo_Validating);
             // 
             // txtEircode
             // 
@@ -270,7 +270,7 @@ namespace MovieSYS
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(180, 30);
             this.txtEircode.TabIndex = 18;
-            this.txtEircode.Validating += new System.ComponentModel.CancelEventHandler(this.txtEircode_Validating);
+            this.txtEircode.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEircode_Validating);
             // 
             // txtFirstName
             // 
@@ -280,7 +280,7 @@ namespace MovieSYS
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(180, 30);
             this.txtFirstName.TabIndex = 12;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtFirstName_Validating);
             // 
             // lblMembership
             // 
@@ -348,7 +348,8 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuExit});
+            this.mnuExit,
+            this.mnuBack});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -365,6 +366,14 @@ namespace MovieSYS
             this.mnuExit.Size = new System.Drawing.Size(35, 27);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // mnuBack
+            // 
+            this.mnuBack.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(59, 27);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
             // 
             // grpMemCheck
             // 
@@ -415,7 +424,6 @@ namespace MovieSYS
             // 
             // grpSearchResults
             // 
-            this.grpSearchResults.Controls.Add(this.btnReturn);
             this.grpSearchResults.Controls.Add(this.grdSearchRes);
             this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -425,20 +433,6 @@ namespace MovieSYS
             this.grpSearchResults.TabIndex = 5;
             this.grpSearchResults.TabStop = false;
             this.grpSearchResults.Text = "Member Result";
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReturn.Location = new System.Drawing.Point(379, 68);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(52, 35);
-            this.btnReturn.TabIndex = 28;
-            this.btnReturn.Text = "Exit";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // grdSearchRes
             // 
@@ -468,7 +462,7 @@ namespace MovieSYS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdSearchRes.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdSearchRes.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.grdSearchRes.Location = new System.Drawing.Point(3, 34);
+            this.grdSearchRes.Location = new System.Drawing.Point(42, 34);
             this.grdSearchRes.Name = "grdSearchRes";
             this.grdSearchRes.RowHeadersVisible = false;
             this.grdSearchRes.RowHeadersWidth = 45;
@@ -546,7 +540,7 @@ namespace MovieSYS
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
     }
 }

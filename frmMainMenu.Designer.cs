@@ -29,13 +29,11 @@ namespace MovieSYS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDVD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCatalogue = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuListOverdue = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMembers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEditMember = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddMember = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +41,7 @@ namespace MovieSYS
             this.mnuRentDVD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReturnDVD = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPayFine = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuListOverdue = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuYearlyRev = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCustomerStatement = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +71,7 @@ namespace MovieSYS
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Padding = new System.Windows.Forms.Padding(8);
-            this.mnuMain.Size = new System.Drawing.Size(1000, 48);
+            this.mnuMain.Size = new System.Drawing.Size(1000, 41);
             this.mnuMain.TabIndex = 0;
             // 
             // mnuExit
@@ -81,7 +80,7 @@ namespace MovieSYS
             this.mnuExit.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(34, 32);
+            this.mnuExit.Size = new System.Drawing.Size(29, 25);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -90,14 +89,12 @@ namespace MovieSYS
             this.mnuDVD.BackColor = System.Drawing.Color.DarkSlateGray;
             this.mnuDVD.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCatalogue,
-            this.mnuRemove,
-            this.mnuListOverdue});
+            this.mnuRemove});
             this.mnuDVD.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuDVD.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuDVD.Name = "mnuDVD";
-            this.mnuDVD.Size = new System.Drawing.Size(74, 32);
+            this.mnuDVD.Size = new System.Drawing.Size(61, 25);
             this.mnuDVD.Text = "DVDs";
-            this.mnuDVD.Click += new System.EventHandler(this.mnuDVD_Click);
             // 
             // mnuCatalogue
             // 
@@ -105,7 +102,7 @@ namespace MovieSYS
             this.mnuCatalogue.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuCatalogue.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuCatalogue.Name = "mnuCatalogue";
-            this.mnuCatalogue.Size = new System.Drawing.Size(214, 28);
+            this.mnuCatalogue.Size = new System.Drawing.Size(174, 24);
             this.mnuCatalogue.Text = "Catalogue DVD";
             this.mnuCatalogue.Click += new System.EventHandler(this.mnuCatalogue_Click_1);
             // 
@@ -115,19 +112,9 @@ namespace MovieSYS
             this.mnuRemove.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuRemove.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuRemove.Name = "mnuRemove";
-            this.mnuRemove.Size = new System.Drawing.Size(214, 28);
+            this.mnuRemove.Size = new System.Drawing.Size(174, 24);
             this.mnuRemove.Text = "Remove DVD";
             this.mnuRemove.Click += new System.EventHandler(this.mnuRemove_Click_1);
-            // 
-            // mnuListOverdue
-            // 
-            this.mnuListOverdue.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.mnuListOverdue.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mnuListOverdue.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mnuListOverdue.Name = "mnuListOverdue";
-            this.mnuListOverdue.Size = new System.Drawing.Size(214, 28);
-            this.mnuListOverdue.Text = "List Overdue";
-            this.mnuListOverdue.Click += new System.EventHandler(this.mnuListOverdue_Click_1);
             // 
             // mnuMembers
             // 
@@ -138,9 +125,8 @@ namespace MovieSYS
             this.mnuMembers.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuMembers.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuMembers.Name = "mnuMembers";
-            this.mnuMembers.Size = new System.Drawing.Size(108, 32);
+            this.mnuMembers.Size = new System.Drawing.Size(88, 25);
             this.mnuMembers.Text = "Members";
-            this.mnuMembers.Click += new System.EventHandler(this.mnuMembers_Click);
             // 
             // mnuEditMember
             // 
@@ -148,7 +134,7 @@ namespace MovieSYS
             this.mnuEditMember.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuEditMember.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuEditMember.Name = "mnuEditMember";
-            this.mnuEditMember.Size = new System.Drawing.Size(196, 28);
+            this.mnuEditMember.Size = new System.Drawing.Size(160, 24);
             this.mnuEditMember.Text = "Edit Member";
             this.mnuEditMember.Click += new System.EventHandler(this.mnuEditMember_Click_1);
             // 
@@ -158,7 +144,7 @@ namespace MovieSYS
             this.mnuAddMember.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAddMember.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuAddMember.Name = "mnuAddMember";
-            this.mnuAddMember.Size = new System.Drawing.Size(196, 28);
+            this.mnuAddMember.Size = new System.Drawing.Size(160, 24);
             this.mnuAddMember.Text = "Add Member";
             this.mnuAddMember.Click += new System.EventHandler(this.mnuAddMember_Click);
             // 
@@ -168,43 +154,53 @@ namespace MovieSYS
             this.mnuRentals.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuRentDVD,
             this.mnuReturnDVD,
-            this.mnuPayFine});
+            this.mnuPayFine,
+            this.mnuListOverdue});
             this.mnuRentals.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuRentals.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuRentals.Name = "mnuRentals";
-            this.mnuRentals.Size = new System.Drawing.Size(88, 32);
+            this.mnuRentals.Size = new System.Drawing.Size(73, 25);
             this.mnuRentals.Text = "Rentals";
-            this.mnuRentals.Click += new System.EventHandler(this.mnuRentals_Click);
             // 
             // mnuRentDVD
             // 
             this.mnuRentDVD.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.mnuRentDVD.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuRentDVD.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuRentDVD.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuRentDVD.Name = "mnuRentDVD";
-            this.mnuRentDVD.Size = new System.Drawing.Size(187, 28);
+            this.mnuRentDVD.Size = new System.Drawing.Size(202, 24);
             this.mnuRentDVD.Text = "Rent DVDs";
             this.mnuRentDVD.Click += new System.EventHandler(this.mnuRentDVD_Click);
             // 
             // mnuReturnDVD
             // 
             this.mnuReturnDVD.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.mnuReturnDVD.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuReturnDVD.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuReturnDVD.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuReturnDVD.Name = "mnuReturnDVD";
-            this.mnuReturnDVD.Size = new System.Drawing.Size(187, 28);
+            this.mnuReturnDVD.Size = new System.Drawing.Size(202, 24);
             this.mnuReturnDVD.Text = "Return DVD";
             this.mnuReturnDVD.Click += new System.EventHandler(this.mnuReturnDVD_Click);
             // 
             // mnuPayFine
             // 
             this.mnuPayFine.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.mnuPayFine.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuPayFine.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuPayFine.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuPayFine.Name = "mnuPayFine";
-            this.mnuPayFine.Size = new System.Drawing.Size(187, 28);
+            this.mnuPayFine.Size = new System.Drawing.Size(202, 24);
             this.mnuPayFine.Text = "Pay Fine";
             this.mnuPayFine.Click += new System.EventHandler(this.mnuPayFine_Click);
+            // 
+            // mnuListOverdue
+            // 
+            this.mnuListOverdue.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.mnuListOverdue.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnuListOverdue.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuListOverdue.Name = "mnuListOverdue";
+            this.mnuListOverdue.Size = new System.Drawing.Size(202, 24);
+            this.mnuListOverdue.Text = "List Overdue DVDs";
+            this.mnuListOverdue.Click += new System.EventHandler(this.mnuListOverdue_Click);
             // 
             // mnuAdmin
             // 
@@ -215,9 +211,8 @@ namespace MovieSYS
             this.mnuAdmin.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuAdmin.Name = "mnuAdmin";
-            this.mnuAdmin.Size = new System.Drawing.Size(84, 32);
+            this.mnuAdmin.Size = new System.Drawing.Size(68, 25);
             this.mnuAdmin.Text = "Admin";
-            this.mnuAdmin.Click += new System.EventHandler(this.mnuAdmin_Click);
             // 
             // mnuYearlyRev
             // 
@@ -225,7 +220,7 @@ namespace MovieSYS
             this.mnuYearlyRev.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuYearlyRev.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuYearlyRev.Name = "mnuYearlyRev";
-            this.mnuYearlyRev.Size = new System.Drawing.Size(296, 28);
+            this.mnuYearlyRev.Size = new System.Drawing.Size(241, 24);
             this.mnuYearlyRev.Text = "Yearly Revenue Analysis";
             this.mnuYearlyRev.Click += new System.EventHandler(this.mnuYearlyRev_Click);
             // 
@@ -235,7 +230,7 @@ namespace MovieSYS
             this.mnuCustomerStatement.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuCustomerStatement.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuCustomerStatement.Name = "mnuCustomerStatement";
-            this.mnuCustomerStatement.Size = new System.Drawing.Size(296, 28);
+            this.mnuCustomerStatement.Size = new System.Drawing.Size(241, 24);
             this.mnuCustomerStatement.Text = "Issue Customer Statement";
             this.mnuCustomerStatement.Click += new System.EventHandler(this.mnuCustomerStatement_Click);
             // 
@@ -245,20 +240,20 @@ namespace MovieSYS
             this.mnuLogout.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuLogout.Name = "mnuLogout";
-            this.mnuLogout.Size = new System.Drawing.Size(89, 32);
+            this.mnuLogout.Size = new System.Drawing.Size(71, 25);
             this.mnuLogout.Text = "Logout";
             this.mnuLogout.Click += new System.EventHandler(this.mnuLogout_Click);
             // 
             // grpLogin
             // 
-            this.grpLogin.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.grpLogin.BackColor = System.Drawing.Color.LightSlateGray;
             this.grpLogin.Controls.Add(this.lblPassword);
             this.grpLogin.Controls.Add(this.lblUsername);
             this.grpLogin.Controls.Add(this.btnConfirm);
             this.grpLogin.Controls.Add(this.txtPass);
             this.grpLogin.Controls.Add(this.txtUser);
             this.grpLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grpLogin.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpLogin.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.grpLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grpLogin.Location = new System.Drawing.Point(176, 194);
             this.grpLogin.Name = "grpLogin";
@@ -266,19 +261,17 @@ namespace MovieSYS
             this.grpLogin.TabIndex = 2;
             this.grpLogin.TabStop = false;
             this.grpLogin.Text = "Login Details";
-            this.grpLogin.Enter += new System.EventHandler(this.grpLogin_Enter);
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPassword.Location = new System.Drawing.Point(186, 177);
+            this.lblPassword.Location = new System.Drawing.Point(186, 156);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(105, 28);
+            this.lblPassword.Size = new System.Drawing.Size(85, 21);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Password:";
-            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
             // lblUsername
             // 
@@ -287,10 +280,9 @@ namespace MovieSYS
             this.lblUsername.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblUsername.Location = new System.Drawing.Point(180, 114);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(111, 28);
+            this.lblUsername.Size = new System.Drawing.Size(91, 21);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username:";
-            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // btnConfirm
             // 
@@ -311,13 +303,12 @@ namespace MovieSYS
             this.txtPass.BackColor = System.Drawing.Color.Azure;
             this.txtPass.Font = new System.Drawing.Font("Nirmala UI Semilight", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPass.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.txtPass.Location = new System.Drawing.Point(297, 179);
+            this.txtPass.Location = new System.Drawing.Point(297, 158);
             this.txtPass.Name = "txtPass";
-            this.txtPass.PlaceholderText = "password";
-            this.txtPass.Size = new System.Drawing.Size(180, 30);
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.PlaceholderText = "********";
+            this.txtPass.Size = new System.Drawing.Size(180, 26);
             this.txtPass.TabIndex = 3;
-            this.txtPass.Text = "123";
-            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // txtUser
             // 
@@ -326,18 +317,15 @@ namespace MovieSYS
             this.txtUser.ForeColor = System.Drawing.Color.LightSlateGray;
             this.txtUser.Location = new System.Drawing.Point(297, 116);
             this.txtUser.Name = "txtUser";
-            this.txtUser.PlaceholderText = "username";
-            this.txtUser.Size = new System.Drawing.Size(180, 30);
+            this.txtUser.PlaceholderText = "Username";
+            this.txtUser.Size = new System.Drawing.Size(180, 26);
             this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "ABC";
-            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // frmMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1000, 720);
             this.Controls.Add(this.grpLogin);
@@ -349,7 +337,7 @@ namespace MovieSYS
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Movie System - Welcome";
-            this.Load += new System.EventHandler(this.frmMainPage_Load);
+            this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.grpLogin.ResumeLayout(false);
@@ -376,7 +364,6 @@ namespace MovieSYS
         private System.Windows.Forms.ToolStripMenuItem mnuDVD;
         private System.Windows.Forms.ToolStripMenuItem mnuCatalogue;
         private System.Windows.Forms.ToolStripMenuItem mnuRemove;
-        private System.Windows.Forms.ToolStripMenuItem mnuListOverdue;
         private System.Windows.Forms.GroupBox grpLogin;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
@@ -384,5 +371,6 @@ namespace MovieSYS
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.ToolStripMenuItem mnuLogout;
+        private System.Windows.Forms.ToolStripMenuItem mnuListOverdue;
     }
 }

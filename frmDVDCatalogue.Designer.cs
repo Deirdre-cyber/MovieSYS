@@ -108,7 +108,7 @@ namespace MovieSYS
             this.txtCopies.Size = new System.Drawing.Size(50, 30);
             this.txtCopies.TabIndex = 10;
             this.txtCopies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCopies.Validating += new System.ComponentModel.CancelEventHandler(this.txtCopies_Validating);
+            this.txtCopies.Validating += new System.ComponentModel.CancelEventHandler(this.TxtCopies_Validating);
             // 
             // lblCopies
             // 
@@ -140,7 +140,7 @@ namespace MovieSYS
             this.cboGenre.Name = "cboGenre";
             this.cboGenre.Size = new System.Drawing.Size(180, 31);
             this.cboGenre.TabIndex = 4;
-            this.cboGenre.Validating += new System.ComponentModel.CancelEventHandler(this.cboGenre_Validating);
+            this.cboGenre.Validating += new System.ComponentModel.CancelEventHandler(this.CboGenre_Validating);
             // 
             // txtDVDId
             // 
@@ -264,7 +264,7 @@ namespace MovieSYS
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(50, 30);
             this.txtYear.TabIndex = 7;
-            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.TxtYear_Validating);
             // 
             // cboAge
             // 
@@ -276,7 +276,7 @@ namespace MovieSYS
             this.cboAge.Name = "cboAge";
             this.cboAge.Size = new System.Drawing.Size(50, 31);
             this.cboAge.TabIndex = 6;
-            this.cboAge.Validating += new System.ComponentModel.CancelEventHandler(this.cboAge_Validating);
+            this.cboAge.Validating += new System.ComponentModel.CancelEventHandler(this.CboAge_Validating);
             // 
             // cboCat
             // 
@@ -287,7 +287,7 @@ namespace MovieSYS
             this.cboCat.Name = "cboCat";
             this.cboCat.Size = new System.Drawing.Size(180, 31);
             this.cboCat.TabIndex = 3;
-            this.cboCat.Validating += new System.ComponentModel.CancelEventHandler(this.cboCat_Validating);
+            this.cboCat.Validating += new System.ComponentModel.CancelEventHandler(this.CboCat_Validating);
             // 
             // cboCountry
             // 
@@ -298,7 +298,7 @@ namespace MovieSYS
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(180, 31);
             this.cboCountry.TabIndex = 5;
-            this.cboCountry.Validating += new System.ComponentModel.CancelEventHandler(this.cboCountry_Validating);
+            this.cboCountry.Validating += new System.ComponentModel.CancelEventHandler(this.CboCountry_Validating);
             // 
             // btnConfirmInfo
             // 
@@ -337,7 +337,7 @@ namespace MovieSYS
             this.txtDuration.Size = new System.Drawing.Size(50, 30);
             this.txtDuration.TabIndex = 8;
             this.txtDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtDuration_Validating);
+            this.txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDuration_Validating);
             // 
             // txtDVDName
             // 
@@ -350,7 +350,7 @@ namespace MovieSYS
             this.txtDVDName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDVDName.Size = new System.Drawing.Size(180, 30);
             this.txtDVDName.TabIndex = 2;
-            this.txtDVDName.Validating += new System.ComponentModel.CancelEventHandler(this.txtDVDName_Validating_1);
+            this.txtDVDName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDVDName_Validating_1);
             // 
             // mnuAdd
             // 

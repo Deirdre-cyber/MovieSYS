@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -14,7 +10,7 @@ namespace MovieSYS
         frmMainMenu parent;
         private DVD aDvd = new DVD();
         private int id;
-        private String title;
+        private string title;
 
         public frmDVDRemove()
         {
@@ -63,9 +59,9 @@ namespace MovieSYS
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-            if (String.IsNullOrEmpty(txtDVDTitle.Text))
+            if (string.IsNullOrEmpty(txtDVDTitle.Text))
             {
-                MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
+                MessageBox.Show(null, "Please enter a DVD title", "No Search Entered", MessageBoxButtons.OK);
             }
             else
             {
@@ -75,13 +71,18 @@ namespace MovieSYS
                     txtDVDTitle.Clear();
                 }
                 else
-                    showDvdResults();
+                    ShowDvdResults();
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearGrid();
         }
 
         private void grdDVDList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            loadDvdDetails();
+            ShowDvdDetails();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -91,21 +92,23 @@ namespace MovieSYS
             if(result == DialogResult.OK)
             {
                 DVD.RemoveDVD(id);
-                resetUI();
+                ResetUI();
                 MessageBox.Show(null, title + " removed successfully", "Successful", MessageBoxButtons.OKCancel);
+                grpDetails.Visible = false;
+                ClearGrid();
+                return;
             }
-            grpDetails.Visible = false;
-            clearGrid();
+
         }
 
         //LOCAL METHODS
-        private void showDvdResults()
+        private void ShowDvdResults()
         {
             grdDVDList.DataSource = DVD.SearchDVD(txtDVDTitle.Text.ToUpper()).Tables["search"];
             grdDVDList.DefaultCellStyle.Font = new Font("Tahoma", 8);
             grdDVDList.DefaultCellStyle.ForeColor = Color.Black;
         }
-        public void loadDvdDetails()
+        private void ShowDvdDetails()
         {
             id = Convert.ToInt32(grdDVDList.Rows[grdDVDList.CurrentCell.RowIndex].Cells[0].Value);
             title = grdDVDList.Rows[grdDVDList.CurrentCell.RowIndex].Cells[1].Value.ToString();
@@ -124,12 +127,13 @@ namespace MovieSYS
 
             grpDetails.Visible = true;
         }
-        private void clearGrid()
+        private void ClearGrid()
         {
             grdDVDList.DataSource = null;
             txtDVDTitle.Clear();
+            grpDetails.Visible = false;
         }
-        private void resetUI() //MAKE UNIVERSAL METHOD IN UTILITY CLASS
+        private void ResetUI() //MAKE UNIVERSAL METHOD IN UTILITY CLASS
         {
             Utility.ClearText(this.Controls);
             dtpDate.Value = DateTime.Today;

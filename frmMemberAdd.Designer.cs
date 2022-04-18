@@ -237,7 +237,7 @@ namespace MovieSYS
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(180, 30);
             this.txtFirstName.TabIndex = 7;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtFirstName_Validating);
             // 
             // txtEircode
             // 
@@ -248,7 +248,7 @@ namespace MovieSYS
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(114, 30);
             this.txtEircode.TabIndex = 17;
-            this.txtEircode.Validating += new System.ComponentModel.CancelEventHandler(this.txtEircode_Validating);
+            this.txtEircode.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEircode_Validating);
             // 
             // txtContactNo
             // 
@@ -259,7 +259,7 @@ namespace MovieSYS
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(180, 30);
             this.txtContactNo.TabIndex = 13;
-            this.txtContactNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtContactNo_Validating);
+            this.txtContactNo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtContactNo_Validating);
             // 
             // dtpDOB
             // 
@@ -284,7 +284,7 @@ namespace MovieSYS
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(180, 30);
             this.txtLastName.TabIndex = 9;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtLastName_Validating);
             // 
             // txtEmail
             // 
@@ -295,7 +295,7 @@ namespace MovieSYS
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(180, 30);
             this.txtEmail.TabIndex = 15;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating);
             // 
             // btnAddMem
             // 
@@ -324,7 +324,7 @@ namespace MovieSYS
             this.cboMemID.Name = "cboMemID";
             this.cboMemID.Size = new System.Drawing.Size(180, 31);
             this.cboMemID.TabIndex = 5;
-            this.cboMemID.Validating += new System.ComponentModel.CancelEventHandler(this.cboMemID_Validating);
+            this.cboMemID.Validating += new System.ComponentModel.CancelEventHandler(this.CboMemID_Validating);
             // 
             // lblMemStartDate
             // 
@@ -350,7 +350,7 @@ namespace MovieSYS
             this.dtpMemStartDate.Size = new System.Drawing.Size(114, 30);
             this.dtpMemStartDate.TabIndex = 19;
             this.dtpMemStartDate.Value = new System.DateTime(2022, 1, 27, 0, 0, 0, 0);
-            this.dtpMemStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpMemStartDate_Validating);
+            this.dtpMemStartDate.Validating += new System.ComponentModel.CancelEventHandler(this.DtpMemStartDate_Validating);
             // 
             // txtMemId
             // 

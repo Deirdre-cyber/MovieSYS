@@ -67,28 +67,22 @@ namespace MovieSYS
                 {
                     AddNewMember();
                     MessageBox.Show(null, "Member has been added successfuly", "New Member Added", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show(null, "Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    ResetUI();
+                    grpReceipt.Visible = true;
                     return;
                 }
+
+                MessageBox.Show(null, "Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show(null, "Must complete all sections", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
             }
             catch (Exception)
             {
                 MessageBox.Show(null, "Must complete all sections", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
             }
-
-            ResetUI();
-
-            grpReceipt.Visible = true;
-            grpAddMem.Visible = false; 
         }
 
         private void btnPrint_Click_1(object sender, EventArgs e)
@@ -249,10 +243,11 @@ namespace MovieSYS
                 validNumber = false;
                 return;
             }
-            if (!Validation.HasDigits(txtContactNo.Text))
+            if (!Validation.IsNumber(txtContactNo.Text))
+            //if (!Validation.IsValidPhone(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
-                errorProvider1.SetError(txtContactNo, "Contact No should contain only digits");
+                errorProvider1.SetError(txtContactNo, "Contact No should be valid phone number");
                 validNumber = false;
                 return;
             }
@@ -298,6 +293,9 @@ namespace MovieSYS
         }
         private void TxtEircode_Validating(object sender, CancelEventArgs e)
         {
+            txtEircode.Text = txtEircode.Text.ToUpper();
+            txtEircode.Text = txtEircode.Text.Replace(" ", "");
+
             if (string.IsNullOrWhiteSpace(txtEircode.Text))
             {
                 txtEircode.BackColor = Color.DarkSalmon;

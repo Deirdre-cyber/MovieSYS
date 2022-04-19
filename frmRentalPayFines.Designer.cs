@@ -32,20 +32,20 @@ namespace MovieSYS
             this.components = new System.ComponentModel.Container();
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpMemDetails = new System.Windows.Forms.GroupBox();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpFineDetails = new System.Windows.Forms.GroupBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.lblPayAmount = new System.Windows.Forms.Label();
             this.lblFineAmount = new System.Windows.Forms.Label();
             this.txtPayAmount = new System.Windows.Forms.TextBox();
             this.txtFineAmount = new System.Windows.Forms.TextBox();
-            this.grpSearchResults = new System.Windows.Forms.GroupBox();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.grdSearchResults = new System.Windows.Forms.DataGridView();
+            this.grpMemberResults = new System.Windows.Forms.GroupBox();
+            this.grdMemberResults = new System.Windows.Forms.DataGridView();
             this.grpMemCheck = new System.Windows.Forms.GroupBox();
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.grpMemberDetails = new System.Windows.Forms.GroupBox();
             this.txtMemId = new System.Windows.Forms.TextBox();
             this.lblMemberId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -56,11 +56,11 @@ namespace MovieSYS
             this.btnEmail = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.mnuAdd.SuspendLayout();
-            this.grpMemDetails.SuspendLayout();
-            this.grpSearchResults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).BeginInit();
+            this.grpFineDetails.SuspendLayout();
+            this.grpMemberResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).BeginInit();
             this.grpMemCheck.SuspendLayout();
-            this.grpSearch.SuspendLayout();
+            this.grpMemberDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.grpReceipt.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,8 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuExit});
+            this.mnuExit,
+            this.mnuBack});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -89,23 +90,31 @@ namespace MovieSYS
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click_1);
             // 
-            // grpMemDetails
+            // mnuBack
             // 
-            this.grpMemDetails.Controls.Add(this.btnPay);
-            this.grpMemDetails.Controls.Add(this.lblPayAmount);
-            this.grpMemDetails.Controls.Add(this.lblFineAmount);
-            this.grpMemDetails.Controls.Add(this.txtPayAmount);
-            this.grpMemDetails.Controls.Add(this.txtFineAmount);
-            this.grpMemDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpMemDetails.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpMemDetails.Location = new System.Drawing.Point(72, 324);
-            this.grpMemDetails.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.grpMemDetails.Name = "grpMemDetails";
-            this.grpMemDetails.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.grpMemDetails.Size = new System.Drawing.Size(757, 183);
-            this.grpMemDetails.TabIndex = 8;
-            this.grpMemDetails.TabStop = false;
-            this.grpMemDetails.Text = "Fine Details";
+            this.mnuBack.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(59, 27);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
+            // 
+            // grpFineDetails
+            // 
+            this.grpFineDetails.Controls.Add(this.btnPay);
+            this.grpFineDetails.Controls.Add(this.lblPayAmount);
+            this.grpFineDetails.Controls.Add(this.lblFineAmount);
+            this.grpFineDetails.Controls.Add(this.txtPayAmount);
+            this.grpFineDetails.Controls.Add(this.txtFineAmount);
+            this.grpFineDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpFineDetails.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpFineDetails.Location = new System.Drawing.Point(72, 324);
+            this.grpFineDetails.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.grpFineDetails.Name = "grpFineDetails";
+            this.grpFineDetails.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.grpFineDetails.Size = new System.Drawing.Size(757, 183);
+            this.grpFineDetails.TabIndex = 8;
+            this.grpFineDetails.TabStop = false;
+            this.grpFineDetails.Text = "Fine Details";
             // 
             // btnPay
             // 
@@ -156,66 +165,51 @@ namespace MovieSYS
             this.txtPayAmount.Size = new System.Drawing.Size(95, 30);
             this.txtPayAmount.TabIndex = 12;
             this.txtPayAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPayAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtPayAmount_Validating);
+            this.txtPayAmount.Validating += new System.ComponentModel.CancelEventHandler(this.TxtPayAmount_Validating);
             // 
             // txtFineAmount
             // 
+            this.txtFineAmount.Enabled = false;
             this.txtFineAmount.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFineAmount.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.txtFineAmount.Location = new System.Drawing.Point(348, 34);
             this.txtFineAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtFineAmount.MaxLength = 6;
             this.txtFineAmount.Name = "txtFineAmount";
-            this.txtFineAmount.PlaceholderText = "10.00";
             this.txtFineAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtFineAmount.Size = new System.Drawing.Size(95, 30);
             this.txtFineAmount.TabIndex = 10;
             this.txtFineAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // grpSearchResults
+            // grpMemberResults
             // 
-            this.grpSearchResults.Controls.Add(this.btnReturn);
-            this.grpSearchResults.Controls.Add(this.grdSearchResults);
-            this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpSearchResults.Location = new System.Drawing.Point(420, 57);
-            this.grpSearchResults.Name = "grpSearchResults";
-            this.grpSearchResults.Size = new System.Drawing.Size(439, 160);
-            this.grpSearchResults.TabIndex = 16;
-            this.grpSearchResults.TabStop = false;
-            this.grpSearchResults.Text = "Member Result";
+            this.grpMemberResults.Controls.Add(this.grdMemberResults);
+            this.grpMemberResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpMemberResults.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpMemberResults.Location = new System.Drawing.Point(420, 57);
+            this.grpMemberResults.Name = "grpMemberResults";
+            this.grpMemberResults.Size = new System.Drawing.Size(439, 160);
+            this.grpMemberResults.TabIndex = 16;
+            this.grpMemberResults.TabStop = false;
+            this.grpMemberResults.Text = "Member Result";
             // 
-            // btnReturn
+            // grdMemberResults
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReturn.Location = new System.Drawing.Point(381, 66);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(52, 35);
-            this.btnReturn.TabIndex = 27;
-            this.btnReturn.Text = "Exit";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // grdSearchResults
-            // 
-            this.grdSearchResults.AllowUserToAddRows = false;
-            this.grdSearchResults.AllowUserToDeleteRows = false;
-            this.grdSearchResults.AllowUserToResizeColumns = false;
-            this.grdSearchResults.AllowUserToResizeRows = false;
-            this.grdSearchResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdSearchResults.Location = new System.Drawing.Point(12, 32);
-            this.grdSearchResults.Name = "grdSearchResults";
-            this.grdSearchResults.RowHeadersVisible = false;
-            this.grdSearchResults.RowHeadersWidth = 51;
-            this.grdSearchResults.RowTemplate.Height = 25;
-            this.grdSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdSearchResults.Size = new System.Drawing.Size(354, 111);
-            this.grdSearchResults.TabIndex = 0;
-            this.grdSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchResults_CellClick);
+            this.grdMemberResults.AllowUserToAddRows = false;
+            this.grdMemberResults.AllowUserToDeleteRows = false;
+            this.grdMemberResults.AllowUserToResizeColumns = false;
+            this.grdMemberResults.AllowUserToResizeRows = false;
+            this.grdMemberResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdMemberResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdMemberResults.Location = new System.Drawing.Point(12, 32);
+            this.grdMemberResults.Name = "grdMemberResults";
+            this.grdMemberResults.RowHeadersVisible = false;
+            this.grdMemberResults.RowHeadersWidth = 51;
+            this.grdMemberResults.RowTemplate.Height = 25;
+            this.grdMemberResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdMemberResults.Size = new System.Drawing.Size(407, 111);
+            this.grdMemberResults.TabIndex = 0;
+            this.grdMemberResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchResults_CellClick);
             // 
             // grpMemCheck
             // 
@@ -264,23 +258,24 @@ namespace MovieSYS
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
-            // grpSearch
+            // grpMemberDetails
             // 
-            this.grpSearch.Controls.Add(this.txtMemId);
-            this.grpSearch.Controls.Add(this.lblMemberId);
-            this.grpSearch.Controls.Add(this.lblName);
-            this.grpSearch.Controls.Add(this.txtFirstName);
-            this.grpSearch.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpSearch.ForeColor = System.Drawing.Color.Azure;
-            this.grpSearch.Location = new System.Drawing.Point(96, 223);
-            this.grpSearch.Name = "grpSearch";
-            this.grpSearch.Size = new System.Drawing.Size(690, 95);
-            this.grpSearch.TabIndex = 29;
-            this.grpSearch.TabStop = false;
-            this.grpSearch.Text = "Member Details";
+            this.grpMemberDetails.Controls.Add(this.txtMemId);
+            this.grpMemberDetails.Controls.Add(this.lblMemberId);
+            this.grpMemberDetails.Controls.Add(this.lblName);
+            this.grpMemberDetails.Controls.Add(this.txtFirstName);
+            this.grpMemberDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpMemberDetails.ForeColor = System.Drawing.Color.Azure;
+            this.grpMemberDetails.Location = new System.Drawing.Point(96, 223);
+            this.grpMemberDetails.Name = "grpMemberDetails";
+            this.grpMemberDetails.Size = new System.Drawing.Size(690, 95);
+            this.grpMemberDetails.TabIndex = 29;
+            this.grpMemberDetails.TabStop = false;
+            this.grpMemberDetails.Text = "Member Details";
             // 
             // txtMemId
             // 
+            this.txtMemId.Enabled = false;
             this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMemId.Location = new System.Drawing.Point(188, 37);
             this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
@@ -312,11 +307,11 @@ namespace MovieSYS
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Enabled = false;
             this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFirstName.Location = new System.Drawing.Point(448, 37);
             this.txtFirstName.MaxLength = 30;
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.PlaceholderText = "Mary Bloggs";
             this.txtFirstName.Size = new System.Drawing.Size(178, 30);
             this.txtFirstName.TabIndex = 12;
             // 
@@ -382,10 +377,10 @@ namespace MovieSYS
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(875, 649);
             this.Controls.Add(this.grpReceipt);
-            this.Controls.Add(this.grpSearch);
+            this.Controls.Add(this.grpMemberDetails);
             this.Controls.Add(this.grpMemCheck);
-            this.Controls.Add(this.grpSearchResults);
-            this.Controls.Add(this.grpMemDetails);
+            this.Controls.Add(this.grpMemberResults);
+            this.Controls.Add(this.grpFineDetails);
             this.Controls.Add(this.mnuAdd);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -397,14 +392,14 @@ namespace MovieSYS
             this.Load += new System.EventHandler(this.frmPayFines_Load);
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
-            this.grpMemDetails.ResumeLayout(false);
-            this.grpMemDetails.PerformLayout();
-            this.grpSearchResults.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).EndInit();
+            this.grpFineDetails.ResumeLayout(false);
+            this.grpFineDetails.PerformLayout();
+            this.grpMemberResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).EndInit();
             this.grpMemCheck.ResumeLayout(false);
             this.grpMemCheck.PerformLayout();
-            this.grpSearch.ResumeLayout(false);
-            this.grpSearch.PerformLayout();
+            this.grpMemberDetails.ResumeLayout(false);
+            this.grpMemberDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.grpReceipt.ResumeLayout(false);
             this.grpReceipt.PerformLayout();
@@ -416,21 +411,20 @@ namespace MovieSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuAdd;
-        private System.Windows.Forms.GroupBox grpMemDetails;
+        private System.Windows.Forms.GroupBox grpFineDetails;
         private System.Windows.Forms.TextBox txtPayAmount;
         private System.Windows.Forms.TextBox txtFineAmount;
         private System.Windows.Forms.Label lblFineAmount;
         private System.Windows.Forms.Label lblPayAmount;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.GroupBox grpSearchResults;
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.DataGridView grdSearchResults;
+        private System.Windows.Forms.GroupBox grpMemberResults;
+        private System.Windows.Forms.DataGridView grdMemberResults;
         private System.Windows.Forms.GroupBox grpMemCheck;
         private System.Windows.Forms.TextBox txtMemberName;
         private System.Windows.Forms.Label lblMemberSearch;
         private System.Windows.Forms.Button btnCheck;
-        private System.Windows.Forms.GroupBox grpSearch;
+        private System.Windows.Forms.GroupBox grpMemberDetails;
         private System.Windows.Forms.TextBox txtMemId;
         private System.Windows.Forms.Label lblMemberId;
         private System.Windows.Forms.Label lblName;
@@ -440,5 +434,6 @@ namespace MovieSYS
         private System.Windows.Forms.Label lblReceipt;
         private System.Windows.Forms.Button btnEmail;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
     }
 }

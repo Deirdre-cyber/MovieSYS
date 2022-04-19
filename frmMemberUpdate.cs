@@ -324,7 +324,8 @@ namespace MovieSYS
                 validContact = false;
                 return;
             }
-            if (!Validation.HasDigits(txtContactNo.Text))
+            //if (!Validation.HasDigits(txtContactNo.Text))
+            if (!Validation.IsValidPhone(txtContactNo.Text))
             {
                 txtContactNo.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtContactNo, "Contact No should contain only digits");

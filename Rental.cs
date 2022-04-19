@@ -102,35 +102,27 @@ namespace MovieSYS
             }
         }
 
-        public static DataSet GetOverdueDvds()
+        public static void SendReminder(int rentId)
         {
-            try { 
+            try
+            {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-                String sqlQuery = "SELECT Member_Id, RI.Rent_Id, RI.DVD_Id, DVD_Title, Rent_Date, Due_Date, Fine_Amount " +
-                                  "FROM Rental_Items RI JOIN DVDs D ON RI.DVD_ID = D.DVD_ID " +
-                                        "JOIN Rentals R ON R.Rent_Id = RI.Rent_Id " +
-                                  "WHERE Return_Date IS NULL AND Due_Date < SYSDATE " +
-                                        "ORDER BY DVD_Id";
+                String sqlQuery = "UPDATE Rentals " +
+                                  "SET Reminder_Date = SYSDATE " +
+                                  "WHERE Rent_Id = " + rentId + "";
 
                 OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
                 conn.Open();
 
-                OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-                DataSet ds = new DataSet();
-
-                da.Fill(ds, "overdue");
+                cmd.ExecuteNonQuery();
 
                 conn.Close();
-
-                return ds;
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Error retrieving data\n" + e.ToString());
-                throw new Exception("Error connecting to database");
+                Debug.WriteLine("Error updating Database\n" + e.ToString());
             }
         }
 
@@ -156,6 +148,42 @@ namespace MovieSYS
                 conn.Close();
 
                 return ds;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
+            }
+        }
+
+        public static String GetLastReminderDate()
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                String SQLquery = "SELECT MAX(Reminder_Date) " +
+                                  "FROM Rentals";
+
+                OracleCommand cmd = new OracleCommand(SQLquery, conn);
+                conn.Open();
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                String date;
+
+                dr.Read();
+
+                if (dr.IsDBNull(0))
+                    date = "Never";
+                else
+                {
+                    date = dr.GetString(0);
+                }
+
+                conn.Close();
+
+                return date;
             }
             catch (Exception e)
             {

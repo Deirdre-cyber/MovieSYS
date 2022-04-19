@@ -8,7 +8,6 @@ namespace MovieSYS
     public partial class frmRentalRentDVD : Form
     {
         frmMainMenu parent;
-
         private Member aMember = new Member();
         private int memId;
         private float price = 0.00f;
@@ -63,19 +62,18 @@ namespace MovieSYS
             if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
+                return;
             }
-            else
-            {
-                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
-                {
-                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
-                    grdSearchResults.DataSource = null;
-                    txtMemberName.Clear();
-                    return;
-                }
 
-                ShowMemberResults();
+            if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
+            {
+                MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                grdMemberResults.DataSource = null;
+                txtMemberName.Clear();
+                return;
             }
+
+            ShowMemberResults();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -90,14 +88,12 @@ namespace MovieSYS
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
-            ResetUI();      //create univeral method...
+            ResetUI();
             LoadUI();
         }
 
         private void grdDvdSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            //fix
             if (lstCart.Items.Count < dvdLimit)
             {
                 if (lstCart.Items.Count > 0)
@@ -106,13 +102,13 @@ namespace MovieSYS
 
                     for (count = 0; count < lstCart.Items.Count; count++)
                     {
-                        if (lstCart.FindString(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value)) != -1)
+                        if (lstCart.FindString(String.Format("{0:0000}", grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[0].Value)) != -1)
                             break;
                     }
 
                     if (count != lstCart.Items.Count)
                     {
-                        MessageBox.Show(null, grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                        MessageBox.Show(null, grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[1].Value.ToString() +
                         " has already been selected", "Error", MessageBoxButtons.OK);
                     }
                     else
@@ -125,14 +121,13 @@ namespace MovieSYS
             }
 
             MessageBox.Show(null, "Cannot rent more than " + dvdLimit + " DVDs", "Limit Reached", MessageBoxButtons.OK);
-
         }
 
         private void grdSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
+            if(grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
-                memId = (int)grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value;
+                memId = (int)grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value;
 
                 if (!aMember.HasFine(memId) && !aMember.HasOverdue(memId))
                 {
@@ -141,7 +136,6 @@ namespace MovieSYS
                 }
 
                 MessageBox.Show(null, "There are fines or overdue DVDs connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoadUI();
                 return;
             }
 
@@ -153,18 +147,17 @@ namespace MovieSYS
             if (string.IsNullOrWhiteSpace(txtDVDSearch.Text) || string.IsNullOrEmpty(txtDVDSearch.Text))
             {
                 MessageBox.Show(null, "Please enter the name of a DVD Title", "No Search Entered", MessageBoxButtons.OK);
+                return;
             }
-            else
-            {
-                if (Validation.IsTableEmpty(DVD.SearchDVD(txtDVDSearch.Text.ToUpper())))
-                {
-                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
-                    txtDVDSearch.Clear();
-                    return;
-                }
 
-                ShowDvdDetails();
+            if (Validation.IsTableEmpty(DVD.SearchDVD(txtDVDSearch.Text.ToUpper())))
+            {
+                MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                txtDVDSearch.Clear();
+                return;
             }
+
+            ShowDvdDetails();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -180,24 +173,36 @@ namespace MovieSYS
             MessageBox.Show(null, "Nothing selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void mnuBack_Click(object sender, EventArgs e)
         {
-            LoadUI();
+            if (grpMemberResults.Visible == true)
+            {
+                LoadUI();
+            }
+            if (grpMemberDetails.Visible == true && grpRentDetails.Visible == true)
+            {
+                ResetUI();
+                grdDvdResults.DataSource = null;
+                grpMemberDetails.Visible = false;
+                grpRentDetails.Visible = false;
+                grpMemberResults.Visible = true;
+            }
         }
 
 
         //LOCAL METHODS
         private void LoadUI()
         {
-            grdDvdSearch.DataSource = null;
+            grdDvdResults.DataSource = null;
             grpMemCheck.Location = new Point(260, 100);
-            grdSearchResults.DataSource = null;
-            grpSearchResults.Visible = false;
+            grdMemberResults.DataSource = null;
+            grpMemberResults.Visible = false;
             dtpReturnDate.MinDate = DateTime.Today.AddDays(7);
             dtpReturnDate.MaxDate = DateTime.Today.AddDays(14);
             grpRentDetails.Visible = false;
-            grpSearch.Visible = false;
+            grpMemberDetails.Visible = false;
             txtMemberName.Clear();
+            mnuBack.Visible = false;
             grpMemCheck.Visible = true;
         }
 
@@ -209,43 +214,6 @@ namespace MovieSYS
             lstCart.Items.Clear();
             txtPrice.Clear();
             price = 0.00f;
-        }
-
-        private void AddToCart()
-        {
-            lstCart.Items.Add(String.Format("{0:0000}", grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[0].Value) +
-                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[1].Value.ToString() +
-                                        "   " + grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
-
-            IncreasePrice();
-            txtPrice.Text = price.ToString("0.00");
-            
-            void IncreasePrice()
-            {
-                if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("CH"))
-                    price += 3.50f;
-                else if (grdDvdSearch.Rows[grdDvdSearch.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("NR"))
-                    price += 8.00f;
-                else
-                    price += 5.00f;
-            }
-        }
-
-        private void RemoveFromCart()
-        {
-            lstCart.Items.RemoveAt(cartIndex);
-            DecreasePrice();
-            txtPrice.Text = price.ToString("0.00");
-
-            void DecreasePrice()
-            {
-                if (lstCart.Items[cartIndex].ToString().Contains("CH"))
-                    price -= 3.50f;
-                else if (lstCart.Items[cartIndex].ToString().Contains("NR"))
-                    price -= 8.00f;
-                else
-                    price -= 5.00f;
-            }
         }
 
         private void ShowMemberDetails()
@@ -261,33 +229,32 @@ namespace MovieSYS
                 dvdLimit = 10;
             }
 
-            grpSearchResults.Visible = false;
-            grpSearch.Visible = true;
+            grpMemberResults.Visible = false;
+            grpMemberDetails.Visible = true;
             grpRentDetails.Visible = true;
         }
 
         private void ShowMemberResults()
         {
-            grdSearchResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-            grdSearchResults.DefaultCellStyle.Font = new Font("Courier", 9);
-            grdSearchResults.DefaultCellStyle.ForeColor = Color.Black;
-            grdSearchResults.Size = new Size(720, 300);
-            btnReturn.Location = new Point(750, 150);
-
+            grdMemberResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            grdMemberResults.DefaultCellStyle.Font = new Font("Courier", 9);
+            grdMemberResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdMemberResults.Size = new Size(720, 300);
+            mnuBack.Visible = true;
             grpMemCheck.Visible = false;
 
-            grpSearchResults.Visible = true;
-            grpSearchResults.Size = new Size(850, 350);
-            grpSearchResults.Location = new Point(100, 100);
+            grpMemberResults.Visible = true;
+            grpMemberResults.Size = new Size(850, 350);
+            grpMemberResults.Location = new Point(100, 100);
         }
 
         private void ShowDvdDetails()
         {
-            grdDvdSearch.Visible = false;
-            grdDvdSearch.DataSource = DVD.SearchDVD(txtDVDSearch.Text.ToUpper()).Tables["search"];
-            grdDvdSearch.DefaultCellStyle.Font = new Font("Tahoma", 8);
-            grdDvdSearch.DefaultCellStyle.ForeColor = Color.Black;
-            grdDvdSearch.Visible = true;
+            grdDvdResults.Visible = false;
+            grdDvdResults.DataSource = DVD.SearchDVD(txtDVDSearch.Text.ToUpper()).Tables["search"];
+            grdDvdResults.DefaultCellStyle.Font = new Font("Tahoma", 8);
+            grdDvdResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdDvdResults.Visible = true;
         }
 
         private void ProcessRental()
@@ -298,7 +265,7 @@ namespace MovieSYS
                 UpdateRentalItem();
 
                 MessageBox.Show(null, "Order complete", "Successful", MessageBoxButtons.OK);
-                ResetUI();  //necessary
+                ResetUI(); 
                 LoadUI();
             }
             catch (Exception e)
@@ -328,6 +295,43 @@ namespace MovieSYS
             aRental.AddRental();
         }
 
+        private void AddToCart()
+        {
+            lstCart.Items.Add(String.Format("{0:0000}", grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[0].Value) +
+                                        "   " + grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[1].Value.ToString() +
+                                        "   " + grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[2].Value.ToString());
+
+            IncreasePrice();
+            txtPrice.Text = price.ToString("0.00");
+
+            void IncreasePrice()
+            {
+                if (grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("CH"))
+                    price += 3.50f;
+                else if (grdDvdResults.Rows[grdDvdResults.CurrentCell.RowIndex].Cells[2].Value.ToString().Equals("NR"))
+                    price += 8.00f;
+                else
+                    price += 5.00f;
+            }
+        }
+
+        private void RemoveFromCart()
+        {
+            DecreasePrice();
+            lstCart.Items.RemoveAt(cartIndex);
+            txtPrice.Text = price.ToString("0.00");
+
+            void DecreasePrice()
+            {
+                if ((lstCart.Items[cartIndex]).ToString().Contains("CH"))
+                    price -= 3.50f;
+                else if ((lstCart.Items[cartIndex]).ToString().Contains("NR"))
+                    price -= 8.00f;
+                else
+                    price -= 5.00f;
+            }
+        }
+
         private void EmptyCart()
         {
             if (lstCart.Items.Count > 0)
@@ -337,5 +341,6 @@ namespace MovieSYS
                 txtPrice.Text = price.ToString("0.00");
             }
         }
+
     }
 }

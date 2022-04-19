@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -12,7 +10,6 @@ namespace MovieSYS
     public partial class frmPayFines : Form
     {
         frmMainMenu parent;
-
         private Member aMember = new Member();
         private int memId;
         private float fine;
@@ -64,116 +61,128 @@ namespace MovieSYS
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtMemberName.Text))
+            if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
+                return;
             }
-            else
-            {
-                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
-                {
-                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
-                    grdSearchResults.DataSource = null;
-                    txtMemberName.Clear();
-                }
-                else
-                    LoadMemberGrid();
-            }
-        }
 
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            ResetUI();
+            if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
+            {
+                MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                grdMemberResults.DataSource = null;
+                txtMemberName.Clear();
+                return;
+            }
+
+            mnuBack.Visible = true;
+            LoadMemberGrid();
         }
 
         private void grdSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
+            if (grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
-                memId = (int)grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value;
+                memId = (int)grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value;
 
                 if (aMember.HasOverdue(memId))
                 {
-                    OverdueWarning();
+                    MessageBox.Show(null, "There are overdue DVDs connected to this account, please advise member to return DVDs first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else if (aMember.HasFine(memId))
+                if (aMember.HasFine(memId))
                 {
                     LoadMemberDetails();
                     fine = Member.GetFinesOwed(memId);
                     txtFineAmount.Text = String.Format("{0:0.00}", fine);
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show(null, "There are no fines connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ResetUI();
-                }
+
+                MessageBox.Show(null, "There are no fines connected to this account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
-                MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-
-            //CONTINUE FROM HERE+++++++++++++++++
-
             try
             {
                 if (validPayment)
                 {
                     PayFine();
                     Member.UpdateFine(memId, fine);
-                    //txtFineAmount.Text = "€" + String.Format("{0:00.00}", fine);
-                    //txtPayAmount.Clear();
+                    txtFineAmount.Text = "€" + String.Format("{0:0.00}", fine);
+                    txtPayAmount.Clear();
                     grpReceipt.Visible = true;
                     return;
                 }
-                else
-                {
-                    MessageBox.Show(null, "Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+
+                MessageBox.Show(null, "Invalid payment amount entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show(null, "Must complete all sections", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
+                MessageBox.Show(null, "Invalid payment amount entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             catch (Exception)
             {
-                MessageBox.Show(null, "Must complete all sections", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(null, "Invalid payment amount entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            if (grpMemberResults.Visible == true)
+            {
+                ResetUI();
                 return;
             }
 
-            
+            if(grpMemberDetails.Visible == true && grpFineDetails.Visible == true)
+            {
+                validPayment = true;
+                grpReceipt.Visible = false;
+                grpMemberDetails.Visible = false;
+                grpFineDetails.Visible = false;
+                grpMemberResults.Visible = true;
+                return;
+            }
         }
 
         //LOCAL METHODS
         private void LoadUI()
         {
             grpMemCheck.Location = new Point(260, 100);
-            grdSearchResults.DataSource = null;
+            grdMemberResults.DataSource = null;
             grpReceipt.Visible = false;
-            grpSearchResults.Visible = false;
-            grpSearch.Visible = false;
-            grpMemDetails.Visible = false;
+            grpMemberResults.Visible = false;
+            grpMemberDetails.Visible = false;
+            grpFineDetails.Visible = false;
+            mnuBack.Visible = false;
+            txtMemberName.Clear();
+            grpMemCheck.Visible = true;
+        }
+
+        private void ResetUI()
+        {
+            mnuBack.Visible = false;
+            grpMemberResults.Visible = false;
             txtMemberName.Clear();
             grpMemCheck.Visible = true;
         }
 
         private void LoadMemberGrid()
         {
-            grdSearchResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-            grdSearchResults.DefaultCellStyle.Font = new Font("Courier", 9);
-            grdSearchResults.DefaultCellStyle.ForeColor = Color.Black;
-            grdSearchResults.Size = new Size(720, 300);
-            btnReturn.Location = new Point(750, 150);
-
+            grdMemberResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            grdMemberResults.DefaultCellStyle.Font = new Font("Courier", 9);
+            grdMemberResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdMemberResults.Size = new Size(720, 300);
             grpMemCheck.Visible = false;
-
-            grpSearchResults.Visible = true;
-            grpSearchResults.Size = new Size(850, 350);
-            grpSearchResults.Location = new Point(20, 100);
+            grpMemberResults.Visible = true;
+            grpMemberResults.Size = new Size(850, 350);
+            grpMemberResults.Location = new Point(20, 100);
         }
 
         private void LoadMemberDetails()
@@ -181,24 +190,9 @@ namespace MovieSYS
             aMember.GetMemberDetails(memId);
             txtMemId.Text = Convert.ToString(memId);
             txtFirstName.Text = aMember.FirstName + " " + aMember.LastName;
-            grpSearchResults.Visible = false;
-            grpSearch.Visible = true;
-            grpMemDetails.Visible = true;
-        }
-
-        private void OverdueWarning()
-        {
-            MessageBox.Show(null, "There are overdue DVDs connected to this account, please advise member to return DVDs", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            grpSearchResults.Visible = false;
-            txtMemberName.Clear();
-            grpMemCheck.Visible = true;
-        }
-
-        private void ResetUI()
-        {
-            grpSearchResults.Visible = false;
-            txtMemberName.Clear();
-            grpMemCheck.Visible = true;
+            grpMemberResults.Visible = false;
+            grpMemberDetails.Visible = true;
+            grpFineDetails.Visible = true;
         }
 
         private void PayFine()
@@ -207,41 +201,43 @@ namespace MovieSYS
 
             if (payment >= fine)
             {
-                //fine -= payment; - necessary to deal with payment?
+                float change = (fine - payment) * -1;
                 fine = 0;
-                MessageBox.Show(null, "Payment processed, no fine left on account", "Payment Successful", MessageBoxButtons.OKCancel);
+
+                MessageBox.Show(null, "Payment processed, no fine left on account. Change due: €" + String.Format("{0:0.00}", change), "Payment Successful", MessageBoxButtons.OKCancel);
+                return;
             }
-            else if (payment < fine)
+
+            if (payment < fine)
             {
                 fine -= payment;
-                MessageBox.Show(null, "Payment processed, €" + String.Format("{0:00.00}", fine) + " fine left on account", "Payment Successful", MessageBoxButtons.OKCancel);
+                MessageBox.Show(null, "Payment processed, €" + String.Format("{0:0.00}", fine) + " fine left on account", "Payment Successful", MessageBoxButtons.OKCancel);
+                return;
             }
         }
 
-        //VALIDATION METHODS - complete this
-        private void txtPayAmount_Validating(object sender, CancelEventArgs e)
+        //VALIDATION METHODS
+        private void TxtPayAmount_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPayAmount.Text))
             {
                 txtPayAmount.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtPayAmount, "Amount cannot be left blank");
                 validPayment = false;
+                return;
             }
-            //check have digits and one dot
-            /*if (txtPayAmount.Text)
+
+            if (!Validation.IsNumber(txtPayAmount.Text))
             {
                 txtPayAmount.BackColor = Color.DarkSalmon;
-                errorProvider1.SetError(txtPayAmount, "Amount cannot be left blank");
+                errorProvider1.SetError(txtPayAmount, "Invalid characters, must enter digits in correct format. eg 10 or 10.00");
                 validPayment = false;
-            }*/
-            else
-            {
-                txtPayAmount.BackColor = Color.White;
-                errorProvider1.Clear();
-                validPayment = true;
+                return;
             }
+
+            txtPayAmount.BackColor = Color.White;
+            errorProvider1.Clear();
+            validPayment = true;
         }
-
-
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -66,20 +62,17 @@ namespace MovieSYS
             if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter the name of a member", "No Search Entered", MessageBoxButtons.OK);
+                return;
             }
-            else
-            {
-                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
-                {
-                    MessageBox.Show(null, "There were no results matching your search", "No Member Found", MessageBoxButtons.OK);
-                    txtMemberName.Clear();
-                }
-                else
-                {
-                    ShowMemberResults();
-                }
 
+            if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
+            {
+                MessageBox.Show(null, "There were no results matching your search", "No Member Found", MessageBoxButtons.OK);
+                txtMemberName.Clear();
+                return;
             }
+
+            ShowMemberResults();
 
         }
 
@@ -88,11 +81,10 @@ namespace MovieSYS
             if (grdSearchRes.Rows[grdSearchRes.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
                 LoadStatementDatePicker();
+                return;
             }
-            else
-            {
-                MessageBox.Show(null, "Please choose a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            MessageBox.Show(null, "Please choose a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnViewStatement_Click(object sender, EventArgs e)
@@ -128,12 +120,15 @@ namespace MovieSYS
                 grpStatementPeriod.Visible = false;
                 txtMemberName.Clear();
                 grpMemCheck.Visible = true;
+                return;
             }
-            else if (grpStatementDetails.Visible)
+
+            if (grpStatementDetails.Visible)
             {
                 grpStatementDetails.Visible = false;
                 grpSearchResults.Visible = true;
                 grpStatementPeriod.Visible = true;
+                return;
             }
         }
 
@@ -233,12 +228,11 @@ namespace MovieSYS
                 grpStatementPeriod.Visible = false;
                 grpStatementDetails.Visible = true;
                 grpStatementDetails.Location = new Point(50, 100);
+                return;
             }
-            else
-            {
-                MessageBox.Show(null, "Please select a statement period option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                cboYear.Focus();
-            }
+
+            MessageBox.Show(null, "Please select a statement period option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            cboYear.Focus();
         }
 
         private void LoadReturnedDvdGrid()

@@ -314,7 +314,7 @@ namespace MovieSYS
                 validYear = false;
                 return;
             }
-            if (!Validation.HasDigits(txtYear.Text))
+            if (!Validation.IsNumber(txtYear.Text))
             {
                 txtYear.BackColor = Color.DarkSalmon;
                 errorProvider1.SetError(txtYear, "Year should be four digits");

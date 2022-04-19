@@ -60,66 +60,71 @@ namespace MovieSYS
 
         private void mnuBack_Click(object sender, EventArgs e)
         {
-            if (grpSearchResults.Visible == true)
+            if (grpMemberResults.Visible == true)
+            {
                 LoadSearchUI();
-            else if (grpMemDetails.Visible == true && grpDvdDetails.Visible == true)
+            }
+                
+            if (grpMemDetails.Visible == true && grpDvdDetails.Visible == true)
             {
                 grpMemDetails.Visible = false;
                 grpDvdDetails.Visible = false;
-                grpSearchResults.Visible = true;
+                grpMemberResults.Visible = true;
                 totalFines = 0f;
             }
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtMemberName.Text))
+            if (string.IsNullOrEmpty(txtMemberName.Text))
             {
                 MessageBox.Show(null, "Please enter a name", "No Search Entered", MessageBoxButtons.OK);
+                return;
             }
-            else
+
+            if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
             {
-                if (Validation.IsTableEmpty(Member.SearchMember(txtMemberName.Text.ToUpper())))
-                {
-                    MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
-                    grdSearchResults.DataSource = null;
-                    txtMemberName.Clear();
-                }
-                else
-                    LoadSearchResults();
+                MessageBox.Show(null, "There were no results matching your search", "No Data Found", MessageBoxButtons.OK);
+                grdMemberResults.DataSource = null;
+                txtMemberName.Clear();
+                return;
             }
+
+            LoadSearchResults();
         }
 
         private void grdSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
+            if (grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value.ToString() != "")
             {
-                memId = (int)grdSearchResults.Rows[grdSearchResults.CurrentCell.RowIndex].Cells[0].Value;
+                memId = (int)grdMemberResults.Rows[grdMemberResults.CurrentCell.RowIndex].Cells[0].Value;
 
                 if (Validation.IsTableEmpty(RentalItem.GetRentalItems(memId)))
                 {
                     MessageBox.Show(null, "This member currently has no DVDs rented", "No Data Found", MessageBoxButtons.OK);
+                    return;
                 }
-                else
-                {
-                    LoadMemberDetails();
-                    LoadDvdDetails();
-                    CheckFinesOverdue();
-                }
+
+                LoadMemberDetails();
+                LoadDvdDetails();
+                CheckFinesOverdue();
+                return;
             }
-            else
-                MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            MessageBox.Show(null, "Must select a member", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void grdRentedDvdList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            UpdateDueDateText();
-            UpdateFineText();
+            dtpDueDate.Value = Convert.ToDateTime(String.Format("{0:dd-MMM-yyyy}", grdRentedDvdList.Rows[grdRentedDvdList.CurrentCell.RowIndex].Cells[3].Value));
+
+            SetFineText();
         }
 
         private void btnReturn_Click_1(object sender, EventArgs e)
         {
             ReturnDvd();
+
             grdRentedDvdList.Rows.Remove(grdRentedDvdList.Rows[grdRentedDvdList.CurrentCell.RowIndex]);
 
             MessageBox.Show(null, "DVD returned successfully", "Return Successful", MessageBoxButtons.OKCancel);
@@ -144,8 +149,8 @@ namespace MovieSYS
         //LOCAL METHODS
         private void LoadSearchUI()
         {
-            grdSearchResults.DataSource = null;
-            grpSearchResults.Visible = false;
+            grdMemberResults.DataSource = null;
+            grpMemberResults.Visible = false;
             grpDvdDetails.Visible = false;
             grpMemDetails.Visible = false;
             mnuBack.Visible = false;
@@ -156,19 +161,19 @@ namespace MovieSYS
         private void LoadSearchResults()
         {
             //grid properties
-            grdSearchResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-            grdSearchResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            grdSearchResults.Columns[0].Width = 50;
-            grdSearchResults.Columns[1].Width = 50;
-            grdSearchResults.Columns[9].Width = 50;
-            grdSearchResults.Columns[10].Width = 50;
-            grdSearchResults.DefaultCellStyle.Font = new Font("Courier", 8);
-            grdSearchResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdMemberResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
+            grdMemberResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdMemberResults.Columns[0].Width = 50;
+            grdMemberResults.Columns[1].Width = 50;
+            grdMemberResults.Columns[9].Width = 50;
+            grdMemberResults.Columns[10].Width = 50;
+            grdMemberResults.DefaultCellStyle.Font = new Font("Courier", 8);
+            grdMemberResults.DefaultCellStyle.ForeColor = Color.Black;
 
             //header - fix headings
-            grdSearchResults.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            grdSearchResults.ColumnHeadersDefaultCellStyle.Font = new Font("Courier", 10);
-            grdSearchResults.Size = new Size(830, 300);
+            grdMemberResults.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdMemberResults.ColumnHeadersDefaultCellStyle.Font = new Font("Courier", 10);
+            grdMemberResults.Size = new Size(830, 300);
             mnuBack.Visible = true;
 
             //hide search box
@@ -176,15 +181,15 @@ namespace MovieSYS
             grpSearch.Visible = false;
 
             //result box properties
-            grpSearchResults.Size = new Size(850, 350);
-            grpSearchResults.Location = new Point(70, 100);
-            grpSearchResults.Visible = true;
+            grpMemberResults.Size = new Size(850, 350);
+            grpMemberResults.Location = new Point(70, 100);
+            grpMemberResults.Visible = true;
         }
 
         private void LoadMemberDetails()
         {
             //hide result box
-            grpSearchResults.Visible = false;
+            grpMemberResults.Visible = false;
 
             //result box properties
             aMember.GetMemberDetails(memId);
@@ -212,7 +217,7 @@ namespace MovieSYS
             //result box properties
             dtpReturnDate.Value = DateTime.Today;
             dtpDueDate.Value = Convert.ToDateTime(String.Format("{0:dd-MMM-yyyy}", grdRentedDvdList.Rows[grdRentedDvdList.CurrentCell.RowIndex].Cells[3].Value));
-            txtFines.Text = "€" + String.Format("{0:0.00}", GetFine());
+            SetFineText();
             btnReturn.Location = new Point(800, 270);
             btnReturnAll.Location = new Point(680, 270);
             grpDvdDetails.Location = new Point(60, 180);
@@ -233,27 +238,29 @@ namespace MovieSYS
                 }
             }
             total = totalFines;
-            txtTotalFines.Text = "€" + String.Format("{0:0.00}", totalFines);
+            SetFineText();
         }
 
         private void CheckFinesOverdue()
         {
             if (aMember.HasOverdue(memId) && aMember.HasFine(memId))
+            {
                 MessageBox.Show(null, "This member has overdue DVD(s) and fines on account", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (aMember.HasOverdue(memId))
+                return;
+            }
+                
+            if (aMember.HasOverdue(memId))
+            {
                 MessageBox.Show(null, "This member has overdue DVD(s)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (aMember.HasFine(memId))
+                return;
+            }
+                
+            if (aMember.HasFine(memId))
+            {
                 MessageBox.Show(null, "This member has fines on account", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void UpdateDueDateText()
-        {
-            dtpDueDate.Value = Convert.ToDateTime(String.Format("{0:dd-MMM-yyyy}", grdRentedDvdList.Rows[grdRentedDvdList.CurrentCell.RowIndex].Cells[3].Value));
-        }
-
-        private void UpdateFineText()
-        {
-            txtFines.Text = "€" + String.Format("{0:0.00}", GetFine());
+                return;
+            }
+                
         }
 
         private void ReturnDvd()
@@ -274,8 +281,7 @@ namespace MovieSYS
             DVD.UpdateStatus(dvdId, "A");
 
             totalFines -= GetFine();
-            txtFines.Text = "";
-            txtTotalFines.Text = "€" + String.Format("{0:0.00}", totalFines);
+            SetFineText();
         }
 
         private float GetFine()
@@ -285,12 +291,17 @@ namespace MovieSYS
 
         private void EndTransaction()
         {
-            txtFines.Text = "";
-            txtTotalFines.Text = "";
+            SetFineText();
 
             MessageBox.Show(null, "All DVDs returned successfully\n\n€" + String.Format("{0:0.00}", total) + " fines added to this account", "Return Successful", MessageBoxButtons.OKCancel);
 
             LoadSearchUI();
+        }
+
+        private void SetFineText()
+        {
+            txtFines.Text = "€" + String.Format("{0:0.00}", GetFine());
+            txtTotalFines.Text = "€" + String.Format("{0:0.00}", totalFines);
         }
     }
 }

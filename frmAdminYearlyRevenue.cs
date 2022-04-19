@@ -57,6 +57,7 @@ namespace MovieSYS
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             HideDetails();
+
             lblTitle.Text = "Revenue Analysis " + cboYear.Text;
             
             LoadDefaultGrid();
@@ -97,7 +98,7 @@ namespace MovieSYS
             int year = DateTime.Today.Year;
             const int Years = 5;
 
-            for (int i= 0; i < Years; i++)
+            for (int i = 0; i < Years; i++)
             {
                 cboYear.Items.Add(Convert.ToString(year-i));
             }

@@ -31,7 +31,8 @@ namespace MovieSYS
         {
             this.mnuAdd = new System.Windows.Forms.MenuStrip();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpMemberDetails = new System.Windows.Forms.GroupBox();
             this.txtMemId = new System.Windows.Forms.TextBox();
             this.lblMemberId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@ namespace MovieSYS
             this.btnSearch = new System.Windows.Forms.Button();
             this.lstCart = new System.Windows.Forms.ListBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.grdDvdSearch = new System.Windows.Forms.DataGridView();
+            this.grdDvdResults = new System.Windows.Forms.DataGridView();
             this.lblReturn = new System.Windows.Forms.Label();
             this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
             this.txtDVDSearch = new System.Windows.Forms.TextBox();
@@ -58,16 +59,15 @@ namespace MovieSYS
             this.txtMemberName = new System.Windows.Forms.TextBox();
             this.lblMemberSearch = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.grdSearchResults = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.grpSearchResults = new System.Windows.Forms.GroupBox();
+            this.grdMemberResults = new System.Windows.Forms.DataGridView();
+            this.grpMemberResults = new System.Windows.Forms.GroupBox();
             this.mnuAdd.SuspendLayout();
-            this.grpSearch.SuspendLayout();
+            this.grpMemberDetails.SuspendLayout();
             this.grpRentDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDvdSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDvdResults)).BeginInit();
             this.grpMemCheck.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).BeginInit();
-            this.grpSearchResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).BeginInit();
+            this.grpMemberResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuAdd
@@ -76,11 +76,12 @@ namespace MovieSYS
             this.mnuAdd.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mnuAdd.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuExit});
+            this.mnuExit,
+            this.mnuBack});
             this.mnuAdd.Location = new System.Drawing.Point(0, 0);
             this.mnuAdd.Name = "mnuAdd";
             this.mnuAdd.Padding = new System.Windows.Forms.Padding(10, 4, 0, 4);
-            this.mnuAdd.Size = new System.Drawing.Size(1000, 35);
+            this.mnuAdd.Size = new System.Drawing.Size(1000, 42);
             this.mnuAdd.TabIndex = 33;
             this.mnuAdd.Text = "menuStrip1";
             // 
@@ -90,27 +91,36 @@ namespace MovieSYS
             this.mnuExit.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.mnuExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(35, 27);
+            this.mnuExit.Size = new System.Drawing.Size(35, 34);
             this.mnuExit.Text = "X";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // grpSearch
+            // mnuBack
             // 
-            this.grpSearch.Controls.Add(this.txtMemId);
-            this.grpSearch.Controls.Add(this.lblMemberId);
-            this.grpSearch.Controls.Add(this.lblName);
-            this.grpSearch.Controls.Add(this.txtFirstName);
-            this.grpSearch.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpSearch.ForeColor = System.Drawing.Color.Azure;
-            this.grpSearch.Location = new System.Drawing.Point(173, 212);
-            this.grpSearch.Name = "grpSearch";
-            this.grpSearch.Size = new System.Drawing.Size(690, 95);
-            this.grpSearch.TabIndex = 8;
-            this.grpSearch.TabStop = false;
-            this.grpSearch.Text = "Member Details";
+            this.mnuBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(62, 34);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
+            // 
+            // grpMemberDetails
+            // 
+            this.grpMemberDetails.Controls.Add(this.txtMemId);
+            this.grpMemberDetails.Controls.Add(this.lblMemberId);
+            this.grpMemberDetails.Controls.Add(this.lblName);
+            this.grpMemberDetails.Controls.Add(this.txtFirstName);
+            this.grpMemberDetails.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpMemberDetails.ForeColor = System.Drawing.Color.Azure;
+            this.grpMemberDetails.Location = new System.Drawing.Point(173, 212);
+            this.grpMemberDetails.Name = "grpMemberDetails";
+            this.grpMemberDetails.Size = new System.Drawing.Size(690, 95);
+            this.grpMemberDetails.TabIndex = 8;
+            this.grpMemberDetails.TabStop = false;
+            this.grpMemberDetails.Text = "Member Details";
             // 
             // txtMemId
             // 
+            this.txtMemId.Enabled = false;
             this.txtMemId.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMemId.Location = new System.Drawing.Point(188, 37);
             this.txtMemId.Margin = new System.Windows.Forms.Padding(4);
@@ -142,6 +152,7 @@ namespace MovieSYS
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Enabled = false;
             this.txtFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFirstName.Location = new System.Drawing.Point(448, 37);
             this.txtFirstName.MaxLength = 30;
@@ -155,7 +166,7 @@ namespace MovieSYS
             this.grpRentDetails.Controls.Add(this.btnSearch);
             this.grpRentDetails.Controls.Add(this.lstCart);
             this.grpRentDetails.Controls.Add(this.btnCancel);
-            this.grpRentDetails.Controls.Add(this.grdDvdSearch);
+            this.grpRentDetails.Controls.Add(this.grdDvdResults);
             this.grpRentDetails.Controls.Add(this.lblReturn);
             this.grpRentDetails.Controls.Add(this.dtpReturnDate);
             this.grpRentDetails.Controls.Add(this.txtDVDSearch);
@@ -215,19 +226,19 @@ namespace MovieSYS
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
-            // grdDvdSearch
+            // grdDvdResults
             // 
-            this.grdDvdSearch.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdDvdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDvdSearch.Location = new System.Drawing.Point(27, 137);
-            this.grdDvdSearch.Name = "grdDvdSearch";
-            this.grdDvdSearch.RowHeadersVisible = false;
-            this.grdDvdSearch.RowHeadersWidth = 51;
-            this.grdDvdSearch.RowTemplate.Height = 25;
-            this.grdDvdSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdDvdSearch.Size = new System.Drawing.Size(440, 185);
-            this.grdDvdSearch.TabIndex = 33;
-            this.grdDvdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDvdSearch_CellClick);
+            this.grdDvdResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdDvdResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDvdResults.Location = new System.Drawing.Point(27, 137);
+            this.grdDvdResults.Name = "grdDvdResults";
+            this.grdDvdResults.RowHeadersVisible = false;
+            this.grdDvdResults.RowHeadersWidth = 51;
+            this.grdDvdResults.RowTemplate.Height = 25;
+            this.grdDvdResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdDvdResults.Size = new System.Drawing.Size(440, 185);
+            this.grdDvdResults.TabIndex = 33;
+            this.grdDvdResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDvdSearch_CellClick);
             // 
             // lblReturn
             // 
@@ -273,6 +284,7 @@ namespace MovieSYS
             // 
             // txtRentID
             // 
+            this.txtRentID.Enabled = false;
             this.txtRentID.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtRentID.Location = new System.Drawing.Point(113, 47);
             this.txtRentID.MaxLength = 6;
@@ -384,7 +396,6 @@ namespace MovieSYS
             this.txtMemberName.Location = new System.Drawing.Point(193, 49);
             this.txtMemberName.MaxLength = 8;
             this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.PlaceholderText = "Member Name";
             this.txtMemberName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtMemberName.Size = new System.Drawing.Size(160, 30);
             this.txtMemberName.TabIndex = 3;
@@ -414,61 +425,46 @@ namespace MovieSYS
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click_1);
             // 
-            // grdSearchResults
+            // grdMemberResults
             // 
-            this.grdSearchResults.AllowUserToAddRows = false;
-            this.grdSearchResults.AllowUserToDeleteRows = false;
-            this.grdSearchResults.AllowUserToResizeColumns = false;
-            this.grdSearchResults.AllowUserToResizeRows = false;
-            this.grdSearchResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdSearchResults.Location = new System.Drawing.Point(12, 32);
-            this.grdSearchResults.Name = "grdSearchResults";
-            this.grdSearchResults.RowHeadersVisible = false;
-            this.grdSearchResults.RowHeadersWidth = 51;
-            this.grdSearchResults.RowTemplate.Height = 25;
-            this.grdSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdSearchResults.Size = new System.Drawing.Size(354, 111);
-            this.grdSearchResults.TabIndex = 0;
-            this.grdSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchResults_CellClick);
+            this.grdMemberResults.AllowUserToAddRows = false;
+            this.grdMemberResults.AllowUserToDeleteRows = false;
+            this.grdMemberResults.AllowUserToResizeColumns = false;
+            this.grdMemberResults.AllowUserToResizeRows = false;
+            this.grdMemberResults.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdMemberResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdMemberResults.Location = new System.Drawing.Point(12, 32);
+            this.grdMemberResults.Name = "grdMemberResults";
+            this.grdMemberResults.RowHeadersVisible = false;
+            this.grdMemberResults.RowHeadersWidth = 51;
+            this.grdMemberResults.RowTemplate.Height = 25;
+            this.grdMemberResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdMemberResults.Size = new System.Drawing.Size(421, 111);
+            this.grdMemberResults.TabIndex = 0;
+            this.grdMemberResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchResults_CellClick);
             // 
-            // btnReturn
+            // grpMemberResults
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnReturn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReturn.Location = new System.Drawing.Point(381, 66);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(52, 35);
-            this.btnReturn.TabIndex = 27;
-            this.btnReturn.Text = "Exit";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // grpSearchResults
-            // 
-            this.grpSearchResults.Controls.Add(this.btnReturn);
-            this.grpSearchResults.Controls.Add(this.grdSearchResults);
-            this.grpSearchResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpSearchResults.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.grpSearchResults.Location = new System.Drawing.Point(549, 51);
-            this.grpSearchResults.Name = "grpSearchResults";
-            this.grpSearchResults.Size = new System.Drawing.Size(439, 155);
-            this.grpSearchResults.TabIndex = 5;
-            this.grpSearchResults.TabStop = false;
-            this.grpSearchResults.Text = "Member Result";
+            this.grpMemberResults.Controls.Add(this.grdMemberResults);
+            this.grpMemberResults.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpMemberResults.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpMemberResults.Location = new System.Drawing.Point(549, 51);
+            this.grpMemberResults.Name = "grpMemberResults";
+            this.grpMemberResults.Size = new System.Drawing.Size(439, 155);
+            this.grpMemberResults.TabIndex = 5;
+            this.grpMemberResults.TabStop = false;
+            this.grpMemberResults.Text = "Member Result";
             // 
             // frmRentalRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1000, 720);
-            this.Controls.Add(this.grpSearchResults);
+            this.ClientSize = new System.Drawing.Size(1000, 854);
+            this.Controls.Add(this.grpMemberResults);
             this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.grpRentDetails);
-            this.Controls.Add(this.grpSearch);
+            this.Controls.Add(this.grpMemberDetails);
             this.Controls.Add(this.mnuAdd);
             this.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -478,15 +474,15 @@ namespace MovieSYS
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.mnuAdd.ResumeLayout(false);
             this.mnuAdd.PerformLayout();
-            this.grpSearch.ResumeLayout(false);
-            this.grpSearch.PerformLayout();
+            this.grpMemberDetails.ResumeLayout(false);
+            this.grpMemberDetails.PerformLayout();
             this.grpRentDetails.ResumeLayout(false);
             this.grpRentDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDvdSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDvdResults)).EndInit();
             this.grpMemCheck.ResumeLayout(false);
             this.grpMemCheck.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).EndInit();
-            this.grpSearchResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).EndInit();
+            this.grpMemberResults.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,7 +492,7 @@ namespace MovieSYS
 
         private System.Windows.Forms.MenuStrip mnuAdd;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.GroupBox grpSearch;
+        private System.Windows.Forms.GroupBox grpMemberDetails;
         private System.Windows.Forms.GroupBox grpRentDetails;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.TextBox txtPrice;
@@ -519,12 +515,12 @@ namespace MovieSYS
         private System.Windows.Forms.TextBox txtDVDSearch;
         private System.Windows.Forms.Label lblReturn;
         private System.Windows.Forms.DateTimePicker dtpReturnDate;
-        private System.Windows.Forms.DataGridView grdDvdSearch;
+        private System.Windows.Forms.DataGridView grdDvdResults;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridView grdSearchResults;
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.GroupBox grpSearchResults;
+        private System.Windows.Forms.DataGridView grdMemberResults;
+        private System.Windows.Forms.GroupBox grpMemberResults;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
     }
 }

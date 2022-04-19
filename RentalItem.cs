@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Text;
 using Oracle.ManagedDataAccess.Client;
 
 namespace MovieSYS
@@ -27,7 +25,6 @@ namespace MovieSYS
             this.fineAmount = fineAmount;
         }
 
-        //Getters & Setters
         public int ItemID { get => itemID; set => itemID = value; }
         public int DvdID { get => dvdID; set => dvdID = value; }
         public float FineAmount { get => fineAmount; set => fineAmount = value; }
@@ -99,7 +96,7 @@ namespace MovieSYS
             {
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-                String sqlQuery = "SELECT to_date(Due_date)- to_date(TRUNC(SYSDATE)) " +
+                String sqlQuery = "SELECT SUM(to_date(Due_date) - to_date(TRUNC(SYSDATE))) " +
                                   "FROM Rentals " +
                                   "WHERE Due_Date < TRUNC(SYSDATE) AND Member_Id = " + memId + " AND Rent_Id = " + rentId + "";
 
@@ -122,6 +119,39 @@ namespace MovieSYS
                 conn.Close();
 
                 return overdueDays;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error retrieving data\n" + e.ToString());
+                throw new Exception("Error connecting to database");
+            }
+        }
+
+        public static DataSet GetOverdueDvds()
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                String sqlQuery = "SELECT Member_Id, RI.Rent_Id, RI.DVD_Id, DVD_Title, Rent_Date, Due_Date " +
+                                  "FROM Rental_Items RI JOIN DVDs D ON RI.DVD_ID = D.DVD_ID " +
+                                        "JOIN Rentals R ON R.Rent_Id = RI.Rent_Id " +
+                                  "WHERE Return_Date IS NULL AND Due_Date < SYSDATE " +
+                                        "ORDER BY DVD_Id";
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                conn.Open();
+
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "overdue");
+
+                conn.Close();
+
+                return ds;
             }
             catch (Exception e)
             {
@@ -177,6 +207,7 @@ namespace MovieSYS
                 Debug.WriteLine("Error updating Database\n" + e.ToString());
             }
         }
-        //public void SendReminder()
+
+        
     }
 }

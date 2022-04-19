@@ -244,7 +244,7 @@ namespace MovieSYS
             this.txtEircode.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtEircode.Location = new System.Drawing.Point(633, 222);
             this.txtEircode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEircode.MaxLength = 7;
+            this.txtEircode.MaxLength = 8;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(114, 30);
             this.txtEircode.TabIndex = 17;

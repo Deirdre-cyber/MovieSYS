@@ -355,6 +355,7 @@ namespace MovieSYS
             this.btnEmail.TabIndex = 28;
             this.btnEmail.Text = "Email";
             this.btnEmail.UseVisualStyleBackColor = false;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
             // btnPrint
             // 
@@ -369,6 +370,7 @@ namespace MovieSYS
             this.btnPrint.TabIndex = 27;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmPayFines
             // 

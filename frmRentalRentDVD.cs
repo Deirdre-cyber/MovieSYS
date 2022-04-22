@@ -13,6 +13,7 @@ namespace MovieSYS
         private float price = 0.00f;
         private int dvdLimit = 5;
         private int cartIndex;
+        private string message = "The details of your Rental are as follows: ";
 
         public frmRentalRentDVD()
         {
@@ -189,6 +190,22 @@ namespace MovieSYS
             }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Utility.SavePdf(CreateMessage());
+            Utility.PrintPDFWithAcrobat();      //necessary/working?
+
+            ResetUI();
+        }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            Utility.EmailReceipt(CreateMessage());
+            MessageBox.Show("Receipt sent to member" + txtFirstName.Text);
+
+            ResetUI();
+        }
+
 
         //LOCAL METHODS
         private void LoadUI()
@@ -281,7 +298,7 @@ namespace MovieSYS
             {
                 int dvdId = Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 4));
                 DVD.UpdateStatus(dvdId, "A");
-                RentalItem aRentalItem = new RentalItem(Convert.ToInt32(txtRentID.Text), dvdId, 0.00f);
+                RentalItem aRentalItem = new RentalItem(Convert.ToInt32(txtRentID.Text), dvdId, 0.00f, "");
                 aRentalItem.AddRentalItem();
             }
         }
@@ -290,7 +307,7 @@ namespace MovieSYS
         {
             Rental aRental = new Rental(Convert.ToInt32(txtRentID.Text), String.Format("{0:dd-MMM-yy}", DateTime.Today),
                 String.Format("{0:dd-MMM-yy}", dtpReturnDate.Value),
-                (float)Math.Round(Convert.ToDouble(txtPrice.Text), 2), Convert.ToInt32(txtMemId.Text));
+                (float)Math.Round(Convert.ToDouble(txtPrice.Text), 2), Convert.ToInt32(txtMemId.Text), "");
 
             aRental.AddRental();
         }
@@ -342,5 +359,19 @@ namespace MovieSYS
             }
         }
 
+        private string CreateMessage()
+        {
+            message += "<p>" + String.Format("{0:dd-MMM-yy}", DateTime.Today) + "</p>";
+            //rent date
+            //rent id
+            //mem id
+            //cart contents
+            //return date
+            //cost
+
+            return message;
+        }
+
+        
     }
 }

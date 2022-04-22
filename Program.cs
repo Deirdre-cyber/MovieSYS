@@ -15,7 +15,7 @@ namespace MovieSYS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmListOverdue());
+            Application.Run(new frmMemberAdd());
         }
     }
 }

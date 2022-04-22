@@ -9,25 +9,29 @@ namespace MovieSYS
     {
         private int itemID;
         private int dvdID;
+        private String returnDate;
         private float fineAmount;
 
         public RentalItem()
         {
             itemID = 0;
             dvdID = 0;
+            returnDate = "";
             fineAmount = 0.00f;
         }
 
-        public RentalItem(int itemID, int dvdID,float fineAmount)
+        public RentalItem(int itemID, int dvdID,float fineAmount, string returnDate)
         {
             this.itemID = itemID;
             this.dvdID = dvdID;
+            this.returnDate = returnDate;
             this.fineAmount = fineAmount;
         }
 
         public int ItemID { get => itemID; set => itemID = value; }
         public int DvdID { get => dvdID; set => dvdID = value; }
         public float FineAmount { get => fineAmount; set => fineAmount = value; }
+        public string ReturnDate { get => returnDate; set => returnDate = value; }
 
         public void AddRentalItem()
         {

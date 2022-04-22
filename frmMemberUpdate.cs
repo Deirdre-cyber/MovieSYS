@@ -184,7 +184,7 @@ namespace MovieSYS
             txtMemId.Text = Convert.ToString(memId);
             cboMemID.Text = aMember.MembershipID;
 
-            DataSet memDS = Utility.getMembershipCodes();
+            DataSet memDS = Utility.GetMembershipCodes();
             for (int i = 0; i < memDS.Tables[0].Rows.Count; i++)
                 cboMemID.Items.Add(memDS.Tables[0].Rows[i][0] + " - " + memDS.Tables[0].Rows[i][1]);
 

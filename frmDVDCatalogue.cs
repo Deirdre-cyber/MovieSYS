@@ -100,19 +100,19 @@ namespace MovieSYS
 
             dtpDate.Value = DateTime.Today;
 
-            DataSet genreDS = Utility.getGenreCodes();
+            DataSet genreDS = Utility.GetGenreCodes();
             for (int i = 0; i < genreDS.Tables[0].Rows.Count; i++)
                 cboGenre.Items.Add(genreDS.Tables[0].Rows[i][0] + " - " + genreDS.Tables[0].Rows[i][1]);
 
-            DataSet catDS = Utility.getCategoryCodes();
+            DataSet catDS = Utility.GetCategoryCodes();
             for (int i = 0; i < catDS.Tables[0].Rows.Count; i++)
                 cboCat.Items.Add(catDS.Tables[0].Rows[i][0] + " - " + catDS.Tables[0].Rows[i][1]);
 
-            DataSet countryDS = Utility.getCountryCodes();
+            DataSet countryDS = Utility.GetCountryCodes();
             for (int i = 0; i < countryDS.Tables[0].Rows.Count; i++)
                 cboCountry.Items.Add(countryDS.Tables[0].Rows[i][0] + " - " + countryDS.Tables[0].Rows[i][1]);
 
-            DataSet ageDS = Utility.getAgeCodes();
+            DataSet ageDS = Utility.GetAgeCodes();
             for (int i = 0; i < ageDS.Tables[0].Rows.Count; i++)
                 cboAge.Items.Add(ageDS.Tables[0].Rows[i][0]);
         }
@@ -123,7 +123,7 @@ namespace MovieSYS
                 for (int i = 0; i < Convert.ToInt32(txtCopies.Text); i++)
                 {
                     DVD aDVD = new DVD(Convert.ToInt32(txtDVDId.Text), txtDVDName.Text, cboCat.Text.Substring(0, 2),
-                            Utility.setGenre(cboGenre.Text), cboCountry.Text.Substring(0, 2), txtYear.Text, Convert.ToInt32(txtDuration.Text),
+                            Utility.SetGenre(cboGenre.Text), cboCountry.Text.Substring(0, 2), txtYear.Text, Convert.ToInt32(txtDuration.Text),
                             String.Format("{0:dd-MMM-yy}", dtpDate.Value), cboAge.Text.Substring(0, 2), "A");
 
                     aDVD.AddDVD();

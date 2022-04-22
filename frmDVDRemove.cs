@@ -106,7 +106,21 @@ namespace MovieSYS
         {
             grdDVDList.DataSource = DVD.SearchDVD(txtDVDTitle.Text.ToUpper()).Tables["search"];
             grdDVDList.DefaultCellStyle.Font = new Font("Tahoma", 8);
+            grdDVDList.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
+            grdDVDList.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdDVDList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grdDVDList.DefaultCellStyle.ForeColor = Color.Black;
+
+            string[] headings = { "DVD ID", "Title", "Category ID" };
+
+            for (int i = 0; i < grdDVDList.ColumnCount; i++)
+            {
+                grdDVDList.Columns[i].HeaderText = headings[i];
+            }
+
+            grdDVDList.Columns[0].Width = 120;
+            grdDVDList.Columns[1].Width = 200;
+            grdDVDList.Columns[2].Width = 150;
         }
         private void ShowDvdDetails()
         {

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using System.Diagnostics;
@@ -226,7 +224,6 @@ namespace MovieSYS
             }
         }
 
-        //repeating code - combine?
         public bool HasFine(int memId)
         {
             try
@@ -477,6 +474,7 @@ namespace MovieSYS
                 throw new Exception("Error connecting to database");
             }
         }
+
         public DataSet GetRentedDVDsForPeriod(int memId, String start, String end)
         {
             try

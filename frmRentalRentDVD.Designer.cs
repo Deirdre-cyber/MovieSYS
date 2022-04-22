@@ -61,6 +61,10 @@ namespace MovieSYS
             this.btnCheck = new System.Windows.Forms.Button();
             this.grdMemberResults = new System.Windows.Forms.DataGridView();
             this.grpMemberResults = new System.Windows.Forms.GroupBox();
+            this.grpReceipt = new System.Windows.Forms.GroupBox();
+            this.lblReceipt = new System.Windows.Forms.Label();
+            this.btnEmail = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.mnuAdd.SuspendLayout();
             this.grpMemberDetails.SuspendLayout();
             this.grpRentDetails.SuspendLayout();
@@ -68,6 +72,7 @@ namespace MovieSYS
             this.grpMemCheck.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).BeginInit();
             this.grpMemberResults.SuspendLayout();
+            this.grpReceipt.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuAdd
@@ -455,12 +460,66 @@ namespace MovieSYS
             this.grpMemberResults.TabStop = false;
             this.grpMemberResults.Text = "Member Result";
             // 
+            // grpReceipt
+            // 
+            this.grpReceipt.Controls.Add(this.lblReceipt);
+            this.grpReceipt.Controls.Add(this.btnEmail);
+            this.grpReceipt.Controls.Add(this.btnPrint);
+            this.grpReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grpReceipt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpReceipt.Location = new System.Drawing.Point(319, 720);
+            this.grpReceipt.Name = "grpReceipt";
+            this.grpReceipt.Size = new System.Drawing.Size(367, 122);
+            this.grpReceipt.TabIndex = 34;
+            this.grpReceipt.TabStop = false;
+            this.grpReceipt.Text = "Receipt";
+            // 
+            // lblReceipt
+            // 
+            this.lblReceipt.AutoSize = true;
+            this.lblReceipt.Location = new System.Drawing.Point(55, 31);
+            this.lblReceipt.Name = "lblReceipt";
+            this.lblReceipt.Size = new System.Drawing.Size(248, 41);
+            this.lblReceipt.TabIndex = 29;
+            this.lblReceipt.Text = "Print or email Receipt?";
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEmail.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEmail.Location = new System.Drawing.Point(191, 76);
+            this.btnEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(92, 35);
+            this.btnEmail.TabIndex = 28;
+            this.btnEmail.Text = "Email";
+            this.btnEmail.UseVisualStyleBackColor = false;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPrint.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPrint.Location = new System.Drawing.Point(77, 76);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(95, 35);
+            this.btnPrint.TabIndex = 27;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmRentalRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1000, 854);
+            this.Controls.Add(this.grpReceipt);
             this.Controls.Add(this.grpMemberResults);
             this.Controls.Add(this.grpMemCheck);
             this.Controls.Add(this.grpRentDetails);
@@ -483,6 +542,8 @@ namespace MovieSYS
             this.grpMemCheck.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMemberResults)).EndInit();
             this.grpMemberResults.ResumeLayout(false);
+            this.grpReceipt.ResumeLayout(false);
+            this.grpReceipt.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,5 +583,9 @@ namespace MovieSYS
         private System.Windows.Forms.DataGridView grdMemberResults;
         private System.Windows.Forms.GroupBox grpMemberResults;
         private System.Windows.Forms.ToolStripMenuItem mnuBack;
+        private System.Windows.Forms.GroupBox grpReceipt;
+        private System.Windows.Forms.Label lblReceipt;
+        private System.Windows.Forms.Button btnEmail;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

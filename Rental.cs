@@ -1,9 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Text;
 
 namespace MovieSYS
 {
@@ -14,6 +12,8 @@ namespace MovieSYS
         private String dueDate;
         private float rentalPrice;
         private int memberId;
+        private String reminderDate;
+
         public Rental()
         {
             this.rentId = 0;
@@ -21,15 +21,19 @@ namespace MovieSYS
             this.dueDate = "";
             this.rentalPrice = 0.00f;
             this.memberId = 0;
+            this.reminderDate = "";
+
+
         }
 
-        public Rental(int rentId, string rentDate, string dueDate, float rentalPrice, int memberId)
+        public Rental(int rentId, string rentDate, string dueDate, float rentalPrice, int memberId, string reminderDate)
         {
             this.rentId = rentId;
             this.rentDate = rentDate;
             this.dueDate = dueDate;
             this.rentalPrice = rentalPrice;
             this.memberId = memberId;
+            this.reminderDate = reminderDate;
         }
 
         public int RentId { get => rentId; set => rentId = value; }
@@ -37,6 +41,7 @@ namespace MovieSYS
         public string DueDate { get => dueDate; set => dueDate = value; }
         public float RentalPrice { get => rentalPrice; set => rentalPrice = value; }
         public int MemberId { get => memberId; set => memberId = value; }
+        public string ReminderDate { get => reminderDate; set => reminderDate = value; }
 
         public static int GetNextRentalId()
         {
@@ -156,7 +161,7 @@ namespace MovieSYS
             }
         }
 
-        public static String GetLastReminderDate()
+        public static string GetLastReminderDate()
         {
             try
             {

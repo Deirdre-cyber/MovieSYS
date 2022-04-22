@@ -1,8 +1,12 @@
-﻿using System;
+﻿using IronPdf;
+using System;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Net;
+using System.Net.Mail;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -16,6 +20,7 @@ namespace MovieSYS
         private bool validNumber = false;
         private bool validEmail = false;
         private bool validEircode = false;
+        private string message = "You have created a new account with the following details: ";
 
         public frmMemberAdd()
         {
@@ -67,7 +72,6 @@ namespace MovieSYS
                 {
                     AddNewMember();
                     MessageBox.Show(null, "Member has been added successfuly", "New Member Added", MessageBoxButtons.OK);
-                    ResetUI();
                     grpReceipt.Visible = true;
                     return;
                 }
@@ -87,25 +91,19 @@ namespace MovieSYS
 
         private void btnPrint_Click_1(object sender, EventArgs e)
         {
-            //ironpdf.com/docs/questions/csharp-print-pdf/
-            //printReceipt();
-            MessageBox.Show(null, "Receipt sent to printer", "Print", MessageBoxButtons.OK);
+            
+            Utility.SavePdf(CreateMessage());
+            Utility.PrintPDFWithAcrobat();
 
             ResetUI();
-            grpReceipt.Visible = false;
-            grpAddMem.Visible = true;
         }
 
         private void btnEmail_Click_1(object sender, EventArgs e)
         {
-            //docs.microsoft.com/en-us/visualstudio/vsto/how-to-programmatically-send-e-mail-programmatically?view=vs-2022
-            //emailReceipt();
-            MessageBox.Show(null, "Receipt sent to member", "Email", MessageBoxButtons.OK);
+            Utility.EmailReceipt(CreateMessage());
+            MessageBox.Show("Receipt sent to member" + txtFirstName.Text + " " + txtLastName.Text);
 
             ResetUI();
-            grpReceipt.Visible = false;
-            grpAddMem.Visible = true;
-
         }
 
         //LOCAL METHODS
@@ -118,12 +116,13 @@ namespace MovieSYS
             dtpMemStartDate.Value = DateTime.Today;
             dtpMemStartDate.MaxDate = DateTime.Today.AddMonths(1);
 
-            DataSet memDS = Utility.getMembershipCodes();
+            DataSet memDS = Utility.GetMembershipCodes();
             for (int i = 0; i < memDS.Tables[0].Rows.Count; i++)
             {
                 cboMemID.Items.Add(memDS.Tables[0].Rows[i][0] + " - " + memDS.Tables[0].Rows[i][1]);
             }
         }
+
         private void AddNewMember()
         {
             Member aMember = new Member(Convert.ToInt32(txtMemId.Text), txtFirstName.Text, txtLastName.Text,
@@ -133,6 +132,7 @@ namespace MovieSYS
 
             aMember.AddMember();
         }
+
         private void ResetUI()    //Universal Method for Reset UI
         {
             txtMemId.Text = Member.GetNextMemberID().ToString("00000");
@@ -145,18 +145,30 @@ namespace MovieSYS
             dtpMemStartDate.Value = DateTime.Today;
             cboMemID.Text = null;
             cboMemID.Focus();
+            grpReceipt.Visible = false;
+            grpAddMem.Visible = true;
+            btnEmail.Visible = false;
+            btnPrint.Visible = false;
         }
 
-        //private void printReceipt(){}
-        //private void emailReceipt(){}
+        private string CreateMessage()
+        {
+            message += "<p>Start Date: " + String.Format("{0:dd-MMM-yy}", dtpMemStartDate.Value) +
+                      "</p><p>Member Id: " + txtMemId.Text + "</p><p>Membership Type: " + cboMemID.Text.Substring(0, 2) +
+                      "</p><p>Name: " + txtFirstName.Text + " " + txtLastName.Text + "</p><p>DOB: " + String.Format("{0:dd-MMM-yy}", dtpDOB.Value) + "</p><p>Contact No: " + txtContactNo.Text + "</p><p>Email: " + txtEmail.Text +
+                      "</p><p>Eircode: " + txtEircode.Text + "</p>";
+
+            return message;
+        }
 
         //VALIDATION
         private bool AllValid()
         {
             if (validFirstName && validLastName && validNumber && validEmail && validEircode)
                 return true;
-            else
-                return false;
+
+            return false;
+
         }
         private void CboMemID_Validating(object sender, CancelEventArgs e)
         {

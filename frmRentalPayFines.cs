@@ -14,6 +14,7 @@ namespace MovieSYS
         private int memId;
         private float fine;
         private bool validPayment = true;
+        private string message = "Here are the details of this transaction: ";
 
         public frmPayFines()
         {
@@ -151,6 +152,22 @@ namespace MovieSYS
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Utility.SavePdf(CreateMessage());
+            Utility.PrintPDFWithAcrobat();      //necessary/working?
+
+            ResetUI();
+        }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            Utility.EmailReceipt(CreateMessage());
+            MessageBox.Show("Receipt sent to member" + txtFirstName.Text);
+
+            ResetUI();
+        }
+
         //LOCAL METHODS
         private void LoadUI()
         {
@@ -238,6 +255,13 @@ namespace MovieSYS
             txtPayAmount.BackColor = Color.White;
             errorProvider1.Clear();
             validPayment = true;
+        }
+
+        private string CreateMessage()
+        {
+            message += "<p> </p>";
+
+            return message;
         }
     }
 }

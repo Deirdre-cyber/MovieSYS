@@ -15,7 +15,7 @@ namespace MovieSYS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmMemberAdd());
+            Application.Run(new frmYearlyRevenue());
         }
     }
 }

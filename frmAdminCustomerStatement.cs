@@ -12,6 +12,7 @@ namespace MovieSYS
         private int memId;
         private int currentYear = DateTime.Today.Year;
         private DateTime startYear = new DateTime();
+        private string message;
 
         public frmCustomerStatement()
         {
@@ -116,6 +117,7 @@ namespace MovieSYS
         {
             if (grpSearchResults.Visible || grpStatementPeriod.Visible)
             {
+                mnuBack.Visible = false;
                 grpSearchResults.Visible = false;
                 grpStatementPeriod.Visible = false;
                 txtMemberName.Clear();
@@ -132,16 +134,18 @@ namespace MovieSYS
             }
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            //if successful
-            MessageBox.Show(null, "Statement sent to printer", "Printed", MessageBoxButtons.OK);
-        }
-
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            //if successful
+            Utility.EmailReceipt(CreateMessage("email"));
             MessageBox.Show(null, "Statement sent to member", "Email Sent", MessageBoxButtons.OK);
+            LoadUI();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Utility.SavePdf(CreateMessage("print"));
+            Utility.PrintPDFWithAcrobat();
+            LoadUI();
         }
 
         //LOCAL METHODS
@@ -149,7 +153,7 @@ namespace MovieSYS
         private void LoadUI()
         {
             this.Height = 600;
-
+            mnuBack.Visible = false;
             grpSearchResults.Visible = false;
             grpStatementDetails.Visible = false;
             grpStatementPeriod.Visible = false;
@@ -163,7 +167,7 @@ namespace MovieSYS
         private void ShowMemberResults()
         {
             grpMemCheck.Visible = false;
-
+            mnuBack.Visible = true;
             SetMemberGridAttributes();
 
             grdSearchRes.Size = new Size(840, 150);
@@ -172,7 +176,7 @@ namespace MovieSYS
             grpSearchResults.Visible = true;
         }
 
-        private void SetMemberGridAttributes()      //universal method for all grids?
+        private void SetMemberGridAttributes()
         {
             grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
@@ -396,5 +400,36 @@ namespace MovieSYS
             dtpStatementFrom.Visible = true;
             dtpStatementTo.Visible = true;
         }
+
+        private string CreateMessage(String s)
+        {
+            if (s.Equals("print"))
+            {
+                message += "<p>Statement Period: " + txtPeriod.Text +
+                           "</p><p>Member Id: " + txtMemId.Text +
+                           "</p><p>Membership Id: " + txtMembership.Text +
+                           "</p><p>Rentals Total: " + txtRentals.Text +
+                           "</p><p>Fines Paid: " + txtFinesPaid.Text +
+                           "</p><p>Total: " + txtTotal.Text +
+                           "</p><p>Fines Owed: " + txtFinesOwed.Text + "</p>";
+
+                return message;
+            }
+
+            if (s.Equals("email"))
+            {
+                message += "Statement Period: " + txtPeriod.Text +
+                           "\nMember Id: " + txtMemId.Text +
+                           "\nMembership Id: " + txtMembership.Text +
+                           "\nRentals Total: " + txtRentals.Text +
+                           "\nFines Paid: " + txtFinesPaid.Text +
+                           "\nTotal: " + txtTotal.Text +
+                           "\nFines Owed: " + txtFinesOwed.Text;
+
+                return message;
+            }
+            return message;
+        }
+
     }
 }

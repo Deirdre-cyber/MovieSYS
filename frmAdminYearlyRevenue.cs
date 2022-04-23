@@ -9,7 +9,12 @@ namespace MovieSYS
     public partial class frmYearlyRevenue : Form
     {
         frmMainMenu parent;
-        const int Months = 12;
+        private const int Months = 12;
+        private string message;
+        private double lowestEarning;
+        private double highestEarning;
+        private string highestMonth;
+        private string lowestMonth;
 
         public frmYearlyRevenue()
         {
@@ -59,7 +64,7 @@ namespace MovieSYS
             HideDetails();
 
             lblTitle.Text = "Revenue Analysis " + cboYear.Text;
-            
+
             LoadDefaultGrid();
             LoadData();
         }
@@ -74,14 +79,21 @@ namespace MovieSYS
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            //Send to printer
+            Utility.SavePdf(CreateMessage());
+            Utility.PrintPDFWithAcrobat();
             MessageBox.Show("Revenue analysis for " + cboYear.Text + " sent to printer", "Print", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadUI();
+
+
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            //Download/convert to pdf
+
+            Utility.SavePdf(CreateMessage());
             MessageBox.Show("Revenue analysis for " + cboYear.Text + " downloaded as pdf", "Download", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadUI();
+
         }
 
         //LOCAL METHODS
@@ -100,20 +112,21 @@ namespace MovieSYS
 
             for (int i = 0; i < Years; i++)
             {
-                cboYear.Items.Add(Convert.ToString(year-i));
+                cboYear.Items.Add(Convert.ToString(year - i));
             }
 
             cboYear.Text = year.ToString();
         }
 
-        private void LoadDefaultGrid() {
+        private void LoadDefaultGrid()
+        {
 
             grdRevenue.ColumnCount = Months;
             grdRevenue.RowCount = 1;
 
             for (int i = 0; i < Months; i++)
             {
-                grdRevenue.Columns[i].Width = 60;
+                grdRevenue.Columns[i].Width = 65;
                 grdRevenue.Columns[i].Name = GetMonth(i + 1);
                 grdRevenue.CurrentCell = grdRevenue.Rows[0].Cells[i];
                 grdRevenue.CurrentCell.Value = 0;
@@ -121,6 +134,7 @@ namespace MovieSYS
 
             //grid attributes
             grdRevenue.DefaultCellStyle.ForeColor = Color.Black;
+            grdRevenue.DefaultCellStyle.Font = new Font("Tahoma", 8);
             grdRevenue.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke;
             grdRevenue.DefaultCellStyle.SelectionForeColor = Color.Black;
             grdRevenue.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -159,10 +173,10 @@ namespace MovieSYS
 
         private void LoadData()
         {
-            if(Validation.IsTableEmpty(Rental.GetRevenueAnalysis(cboYear.Text.Substring(2, 2))))
+            if (Validation.IsTableEmpty(Rental.GetRevenueAnalysis(cboYear.Text.Substring(2, 2))))
             {
                 MessageBox.Show("No data found for " + cboYear.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 cboYear.Focus();
                 return;
             }
@@ -201,21 +215,33 @@ namespace MovieSYS
                 {
                     max = currentValue;
                     maxCol = i;
+                    highestEarning = Convert.ToDouble(grdRevenue.Rows[0].Cells[maxCol].Value);
+                    highestMonth = GetMonth(maxCol + 1);
                 }
 
                 if (currentValue != 0 && currentValue < min)
                 {
                     min = currentValue;
                     minCol = i;
+                    lowestEarning = Convert.ToDouble(grdRevenue.Rows[0].Cells[minCol].Value);
+                    lowestMonth = GetMonth(minCol + 1);
                 }
             }
 
             grdRevenue.CurrentCell = grdRevenue.Rows[0].Cells[0];
-            //change header font
             grdRevenue.Rows[0].Cells[maxCol].Style.ForeColor = Color.Blue;
-            //change header font
             grdRevenue.Rows[0].Cells[minCol].Style.ForeColor = Color.Red;
         }
 
-    }
+        private string CreateMessage()
+        {
+            message += "<p>Revenue Analysis for Year: " + cboYear.Text + "</p>" +
+                        "<p>Lowest Month: " + lowestMonth + "</p>" +
+                       "<p>Lowest Month Earning: €" + String.Format("{0:0.00}", lowestEarning) + "</p>" +
+                       "<p>Highest Month: " + highestMonth + "</p>" +
+                       "<p>Highest Month Earning: €" + String.Format("{0:0.00}", highestEarning) + "</p>";
+
+            return message;
+        }
+    }            
 }

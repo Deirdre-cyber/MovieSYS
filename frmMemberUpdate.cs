@@ -141,6 +141,7 @@ namespace MovieSYS
         {
             if (grpSearchResults.Visible == true)
             {
+                mnuBack.Visible = false;
                 grdSearchRes.DataSource = null;
                 txtMemberName.Clear();
                 grpMemCheck.Visible = true;
@@ -158,6 +159,7 @@ namespace MovieSYS
         //LOCAL METHODS
         private void LoadUI()
         {
+            mnuBack.Visible = false;
             grpSearchResults.Visible = false;
             grpEditMem.Visible = false;
             grpMemCheck.Location = new Point(260, 100);
@@ -181,7 +183,7 @@ namespace MovieSYS
 
             aMember.GetMemberDetails(memId);
 
-            txtMemId.Text = Convert.ToString(memId);
+            txtMemId.Text = memId.ToString("00000");
             cboMemID.Text = aMember.MembershipID;
 
             DataSet memDS = Utility.GetMembershipCodes();
@@ -203,6 +205,7 @@ namespace MovieSYS
         }
         private void ShowMemberResults()
         {
+            mnuBack.Visible = true;
             grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
             grdSearchRes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -223,10 +226,18 @@ namespace MovieSYS
             grpSearchResults.Size = new Size(850, 350);
             grpSearchResults.Location = new Point(100, 100);
         }
-        private void ResetUI()     //universal method 
+        private void ResetUI()
         {
-            Utility.ClearText(this.Controls);
+            mnuBack.Visible = false;
+            txtMemId.Clear();
+            txtMemberName.Clear();
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtContactNo.Clear();
+            txtEmail.Clear();
+            txtEircode.Clear();
             cboMemID.Text = null;
+            cboMemID.Items.Clear();
             dtpStartDate.Value = DateTime.Today;
         }  
 

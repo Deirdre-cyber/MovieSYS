@@ -1,12 +1,8 @@
-﻿using IronPdf;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Net;
-using System.Net.Mail;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace MovieSYS
@@ -20,7 +16,7 @@ namespace MovieSYS
         private bool validNumber = false;
         private bool validEmail = false;
         private bool validEircode = false;
-        private string message = "You have created a new account with the following details: ";
+        private string message;
 
         public frmMemberAdd()
         {
@@ -91,18 +87,15 @@ namespace MovieSYS
 
         private void btnPrint_Click_1(object sender, EventArgs e)
         {
-            
-            Utility.SavePdf(CreateMessage());
+            Utility.SavePdf(CreateMessage("print"));
             Utility.PrintPDFWithAcrobat();
-
             ResetUI();
         }
 
         private void btnEmail_Click_1(object sender, EventArgs e)
         {
-            Utility.EmailReceipt(CreateMessage());
-            MessageBox.Show("Receipt sent to member" + txtFirstName.Text + " " + txtLastName.Text);
-
+            Utility.EmailReceipt(CreateMessage("email"));
+            MessageBox.Show("Receipt sent to member " + txtFirstName.Text + " " + txtLastName.Text);
             ResetUI();
         }
 
@@ -133,8 +126,9 @@ namespace MovieSYS
             aMember.AddMember();
         }
 
-        private void ResetUI()    //Universal Method for Reset UI
+        private void ResetUI()
         {
+            message = "You have created a new account with the following details: ";
             txtMemId.Text = Member.GetNextMemberID().ToString("00000");
             txtFirstName.Clear();
             txtLastName.Clear();
@@ -147,17 +141,34 @@ namespace MovieSYS
             cboMemID.Focus();
             grpReceipt.Visible = false;
             grpAddMem.Visible = true;
-            btnEmail.Visible = false;
-            btnPrint.Visible = false;
+            grpReceipt.Visible = false;
         }
 
-        private string CreateMessage()
+        private string CreateMessage(String s)
         {
-            message += "<p>Start Date: " + String.Format("{0:dd-MMM-yy}", dtpMemStartDate.Value) +
+            if (s.Equals("print"))
+            {
+                message += "<p>Start Date: " + String.Format("{0:dd-MMM-yy}", dtpMemStartDate.Value) +
                       "</p><p>Member Id: " + txtMemId.Text + "</p><p>Membership Type: " + cboMemID.Text.Substring(0, 2) +
                       "</p><p>Name: " + txtFirstName.Text + " " + txtLastName.Text + "</p><p>DOB: " + String.Format("{0:dd-MMM-yy}", dtpDOB.Value) + "</p><p>Contact No: " + txtContactNo.Text + "</p><p>Email: " + txtEmail.Text +
                       "</p><p>Eircode: " + txtEircode.Text + "</p>";
 
+                return message;
+            }
+
+            if (s.Equals("email"))
+            {
+                message += "Start Date: " + String.Format("{0:dd-MMM-yy}", dtpMemStartDate.Value) +
+                           "\nMember Id: " + txtMemId.Text + 
+                           "\nMembership Type: " + cboMemID.Text.Substring(0, 2) +
+                           "\nName: " + txtFirstName.Text + " " + txtLastName.Text + 
+                           "\nDOB: " + String.Format("{0:dd-MMM-yy}", dtpDOB.Value) + 
+                           "\nContact No: " + txtContactNo.Text + 
+                           "\nEmail: " + txtEmail.Text +
+                           "\nEircode: " + txtEircode.Text;
+
+                return message;
+            }
             return message;
         }
 

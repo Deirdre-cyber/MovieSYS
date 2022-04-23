@@ -291,9 +291,7 @@ namespace MovieSYS
 
         private void EndTransaction()
         {
-            SetFineText();
-
-            MessageBox.Show(null, "All DVDs returned successfully\n\n€" + String.Format("{0:0.00}", total) + " fines added to this account", "Return Successful", MessageBoxButtons.OKCancel);
+            MessageBox.Show(null, "All DVDs returned successfully\n\n€" + String.Format("{0:0.00}", total) + " fines added to this account", "Return Successful", MessageBoxButtons.OK);
 
             LoadSearchUI();
         }

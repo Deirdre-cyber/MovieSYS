@@ -89,7 +89,8 @@ namespace MovieSYS
                     this.rentDate + "','" +
                     this.dueDate + "'," +
                     this.rentalPrice + "," +
-                    this.memberId + ")";
+                    this.memberId + ",'" +
+                    this.reminderDate + "')";
 
                 OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 

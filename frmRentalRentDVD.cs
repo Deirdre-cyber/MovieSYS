@@ -13,7 +13,8 @@ namespace MovieSYS
         private float price = 0.00f;
         private int dvdLimit = 5;
         private int cartIndex;
-        private string message = "The details of your Rental are as follows: ";
+        private string[] cart = new string[10];
+        private string message;
 
         public frmRentalRentDVD()
         {
@@ -192,24 +193,29 @@ namespace MovieSYS
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Utility.SavePdf(CreateMessage());
-            Utility.PrintPDFWithAcrobat();      //necessary/working?
+            Utility.SavePdf(CreateMessage("print"));
+            Utility.PrintPDFWithAcrobat();
 
             ResetUI();
+            LoadUI();
+
         }
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            Utility.EmailReceipt(CreateMessage());
-            MessageBox.Show("Receipt sent to member" + txtFirstName.Text);
+            Utility.EmailReceipt(CreateMessage("email"));
+            MessageBox.Show("Receipt sent to member " + txtFirstName.Text);
 
             ResetUI();
+            LoadUI();
         }
 
 
         //LOCAL METHODS
         private void LoadUI()
         {
+            message = "The details of your Rental are as follows: ";
+            Array.Clear(cart, 0, cart.Length);
             grdDvdResults.DataSource = null;
             grpMemCheck.Location = new Point(260, 100);
             grdMemberResults.DataSource = null;
@@ -220,11 +226,13 @@ namespace MovieSYS
             grpMemberDetails.Visible = false;
             txtMemberName.Clear();
             mnuBack.Visible = false;
+            grpReceipt.Visible = false;
             grpMemCheck.Visible = true;
         }
 
         private void ResetUI()
         {
+            EnableWindow();
             txtMemId.Clear();
             txtRentID.Clear();
             txtDVDSearch.Clear();
@@ -282,8 +290,8 @@ namespace MovieSYS
                 UpdateRentalItem();
 
                 MessageBox.Show(null, "Order complete", "Successful", MessageBoxButtons.OK);
-                ResetUI(); 
-                LoadUI();
+                DisableWindow();
+                grpReceipt.Visible = true;
             }
             catch (Exception e)
             {
@@ -297,8 +305,9 @@ namespace MovieSYS
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
                 int dvdId = Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 4));
-                DVD.UpdateStatus(dvdId, "A");
+                DVD.UpdateStatus(dvdId, "U");
                 RentalItem aRentalItem = new RentalItem(Convert.ToInt32(txtRentID.Text), dvdId, 0.00f, "");
+                cart[i] = lstCart.Items[i].ToString();
                 aRentalItem.AddRentalItem();
             }
         }
@@ -359,16 +368,51 @@ namespace MovieSYS
             }
         }
 
-        private string CreateMessage()
+        private void DisableWindow()
         {
-            message += "<p>" + String.Format("{0:dd-MMM-yy}", DateTime.Today) + "</p>";
-            //rent date
-            //rent id
-            //mem id
-            //cart contents
-            //return date
-            //cost
+            txtDVDSearch.Enabled = false;
+            btnSearch.Enabled = false;
+            grdDvdResults.Enabled = false;
+            btnRemove.Enabled = false;
+            btnClearAll.Enabled = false;
+            btnCheckOut.Enabled = false;
+        }
 
+        private void EnableWindow()
+        {
+            txtDVDSearch.Enabled = true;
+            btnSearch.Enabled = true;
+            grdDvdResults.Enabled = true;
+            btnRemove.Enabled = true;
+            btnClearAll.Enabled = true;
+            btnCheckOut.Enabled = true;
+        }
+
+        private string CreateMessage(String s)
+        {
+            if (s.Equals("print"))
+            {
+                message += "<p>Rent Date: " + String.Format("{0:dd-MMM-yy}", DateTime.Today) + "</p>" +
+                        "<p>Rent Id :  " + txtRentID.Text + "</p>" +
+                        "<p>Member Id: " + txtMemId.Text + "</p>" +
+                        "<p>DVDs Rented: " + string.Join(" ", cart) + "</p>" +
+                        "<p>Return Date: " + string.Format("{0:dd-MMM-yy}", DateTime.Today) + "</p>" +
+                        "<p>Price: €" + String.Format("{0:0.00}", price) + "</p>";
+
+                return message;
+            }
+
+            if (s.Equals("email"))
+            {
+                message += "Rent Date: " + String.Format("{0:dd-MMM-yy}", DateTime.Today) +
+                        "\nRent Id :  " + txtRentID.Text +
+                        "\nMember Id: " + txtMemId.Text +
+                        "\nDVDs Rented: " + string.Join(" ", cart) +
+                        "\nReturn Date: " + string.Format("{0:dd-MMM-yy}", DateTime.Today) +
+                        "\nPrice: €" + String.Format("{0:0.00}", price);
+
+                return message;
+            }
             return message;
         }
 

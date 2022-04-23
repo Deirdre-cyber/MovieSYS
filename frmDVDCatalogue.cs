@@ -15,7 +15,6 @@ namespace MovieSYS
         private bool validYear = false;
         private bool validCopies = false;
 
-
         public frmDVDCatalogue()
         {
             try
@@ -93,7 +92,7 @@ namespace MovieSYS
             txtDVDId.Text = DVD.GetNextDVDID().ToString("0000");
         }
 
-        //LOACAL METHODS
+        //LOCAL METHODS
         private void LoadUI()
         {
             txtDVDId.Text = DVD.GetNextDVDID().ToString("0000");
@@ -130,9 +129,12 @@ namespace MovieSYS
                 }
             }            
         }
-        private void ResetUI() //MAKE UNIVERSAL METHOD IN UTILITY CLASS
+        private void ResetUI()
         {
-            Utility.ClearText(this.Controls);
+            txtDVDId.Clear();
+            txtDVDName.Clear();
+            txtYear.Clear();
+            txtDuration.Clear();
             dtpDate.Value = DateTime.Today;
             cboCat.Text = null;
             cboGenre.Text = null;

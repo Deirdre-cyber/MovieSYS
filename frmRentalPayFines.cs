@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,6 +13,8 @@ namespace MovieSYS
         private int memId;
         private float fine;
         private bool validPayment = true;
+        private float payment;
+        private float change;
         private string message = "Here are the details of this transaction: ";
 
         public frmPayFines()
@@ -154,18 +155,20 @@ namespace MovieSYS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Utility.SavePdf(CreateMessage());
-            Utility.PrintPDFWithAcrobat();      //necessary/working?
-
+            Utility.SavePdf(CreateMessage("print"));
+            Utility.PrintPDFWithAcrobat();
+            DisableWindow();
             ResetUI();
+            LoadUI();
         }
 
         private void btnEmail_Click(object sender, EventArgs e)
         {
-            Utility.EmailReceipt(CreateMessage());
+            Utility.EmailReceipt(CreateMessage("email"));
             MessageBox.Show("Receipt sent to member" + txtFirstName.Text);
-
+            DisableWindow();
             ResetUI();
+            LoadUI();
         }
 
         //LOCAL METHODS
@@ -205,7 +208,7 @@ namespace MovieSYS
         private void LoadMemberDetails()
         {
             aMember.GetMemberDetails(memId);
-            txtMemId.Text = Convert.ToString(memId);
+            txtMemId.Text = memId.ToString("00000");
             txtFirstName.Text = aMember.FirstName + " " + aMember.LastName;
             grpMemberResults.Visible = false;
             grpMemberDetails.Visible = true;
@@ -214,11 +217,11 @@ namespace MovieSYS
 
         private void PayFine()
         {
-            float payment = (float)Convert.ToDouble(txtPayAmount.Text);
+            payment = (float)Convert.ToDouble(txtPayAmount.Text);
 
             if (payment >= fine)
             {
-                float change = (fine - payment) * -1;
+                change = (fine - payment) * -1;
                 fine = 0;
 
                 MessageBox.Show(null, "Payment processed, no fine left on account. Change due: €" + String.Format("{0:0.00}", change), "Payment Successful", MessageBoxButtons.OKCancel);
@@ -231,6 +234,12 @@ namespace MovieSYS
                 MessageBox.Show(null, "Payment processed, €" + String.Format("{0:0.00}", fine) + " fine left on account", "Payment Successful", MessageBoxButtons.OKCancel);
                 return;
             }
+        }
+
+        private void DisableWindow()
+        {
+            btnPay.Enabled = false;
+            txtPayAmount.Enabled = false;
         }
 
         //VALIDATION METHODS
@@ -257,10 +266,29 @@ namespace MovieSYS
             validPayment = true;
         }
 
-        private string CreateMessage()
+        private string CreateMessage(String s)
         {
-            message += "<p> </p>";
+            if (s.Equals("print"))
+            {
+                message += "<p>Receipt Date: " + String.Format("{0:dd-MMM-yy}", DateTime.Today) +
+                           "</p><p>Member Id: " + txtMemId.Text +
+                           "</p><p>Current Fine Amount: €" + String.Format("{0:0.00}", fine) + 
+                           "</p><p>Payment Amount: €" + String.Format("{0:0.00}", payment) + 
+                           "</p><p>Change: €" + String.Format("{0:0.00}", change) + " </p>";
 
+                return message;
+            }
+
+            if (s.Equals("email"))
+            {
+                message += "Receipt Date: " + String.Format("{0:dd-MMM-yy}", DateTime.Today) +
+                           "\nMember Id: " + txtMemId.Text +
+                           "\nCurrent Fine Amount: €" + String.Format("{0:0.00}", fine) +
+                           "\nPayment Amount: €" + String.Format("{0:0.00}", payment) +
+                           "\nChange: €" + String.Format("{0:0.00}", change);
+
+                return message;
+            }
             return message;
         }
     }

@@ -13,25 +13,6 @@ namespace MovieSYS
 {
     class Utility
     {
-        
-        
-        public static void ClearText(Control.ControlCollection ctrlCollection)
-        {
-            /*Code taken/modified from : https://www.codeproject.com/questions/813344/clear-all-textboxes-in-form-with-one-function*/
-
-            foreach (Control ctrl in ctrlCollection)
-            {
-                if (ctrl is TextBox)
-                {
-                    ctrl.Text = String.Empty;
-                }
-                else
-                {
-                    ClearText(ctrl.Controls);
-                }
-            }
-        }
-
         public static string SetGenre(string genre)
         {
             if (!genre.Substring(0).Equals('G'))
@@ -229,7 +210,7 @@ namespace MovieSYS
             }
             catch (Exception e)
             {
-                Debug.WriteLine("There was an error sending email :" + e.ToString());
+                Debug.WriteLine("There was an error sending email : " + e.ToString());
             }
         }
 
@@ -261,19 +242,26 @@ namespace MovieSYS
                         WindowStyle = ProcessWindowStyle.Hidden
                     };
 
-                    Process printProcess = new Process();
-                    printProcess.StartInfo = printProcessInfo;
-                    printProcess.Start();
-
-                    MessageBox.Show("File Sent to Printer!");
-
-                    printProcess.WaitForInputIdle();
-
-                    Thread.Sleep(3000);
-
-                    if (false == printProcess.CloseMainWindow())
+                    Process printProcess = new Process
                     {
-                        printProcess.Kill();
+                        StartInfo = printProcessInfo
+                    };
+                    try
+                    {
+                        printProcess.Start();
+                        MessageBox.Show("File Sent to Printer!");
+
+                        printProcess.WaitForInputIdle();
+
+                        Thread.Sleep(3000);
+
+                        if (false == printProcess.CloseMainWindow())
+                        {
+                            printProcess.Kill();
+                        }
+                    }
+                    catch (Exception e) {
+                        Debug.WriteLine("There was an error printing" + e.ToString());
                     }
                 }
 

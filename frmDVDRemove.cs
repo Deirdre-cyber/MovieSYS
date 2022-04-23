@@ -128,7 +128,7 @@ namespace MovieSYS
             title = grdDVDList.Rows[grdDVDList.CurrentCell.RowIndex].Cells[1].Value.ToString();
 
             aDvd.GetAllDvdDetails(id);
-            txtDVDId.Text = Convert.ToString(aDvd.DvdID);
+            txtDVDId.Text = aDvd.DvdID.ToString("0000");
             txtDVDName.Text = aDvd.Title;
             cboCat.Text = aDvd.CategoryCode;
             cboGenre.Text = aDvd.GenreCode;
@@ -147,9 +147,13 @@ namespace MovieSYS
             txtDVDTitle.Clear();
             grpDetails.Visible = false;
         }
-        private void ResetUI() //MAKE UNIVERSAL METHOD IN UTILITY CLASS
+        private void ResetUI()
         {
-            Utility.ClearText(this.Controls);
+            txtDVDId.Clear();
+            txtDVDName.Clear();
+            txtDVDTitle.Clear();
+            txtDuration.Clear();
+            txtCopies.Clear();
             dtpDate.Value = DateTime.Today;
             cboCat.Text = null;
             cboGenre.Text = null;

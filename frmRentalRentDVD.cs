@@ -246,7 +246,7 @@ namespace MovieSYS
             txtRentID.Text = Rental.GetNextRentalId().ToString("00000");
 
             aMember.GetMemberDetails(memId);
-            txtMemId.Text = Convert.ToString(memId);
+            txtMemId.Text = memId.ToString("00000");
             txtFirstName.Text = aMember.FirstName + " " + aMember.LastName;
 
             if (aMember.MembershipID == "PM")
@@ -262,15 +262,36 @@ namespace MovieSYS
         private void ShowMemberResults()
         {
             grdMemberResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-            grdMemberResults.DefaultCellStyle.Font = new Font("Courier", 9);
+            grdMemberResults.DefaultCellStyle.Font = new Font("Tahoma", 8);
+            grdMemberResults.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
             grdMemberResults.DefaultCellStyle.ForeColor = Color.Black;
-            grdMemberResults.Size = new Size(720, 300);
+            grdMemberResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grdMemberResults.Size = new Size(820, 300);
             mnuBack.Visible = true;
             grpMemCheck.Visible = false;
 
             grpMemberResults.Visible = true;
             grpMemberResults.Size = new Size(850, 350);
             grpMemberResults.Location = new Point(100, 100);
+
+            string[] headings = { "Mem ID", "Membership", "First Name", "Last Name", "DOB", "Contact", "Email", "Eircode", "Start", "Status", "Fines" };
+
+            for (int i = 0; i < grdMemberResults.ColumnCount; i++)
+            {
+                grdMemberResults.Columns[i].HeaderText = headings[i];
+            }
+
+            grdMemberResults.Columns[0].Width = 60;
+            grdMemberResults.Columns[1].Width = 60;
+            grdMemberResults.Columns[2].Width = 100;
+            grdMemberResults.Columns[3].Width = 100;
+            grdMemberResults.Columns[4].Width = 100;
+            grdMemberResults.Columns[5].Width = 100;
+            grdMemberResults.Columns[6].Width = 150;
+            grdMemberResults.Columns[7].Width = 100;
+            grdMemberResults.Columns[8].Width = 100;
+            grdMemberResults.Columns[9].Width = 60;
+            grdMemberResults.Columns[10].Width = 60;
         }
 
         private void ShowDvdDetails()
@@ -279,6 +300,22 @@ namespace MovieSYS
             grdDvdResults.DataSource = DVD.SearchDVD(txtDVDSearch.Text.ToUpper()).Tables["search"];
             grdDvdResults.DefaultCellStyle.Font = new Font("Tahoma", 8);
             grdDvdResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdDvdResults.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
+            grdDvdResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            string[] headings = { "ID", "Title", "Category" };
+
+            for (int i = 0; i < grdDvdResults.ColumnCount; i++)
+            {
+                grdDvdResults.Columns[i].HeaderText = headings[i];
+            }
+
+            grdDvdResults.Columns[0].Width = 60;
+            grdDvdResults.Columns[1].Width = 220;
+            grdDvdResults.Columns[2].Width = 120;
+
+
             grdDvdResults.Visible = true;
         }
 
@@ -286,6 +323,12 @@ namespace MovieSYS
         {
             try
             {
+                if(aMember.MembershipID == "ST")
+                {
+                    price = (float)(price - (price * 0.10));
+                    txtPrice.Text = price.ToString("0.00");
+                }
+
                 UpdateRental();
                 UpdateRentalItem();
 
@@ -416,6 +459,5 @@ namespace MovieSYS
             return message;
         }
 
-        
     }
 }

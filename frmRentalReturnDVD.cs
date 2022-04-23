@@ -163,12 +163,29 @@ namespace MovieSYS
             //grid properties
             grdMemberResults.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
             grdMemberResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            grdMemberResults.Columns[0].Width = 50;
-            grdMemberResults.Columns[1].Width = 50;
-            grdMemberResults.Columns[9].Width = 50;
-            grdMemberResults.Columns[10].Width = 50;
-            grdMemberResults.DefaultCellStyle.Font = new Font("Courier", 8);
+            grdMemberResults.DefaultCellStyle.Font = new Font("Tahome", 8);
+            grdMemberResults.ColumnHeadersDefaultCellStyle.Font = new Font("Tahome", 10);
             grdMemberResults.DefaultCellStyle.ForeColor = Color.Black;
+            grdMemberResults.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            string[] headings = { "Mem ID", "Membership", "First Name", "Last Name", "DOB", "Contact", "Email", "Eircode", "Start", "Status", "Fines" };
+
+            for (int i = 0; i < grdMemberResults.ColumnCount; i++)
+            {
+                grdMemberResults.Columns[i].HeaderText = headings[i];
+            }
+
+            grdMemberResults.Columns[0].Width = 60;
+            grdMemberResults.Columns[1].Width = 60;
+            grdMemberResults.Columns[2].Width = 100;
+            grdMemberResults.Columns[3].Width = 100;
+            grdMemberResults.Columns[4].Width = 100;
+            grdMemberResults.Columns[5].Width = 100;
+            grdMemberResults.Columns[6].Width = 150;
+            grdMemberResults.Columns[7].Width = 100;
+            grdMemberResults.Columns[8].Width = 100;
+            grdMemberResults.Columns[9].Width = 60;
+            grdMemberResults.Columns[10].Width = 60;
 
             //header - fix headings
             grdMemberResults.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -204,13 +221,26 @@ namespace MovieSYS
         {
             //grid properties
             grdRentedDvdList.DataSource = RentalItem.GetRentalItems(memId).Tables["rented"];
-            grdRentedDvdList.DefaultCellStyle.Font = new Font("Courier", 8);
+            grdRentedDvdList.DefaultCellStyle.Font = new Font("Tahoma", 8);
+            grdRentedDvdList.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
             grdRentedDvdList.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             grdRentedDvdList.ColumnHeadersDefaultCellStyle.Font = new Font("Courier", 10);
             grdRentedDvdList.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grdRentedDvdList.DefaultCellStyle.ForeColor = Color.Black;
             grdRentedDvdList.Size = new Size(505, 220);
+
+            string[] headings = { "Rent Id", "Dvd Id", "Title", "Due Date" };
+
+            for (int i = 0; i < grdRentedDvdList.ColumnCount; i++)
+            {
+                grdRentedDvdList.Columns[i].HeaderText = headings[i];
+            }
+
+            grdRentedDvdList.Columns[0].Width = 100;
+            grdRentedDvdList.Columns[1].Width = 60;
+            grdRentedDvdList.Columns[2].Width = 220;
+            grdRentedDvdList.Columns[3].Width = 100;
 
             CheckOverdue();
 

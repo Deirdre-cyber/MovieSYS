@@ -185,7 +185,7 @@ namespace MovieSYS
         {
             if (cboMemID.Text == "" && cboMemID.SelectedIndex == -1)
             {
-                cboMemID.BackColor = Color.DarkSalmon;
+                cboMemID.BackColor = Color.LightBlue;
                 errorProvider1.SetError(cboMemID, "Must choose membership");
                 return;
             }
@@ -219,14 +219,14 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
-                txtFirstName.BackColor = Color.DarkSalmon;
+                txtFirstName.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtFirstName, "First name should not be left blank");
                 validFirstName = false;
                 return;
             }
             if (!Validation.HasChars(txtFirstName.Text))
             {
-                txtFirstName.BackColor = Color.DarkSalmon;
+                txtFirstName.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtFirstName, "First name should not contain any digits");
                 validFirstName = false;
                 return;
@@ -240,14 +240,14 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
-                txtLastName.BackColor = Color.DarkSalmon;
+                txtLastName.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtLastName, "Last name should not be left blank");
                 validLastName = false;
                 return;
             }
             if (!Validation.HasChars(txtLastName.Text))
             {
-                txtLastName.BackColor = Color.DarkSalmon;
+                txtLastName.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtLastName, "Last name should not contain any digits");
                 validLastName = false;
                 return;
@@ -261,7 +261,7 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtContactNo.Text))
             {
-                txtContactNo.BackColor = Color.DarkSalmon;
+                txtContactNo.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtContactNo, "Contact No should not be left blank");
                 validNumber = false;
                 return;
@@ -269,14 +269,14 @@ namespace MovieSYS
             if (!Validation.IsNumber(txtContactNo.Text))
             //if (!Validation.IsValidPhone(txtContactNo.Text))
             {
-                txtContactNo.BackColor = Color.DarkSalmon;
+                txtContactNo.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtContactNo, "Contact No should be valid phone number");
                 validNumber = false;
                 return;
             }
             if (txtContactNo.Text.Length < 10)
             {
-                txtContactNo.BackColor = Color.DarkSalmon;
+                txtContactNo.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtContactNo, "Contact No should contain 10 digits");
                 validNumber = false;
                 return;
@@ -290,21 +290,21 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                txtEmail.BackColor = Color.DarkSalmon;
+                txtEmail.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtEmail, "Email should not be left blank");
                 validEmail = false;
                 return;
             }
             if (!Validation.IsValidEmail(txtEmail.Text))
             {
-                txtEmail.BackColor = Color.DarkSalmon;
+                txtEmail.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtEmail, "Email not a valid email address");
                 validEmail = false;
                 return;
             }
             if (Validation.EmailExists(txtEmail.Text))
             {
-                txtEmail.BackColor = Color.DarkSalmon;
+                txtEmail.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtEmail, "Email already exists");
                 validEmail = false;
                 return;
@@ -321,14 +321,14 @@ namespace MovieSYS
 
             if (string.IsNullOrWhiteSpace(txtEircode.Text))
             {
-                txtEircode.BackColor = Color.DarkSalmon;
+                txtEircode.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtEircode, "Eircode should not be left blank");
                 validEircode = false;
                 return;
             }
             if (!Validation.IsValidEircode(txtEircode.Text))
             {
-                txtEircode.BackColor = Color.DarkSalmon;
+                txtEircode.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtEircode, "Eircode not valid");
                 validEircode = false;
                 return;
@@ -347,7 +347,7 @@ namespace MovieSYS
                 return;
             }
 
-            dtpMemStartDate.BackColor = Color.DarkSalmon;
+            dtpMemStartDate.BackColor = Color.LightBlue;
             errorProvider1.SetError(dtpMemStartDate, "Start date must be not in the past");
         }
     }

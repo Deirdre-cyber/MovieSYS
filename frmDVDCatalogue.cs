@@ -126,6 +126,7 @@ namespace MovieSYS
                             String.Format("{0:dd-MMM-yy}", dtpDate.Value), cboAge.Text.Substring(0, 2), "A");
 
                     aDVD.AddDVD();
+                    txtDVDId.Text = DVD.GetNextDVDID().ToString("0000");
                 }
             }            
         }
@@ -167,7 +168,7 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtDVDName.Text))
             {
-                txtDVDName.BackColor = Color.DarkSalmon;
+                txtDVDName.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtDVDName, "Title should not be left blank");
                 validName = false;
                 return;
@@ -206,7 +207,7 @@ namespace MovieSYS
         {
             if (cboCat.Text == "" && cboCat.SelectedIndex == -1)
             {
-                cboCat.BackColor = Color.DarkSalmon;
+                cboCat.BackColor = Color.LightBlue;
                 errorProvider1.SetError(cboCat, "Must choose category");
                 return;
             }
@@ -218,7 +219,7 @@ namespace MovieSYS
         {
             if (cboGenre.Text == "" && cboGenre.SelectedIndex == -1)
             {
-                cboGenre.BackColor = Color.DarkSalmon;
+                cboGenre.BackColor = Color.LightBlue;
                 errorProvider1.SetError(cboGenre, "Must choose genre");
                 return;
             }
@@ -230,7 +231,7 @@ namespace MovieSYS
         {
             if (cboCountry.Text == "" && cboCountry.SelectedIndex == -1)
             {
-                cboCountry.BackColor = Color.DarkSalmon;
+                cboCountry.BackColor = Color.LightBlue;
                 errorProvider1.SetError(cboCountry, "Must choose country");
                 return;
             }
@@ -242,7 +243,7 @@ namespace MovieSYS
         {
             if (cboAge.Text == "" && cboAge.SelectedIndex == -1)
             {
-                cboAge.BackColor = Color.DarkSalmon;
+                cboAge.BackColor = Color.LightBlue;
                 errorProvider1.SetError(cboAge, "Must choose age rating");
                 return;
             }
@@ -254,21 +255,21 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtDuration.Text))
             {
-                txtDuration.BackColor = Color.DarkSalmon;
+                txtDuration.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtDuration, "Duration cannot be left blank");
                 validDuration = false;
                 return;
             }
             if (!Validation.IsNumber(txtDuration.Text))
             {
-                txtDuration.BackColor = Color.DarkSalmon;
+                txtDuration.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtDuration, "Duration should be only digits");
                 validDuration = false;
                 return;
             }
             if (Convert.ToInt32(txtDuration.Text) <= 0)
             {
-                txtDuration.BackColor = Color.DarkSalmon;
+                txtDuration.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtDuration, "Duration should be more than 0");
                 validDuration = false;
                 return;
@@ -282,21 +283,21 @@ namespace MovieSYS
         {
             if (string.IsNullOrWhiteSpace(txtCopies.Text))
             {
-                txtCopies.BackColor = Color.DarkSalmon;
+                txtCopies.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtCopies, "Copies cannot be left blank");
                 validCopies = false;
                 return;
             }
             if (!Validation.IsNumber(txtCopies.Text))
             {
-                txtCopies.BackColor = Color.DarkSalmon;
+                txtCopies.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtCopies, "Copies should be only digits");
                 validCopies = false;
                 return;
             }
             if (Convert.ToInt32(txtCopies.Text) <= 0)
             {
-                txtCopies.BackColor = Color.DarkSalmon;
+                txtCopies.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtCopies, "Copies should be more than 0");
                 validCopies = false;
                 return;
@@ -311,21 +312,21 @@ namespace MovieSYS
 
             if (string.IsNullOrWhiteSpace(txtYear.Text))
             {
-                txtYear.BackColor = Color.DarkSalmon;
+                txtYear.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtYear, "Year cannot be left blank");
                 validYear = false;
                 return;
             }
             if (!Validation.IsNumber(txtYear.Text))
             {
-                txtYear.BackColor = Color.DarkSalmon;
+                txtYear.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtYear, "Year should be four digits");
                 validYear = false;
                 return;
             }
             if (Convert.ToInt32(txtYear.Text) < 1900 || Convert.ToInt32(txtYear.Text) > 2999)
             {
-                txtYear.BackColor = Color.DarkSalmon;
+                txtYear.BackColor = Color.LightBlue;
                 errorProvider1.SetError(txtYear, "Year should be valid year");
                 validYear = false;
                 return;

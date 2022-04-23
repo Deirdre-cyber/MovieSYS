@@ -153,6 +153,7 @@ namespace MovieSYS
                 grpSearchResults.Visible = true;
                 grpEditMem.Visible = false;
                 ResetUI();
+                mnuBack.Visible = true;
             }
         }
 
@@ -207,21 +208,37 @@ namespace MovieSYS
         {
             mnuBack.Visible = true;
             grdSearchRes.DataSource = Member.SearchMember(txtMemberName.Text.ToUpper()).Tables["search"];
-            grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Franklin", 10);
+            grdSearchRes.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10);
             grdSearchRes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grdSearchRes.DefaultCellStyle.Font = new Font("Franklin", 8);
+            grdSearchRes.DefaultCellStyle.ForeColor = Color.Black;
             grdSearchRes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grdSearchRes.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
             grdSearchRes.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             grdSearchRes.DefaultCellStyle.SelectionBackColor = Color.DarkSlateGray;
 
-            DataGridViewColumn column = grdSearchRes.Columns[0];
-            column.Width = 60;
 
-            grdSearchRes.Size = new Size(720, 350);
+            string[] headings = { "Mem ID", "Membership", "First Name", "Last Name", "DOB", "Contact", "Email", "Eircode", "Start", "Status", "Fines" };
 
+            for (int i = 0; i < grdSearchRes.ColumnCount; i++)
+            {
+                grdSearchRes.Columns[i].HeaderText = headings[i];
+            }
+
+            grdSearchRes.Columns[0].Width = 60;
+            grdSearchRes.Columns[1].Width = 60;
+            grdSearchRes.Columns[2].Width = 100;
+            grdSearchRes.Columns[3].Width = 100;
+            grdSearchRes.Columns[4].Width = 100;
+            grdSearchRes.Columns[5].Width = 100;
+            grdSearchRes.Columns[6].Width = 150;
+            grdSearchRes.Columns[7].Width = 100;
+            grdSearchRes.Columns[8].Width = 100;
+            grdSearchRes.Columns[9].Width = 60;
+            grdSearchRes.Columns[10].Width = 60;
+
+            grdSearchRes.Size = new Size(830, 340);
             grpMemCheck.Visible = false;
-
             grpSearchResults.Visible = true;
             grpSearchResults.Size = new Size(850, 350);
             grpSearchResults.Location = new Point(100, 100);

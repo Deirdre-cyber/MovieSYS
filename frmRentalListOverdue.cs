@@ -10,6 +10,7 @@ namespace MovieSYS
         frmMainMenu parent;
         private int memId;
         private int rentId;
+        private string message;
 
         public frmListOverdue()
         {
@@ -144,37 +145,31 @@ namespace MovieSYS
 
         private void SendOverdueReminders()
         {
-            if (RentalItem.GetDaysOverdue(memId, rentId) == 0)
+            if (RentalItem.GetDaysOverdue(memId, rentId) == 0 || RentalItem.GetDaysOverdue(memId, rentId) == 7 || RentalItem.GetDaysOverdue(memId, rentId) == 30 || RentalItem.GetDaysOverdue(memId, rentId) == 60)
             {
                 Rental.SendReminder(rentId);
-                //send email
-                MessageBox.Show(null, "Reminders have been sent to Member " + memId, "Reminder Sent", MessageBoxButtons.OKCancel);
+                Utility.EmailReceipt(CreateMessage("email"));
                 return;
+            }
+        }
+
+        private string CreateMessage(String s)
+        {
+            int days = RentalItem.GetDaysOverdue(memId, rentId);
+
+            if(days == 60)
+            {
+                message = "You have DVD(s) due " + days + " day(s) ago: " +
+                      "\nThis is your final reminder. The value of the DVD(s) will be due on return." + 
+                      "\nPlease return at your nearest convenience.";
+            }
+            else
+            {
+                message = "You have DVD(s) due " + days + " day(s) ago: " +
+                      "\nPlease return at your nearest convenience.";
             }
 
-            if (RentalItem.GetDaysOverdue(memId, rentId) == 7)
-            {
-                Rental.SendReminder(rentId);
-                //send email
-                MessageBox.Show(null, "Week overdue reminders have been sent to Member " + memId, "Reminder Sent", MessageBoxButtons.OKCancel);
-                return;
-            }
-
-            if (RentalItem.GetDaysOverdue(memId, rentId) == 30)
-            {
-                Rental.SendReminder(rentId);
-                //send email
-                MessageBox.Show(null, "Month overdue reminders have been sent to Member " + memId, "Reminder Sent", MessageBoxButtons.OKCancel);
-                return;
-            }
-
-            if (RentalItem.GetDaysOverdue(memId, rentId) == 60)
-            {
-                Rental.SendReminder(rentId);
-                //send email
-                MessageBox.Show(null, "Final reminder has been sent to Member " + memId, "Reminder Sent", MessageBoxButtons.OKCancel);
-                return;
-            }
+            return message;
         }
     }
 }

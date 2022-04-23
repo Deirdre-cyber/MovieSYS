@@ -462,14 +462,13 @@ namespace MovieSYS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdSearchRes.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdSearchRes.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.grdSearchRes.Location = new System.Drawing.Point(42, 34);
+            this.grdSearchRes.Location = new System.Drawing.Point(6, 34);
             this.grdSearchRes.Name = "grdSearchRes";
             this.grdSearchRes.RowHeadersVisible = false;
             this.grdSearchRes.RowHeadersWidth = 45;
             this.grdSearchRes.RowTemplate.Height = 29;
-            this.grdSearchRes.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.grdSearchRes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdSearchRes.Size = new System.Drawing.Size(370, 100);
+            this.grdSearchRes.Size = new System.Drawing.Size(465, 100);
             this.grdSearchRes.TabIndex = 8;
             this.grdSearchRes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearchRes_CellClick);
             // 

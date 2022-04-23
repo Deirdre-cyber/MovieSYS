@@ -199,7 +199,7 @@ namespace MovieSYS
 
         private void HighlightMaxMin()
         {
-            double max = Convert.ToDouble(grdRevenue.Rows[0].Cells[0].Value);
+            double max = 0;//Convert.ToDouble(grdRevenue.Rows[0].Cells[0].Value);
             double min = Convert.ToDouble(grdRevenue.Rows[0].Cells[0].Value);
             int maxCol = 0;
             int minCol = 0;
